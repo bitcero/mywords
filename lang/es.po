@@ -1,0 +1,1874 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MyWords 2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-12 21:14-0600\n"
+"PO-Revision-Date: 2012-12-12 21:14-0600\n"
+"Last-Translator: Eduardo Cortés <i.bitcero@gmail.com>\n"
+"Language-Team: BitC3R0 <i.bitcero@gmail.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\xm\\modules\\mywords\n"
+
+#: C:\wamp\www\xm\modules\mywords/author.php:26
+msgid "Sorry, We don't know to this editor"
+msgstr "Lo sentimos, no conocemos a este editor"
+
+#: C:\wamp\www\xm\modules\mywords/author.php:66
+#, php-format
+msgid "Posts by \"%s\""
+msgstr "Artículos de \"%s\""
+
+#: C:\wamp\www\xm\modules\mywords/categories.php:55
+msgid "Specified category could not be found"
+msgstr "No se encontró la categoría especificada"
+
+#: C:\wamp\www\xm\modules\mywords/categories.php:61
+#, php-format
+msgid "Posts in &#8216;%s&#8217; Category"
+msgstr "Artículos en la categoría &#8216;%s&#8217;"
+
+#: C:\wamp\www\xm\modules\mywords/categories.php:93
+msgid "Permalink to this post"
+msgstr "Enlace permanente a este artículo"
+
+#: C:\wamp\www\xm\modules\mywords/categories.php:102
+#, php-format
+msgid "Posts published under \"%s\""
+msgstr "Entradas publicadas como %s"
+
+#: C:\wamp\www\xm\modules\mywords/date.php:20
+msgid "There are not posts published on this date"
+msgstr "No existen entradas publicadas en esta fecha"
+
+#: C:\wamp\www\xm\modules\mywords/date.php:48
+#, php-format
+msgid "Posts published on %s"
+msgstr "Entradas publicadas en la fecha %s"
+
+#: C:\wamp\www\xm\modules\mywords/home.php:44
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:216
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:73
+msgid "Recent Posts"
+msgstr "Entradas Recientes"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:23
+msgid "Document not found"
+msgstr "Documento no encontrado"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:28
+msgid "Sorry, you are not allowed to view this post"
+msgstr "Lo sentimos, no tienes autorización para ver este artículo"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:91
+#: C:\wamp\www\xm\modules\mywords/post_data.php:77
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:4
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:5
+msgid "Edit Post"
+msgstr "Editar Artículo"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:96
+#, php-format
+msgid "%u views"
+msgstr "%u lecturas"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:116
+#: C:\wamp\www\xm\modules\mywords/post_data.php:38
+#, php-format
+msgid "%s by %s"
+msgstr "%s por %s"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:116
+#: C:\wamp\www\xm\modules\mywords/post_data.php:38
+msgid "Anonymous"
+msgstr "Anónimo"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:177
+msgid "Published in"
+msgstr "Publicado en"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:178
+msgid "Tagged as"
+msgstr "Etiquetado como"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:179
+#: C:\wamp\www\xm\modules\mywords/post_data.php:62
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:53
+#, php-format
+msgid "%u Comments"
+msgstr "%u Comentarios"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:180
+#, php-format
+msgid "%u trackbacks"
+msgstr "%u trackbacks"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:181
+msgid "Trackback"
+msgstr "Trackback"
+
+#: C:\wamp\www\xm\modules\mywords/post.php:182
+msgid "Main Page"
+msgstr "Página Principal"
+
+#: C:\wamp\www\xm\modules\mywords/post_data.php:64
+#, php-format
+msgid "Read more about \"%s\""
+msgstr "Leer más de \"%s\""
+
+#: C:\wamp\www\xm\modules\mywords/post_data.php:78
+msgid "Posted in:"
+msgstr "Publicado en:"
+
+#: C:\wamp\www\xm\modules\mywords/post_data.php:79
+msgid "Tagged as:"
+msgstr "Etiquetado como:"
+
+#: C:\wamp\www\xm\modules\mywords/rss.php:24
+#: C:\wamp\www\xm\modules\mywords/rss.php:30
+msgid "Sorry, specified category was not foud!"
+msgstr "¡Lo sentimos, no se encontró la cetegoría especificada!"
+
+#: C:\wamp\www\xm\modules\mywords/rss.php:62
+#: C:\wamp\www\xm\modules\mywords/rss.php:68
+msgid "Sorry, specified tag was not foud!"
+msgstr "¡Lo sentimos, no se encontró la etiqueta especificada!"
+
+#: C:\wamp\www\xm\modules\mywords/rss.php:74
+#, php-format
+msgid "Posts tagged as %s"
+msgstr "Entradas etiquetados como %s"
+
+#: C:\wamp\www\xm\modules\mywords/rss.php:100
+#: C:\wamp\www\xm\modules\mywords/rss.php:106
+msgid "Sorry, specified author was not foud!"
+msgstr "¡Lo sentimos, no se encontró el autor especificado!"
+
+#: C:\wamp\www\xm\modules\mywords/rss.php:112
+#, php-format
+msgid "Posts published by %s."
+msgstr "Entradas publicadas por %s"
+
+#: C:\wamp\www\xm\modules\mywords/rss.php:138
+msgid "All recent published posts"
+msgstr "Todos los artículos publicados recientemente"
+
+#: C:\wamp\www\xm\modules\mywords/submit.php:17
+#: C:\wamp\www\xm\modules\mywords/submit.php:24
+#: C:\wamp\www\xm\modules\mywords/submit.php:45
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:44
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:51
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:67
+msgid "You are not allowed to do this action!"
+msgstr "¡No tienes autorización para relizar esta acción!"
+
+#: C:\wamp\www\xm\modules\mywords/submit.php:34
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:147
+msgid "Please, specify a valid post ID"
+msgstr "Por favor especifica un ID válido de una entrada"
+
+#: C:\wamp\www\xm\modules\mywords/submit.php:39
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:152
+msgid "Specified post does not exists!"
+msgstr "¡La entrada especificada no existe!"
+
+#: C:\wamp\www\xm\modules\mywords/tag.php:18
+msgid "Sorry, this tag does not exists!"
+msgstr "¡Lo sentimos, este etiqueta no existe!"
+
+#: C:\wamp\www\xm\modules\mywords/tag.php:62
+#: C:\wamp\www\xm\modules\mywords/tag.php:71
+#, php-format
+msgid "Posts tagged as \"%s\""
+msgstr "Artículos etiquetados como \"%s\""
+
+#: C:\wamp\www\xm\modules\mywords/trackbacks.php:38
+msgid "Sorry, your trackback seems to be invalid!"
+msgstr "¡Lo sentimos, parece que tu trackback no es válido!"
+
+#: C:\wamp\www\xm\modules\mywords/trackbacks.php:54
+msgid "Sorry, your trackback seems to be SPAM"
+msgstr "Lo sentimos, parace que esto es SPAM"
+
+#: C:\wamp\www\xm\modules\mywords/trackbacks.php:67
+msgid "We are unable to store your trackback. Please try again later!"
+msgstr ""
+"¡No se ha almacenado tu trackback! por favor intentelo nuevamente mas tarde."
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:54
+msgid "Twitter"
+msgstr "Twitter"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:55
+msgid "Facebook"
+msgstr "Facebook"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:56
+msgid "bitcero"
+msgstr "bitcero"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:65
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:29
+msgid "Submit Article"
+msgstr "Enviar Entrada"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:122
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:34
+msgid "Default"
+msgstr "Por defecto"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:122
+msgid "Based on date and name"
+msgstr "Basado en nombre y fecha"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:122
+msgid "Numeric format"
+msgstr "Formato numérico"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:207
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:91
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:21
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:23
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:23
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:69
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:2
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:41
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:53
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:67
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_categories.php:17
+msgid "Categories"
+msgstr "Categorías"
+
+#: C:\wamp\www\xm\modules\mywords/xoops_version.php:225
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:28
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:21
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:160
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:24
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:42
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:54
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:1
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:69
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:45
+msgid "Bookmark Sites"
+msgstr "Redes Sociales"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:49
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:88
+msgid "Bookmarks Management"
+msgstr "Administración de Redes Sociales"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:66
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:111
+msgid "Site ID not provided!"
+msgstr "¡No se ha proporcionado un ID de sitio!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:72
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:117
+msgid "Social site not exists!"
+msgstr "¡No existe el sitio especificado!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:83
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:62
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:27
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:1
+msgid "Social Sites"
+msgstr "Redes Sociales"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:83
+msgid "Editing Social Site"
+msgstr "Editando Sitio"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:103
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:98
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:78
+msgid "Operation not allowed!"
+msgstr "¡Operación no permitida!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:135
+msgid "You must specify a title for this site!"
+msgstr "¡Debes especificar un título para este sitio!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:140
+msgid "You must specify a formatted URL for this site!"
+msgstr "¡Debes especificar una URL formateada para este sitio!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:153
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:182
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:211
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:190
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:134
+msgid "Database updated successfully!"
+msgstr "¡Base de datos actualizada correctamente!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:155
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:184
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:213
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:186
+msgid "Errors ocurred while trying to update database!"
+msgstr "¡Ocurrieron algunos errores al intentar actualizar la base de datos!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:169
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:198
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:173
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:201
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:180
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:215
+msgid "Sorry, operation not allowed!"
+msgstr "¡Lo sentimos, esta operación no esta permitida!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:174
+#: C:\wamp\www\xm\modules\mywords/admin/bookmarks.php:203
+msgid "Please, specify a valid site ID!"
+msgstr "Por favor especifica un ID válido para un sitio!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:74
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:115
+#, php-format
+msgid "Do you really want to delete \\\"%s\\\""
+msgstr "¿Realmente deseas eliminar \\\"%s\\\"?"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:97
+msgid "Categories Management"
+msgstr "Administración de Categorías"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:114
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:180
+msgid "You must specify a valid category"
+msgstr "Debes especificar una categoría válida"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:121
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:186
+msgid "Specified category not exists!"
+msgstr "¡La categoría especificada no existe!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:126
+msgid "New Category"
+msgstr "Nueva Categoría"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:132
+msgid "Edit Category"
+msgstr "Editar Categoría"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:134
+msgid "Category name"
+msgstr "Nombre de la categoría"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:135
+msgid "Category slug"
+msgstr "Nombre corto de la categoría"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:136
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:27
+msgid "Category description"
+msgstr "Descripción de la categoría"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:137
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:17
+msgid "Category Parent"
+msgstr "Categoría Padre"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:148
+msgid "Update Category"
+msgstr "Actualizar Categoría"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:149
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:68
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:27
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:31
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:69
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:15
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_categories.php:62
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:75
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:100
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:141
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:165
+msgid "Sorry, session token expired!"
+msgstr "Lo sentimos ¡el identificador de sesión ha caducado!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:194
+msgid "Please specify a name for this category!"
+msgstr "¡Por favor especifica un nombre para esta categoría!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:205
+msgid "There is already a category with the same name!"
+msgstr "¡Ya existe una categoría con el mismo nombre!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:219
+msgid "Category created succesfully!"
+msgstr "¡Categoría creada satisfactoriamente!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:221
+msgid "There was an error!"
+msgstr "¡Ocurrió un error!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:236
+msgid "You must select one category at least!"
+msgstr "¡Debes seleccionar al menos una categoría!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:241
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:197
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:237
+#: C:\wamp\www\xm\modules\mywords/admin/trackbacks.php:86
+msgid "Session token expired!"
+msgstr "¡El identificador de sesión ha caducado!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:253
+#, php-format
+msgid "Category \"%s\" could not be deleted"
+msgstr "¡La categoría \"%s\" no pudo ser eliminada!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/categories.php:257
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:217
+msgid "Database updated!"
+msgstr "¡Base de datos actualizada!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:22
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:80
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:55
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:26
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:25
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:1
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:57
+msgid "Editors"
+msgstr "Editores"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:23
+msgid "Editors Management"
+msgstr "Administración de Editores"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:67
+msgid "Editor ID not provided!."
+msgstr "¡No se ha proporcionado un ID de Editor!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:73
+msgid "Editor does not exists!"
+msgstr "¡El editor no existe!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:80
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:81
+msgid "Editing Editor"
+msgstr "Editando Editor"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:106
+msgid "Editor ID has not been provided!"
+msgstr "¡El ID del editor no ha sido proporcionado!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:112
+msgid "Editor has not been found!"
+msgstr "¡No se ha encontrado el editor!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:129
+msgid "You must provide a display name for this editor!"
+msgstr "¡Debes proporcionar un nombre para mostrar para el editor!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:134
+msgid "You must specify a registered user ID for this editor!"
+msgstr "¡Debes especificar un ID de usuario registrado para este editor!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:145
+msgid "This user has been registered as editor before."
+msgstr "Este usuario ya ha sido registrado como un editor previamente."
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:156
+msgid "Errors occurs while trying to save editor data"
+msgstr "Ocurrieron algunos errores al intentar almacenar los datos del editor"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:159
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:224
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:203
+msgid "Database updated succesfully!"
+msgstr "¡Base de datos actualizada satisfactoriamente!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:178
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:206
+msgid "Please, specify a valid editor ID!"
+msgstr "¡Por favor especifica un ID válido para el editor!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:214
+#: C:\wamp\www\xm\modules\mywords/admin/editors.php:220
+msgid "Errors ocurred while trying to delete editors!"
+msgstr "¡Ocurrieron errores al intentar eliminar estos editores!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/index.php:50
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:14
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:22
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:1
+msgid "Dashboard"
+msgstr "Panel de Control"
+
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:36
+msgid "List"
+msgstr "Lista"
+
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:41
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:15
+msgid "Add New"
+msgstr "Crear"
+
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:47
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:16
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:25
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:57
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:66
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:90
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:99
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:63
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:71
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:49
+msgid "Posts"
+msgstr "Artículos"
+
+#: C:\wamp\www\xm\modules\mywords/admin/menu.php:69
+#: C:\wamp\www\xm\modules\mywords/admin/trackbacks.php:67
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:28
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:1
+msgid "Trackbacks"
+msgstr "Trackbacks"
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:89
+msgid "Not published"
+msgstr "No publicado"
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:131
+msgid "Existing Posts"
+msgstr "Entradas Existentes"
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:158
+msgid "Editing post"
+msgstr "Editando entrada"
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:158
+msgid "Creating a new post"
+msgstr "Creando una nueva entrada"
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:192
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:232
+msgid "Select one post at least!"
+msgstr "¡Selecciona al menos una entrada!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:210
+#, php-format
+msgid "Errors ocurred while deleting \"%s\""
+msgstr "Ocurrieron errores al eliminar \"%s\""
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:244
+msgid "Posts could not be updated!"
+msgstr "¡La entradas no pudieron ser actualizadas!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/posts.php:248
+msgid "Posts updated successfully!"
+msgstr "¡Entradas actualizadas correctamente!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:22
+msgid "Tags Management"
+msgstr "Administración de Etiquetas"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:86
+msgid "You must provide a name!"
+msgstr "¡Debes porporcionar un nombre!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:94
+msgid "Tag id not provided!"
+msgstr "¡No se ha porporcionado el ID de la etiqueta!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:100
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:155
+msgid "Tag does not exists!"
+msgstr "¡La etiqueta no existe!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:127
+msgid "A tag with same name or same short name already exists!"
+msgstr ""
+"¡Ya existe una etiqueta con el mismo nombre (o con el mismo nombre corto)!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:137
+msgid "A problem occurs while trying to save tag."
+msgstr "Ocurrión un error al intentar almacenar la etiqueta."
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:150
+msgid "Tag ID not provided!."
+msgstr "¡No se ha porporcionado el ID de la etiqueta!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:160
+msgid "Edit Tag"
+msgstr "Editar Etiqueta"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:161
+msgid "Editing Tag"
+msgstr "Editando Etiqueta"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:185
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:220
+msgid "Please, specify a valid tag id!"
+msgstr "¡Por favor especifica un ID válido!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:193
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:199
+msgid "Errors ocurred while trying to delete tags!"
+msgstr "¡Ocurrieron algunos errores al intentar eliminar las etiquetas!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/tags.php:233
+msgid "Tags updated!"
+msgstr "¡Etiquetas actualizadas!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/trackbacks.php:14
+msgid "Trackbacks management"
+msgstr "Administración de Trackbacks"
+
+#: C:\wamp\www\xm\modules\mywords/admin/trackbacks.php:81
+msgid "Select one trackback at least!"
+msgstr "¡Selecciona al manos un trackback!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/trackbacks.php:100
+msgid "Trackbacks deleted successfully"
+msgstr "Trackbacks eliminados correctamente"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-categories.php:26
+msgid "You are not allowed to do this operation!"
+msgstr "¡No estas autorizado para realizar esta acción!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-categories.php:34
+msgid "A name is neccesary to create a new category!"
+msgstr "¡Es necesario un nombre para crear una categoría!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-categories.php:48
+msgid "There is already a category with same name!"
+msgstr "¡Ya existe una categoría con el mismo nombre!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-categories.php:57
+msgid "Category could not inserted!"
+msgstr "¡La categoría no pudo ser creada!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-categories.php:65
+msgid "Category created successfully!"
+msgstr "¡Categoría creada satisfactoriamente!"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:56
+msgid "You must provide a valid post ID"
+msgstr "Debes proporcionar un ID válido de una entrada"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:62
+msgid "You must provide an existing post ID"
+msgstr "Debes proporcionar un ID de una entrada existente"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:85
+msgid "You must provide a title for this post"
+msgstr "Debes porporcionar un título para esta entrada"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:97
+msgid "Content for this post has not been provided!"
+msgstr "¡No has porporcionado contenido "
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:108
+msgid ""
+"You must provide a password for this post or select another visibility option"
+msgstr ""
+"Debes porporcionar una contraseña para esta entrada o seleccionar otra "
+"opción de visibilidad"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:145
+msgid "There is already another post with same title for same date"
+msgstr "Ya existe otra entrada con el mismo nombre en la misma fecha"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:192
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:194
+msgid "Post updated successfully"
+msgstr "Entrada actualizada correctamente"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:192
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:194
+msgid "Post saved successfully"
+msgstr "Entrada almacenada correctamente"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:196
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:10
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:10
+msgid "Permalink:"
+msgstr "Enlace permanente:"
+
+#: C:\wamp\www\xm\modules\mywords/admin/ajax/ax-posts.php:202
+msgid "Errors ocurred while trying to save this post."
+msgstr "Ocurrieron errores al intentar almacenar esta entrada."
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.cats.php:42
+msgid "Show subcategories:"
+msgstr "Mostrar subcategorías:"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.cats.php:43
+#: C:\wamp\www\xm\modules\mywords/blocks/block.cats.php:47
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:79
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:84
+msgid "Yes"
+msgstr "Sí"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.cats.php:44
+#: C:\wamp\www\xm\modules\mywords/blocks/block.cats.php:48
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:80
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:85
+msgid "No"
+msgstr "No"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.cats.php:46
+msgid "Show posts number:"
+msgstr "Mostrar número de entradas:"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:51
+#, php-format
+msgid "%u Reads"
+msgstr "%u Lecturas"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:69
+msgid "Posts Number:"
+msgstr "Número de Entradas:"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:71
+msgid "Block type:"
+msgstr "Tipo de bloque:"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:75
+msgid "Popular Posts"
+msgstr "Entradas Populares"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:77
+msgid "Most Commented"
+msgstr "Lo mas comentado"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:78
+msgid "Show text:"
+msgstr "Mostrar texto:"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:83
+msgid "Show date:"
+msgstr "Mostrar fecha:"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:89
+msgid "Posts form category:"
+msgstr "Entradas de categoría:"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.recent.php:91
+msgid "Select category..."
+msgstr "Seleccionar categoría..."
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.tags.php:41
+msgid "Number of tags"
+msgstr "Número de etiquetas"
+
+#: C:\wamp\www\xm\modules\mywords/blocks/block.tags.php:43
+msgid "Size increment per post"
+msgstr "Incremento de tamaño por entradas"
+
+#: C:\wamp\www\xm\modules\mywords/class/mwfunctions.php:307
+#, php-format
+msgid "Published on %s at %s"
+msgstr "Publicado el %s a las %s"
+
+#: C:\wamp\www\xm\modules\mywords/class/mwfunctions.php:316
+msgid "D d M, Y"
+msgstr "d/m/Y"
+
+#: C:\wamp\www\xm\modules\mywords/class/mwfunctions.php:317
+msgid "H:i"
+msgstr "H:i"
+
+#: C:\wamp\www\xm\modules\mywords/class/mwfunctions.php:339
+msgid ""
+"This post has been protected by a password. To read it you must provide the "
+"correct password."
+msgstr ""
+"Esta entrada ha sido protegida por una contraseña. Para poder leerla debes "
+"introducir la contraseña correctamente."
+
+#: C:\wamp\www\xm\modules\mywords/class/mwfunctions.php:340
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:94
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: C:\wamp\www\xm\modules\mywords/class/mwfunctions.php:341
+msgid "Show Post"
+msgstr "Mostrar Entrada"
+
+#: C:\wamp\www\xm\modules\mywords/class/mywordscontroller.php:50
+#: C:\wamp\www\xm\modules\mywords/class/mywordscontroller.php:60
+msgid "Not found"
+msgstr "No se encontró"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:45
+msgid "MyWords Administration"
+msgstr "Administración de MyWords"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:67
+msgid "Link to post"
+msgstr "Enlace a la entrada"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:90
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:76
+msgid "All Recent Posts"
+msgstr "Todas las entradas recientes"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:92
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:77
+msgid "Show all recent posts"
+msgstr "Mostrar todas las entradas recientes"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:111
+msgid "Posts by category"
+msgstr "Entradas por categoría"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:112
+msgid "Select a category to see the posts published recently."
+msgstr ""
+"Selecciona una categoría para ver todas las entradas publicadas "
+"recientemente."
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:132
+msgid "Show posts by tag"
+msgstr "Mostrar entradas por etiquetas"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:133
+msgid "Select a tag to see the posts published recently."
+msgstr ""
+"Selecciona una etiqueta para ver las entradas publicadas recientemente."
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:161
+msgid "Show posts by author"
+msgstr "Mostrar entradas por autor"
+
+#: C:\wamp\www\xm\modules\mywords/events/rmcommon.php:162
+msgid "Select an author to see the posts published recently."
+msgstr "Selecciona un autor para ver las entradas publicadas recientemente."
+
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:17
+msgid "New Post"
+msgstr "Nuevo Artículo"
+
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:18
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:17
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:48
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:70
+msgid "Published"
+msgstr "Publicados"
+
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:19
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:18
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:55
+msgid "Drafts"
+msgstr "Borradores"
+
+#: C:\wamp\www\xm\modules\mywords/include/toolbar.php:20
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:19
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:61
+msgid "Pending of Review"
+msgstr "Pendientes"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:20
+msgid "Module for publishing and management of news and blogs"
+msgstr "Módulo para la publicación y administración de blogs"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:22
+msgid "Module Status"
+msgstr "Estado del Módulo"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:24
+msgid "Articles"
+msgstr "Entradas"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:26
+msgid "Bookmarks"
+msgstr "Marcadores"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:32
+msgid "Links Format"
+msgstr "Formato de Enlaces"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:33
+msgid "Determines the way the links in the module will be shown and processed."
+msgstr ""
+"Determina la forma en que los vínculos dentro del módulo serán mostrados y "
+"procesados ."
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:35
+msgid "Based on name and date"
+msgstr "Basado en nombre y fecha"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:36
+msgid "Numeric"
+msgstr "Numérico"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:38
+msgid "Base Path"
+msgstr "Ruta Base"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:39
+msgid ""
+"This path is used when the links format has been set to use dates or numbers."
+msgstr ""
+"Esta ruta es utilizada cuando el formato de enlaces ha sido establecido como "
+"basado en fechas o en números."
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:41
+msgid "Number of tags on admin widget"
+msgstr "Número de etiquetas en el widget de administración"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:43
+msgid "Posts per page"
+msgstr "Entradas por página"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:44
+msgid "Use CSS file"
+msgstr "Usar archivo CSS"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:45
+msgid "CSS file to use"
+msgstr "Archivo CSS a utilizar"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:46
+msgid "Show navigation bar between posts"
+msgstr "Mostrar barra de navegación entre artículos"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:48
+msgid "Blog name (section name)"
+msgstr "Nombre del Blog (Sección)"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:49
+msgid "This name will be used in trackbacks."
+msgstr "Este nombre será usado en los trackbacks."
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:52
+msgid "Image Size for the Block"
+msgstr "Tamaño de la imágen para el bloque"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:53
+msgid ""
+"The specified image in the article will be resized with this sizes. Format: "
+"\"width|height\""
+msgstr ""
+"La imágen proporcionada con el artículo será redimensionada con estos "
+"tamaños. Formato: \"ancho|alto\""
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:54
+msgid "Default Image for the articles in blocks"
+msgstr "Imágen por defecto para las entradas en el bloque"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:55
+msgid ""
+"When the \"graphic\" mode is enabled in the \"Recent Articles\" blocks, this "
+"image will be used when there is not a specified one for the article"
+msgstr ""
+"Cuando el modo gráfico ha sido activado en el bloque de entradas recientes, "
+"esta imágen será utilizada si no se ha proporcionado una para la entrada."
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:58
+msgid "Enable images in posts list"
+msgstr "Activar imágenes en la lista de artículos"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:59
+msgid "Size of images to use in posts list"
+msgstr "Tamaño de las imágenes que se utilizarán en la lista de artículos"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:60
+#, php-format
+msgid "You must specify a custom size name created for a category in %s of %s."
+msgstr ""
+"Debes especificar una tamaño personalizado, creado en una categoría del  %s "
+"de %s."
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:60
+msgid "Images Manager"
+msgstr "Administrador de Imágenes"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:60
+msgid "Common Utilities"
+msgstr "Common Utilities"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:61
+msgid "Enable images in post"
+msgstr "Activar imágenes en artículos"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:62
+msgid "Size of images of post"
+msgstr "Tamaño de imágenes en artículos"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:64
+msgid "Maximum file size"
+msgstr "Tamaño máximo de archivo"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:66
+msgid "Show social bookmarks"
+msgstr "Mostrar marcadores sociales"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:70
+msgid "Recent Articles"
+msgstr "Entradas  Recientes"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:71
+msgid "Recent Comments"
+msgstr "Comentarios Recientes"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:73
+msgid "Posts Syndication"
+msgstr "Sindicación de Entradas"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:74
+#, php-format
+msgid "Articles Syndication in %s"
+msgstr "Sindicación de artículos en %s"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:75
+msgid "Syndication Description"
+msgstr "Descripción de la sindicación"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:80
+msgid "Home Page"
+msgstr "Página Inicial"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:81
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:39
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:51
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:24
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:34
+msgid "Post"
+msgstr "Entrada"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:82
+msgid "Category"
+msgstr "Categoría"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:83
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:40
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:52
+msgid "Author"
+msgstr "Autor"
+
+#: C:\wamp\www\xm\modules\mywords/language/english/modinfo.php:84
+msgid "Post Article"
+msgstr "Enviar Entrada"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:4
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:5
+msgid "Create Post"
+msgstr "Crear Entrada"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:6
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:6
+msgid "You must specify the title for this post!"
+msgstr "¡Debes especificar el título para esta entrada!"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:7
+msgid "Post title here..."
+msgstr "Título del artículo..."
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:12
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:12
+msgid ""
+"This post has not been saved. Remember to save it before leave this page."
+msgstr ""
+"Este post no ha sido guardado todavía. Recuerda guardarlo antes de abandonar "
+"esta página."
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:19
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:19
+msgid "Send Trackbacks"
+msgstr "Enviar Trackbacks"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:21
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:22
+msgid "Send trackbacks to:"
+msgstr "Enviar trackbacks a:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:23
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:24
+msgid "Separate multiple URLs with spaces"
+msgstr "Separa múltiples URLs con espacios"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:26
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:27
+msgid "Pinged:"
+msgstr "Enviados:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:34
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:34
+msgid "Custom Fields"
+msgstr "Campos Personalizados"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:38
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:53
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:54
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:63
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:6
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:38
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:54
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:7
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:61
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:69
+msgid "Name"
+msgstr "Nombre"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:39
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:54
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:39
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:55
+msgid "Value"
+msgstr "Valor"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:50
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:51
+msgid "Add new field:"
+msgstr "Agregar nuevo campo:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:61
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:62
+msgid "- Select -"
+msgstr "- Seleccionar -"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:67
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:68
+msgid "Enter New"
+msgstr "Crear Nuevo"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:80
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:81
+msgid "Add custom field"
+msgstr "Agregar campo personalizado"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:84
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:85
+msgid ""
+"Custom fields can be used to add extra metadata to a post that you can use "
+"in your theme."
+msgstr ""
+"Los campos personalizados pueden ser usados para agregar datos adicionales a "
+"una entrada. Esta información puede ser usada en tu tema o plantillas."
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:90
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:90
+msgid "Comments and Trackbacks"
+msgstr "Comentarios y Trackbacks"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:95
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:95
+msgid "Enable comments for this post"
+msgstr "Activar comentarios para esta entrada"
+
+#: C:\wamp\www\xm\modules\mywords/templates/mywords_submit_form.php:98
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:98
+msgid "Allow trackbacks for this post"
+msgstr "Activar trackbacks para esta entrada"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:7
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:81
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:90
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:20
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:30
+msgid "Title"
+msgstr "Título"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:10
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:47
+msgid "Short description:"
+msgstr "Descripción corta:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:13
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:49
+msgid "Formated URL:"
+msgstr "URL formateada:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:16
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:52
+msgid "Icon:"
+msgstr "Icono:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:22
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:58
+#, php-format
+msgid "You can create new icons by uploading files to %s folder."
+msgstr ""
+"Puedes crear nuevos iconos subiendo los archivos de imágen al directorio %s."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:26
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:30
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:14
+msgid "Save Changes"
+msgstr "Guardar Cambios"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:38
+msgid ""
+"Social Sites allows to publish directly, on these sites, links and content "
+"from MyWords posts."
+msgstr ""
+"Las redes sociales te permiten publicar directamente, en esos sitios, los "
+"enlaces y contenido de las entradas de MyWords."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:39
+msgid ""
+"You can add new sites easily by configuring parameters for each site (eg. "
+"Twitter, Facebook, etc.), then your visitors can recommend posts to other "
+"users from these social networks."
+msgstr ""
+"Puedes agregar nuevos sitios fácilmente configurando los parámetros para "
+"cada uno de ellos (ej. Twitter, Facebook, etc.), entonces los visitantes "
+"podrán recomendar las entradas a otros usuarios de esas redes sociales."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:44
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:60
+msgid "Create Site"
+msgstr "Crear Sitio"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:45
+msgid "Site title:"
+msgstr "Título del sitio:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:51
+msgid ""
+"Please, note that the URL can contain parameters {TITLE}, {URL} and {DESC} "
+"that will be replaced with their respective values."
+msgstr ""
+"Ten en cuenta que la URL puede contener los parámetros {TITLE}, {URL} y "
+"{DESC} que serán reemplzados con sus respectivos valores."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:69
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:127
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:46
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:93
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:76
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:157
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:51
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:100
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:11
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:64
+msgid "Bulk actions"
+msgstr "Acciones en bloque"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:70
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:128
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:77
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:158
+msgid "Activate"
+msgstr "Activar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:71
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:129
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:78
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:159
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:72
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:115
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:130
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:47
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:82
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:94
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:79
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:120
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:160
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:86
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:53
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:88
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:102
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:12
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:50
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:65
+msgid "Delete"
+msgstr "Eliminar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:74
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:132
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:49
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:96
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:81
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:162
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:33
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:55
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:104
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:14
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:67
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:74
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:99
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:140
+msgid "Apply"
+msgstr "Aplicar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:82
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:91
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:55
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:64
+msgid "Description"
+msgstr "Descripción"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:83
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:92
+msgid "URL"
+msgstr "URL"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:98
+msgid "There are not social sites registered yet!"
+msgstr "¡Aún no existen redes sociales registradas!"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:107
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:112
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:109
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:80
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:114
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:85
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:86
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:67
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:81
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:106
+msgid "Edit"
+msgstr "Editar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:111
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:116
+msgid "Desactivar"
+msgstr "Desactivar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_bookmarks.php:113
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:118
+msgid "Activar"
+msgstr "Activar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:5
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:36
+msgid "Add Category"
+msgstr "Agregar Categoría"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:8
+msgid "Category Name"
+msgstr "Nombre de la Categoría"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:12
+msgid "Category Slug"
+msgstr "Nombre corto de la categoría"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:14
+msgid ""
+"The “slug” is the URL-friendly version of the name. It is usually all "
+"lowercase and contains only letters, numbers, and hyphens."
+msgstr ""
+"El \"nombre corto\" es la versión amigable del nombre para URLs. Usualmente "
+"se forma con letras minúsculas y contiene solo letras, números y guiones."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:19
+msgid "None"
+msgstr "Ninguna"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:24
+msgid ""
+"Categories, unlike tags, can have a hierarchy. You might have a Jazz "
+"category, and under that have children categories for Bebop and Big Band. "
+"Totally optional."
+msgstr ""
+"Las categorías, a diferencia de las etiquetas, pueden tener una jerarquía. "
+"Puedes tener probablemente una categoría llamada Jazz y bajo ella, tener "
+"categorías hijas como Bebop y Big Band. Totalmente opcional."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:56
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:65
+msgid "Slug"
+msgstr "Nombre Corto"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_categories.php:71
+msgid "There are not categories registered yet!"
+msgstr "¡Todavía no hay categorías registradas!"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:9
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:10
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:37
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:62
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:70
+msgid "Short name"
+msgstr "Nombre corto"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:12
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:50
+msgid "Biography:"
+msgstr "Biografía:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:15
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:52
+msgid "Registered user:"
+msgstr "Usuario registrado:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:21
+msgid "Permissions:"
+msgstr "Permisos:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:23
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:59
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:130
+msgid "Create tags"
+msgstr "Crear etiquetas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:24
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:60
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:134
+msgid "Create categories"
+msgstr "Crear categorías"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:25
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:61
+msgid "Send trackbacks"
+msgstr "Enviar trackbacks"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:26
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:62
+msgid "Manage discussions"
+msgstr "Administrar discusiones"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:42
+msgid ""
+"Editors are people that can send and publish content without admin approval. "
+"You can create new editors and assign individuals permissions for them."
+msgstr ""
+"Los editores son personas que pueden enviar y publicar contenido sin la "
+"aprovación del administrador. Puedes crear editores y aignarles permisos "
+"individuales."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:43
+msgid "All webmasters are allowed as editors with all privileges."
+msgstr ""
+"Todos los webmasters estan autorizados como editores con todos los "
+"privilegios."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:47
+msgid "Register Editor"
+msgstr "Registrar Editor"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:48
+msgid "Display name:"
+msgstr "Nombre para mostrar:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:57
+msgid "Privilieges:"
+msgstr "Privilegios:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:65
+msgid "Create Editor"
+msgstr "Crear Editor"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:87
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:96
+msgid "Display name"
+msgstr "Mostrar nombre"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:88
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:97
+msgid "User"
+msgstr "Usuario"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:89
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:98
+msgid "Permissions"
+msgstr "Permisos"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:105
+msgid "There are not editors registered yet."
+msgstr "Todavía no hay editores registrados."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:123
+msgid "Edit user"
+msgstr "Editar usuario"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:138
+msgid "Send trackbacks and pings"
+msgstr "Enviar trackabacks"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_editors.php:142
+msgid "Enable/disable discussions"
+msgstr "Activar/Desactivar discusiones"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_formposts.php:45
+msgid "Remove"
+msgstr "Remover"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:1
+msgid "Posts Management"
+msgstr "Administración de Entradas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:6
+msgid "Search:"
+msgstr "Buscar:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:10
+msgid "Results:"
+msgstr "Resultados:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:12
+msgid "Go!"
+msgstr "Ir!"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:16
+msgid "Show all"
+msgstr "Mostrar todo"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:27
+msgid "Bulk Actions"
+msgstr "Acciones en Bloque"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:28
+msgid "Delete Posts"
+msgstr "Eliminar Entradas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:29
+msgid "Set status as Pending review"
+msgstr "Establecer como pendiente de revisión"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:30
+msgid "Set status as Draft"
+msgstr "Establecer como Borrador"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:31
+msgid "Set status as published"
+msgstr "Establecer como Publicado"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:45
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:57
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:23
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:33
+msgid "Date"
+msgstr "Fecha"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:63
+msgid "No posts where found"
+msgstr "No se encontraron entradas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:74
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:42
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:71
+msgid "Draft"
+msgstr "Borrador"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:77
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:51
+msgid "Scheduled"
+msgstr "Programado"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:80
+msgid "Pending"
+msgstr "Pendiente"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:88
+msgid "Preview"
+msgstr "Previsualizar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_posts.php:90
+msgid "View"
+msgstr "Ver"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:26
+msgid "More used tags"
+msgstr "Etiquetas mas usadas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:30
+#, php-format
+msgid "%u Posts"
+msgstr "%u Entradas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:33
+msgid "New Tag"
+msgstr "Nueva Etiqueta"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:35
+msgid "Tag name"
+msgstr "Nombre de etiqueta"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:39
+msgid "Add Tag"
+msgstr "Agregar etiqueta"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:52
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:101
+msgid "Update posts number"
+msgstr "Actualizar número de entradas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:77
+msgid "There is not any tag yet!"
+msgstr "Todavía no existe ninguna etiqueta"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_tags.php:87
+msgid "Update"
+msgstr "Actualizar"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:8
+msgid "MyWords Resources"
+msgstr "Recursos de MyWords"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:11
+msgid "MyWords documentation"
+msgstr "Documentación de MyWords"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:12
+msgid ""
+"Learn more about MyWords. Installation, configuration and all information to "
+"improve this module."
+msgstr ""
+"Aprender mas sobre MyWords, instalación, configuración y toda la información "
+"para mejorar este módulo."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:17
+msgid "Red México"
+msgstr "Red México"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:18
+msgid "New modules, themes and awesome resources for XOOPS."
+msgstr "Nuevos módulos, temas y recursos geniales para XOOPS."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:30
+msgid "Recent News"
+msgstr "Noticias Recientes"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:45
+msgid "Quick Overview"
+msgstr "Vista Rápida"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:51
+msgid "Comments"
+msgstr "Comentarios"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:63
+msgid "Social sites"
+msgstr "Redes Sociales"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:72
+msgid "Current version:"
+msgstr "Versión actual:"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:78
+msgid "Recent Drafts"
+msgstr "Borradores Recientes"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:93
+msgid "Posts pending for review"
+msgstr "Entras pendientes"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:112
+msgid "Credits"
+msgstr "Créditos"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:115
+msgid ""
+"MyWords has been created by <strong><a href=\"http://redmexico.com.mx\">Red "
+"México</a></strong>"
+msgstr ""
+"MyWords ha sido creado por <strong><a href=\"http://redmexico.com.mx\">Red "
+"México</a></strong>"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:116
+msgid "And developed by <strong>BitC3R0</strong>"
+msgstr "Y desarrollado por <strong>BitC3R0</strong>"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:117
+msgid "You can contact me trough <strong>i.bitcero@gmail.com</strong>"
+msgstr "Puedes contactarme por email a <strong>i.bitcero@gmail.com</strong>"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_theindex.php:118
+msgid ""
+"Some icons has been designed by <a href=\"http://dryicons.com/free-icons/"
+"\">dryicons</a>."
+msgstr ""
+"Algunos iconos han sido diseñados por <a href=\"http://dryicons.com/free-"
+"icons/\">dryicons</a>."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:3
+msgid ""
+"A trackback is one of three types of linkbacks, methods for Web authors to "
+"request notification when somebody links to one of their documents."
+msgstr ""
+"Un trackback es uno de los tres tipos de enlaces inversos, métodos para los "
+"autores web para solicitar información cuando alguien enlaza algún documento."
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:4
+msgid "Learn more"
+msgstr "Aprender mas"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:21
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:31
+msgid "Blog name"
+msgstr "Nombre del blog"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:22
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:32
+msgid "Excerpt"
+msgstr "Extracto"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:40
+msgid "There are not trackbacks yet"
+msgstr "Todavía no hay trackbacks"
+
+#: C:\wamp\www\xm\modules\mywords/templates/admin/mywords_trackbacks.php:56
+msgid "Unknow"
+msgstr "Desconocido"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_categories.php:51
+msgid "+ Add Categories"
+msgstr "+ Agregar Categorías"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_categories.php:53
+msgid "Please provide a name"
+msgstr "Por favor proporciona un nombre"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_categories.php:56
+msgid "Parent category"
+msgstr "Categoría padre"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_categories.php:61
+msgid "Add"
+msgstr "Agregar"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_image.php:24
+msgid "Default Image"
+msgstr "Por defecto"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:24
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:106
+msgid "Publish"
+msgstr "Publicar"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:45
+msgid "Pending review"
+msgstr "Pendientes"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:67
+msgid "Status:"
+msgstr "Estado:"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:72
+msgid "Pending Review"
+msgstr "Pendientes"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:81
+msgid "Visibility:"
+msgstr "Visibilidad:"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:90
+msgid "Public"
+msgstr "Publico"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:91
+msgid "Password protected"
+msgstr "Protegido por contraseña"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:92
+msgid "password"
+msgstr "contraseña"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:98
+msgid "Private"
+msgstr "Privado"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:106
+msgid "Inmediatly"
+msgstr "Inmediatamente"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:117
+msgid "Jan"
+msgstr "Ene"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:118
+msgid "Feb"
+msgstr "Feb"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:119
+msgid "Mar"
+msgstr "Mar"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:120
+msgid "Apr"
+msgstr "Abr"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:121
+msgid "May"
+msgstr "May"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:122
+msgid "Jun"
+msgstr "Jun"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:123
+msgid "Jul"
+msgstr "Jul"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:124
+msgid "Aug"
+msgstr "Ago"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:125
+msgid "Sep"
+msgstr "Sep"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:126
+msgid "Oct"
+msgstr "Oct"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:127
+msgid "Nov"
+msgstr "Nov"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:128
+msgid "Dec"
+msgstr "Dic"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:147
+msgid "Author:"
+msgstr "Autor:"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_publish.php:157
+msgid "Update Post"
+msgstr "Actualizar Entrada"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_tags.php:17
+msgid "Add Tags"
+msgstr "Agregar Etiquetas"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_tags.php:40
+msgid "+ Add"
+msgstr "+ Agregar"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_tags.php:41
+msgid "Separate multiple tags with commas"
+msgstr "Separar múltiples etiquetas con coma"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_tags.php:47
+msgid "Used Tags"
+msgstr "Etiquetas Utilizadas"
+
+#: C:\wamp\www\xm\modules\mywords/widgets/widget_tags.php:57
+msgid "Choose between most populars tags"
+msgstr "Seleccionar entre las etiquetas mas usadas"
+
+#~ msgid "LinkedIn"
+#~ msgstr "LinkedIn"
+
+#~ msgid "Red México on Twitter"
+#~ msgstr "Red México"
+
+#, fuzzy
+#~ msgid "Red México on Facebook"
+#~ msgstr "Red México"
+
+#~ msgid "Category to store default images"
+#~ msgstr "Categoría para "
+
+#~ msgid "Published on %s at %s by %s"
+#~ msgstr "Publicado el %s a las %s por %s"
+
+#~ msgid "Send Article"
+#~ msgstr "Enviar Artículo"
+
+#~ msgid "Publish easily"
+#~ msgstr "Publicar rápidamente"

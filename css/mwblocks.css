@@ -1,0 +1,11 @@
+.mywords_tags_container{
+    overflow: hidden;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+}
+.mywords_tags_container a{
+    margin: 3px 4px;
+    padding: 2px 0;
+    display: inline-block;
+}
