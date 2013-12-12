@@ -44,7 +44,7 @@ $options[] = array(
     'selected'  => 'new_post',
     'icon'      => '../images/newpost.png',
 );
-$options[] = 'divider';
+$options[] = array('divider' => 1);
 $options[] = array(
     'title'     => __('Published','mywords'),
     'link'      => 'admin/posts.php?op=publish',

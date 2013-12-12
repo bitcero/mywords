@@ -32,25 +32,34 @@ if(function_exists("load_mod_locale")) load_mod_locale('mywords');
 $modversion['name'] = "MyWords";
 $modversion['description'] = _MI_MW_DESC;
 $modversion['version'] = '2.1';
-$modversion['icon32'] = 'images/icon32.png';
-$modversion['icon24'] = 'images/icon24.png';
-$modversion['author'] = "BitC3R0";
-$modversion['authormail'] = "i.bitcero@gmail.com";
-$modversion['authorweb'] = "Red México";
-$modversion['authorurl'] = "http://www.bitcero.info";
-$modversion['credits'] = "Red México";
 $modversion['help'] = "http://www.xoopsmexico.net/docs/mywords/";
 $modversion['license'] = "GPL v2";
 $modversion['official'] = 1;
 $modversion['image'] = "images/logo.png";
 $modversion['dirname'] = "mywords";
-$modversion['icon48'] = "images/icon48.png";
-$modversion['icon16'] = "images/icon16.png";
-$modversion['rmnative'] = 1;
-$modversion['rmversion'] = array('major'=>2,'minor'=>1,'revision'=>35, 'stage'=>0,'name'=>'MyWords');
 $modversion['onInstall'] = 'include/install.php';
 $modversion['onUpdate'] = 'include/install.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/?action=check&id=2";
+
+/**
+ * Common Utilities Setup
+ */
+// Behaviour
+$modversion['rmnative'] = 1;
+$modversion['rmversion'] = array('major'=>2,'minor'=>1,'revision'=>35, 'stage'=>0,'name'=>'MyWords');
+$modversion['rewrite'] = 0;
+$modversion['permissions'] = 'include/permissions.php';
+// Icons
+$modversion['icon16'] = "images/icon16.png";
+$modversion['icon24'] = 'images/icon24.png';
+$modversion['icon32'] = 'images/icon32.png';
+$modversion['icon48'] = "images/icon48.png";
+// Credits
+$modversion['author'] = "BitC3R0";
+$modversion['authormail'] = "i.bitcero@gmail.com";
+$modversion['authorweb'] = "Red México";
+$modversion['authorurl'] = "http://www.bitcero.info";
+$modversion['credits'] = "Red México";
 
 // Social links
 $modversion['social'][0] = array('title' => __('Twitter', 'rmcommon'),'type' => 'twitter','url' => 'http://www.twitter.com/xoopsmexico/');

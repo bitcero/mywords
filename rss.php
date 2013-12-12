@@ -157,7 +157,7 @@ switch($show){
 	case 'all':
 	default:
 		$rss_channel['title'] = $xoopsModule->name();
-		$rss_channel['link'] = XOOPS_URL.($config['permalinks'] ? $config['basepath'] : '/modules/mywords');
+		$rss_channel['link'] = XOOPS_URL.($config->permalinks ? $config->basepath : '/modules/mywords');
         $rss_channel['description'] = __('All recent published posts','mywords');
 		$rss_channel['lastbuild'] = formatTimestamp(time(), 'rss');
 		$rss_channel['webmaster'] = checkEmail($xoopsConfig['adminmail'], true);
