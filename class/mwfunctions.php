@@ -69,9 +69,10 @@ class MWFunctions
     /**
     * Show admin menu and include the javascript files
     */
-    static function include_required_files(){
+    static function include_required_files( $toolbar = true ){
 		RMTemplate::get()->add_style('admin.css','mywords');
-		include '../include/toolbar.php';
+		if ( $toolbar )
+            include '../include/toolbar.php';
     }
     
     /**

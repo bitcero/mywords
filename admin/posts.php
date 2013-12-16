@@ -177,7 +177,7 @@ function newForm($edit = 0){
 		}
 	}
 	
-	MWFunctions::include_required_files();
+	MWFunctions::include_required_files( false );
 
     RMBreadCrumb::get()->add_crumb(__('Posts','mywords'), 'posts.php');
     RMBreadCrumb::get()->add_crumb(__('Write post','mywords'));

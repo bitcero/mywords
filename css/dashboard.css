@@ -2,12 +2,6 @@
 $Id: dashboard.css 555 2010-11-15 16:42:05Z i.bitcero $
 */
 
-.support-me{
-    background: #E7F5FB;
-    box-shadow: inset 0 0 2px #FFF;
-    color: #3A87AD;
-    text-shadow: 1px 1px 0 rgba(255,255,255,0.4);
-}
 .support-me:after{
     content: '';
     display: block;
@@ -19,6 +13,7 @@ $Id: dashboard.css 555 2010-11-15 16:42:05Z i.bitcero $
     border: 1px solid #CCC;
     border-radius: 2px;
     margin: 0 5px 0 0;
+    width: 80px;
 }
 
 #mw_widgets_container{

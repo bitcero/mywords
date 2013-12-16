@@ -19,9 +19,12 @@
 <br />
 
     <!-- Basic SEO -->
-    <div class="outer box-collapse">
-        <div class="th"><i class="icon-caret-up control"></i> <?php _e('Post SEO', 'mywords'); ?></div>
-        <div class="even collapsable">
+    <div class="cu-box">
+        <div class="box-header">
+            <i class="icon-caret-up box-handler"></i>
+            <h3><?php _e('Post SEO', 'mywords'); ?></h3>
+        </div>
+        <div class="box-content">
 
             <div class="form-group">
                 <label for="seo-title">
@@ -46,12 +49,12 @@
     <!-- // End Basic SEO -->
 
 
-<div class="outer box-collapse">
-	<div class="th">
-		<i class="icon-caret-down control"></i>
-        <?php _e('Send Trackbacks','mywords'); ?>
+<div class="cu-box">
+	<div class="box-header">
+        <i class="icon-caret-up box-handler"></i>
+        <h3><?php _e('Send Trackbacks','mywords'); ?></h3>
 	</div>
-	<div class="mw_bcontent collapsable box-collapsed">
+	<div class="mw_bcontent box-content">
 		<div class="form-group">
             <label><?php _e('Send trackbacks to:','mywords'); ?></label>
 
@@ -67,9 +70,12 @@
 	</div>
 </div>
 
-<div class="outer box-collapse">
-	<div class="th"><i class="icon-caret-down control"></i> <?php _e('Custom Fields','mywords'); ?></div>
-	<div class="mw_bcontent collapsable box-collapsed">
+<div class="cu-box">
+	<div class="box-header">
+        <i class="icon-caret-up box-handler"></i>
+        <h3><?php _e('Custom Fields','mywords'); ?></h3>
+    </div>
+	<div class="mw_bcontent box-content">
 		<table id="metas-container" class="outer<?php echo !$edit || (!isset($post) && !$post->fields()) ? ' mw_hidden' : ''; ?>" cellspacing="0" width="100%" />
 			<tr class="head">
 				<td width="30%"><?php _e('Name','mywords'); ?></td>
@@ -123,9 +129,12 @@
 	</div>
 </div>
 
-<div class="outer box-collapse">
-    <div class="th"><i class="icon-caret-down control"></i> <?php _e('Comments and Trackbacks','mywords'); ?></div>
-    <div class="mw_bcontent collapsable box-collapsed">
+<div class="cu-box">
+    <div class="box-header">
+        <i class="icon-caret-up box-handler"></i>
+        <h3><?php _e('Comments and Trackbacks','mywords'); ?></h3>
+    </div>
+    <div class="mw_bcontent box-content">
         <table width="100%" cellpadding="0" cellspacing="0">
             <tr class="outer">
                 <td width="50%">

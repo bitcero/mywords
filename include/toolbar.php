@@ -10,7 +10,9 @@
 
 $no_toolbar = array(
     'categories',
-    'tags'
+    'tags',
+    'dashboard',
+    'new_post'
 );
 if (in_array(RMCLOCATION, $no_toolbar))
     return;
