@@ -51,9 +51,9 @@ class MWTag extends RMObject
     }
     
     function permalink(){
-        $mc = RMUtilities::get()->module_config('mywords');
+        $mc = RMSettings::module_settings( 'mywords' );
         $ret = MWFunctions::get_url();
-        $ret .= $mc['permalinks']==1 ? '?tag='.$this->id() : ($mc['permalinks']==2 ? "tag/".$this->getVar('shortname','n')."/" : "tag/".$this->id());
+        $ret .= $mc->permalinks == 1 ? '?tag='.$this->id() : ($mc->permalinks == 2 ? "tag/".$this->getVar('shortname','n')."/" : "tag/".$this->id());
         return $ret;
     }
     

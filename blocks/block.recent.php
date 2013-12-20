@@ -14,7 +14,7 @@ include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php';
 function mywordsBlockRecent($options){
 	global $xoopsModuleConfig, $xoopsModule, $xoopsUser;
     
-	$mc = $xoopsModule && $xoopsModule->getVar('dirname')=='mywords' ? $xoopsModuleConfig : RMSettings::module_settings('mywords');
+	$mc = RMSettings::module_settings('mywords');
 	$db = XoopsDatabaseFactory::getDatabaseConnection();
     $by = '';
     
@@ -53,7 +53,7 @@ function mywordsBlockRecent($options){
             $ret['comments'] = sprintf(__('%u Comments','mywords'), $post->getVar('comments'));
         }
         $ret['time'] = $post->getVar('pubdate');
-        $ret['image'] = $post->getImage($mc['list_post_imgs_size']);
+        $ret['image'] = $post->getImage($mc->list_post_imgs_size);
 		$block['posts'][] = $ret;
         
 	}

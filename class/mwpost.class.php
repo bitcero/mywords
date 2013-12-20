@@ -304,12 +304,12 @@ class MWPost extends RMObject
 	 * Obtiene el enlace permanente al artículo
 	 */
 	public function permalink(){
-		$mc = RMUtilities::get()->module_config('mywords');
+		$mc = RMSettings::module_settings( 'mywords' );
 		$day = date('d', $this->getVar('pubdate'));
 		$month = date('m', $this->getVar('pubdate'));
 		$year = date('Y', $this->getVar('pubdate'));
 		$rtn = MWFunctions::get_url();
-		$rtn .= $mc['permalinks']==1 ? '?post='.$this->id() : ($mc['permalinks']==2 ? "$day/$month/$year/".$this->getVar('shortname','n')."/" : "post/".$this->id());
+		$rtn .= $mc->permalinks == 1 ? '?post='.$this->id() : ($mc->permalinks == 2 ? "$day/$month/$year/".$this->getVar('shortname','n')."/" : "post/".$this->id());
 		return $rtn;
 		
 	}

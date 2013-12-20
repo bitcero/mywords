@@ -71,8 +71,6 @@ class MWFunctions
     */
     static function include_required_files( $toolbar = true ){
 		RMTemplate::get()->add_style('admin.css','mywords');
-		if ( $toolbar )
-            include '../include/toolbar.php';
     }
     
     /**
@@ -282,14 +280,11 @@ class MWFunctions
     */
     function get_url($track = false){
         global $xoopsModule, $xoopsModuleConfig;
-        if(!$xoopsModule || $xoopsModule->dirname()!='mywords')
-            $mc = RMUtilities::get()->module_config('mywords');
-        else
-            $mc = $xoopsModuleConfig;
+        $mc = RMSettings::module_settings( 'mywords' );
         
-        if ($mc['permalinks']>1){
+        if ($mc->permalinks > 1){
             
-            $ret = XOOPS_URL.rtrim($mc['basepath'], "/").'/';
+            $ret = XOOPS_URL.rtrim($mc->basepath, "/").'/';
             if ($track) $ret .= 'trackback/';
             
         } else {

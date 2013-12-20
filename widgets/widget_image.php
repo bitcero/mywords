@@ -14,10 +14,10 @@
 function mw_widget_image(){
     global $xoopsSecurity, $xoopsModuleConfig, $xoopsUser, $rm_config;
 
-    $id = rmc_server_var($_REQUEST,'id',0);
+    $id = RMHttpRequest::request( 'id', 'integer', 0 );
     
-    $type   = rmc_server_var($_REQUEST, 'type', '');
-    $op   = rmc_server_var($_REQUEST, 'op', '');
+    $type   = RMHttpRequest::request( 'type', 'string', '' );
+    $op   = RMHttpRequest::request( 'op', 'string', '' );
     $edit = $op=='edit' ? 1 : 0;
 
     $widget = array();

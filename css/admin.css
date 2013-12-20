@@ -12,13 +12,6 @@ h1.mw_titles span{
 	margin: 0 5px 0 0;
 	background: url(../images/icons32.png) no-repeat;
 }
-.descriptions{
-	padding: 4px 15px;
-	margin: 10px 0;
-	color: #666;
-	line-height: 150%;
-	
-}
 
 /** Forms **/
 div.mw_permacont{
@@ -56,33 +49,9 @@ textare.mw_large{
 .mw_hidden{
 	display: none;
 }
-.form_options{
-	float: left;
-	padding: 0 0 0 0;
-	width: 30%;
-	box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		-o-box-sizing: border-box;
-}
-.form_options .description{
-	color: #666;
-	font-size: 0.9em;
-	display: block;
-	margin: 3px 0 0 0;
-	line-height: 150%;
-	font-style: italic;
-}
-h3.form_titles{
-	font-size: 1.3em;
-	margin: 0 0 20px 0;
-	color: #2E2E2E;
-}
-.form_options form{
-	padding: 0 10px;
-}
 form#mw-form-posts input.mw_biginput{
     width: 100%;
+    font-size: 26px;
     font-size: 26px;
     -moz-border-radius: 5px;
     -khtml-border-radius: 5px;

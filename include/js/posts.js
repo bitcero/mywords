@@ -210,8 +210,8 @@ $(document).ready( function($) {
     });
     
     // Tags
-    $("input#tags-button").click(function(){
-		tag = $("input#tags-m").val();
+    $("#tags-button").click(function(){
+		tag = $("#tags-m").val();
 		if (tag=='') return;
 		tags = tag.split(',');
 		
@@ -223,7 +223,7 @@ $(document).ready( function($) {
 		
 		j = 0;
 		
-		spans = $("div#tags-container label");
+		spans = $("#tags-container label");
 		$(spans).each(function(i){
 			text = $(this).text().replace(" ","");
 			text = text.replace("&nbsp;");
@@ -236,12 +236,12 @@ $(document).ready( function($) {
 		for (j=0;j<tags.length;j++){
             if (tags[j]=='') continue;
             total_tags++;
-			$("div#tags-container").append("<label><input type='checkbox' name='tags[]' checked='checked' value='"+tags[j]+"' /> "+tags[j]+"</label>");
+			$("#tags-container").append("<label><input type='checkbox' name='tags[]' checked='checked' value='"+tags[j]+"' /> "+tags[j]+"</label>");
 		}
-		$("input#tags-m").val('');
+		$("#tags-m").val('');
         
         if (total_tags>0 && !tip_tag_visible){
-			$("div#tags-container span.tip_legends").show();
+			$("#tags-container span.tip_legends").show();
 			tip_tag_visible = true;
         }
 		
@@ -410,13 +410,13 @@ $(document).ready( function($) {
 		$("div#w-catnew-form").slideDown('slow');
 	});
 	
-	$("div#w-catnew-form a").click(function(){
+	$("#w-catnew-form a").click(function(){
 		$("div#w-catnew-form").slideUp('slow');
 	});
 	
-	$("input#create-new-cat").click(function(){
+	$("#create-new-cat").click(function(){
 
-		var name = $("div#w-catnew-form input#w-name").val();
+		var name = $("#w-catnew-form input#w-name").val();
 		if (name==''){
 			$("label[for='w-name']").slideDown();
 			return;
@@ -441,15 +441,15 @@ $(document).ready( function($) {
 			}
 			
 			var html = '<label class="cat_label" id="label-'+data['id']+'"><input type="checkbox" name="categories[]" id="categories[]" value="'+data['id']+'" checked="checked" /> '+name+'</label>';
-			$("div#w-categos-container").prepend(html);
-            $("select#w-parent").prepend('<option value="'+data['id']+'">'+name+'</option>');
-			$("label#label-"+data['id']).focus();
-			$("label#label-"+data['id']).effect('highlight', {}, 1000);
-			$("input#XOOPS_TOKEN_REQUEST").val(data['token']);
+			$("#w-categos-container").prepend(html);
+            $("#w-parent").prepend('<option value="'+data['id']+'">'+name+'</option>');
+			$("#label-"+data['id']).focus();
+			$("#label-"+data['id']).effect('highlight', {}, 1000);
+			$("#XOOPS_TOKEN_REQUEST").val(data['token']);
 			
-			$("div#w-catnew-form input#w-name").val('');
-			$("select#w-parent option[selected='selected']").removeAttr('selected');
-			$("select#w-parent option[value='0']").attr('selected','selected');
+			$("#w-catnew-form input#w-name").val('');
+			$("#w-parent option[selected='selected']").removeAttr('selected');
+			$("#w-parent option[value='0']").attr('selected','selected');
 			
 		},'json');
 		

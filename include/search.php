@@ -21,7 +21,7 @@ function mywords_search($qa, $andor, $limit, $offset, $userid){
 	
 	include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwpost.class.php';
 	$util =& RMUtilities::get();
-	$mc =& $util->module_config('mywords');
+	$mc =& RMSettings::module_settings( 'mywords' );
 	
 	$sql = "SELECT * FROM ".$db->prefix("mw_posts");
 	$adds = '';

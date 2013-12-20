@@ -59,9 +59,9 @@ class MWCategory extends RMObject
 	 * Obtiene el enlace a la categor?a
 	 */
 	public function permalink(){
-		$mc = RMUtilities::get()->module_config('mywords');
+		$mc = RMSettings::module_settings( 'mywords' );
 		$link = MWFunctions::get_url();
-		$link .= ($mc['permalinks']==1 ? '?cat='.$this->id() : ($mc['permalinks']==2 ? 'category/'.$this->path() : 'category/'.$this->id()));
+		$link .= ($mc->permalinks == 1 ? '?cat='.$this->id() : ($mc->permalinks == 2 ? 'category/'.$this->path() : 'category/'.$this->id()));
 		return $link;
 	}
 

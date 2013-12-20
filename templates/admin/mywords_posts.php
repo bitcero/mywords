@@ -17,10 +17,10 @@
             
             <ul class="nav nav-pills">
                 <li><a href="posts.php?op=new"><?php _e('Add New','mywords'); ?></a></li>
-                <li><a href="posts.php?limit=<?php echo $limit ?>"><?php _e('Show all','mywords'); ?> <strong>(<?php echo ($pub_count+$draft_count+$pending_count); ?>)</strong></a></li>
-                <li><a href="posts.php?status=publish&amp;limit=<?php echo $limit ?>"><?php _e('Published', 'admin_mywords'); ?> <strong>(<?php echo $pub_count; ?>)</strong></a></li>
-                <li><a href="posts.php?status=draft&amp;limit=<?php echo $limit ?>"><?php _e('Drafts', 'admin_mywords'); ?> <strong>(<?php echo $draft_count; ?>)</strong></a></li>
-                <li><a href="posts.php?status=waiting&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
+                <li<?php echo $status=='' ? ' class="active"' : ''; ?>><a href="posts.php?limit=<?php echo $limit ?>"><?php _e('Show all','mywords'); ?> <strong>(<?php echo ($pub_count+$draft_count+$pending_count); ?>)</strong></a></li>
+                <li<?php echo $status=='publish' ? ' class="active"' : ''; ?>><a href="posts.php?status=publish&amp;limit=<?php echo $limit ?>"><?php _e('Published', 'admin_mywords'); ?> <strong>(<?php echo $pub_count; ?>)</strong></a></li>
+                <li<?php echo $status=='draft' ? ' class="active"' : ''; ?>><a href="posts.php?status=draft&amp;limit=<?php echo $limit ?>"><?php _e('Drafts', 'admin_mywords'); ?> <strong>(<?php echo $draft_count; ?>)</strong></a></li>
+                <li<?php echo $status=='waiting' ? ' class="active"' : ''; ?>><a href="posts.php?status=waiting&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
             </ul>
             
         </div>

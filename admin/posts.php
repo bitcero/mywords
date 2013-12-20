@@ -22,6 +22,7 @@ function showPosts($aprovado = -1){
 	$keyw = '';
 	$op = '';
 	$cat = 0;
+    $status = '';
 	foreach ($_REQUEST as $k => $v){
 		$$k = $v;
 	}

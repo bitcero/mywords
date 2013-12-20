@@ -145,7 +145,7 @@ function mw_widget_publish(){
 <!-- /Shedule -->
 <div class="publish_options no_border">
 <?php _e('Author:','mywords'); ?>
-<?php 
+<?php
 	$user = new RMFormUser('', 'author', 0, $edit ? array($post->getVar('author')) : array($xoopsUser->uid()));
 	if (!$xoopsUser->isAdmin()) $user->button(false);
 	echo $user->render();

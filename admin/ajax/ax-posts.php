@@ -20,7 +20,7 @@ function return_error($msg, $token=true, $redirect=''){
     
     echo json_encode($ret);
     die();
-    
+
 }
 
 include '../header.php';

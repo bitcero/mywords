@@ -36,9 +36,13 @@ function mw_widget_addtags(){
 <form id="mw-post-tags-form">
 <?php if($xoopsUser->isAdmin() || $allowed_tags): ?>
 <div class="tags_box">
-<input type="text" name="tagsm" id="tags-m" class="formInput wtLeftInput" />
-<input type="button" name="tags-button" id="tags-button" class="button" value="<?php _e('+ Add','admin_mywords'); ?>" /><br />
-<span class="descriptions"><em><?php _e('Separate multiple tags with commas','admin_mywords'); ?></em></span>
+    <div class="input-group">
+        <input type="text" name="tagsm" id="tags-m" class="form-control">
+        <div class="input-group-btn">
+            <button type="button" name="tags-button" id="tags-button" class="btn btn-info"><?php _e('+ Add','admin_mywords'); ?></button>
+        </div>
+    </div>
+    <span class="help-block"><em><?php _e('Separate multiple tags with commas','admin_mywords'); ?></em></span>
 </div>
 <?php endif; ?>
 <?php $tags = $edit ? $post->tags() : array(); ?>
