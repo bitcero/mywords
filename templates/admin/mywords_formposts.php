@@ -8,7 +8,7 @@
 <div class="mw_permacont <?php if(!$edit): ?>mw_permainfo<?php endif; ?>" id="mw-perma-link">
 	<?php if($edit): ?>
 		<strong><?php _e('Permalink:','mywords'); ?></strong> <?php echo str_replace($post->getVar('shortname'), '<span id="post-shortname">'.$post->getVar('shortname').'</span>', $post->permalink()); ?>
-		<a href="#" onclick="window.open('<?php echo $post->permalink(); ?>', 'preview');" class="btn btn-mini">
+		<a href="#" onclick="window.open('<?php echo $post->permalink(); ?>', 'preview');" class="btn btn-default btn-mini">
 			<?php if($post->getVar('status')=='publish') _e('View Post','mywords'); else _e('Preview Post','mywords'); ?>
 		</a>
 	<?php else: ?>

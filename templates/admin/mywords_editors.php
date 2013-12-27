@@ -1,40 +1,55 @@
 <h1 class="cu-section-title mw_titles"><span style="background-position: -128px 0;">&nbsp;</span><?php _e('Editors','mywords'); ?></h1>
 <?php if(isset($show_edit) && $show_edit): ?>
-
-    <div class="edit_form">
+<div class="edit_form">
     <form name="form_edit" id="form-edit" method="post" action="editors.php">
-        <label for="name"><?php _e('Name','mywords'); ?></label>
-        <input type="text" name="name" id="name" value="<?php echo $editor->getVar('name'); ?>" />
-        <br clear="all" />
-        <label for="short"><?php _e('Short name','mywords'); ?></label>
-        <input type="text" name="short" id="short" value="<?php echo $editor->getVar('shortname'); ?>" />
-        <br clear="all" />
-        <label for="bio"><?php _e('Biography:','mywords'); ?></label>
-        <textarea name="bio" id="bio" style="height: 120px;"><?php echo $editor->getVar('bio','e'); ?></textarea>
-        <br clear="all" />
-        <label for="new_user"><?php _e('Registered user:','mywords'); ?></label>
-        <?php 
-        $ele = new RMFormUser('', 'new_user', false, array($editor->getVar('uid')));
-        echo $ele->render();
-        ?>
-        <br clear="all" />
-        <label for="perms"><?php _e('Permissions:','mywords'); ?></label>
-        <div class="permissions" style="margin-left: 160px;">
-            <label><input type="checkbox" name="perms[]" value="tags"<?php echo in_array("tags", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Create tags','mywords'); ?></label>
-            <label><input type="checkbox" name="perms[]" value="cats"<?php echo in_array("cats", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Create categories','mywords'); ?></label>
-            <label><input type="checkbox" name="perms[]" value="tracks"<?php echo in_array("tracks", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Send trackbacks','mywords'); ?></label>
-            <label><input type="checkbox" name="perms[]" value="comms"<?php echo in_array("comms", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Manage discussions','mywords'); ?></label>
+        <div class="form-group">
+            <label for="name"><?php _e('Name','mywords'); ?></label>
+            <input type="text" name="name" id="name" value="<?php echo $editor->getVar('name'); ?>" class="form-control">
         </div>
-        <br clear="all" />
-        <div style="padding-left: 160px;">
-        <input type="submit" value="<?php _e('Save Changes','mywords'); ?>" />
-        <input type="button" value="<?php _e('Cancel','mywords'); ?>" onclick="history.go(-1);" />
+
+        <div class="form-group">
+            <label for="short"><?php _e('Short name','mywords'); ?></label>
+            <input type="text" class="form-control" name="short" id="short" value="<?php echo $editor->getVar('shortname'); ?>" />
+        </div>
+
+        <div class="form-group">
+            <label for="bio"><?php _e('Biography:','mywords'); ?></label>
+            <textarea name="bio" class="form-control" id="bio" style="height: 120px;"><?php echo $editor->getVar('bio','e'); ?></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="new_user"><?php _e('Registered user:','mywords'); ?></label>
+            <?php
+            $ele = new RMFormUser('', 'new_user', false, array($editor->getVar('uid')));
+            echo $ele->render();
+            ?>
+        </div>
+
+        <div class="form-group">
+            <label for="perms"><?php _e('Permissions:','mywords'); ?></label>
+            <div class="checkbox">
+                <label><input type="checkbox" name="perms[]" value="tags"<?php echo in_array("tags", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Create tags','mywords'); ?></label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="perms[]" value="cats"<?php echo in_array("cats", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Create categories','mywords'); ?></label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="perms[]" value="tracks"<?php echo in_array("tracks", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Send trackbacks','mywords'); ?></label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="perms[]" value="comms"<?php echo in_array("comms", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Manage discussions','mywords'); ?></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg"><?php _e('Save Changes','mywords'); ?></button>
+            <button type="button" class="btn btn-default btn-lg" onclick="history.go(-1);"><?php _e('Cancel','mywords'); ?></button>
         </div>
         <?php echo $xoopsSecurity->getTokenHTML(); ?>
         <input type="hidden" name="action" value="saveedit" />
         <input type="hidden" name="id" value="<?php echo $editor->id(); ?>" />
     </form>
-    </div>
+</div>
 
 <?php else: ?>
 

@@ -2,29 +2,37 @@
 
 <?php if(isset($show_edit) && $show_edit): ?>
 
-	<div class="edit_form span4">
+	<div class="edit_form">
 	<form name="form_edit" id="form-new-bookmark" method="post" action="bookmarks.php">
-		<label for="new-title"><?php _e('Title','mywords'); ?></label>
-        <input type="text" name="title" id="new-title" value="<?php echo $book->getVar('title'); ?>" />
-        <br clear="all" />
-        <label for="new-alt">*<?php _e('Short description:','mywords'); ?></label>
-		<input type="text" name="alt" id="new-alt" value="<?php echo $book->getVar('alt'); ?>" />
-		<br clear="all" />
-		<label for="new-url">*<?php _e('Formated URL:','mywords'); ?></label>
-		<input type="text" name="url" id="new-url" value="<?php echo $book->getVar('url'); ?>" />
-		<br clear="all" />
-		<label for="edit-icon"><?php _e('Icon:','mywords'); ?></label>
-		<div class="icons_sel" id="edit-icon">
-			<?php foreach($icons as $id => $icon): ?>
-				<img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['name']; ?>" id="icon-<?php echo $id; ?>" title="<?php echo $icon['name']; ?>"<?php echo $book->getVar('icon')==$icon['name']?' class="selected"' : ''; ?> />
-			<?php endforeach; ?>
-			<input type="hidden" name="icon" id="new-icon-h" value="<?php echo $book->getVAr('icon'); ?>" /><br />
-			<span class="description"><?php echo sprintf(__('You can create new icons by uploading files to %s folder.','mywords'), XOOPS_ROOT_PATH.'/modules/mywords/images'); ?>
+        <div class="form-group">
+            <label for="new-title"><?php _e('Title','mywords'); ?></label>
+            <input type="text" name="title" id="new-title" value="<?php echo $book->getVar('title'); ?>" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="new-alt">*<?php _e('Short description:','mywords'); ?></label>
+            <input type="text" name="alt" id="new-alt" value="<?php echo $book->getVar('alt'); ?>" class="form-control">
+        </div>
+
+		<div class="form-group">
+            <label for="new-url">*<?php _e('Formated URL:','mywords'); ?></label>
+            <input type="text" name="url" id="new-url" value="<?php echo $book->getVar('url'); ?>" class="form-control">
 		</div>
-		<br clear="all" />
-		<div style="padding-left: 160px;">
-        <input type="submit" value="<?php _e('Save Changes','mywords'); ?>" />
-        <input type="button" value="<?php _e('Cancel','mywords'); ?>" onclick="history.go(-1);" />
+
+        <div class="form-group">
+            <label for="edit-icon"><?php _e('Icon:','mywords'); ?></label>
+            <div class="icons_sel" id="edit-icon">
+                <?php foreach($icons as $id => $icon): ?>
+                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['name']; ?>" id="icon-<?php echo $id; ?>" title="<?php echo $icon['name']; ?>"<?php echo $book->getVar('icon')==$icon['name']?' class="selected"' : ''; ?> />
+                <?php endforeach; ?>
+                <input type="hidden" name="icon" id="new-icon-h" value="<?php echo $book->getVAr('icon'); ?>" />
+            </div>
+            <span class="help-block"><?php echo sprintf(__('You can create new icons by uploading files to %s folder.','mywords'), '<code>'.XOOPS_ROOT_PATH.'/modules/mywords/images</code>'); ?>
+        </div>
+
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg"><?php _e('Save Changes','mywords'); ?></button>
+            <button type="button" class="btn btn-default btn-lg" onclick="history.go(-1);"><?php _e('Cancel','mywords'); ?></button>
         </div>
         <?php echo $xoopsSecurity->getTokenHTML(); ?>
         <input type="hidden" name="action" value="saveedit" />

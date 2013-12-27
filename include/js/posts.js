@@ -455,7 +455,7 @@ $(document).ready( function($) {
 		
 	});
 	
-	$("#shortname").click(function(){
+	$("#post-shortname").click(function(){
 		if ($("#shortname-editor").length>0) return;
 		var html = '<input type="text" size="20" value="'+$(this).html()+'" name="shortname" id="shortname-editor" />';
 		$(this).html(html);
