@@ -6,7 +6,7 @@
         <!-- Quick overview -->
         <div class="cu-box">
             <div class="box-header">
-                <i class="icon-caret-up box-handler"></i>
+                <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('Quick Overview','mywords'); ?></h3>
             </div>
             <div class="box-content">
@@ -44,7 +44,7 @@
         <!-- Drafts -->
         <div class="cu-box">
         	<div class="box-header">
-                <i class="icon-caret-up box-handler"></i>
+                <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('Recent Drafts', 'admin_mywords'); ?></h3>
             </div>
         	<?php foreach($drafts as $post): ?>
@@ -62,7 +62,7 @@
         <!-- Pending of review -->
         <div class="cu-box">
         	<div class="box-header">
-                <i class="icon-caret-up box-handler"></i>
+                <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('Posts pending for review', 'admin_mywords'); ?></h3>
             </div>
         	<?php foreach($pendings as $post): ?>
@@ -97,7 +97,7 @@
         <!-- Editors -->
         <div class="cu-box">
             <div class="box-header">
-                <i class="icon-caret-up box-handler"></i>
+                <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('Editors Activity','mywords'); ?></h3>
             </div>
             <div class="box-content">
@@ -134,18 +134,18 @@
         <!-- Resources -->
         <div class="cu-box">
             <div class="box-header">
-                <i class="icon-caret-up box-handler"></i>
+                <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('MyWords Resources','mywords'); ?></h3>
             </div>
             <div class="box-content">
                 <a href="http://redmexico.com.mx/docs/mywords" target="_blank" class="item">
-                    <i class="icon-caret-right"></i>
+                    <span class="fa fa-caret-right"></span>
                     <?php _e('MyWords documentation','mywords'); ?>
             		<span class="help-block"><?php _e('Learn more about MyWords. Installation, configuration and all information to improve this module.','mywords'); ?></span>
                 </a>
                 <br>
                 <a href="http://redmexico.com.mx/" target="_blank" class="item">
-                    <i class="icon-caret-right"></i>
+                    <span class="fa fa-caret-right"></span>
                     <?php _e('Red México','mywords'); ?>
                     <span class="help-block"><?php _e('New modules, themes and awesome resources for XOOPS.','mywords'); ?></span>
                 </a>
@@ -164,8 +164,7 @@
 
         <div class="cu-box">
             <div class="box-header">
-                <i class="icon-caret-up box-handler"></i>
-                <h3><i class="icon-thumbs-up"></i> <?php _e('Support my Work','dtransport'); ?></h3>
+                <h3><i class="fa fa-thumbs-up"></i> <?php _e('Support my Work','dtransport'); ?></h3>
             </div>
             <div class="box-content support-me">
                 <img class="avatar" src="http://www.gravatar.com/avatar/<?php echo $myEmail; ?>?s=80" alt="Eduardo Cortés (bitcero)" />
@@ -177,7 +176,7 @@
         <!-- Recent News -->
         <div class="cu-box">
             <div class="box-header">
-                <i class="icon-caret-up box-handler"></i>
+                <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('Recent News','mywords'); ?></h3>
             </div>
             <div class="box-content" id="mw-recent-news">

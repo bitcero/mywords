@@ -21,7 +21,7 @@
     <!-- Basic SEO -->
     <div class="cu-box">
         <div class="box-header">
-            <i class="icon-caret-up box-handler"></i>
+            <span class="fa fa-caret-up box-handler"></span>
             <h3><?php _e('Post SEO', 'mywords'); ?></h3>
         </div>
         <div class="box-content">
@@ -51,7 +51,7 @@
 
 <div class="cu-box">
 	<div class="box-header">
-        <i class="icon-caret-up box-handler"></i>
+        <span class="fa fa-caret-up box-handler"></span>
         <h3><?php _e('Send Trackbacks','mywords'); ?></h3>
 	</div>
 	<div class="mw_bcontent box-content">
@@ -72,7 +72,7 @@
 
 <div class="cu-box">
 	<div class="box-header">
-        <i class="icon-caret-up box-handler"></i>
+        <span class="fa fa-caret-up box-handler"></span>
         <h3><?php _e('Custom Fields','mywords'); ?></h3>
     </div>
 	<div class="mw_bcontent box-content">
@@ -131,7 +131,7 @@
 
 <div class="cu-box">
     <div class="box-header">
-        <i class="icon-caret-up box-handler"></i>
+        <span class="fa fa-caret-up box-handler"></span>
         <h3><?php _e('Comments and Trackbacks','mywords'); ?></h3>
     </div>
     <div class="mw_bcontent box-content">

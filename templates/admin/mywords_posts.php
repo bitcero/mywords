@@ -9,7 +9,7 @@
                 <span class="input-group-addon"><?php _e('Results:', 'mywords'); ?></span>
                 <input type="text" size="5" name="limit" value="<?php echo $limit; ?>" class="form-control" />
                 <span class="input-group-btn">
-                    <button class="btn btn-info" type="submit"><i class="icon-search"></i></button>
+                    <button class="btn btn-info" type="submit"><span class="fa fa-search"></span></button>
                 </span>
             </div>
         </div>
