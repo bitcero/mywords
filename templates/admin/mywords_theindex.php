@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><span style="background-position: -96px 0;">&nbsp;</span><?php _e('Dashboard','mywords'); ?></h1>
+<h1 class="cu-section-title mw_titles"><em class="fa fa-home"></em> <?php _e('Dashboard','mywords'); ?></h1>
 
 <div id="row">
     
@@ -94,6 +94,17 @@
         </div>
         <?php endif; ?>
 
+        <div class="cu-box">
+            <div class="box-header">
+                <h3><i class="fa fa-thumbs-up"></i> <?php _e('Support my Work','dtransport'); ?></h3>
+            </div>
+            <div class="box-content support-me">
+                <img class="avatar" src="http://www.gravatar.com/avatar/<?php echo $myEmail; ?>?s=80" alt="Eduardo Cortés (bitcero)" />
+                <p><?php _e('Do you like my work? Then maybe you want support me to continue developing new modules.','dtransport'); ?></p>
+                <?php echo $donateButton; ?>
+            </div>
+        </div>
+
         <!-- Editors -->
         <div class="cu-box">
             <div class="box-header">
@@ -143,7 +154,6 @@
                     <?php _e('MyWords documentation','mywords'); ?>
             		<span class="help-block"><?php _e('Learn more about MyWords. Installation, configuration and all information to improve this module.','mywords'); ?></span>
                 </a>
-                <br>
                 <a href="http://redmexico.com.mx/" target="_blank" class="item">
                     <span class="fa fa-caret-right"></span>
                     <?php _e('Red México','mywords'); ?>
@@ -162,24 +172,13 @@
 
     <div class="col-md-4 col-lg-4">
 
-        <div class="cu-box">
-            <div class="box-header">
-                <h3><i class="fa fa-thumbs-up"></i> <?php _e('Support my Work','dtransport'); ?></h3>
-            </div>
-            <div class="box-content support-me">
-                <img class="avatar" src="http://www.gravatar.com/avatar/<?php echo $myEmail; ?>?s=80" alt="Eduardo Cortés (bitcero)" />
-                <p><?php _e('Do you like my work? Then maybe you want support me to continue developing new modules.','dtransport'); ?></p>
-                <?php echo $donateButton; ?>
-            </div>
-        </div>
-
         <!-- Recent News -->
-        <div class="cu-box">
+        <div class="cu-box" data-load="news" data-module="mywords" data-target="#mywords-news">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('Recent News','mywords'); ?></h3>
             </div>
-            <div class="box-content" id="mw-recent-news">
+            <div class="box-content" id="mywords-news">
 
             </div>
         </div>
@@ -188,6 +187,9 @@
         <!-- Other blocks -->
         <?php RMEvents::get()->run_event('mywords.dashboard.right.widgets'); ?>
         <!-- /End other blocks -->
+
+        <div data-load="boxes"></div>
+
     </div>
     
 </div>

@@ -48,7 +48,7 @@
                     <td align="center"><input type="checkbox" name="tbs[]" id="tb-<?php echo $tb->id(); ?>" value="<?php echo $tb->id(); ?>" /></td>
                     <td nowrap="nowrap">
                         <strong><?php echo $tb->getVar('title'); ?></strong>
-			<span class="rmc_options">
+			<span class="cu-item-options">
 				<a href="javascript:;" onclick="delete_trackback(<?php echo $tb->id(); ?>);"><?php _e('Delete', 'mywords'); ?></a>
 			</span>
                     </td>

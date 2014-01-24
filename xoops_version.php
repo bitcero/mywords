@@ -39,7 +39,6 @@ $modversion['image'] = "images/logo.png";
 $modversion['dirname'] = "mywords";
 $modversion['onInstall'] = 'include/install.php';
 $modversion['onUpdate'] = 'include/install.php';
-$modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/?action=check&id=2";
 
 /**
  * Common Utilities Setup
@@ -49,6 +48,7 @@ $modversion['rmnative'] = 1;
 $modversion['rmversion'] = array('major'=>2,'minor'=>1,'revision'=>35, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
+$modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
 // Icons
 $modversion['icon16'] = "images/icon16.png";
 $modversion['icon24'] = 'images/icon24.png';
