@@ -131,8 +131,6 @@ $post_arr = array(
     'alink'     => $editor->permalink()
 );
 
-
-
 // Plugins?
 $post_arr = RMEvents::get()->run_event('mywords.view.post', $post_arr, $post);
 $xoopsTpl->assign('post', $post_arr);

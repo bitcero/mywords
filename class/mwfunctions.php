@@ -303,7 +303,7 @@ class MWFunctions
 		$format = __("Published on %s at %s",'mywords');
 		
         $config = RMSettings::module_settings('mywords');
-        if ($config['permalinks']>1){
+        if ($config->permalinks>1){
             $url = MWFunctions::get_url()."$day/$month/$year/";
         } else {
             $url = MWFunctions::get_url()."?date=$day/$month/$year/";

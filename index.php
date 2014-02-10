@@ -10,7 +10,7 @@
 
 include("../../mainfile.php");
 
-$request = str_replace(XOOPS_URL, '', RMFunctions::current_url());
+$request = str_replace(XOOPS_URL, '', RMUris::current_url());
 $request = str_replace("/modules/mywords/", '', $request);
 
 if ($xoopsModuleConfig['permalinks']>1 && $xoopsModuleConfig['basepath']!='/'){
@@ -64,7 +64,7 @@ if (is_numeric($vars[0]) && is_numeric($vars[1]) && is_numeric($vars[2])){
         require 'date.php';
         die();
     }
-    
+
 	$sql = "SELECT id_post FROM ".$db->prefix("mw_posts")." WHERE shortname='$vars[3]' AND (pubdate>=$time AND pubdate<=".($time + 86400).")";
 	$result = $db->query($sql);
 	list($post) = $db->fetchRow($result);

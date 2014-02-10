@@ -24,7 +24,7 @@ $xoopsTpl->assign('mw_url', MW_URL);
 
 $xmh = '';
 if ($mc['use_css']){
-	RMTemplate::get()->add_xoops_style('mywords.css', 'mywords');
+	RMTemplate::get()->add_style('mywords.css', 'mywords');
 }
 
 // Redes Sociales
@@ -46,4 +46,4 @@ $tpl = $rmTpl;
 // Update scheduled posts
 MWFunctions::go_scheduled();
 
-$rmTpl->add_local_script('main.js', 'mywords', 'include');
+$rmTpl->add_Script('main.js', 'mywords', array('directory' => 'include'));
