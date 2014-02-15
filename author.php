@@ -14,7 +14,7 @@ include 'header.php';
 
 if (!is_numeric($editor)){
 	
-	$sql = "SELECT id_editor FROM ".$db->prefix("mw_editors")." WHERE shortname='$editor'";
+	$sql = "SELECT id_editor FROM ".$db->prefix("mod_mywords_editors")." WHERE shortname='$editor'";
 	list($editor) = $db->fetchRow($db->query($sql));
 	if ($editor=='') $editor = 0;
 	
@@ -40,7 +40,7 @@ $request = substr($request, 0, strpos($request, 'page')>0 ? strpos($request, 'pa
  * Paginamos los resultados
  */
 $limit = $mc['posts_limit'];
-$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE author='$editor' AND status='publish' AND 
+$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE author='$editor' AND status='publish' AND
 		((visibility='public' OR visibility='password') OR (visibility='private' AND
 		author=".($xoopsUser ? $xoopsUser->uid() : -1)."))";
 list($num) = $db->fetchRow($db->query($sql));
@@ -65,7 +65,7 @@ $xoopsTpl->assign('pactual', $pactual);
 
 $xoopsTpl->assign('lang_fromauthor', sprintf(__('Posts by "%s"','mywords'), $ed->getVar('name')));
 
-$sql = "SELECT * FROM ".$db->prefix("mw_posts")." WHERE author='$editor' AND status='publish' AND 
+$sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE author='$editor' AND status='publish' AND
 		((visibility='public' OR visibility='password') OR (visibility='private' AND
 		author=".($xoopsUser ? $xoopsUser->uid() : -1).")) ORDER BY pubdate DESC LIMIT $start,$limit";
 $result = $db->query($sql);

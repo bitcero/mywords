@@ -32,8 +32,8 @@ $request = substr($request, 0, strpos($request, 'page')>0 ? strpos($request, 'pa
  * Paginamos los resultados
  */
 $limit = $mc['posts_limit'];
-$table_tags = $db->prefix("mw_tagspost");
-$table_posts = $db->prefix("mw_posts");
+$table_tags = $db->prefix("mod_mywords_tagspost");
+$table_posts = $db->prefix("mod_mywords_posts");
 
 $sql = "SELECT COUNT(*) FROM $table_posts as a, $table_tags as b WHERE b.tag='".$tag->id()."' AND 
         a.id_post=b.post AND status='publish' AND 

@@ -16,7 +16,7 @@ class MWCategory extends RMObject
 	
 	function __construct($id=''){
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("mw_categories");
+		$this->_dbtable = $this->db->prefix("mod_mywords_categories");
 		$this->setNew();
 		$this->initVarsFromTable();
 		if ($id==''){
@@ -43,7 +43,7 @@ class MWCategory extends RMObject
 	}
 	
 	function loadPosts(){
-		$result = $this->db->query("SELECT COUNT(*) FROM ".$this->db->prefix("mw_catpost")." WHERE cat='".$this->id()."'");
+		$result = $this->db->query("SELECT COUNT(*) FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE cat='".$this->id()."'");
 		list($num) = $this->db->fetchRow($result);
 		$this->setVar('posts', $num);
 	}
@@ -79,8 +79,8 @@ class MWCategory extends RMObject
 	 * Elimina de la base de datos la categor?a actual
 	 */
 	function delete(){
-		$this->db->queryF("UPDATE ".$this->db->prefix("mw_categories")." SET parent='".$this->getVar('parent','n')."' WHERE parent='".$this->id()."'");
-		$this->db->queryF("DELETE FROM ".$this->db->prefix("mw_catpost")." WHERE cat='".$this->id()."'");
+		$this->db->queryF("UPDATE ".$this->db->prefix("mod_mywords_categories")." SET parent='".$this->getVar('parent','n')."' WHERE parent='".$this->id()."'");
+		$this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE cat='".$this->id()."'");
 		return $this->deleteFromTable();
 	}
 }

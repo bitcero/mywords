@@ -12,7 +12,7 @@ class MWTag extends RMObject
 {
 	public function __construct($id = null){
         $this->db = XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mw_tags");
+        $this->_dbtable = $this->db->prefix("mod_mywords_tags");
         $this->setNew();
         $this->initVarsFromTable();
         
@@ -44,7 +44,7 @@ class MWTag extends RMObject
     * 
     */
     public function update_posts(){
-		$sql = "SELECT COUNT(*) FROM ".$this->db->prefix("mw_tagspost")." WHERE tag='".$this->id()."'";
+		$sql = "SELECT COUNT(*) FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE tag='".$this->id()."'";
 		list($num) = $this->db->fetchRow($this->db->query($sql));
 		$this->setVar('posts', $num);
 		$this->updateTable();
@@ -68,7 +68,7 @@ class MWTag extends RMObject
     function delete(){
 		
 		// Delete posts relations
-		if (!$this->db->queryF("DELETE FROM ".$this->db->prefix("mw_tagspost")." WHERE tag=".$this->id())){
+		if (!$this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE tag=".$this->id())){
 			$this->addError($this->db->error());
 			return false;
 		}

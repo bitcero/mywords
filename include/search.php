@@ -23,7 +23,7 @@ function mywords_search($qa, $andor, $limit, $offset, $userid){
 	$util =& RMUtilities::get();
 	$mc =& RMSettings::module_settings( 'mywords' );
 	
-	$sql = "SELECT * FROM ".$db->prefix("mw_posts");
+	$sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts");
 	$adds = '';
 	
 	if ( is_array($qa) && $count = count($qa) ) {

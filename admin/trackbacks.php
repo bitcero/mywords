@@ -19,7 +19,7 @@ function show_mw_trackbacks(){
     $id = rmc_server_var($_GET, 'id', 0);
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_trackbacks");
+    $sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_trackbacks");
     if ($id>0){
         $sql .= "WHERE post=$id";
     }

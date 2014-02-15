@@ -12,7 +12,7 @@ $xoopsOption['template_main'] = 'mywords_date.html';
 $xoopsOption['module_subpage'] = 'date';
 include 'header.php';
 
-$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE pubdate BETWEEN $time and $time2 AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1)."))";
+$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE pubdate BETWEEN $time and $time2 AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1)."))";
 list($num) = $db->fetchRow($db->query($sql));
 
 // Check if there are posts for this date
@@ -40,7 +40,7 @@ $date_prefix = date("d/m/Y", $time);
 $nav->target_url(MW_URL.($mc['permalinks']>1 ? $date_prefix.'/page/{PAGE_NUM}/' : '?date='.$date_prefix.'&amp;page={PAGE_NUM}'));
 $xoopsTpl->assign('pagenav', $nav->render(false));
 
-$sql = "SELECT * FROM ".$db->prefix("mw_posts")." WHERE pubdate BETWEEN $time and $time2 AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1).")) ORDER BY pubdate DESC LIMIT $start,$limit";
+$sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE pubdate BETWEEN $time and $time2 AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1).")) ORDER BY pubdate DESC LIMIT $start,$limit";
 $result = $db->query($sql);
 
 include 'post_data.php';

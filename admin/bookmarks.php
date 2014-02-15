@@ -19,7 +19,7 @@ function show_bookmarks(){
     
     // Cargamos los sitios
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "SELECT * FROM ".$db->prefix("mw_bookmarks")." ORDER BY title";
+    $sql = "SELECT * FROM ".$db->prefix("mod_mywords_bookmarks")." ORDER BY title";
     $result = $db->query($sql);
     
     while ($row = $db->fetchArray($result)){
@@ -179,7 +179,7 @@ function activate_bookmark($act){
     }
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "UPDATE ".$db->prefix("mw_bookmarks")." SET active=".($act?1:0)." WHERE id_book IN(".implode(',',$books).")";
+    $sql = "UPDATE ".$db->prefix("mod_mywords_bookmarks")." SET active=".($act?1:0)." WHERE id_book IN(".implode(',',$books).")";
     
     if ($db->queryF($sql)){
 		redirectMsg('bookmarks.php', __('Database updated successfully!','mywords'), 0);
@@ -208,7 +208,7 @@ function delete_bookmark(){
     }
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "DELETE FROM ".$db->prefix("mw_bookmarks")." WHERE id_book IN (".implode(',',$books).")";
+    $sql = "DELETE FROM ".$db->prefix("mod_mywords_bookmarks")." WHERE id_book IN (".implode(',',$books).")";
 	
 	if ($db->queryF($sql)){
 		redirectMsg('bookmarks.php', __('Database updated successfully!','mywords'), 0);

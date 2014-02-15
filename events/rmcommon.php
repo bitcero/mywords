@@ -16,19 +16,37 @@ class MywordsRmcommonPreload
         
 		if (!isset($xoopsModule) || ($xoopsModule->getVar('dirname')!='system' && $xoopsModule->getVar('dirname')!='mywords'))
 			return $widgets;
+
+        // Check edition
+        $id = RMHttpRequest::request( 'id', 'integer', 0 );
+        $op   = RMHttpRequest::request( 'op', 'string', '' );
+        $edit = $op=='edit' ? 1 : 0;
+        $post = null;
+
+        if ($edit){
+            //Verificamos que el software sea válido
+            if ($id<=0)
+                $params = '';
+
+            $post = new MWPost($id);
+
+        }
 		
 	    if (defined("RMCSUBLOCATION") && RMCSUBLOCATION=='new_post'){
-			include_once '../widgets/widget_publish.php';
-			$widgets[] = mw_widget_publish();
+			include_once '../widgets/widget-publish.php';
+			$widgets[] = mywords_widget_publish( $post );
 
-            include_once '../widgets/widget_image.php';
-            $widgets[] = mw_widget_image();
+            include_once '../widgets/widget-post-type.php';
+            $widgets[] = mywords_widget_post_type( $post );
+
+            include_once '../widgets/widget-image.php';
+            $widgets[] = mywords_widget_image( $post );
 			
-			include_once '../widgets/widget_categories.php';
-			$widgets[] = mw_widget_categories();
+			include_once '../widgets/widget-categories.php';
+			$widgets[] = mywords_widget_categories( $post );
 	        
-	        include_once '../widgets/widget_tags.php';
-	        $widgets[] = mw_widget_addtags();
+	        include_once '../widgets/widget-tags.php';
+	        $widgets[] = mywords_widget_addtags( $post );
 	        
 	    }
         
@@ -137,7 +155,7 @@ class MywordsRmcommonPreload
         unset($tags);
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
-        $sql = "SELECT * FROM ".$db->prefix("mw_editors")." ORDER BY name";
+        $sql = "SELECT * FROM ".$db->prefix("mod_mywords_editors")." ORDER BY name";
         $result = $db->query($sql);
         $editors = array();
         while ($row = $db->fetchArray($result)){

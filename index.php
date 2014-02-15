@@ -65,7 +65,7 @@ if (is_numeric($vars[0]) && is_numeric($vars[1]) && is_numeric($vars[2])){
         die();
     }
 
-	$sql = "SELECT id_post FROM ".$db->prefix("mw_posts")." WHERE shortname='$vars[3]' AND (pubdate>=$time AND pubdate<=".($time + 86400).")";
+	$sql = "SELECT id_post FROM ".$db->prefix("mod_mywords_posts")." WHERE shortname='$vars[3]' AND (pubdate>=$time AND pubdate<=".($time + 86400).")";
 	$result = $db->query($sql);
 	list($post) = $db->fetchRow($result);
 	require 'post.php';

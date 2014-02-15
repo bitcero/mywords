@@ -27,10 +27,35 @@ function xoops_module_update_mywords($mod, $pre){
 
     global $xoopsDB;
 
-    $xoopsDB->queryF("ALTER TABLE ".$xoopsDB->prefix("mw_posts")." ADD `created` INT(10) NOT NULL DEFAULT '0' AFTER `pubdate`");
-    $xoopsDB->queryF("ALTER TABLE ".$xoopsDB->prefix("mw_posts")." ADD `description` TEXT NOT NULL AFTER `image`");
-    $xoopsDB->queryF("ALTER TABLE ".$xoopsDB->prefix("mw_posts")." ADD `keywords` TEXT NOT NULL AFTER `description`");
-    $xoopsDB->queryF("ALTER TABLE ".$xoopsDB->prefix("mw_posts")." ADD `customtitle` VARCHAR(255) NOT NULL AFTER `keywords`");
+    // Update table names and engine
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_bookmarks").'` TO  `'.$xoopsDB->prefix("mod_mywords_bookmarks").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_bookmarks").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_categories").'` TO  `'.$xoopsDB->prefix("mod_mywords_categories").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_categories").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_catpost").'` TO  `'.$xoopsDB->prefix("mod_mywords_catpost").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_catpost").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_editors").'` TO  `'.$xoopsDB->prefix("mod_mywords_editors").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_editors").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_meta").'` TO  `'.$xoopsDB->prefix("mod_mywords_meta").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_meta").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_posts").'` TO  `'.$xoopsDB->prefix("mod_mywords_posts").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_posts").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_tags").'` TO  `'.$xoopsDB->prefix("mod_mywords_tags").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_tags").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_tagspost").'` TO  `'.$xoopsDB->prefix("mod_mywords_tagspost").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_tagspost").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF('RENAME TABLE `'.$xoopsDB->prefix("mw_trackbacks").'` TO  `'.$xoopsDB->prefix("mod_mywords_trackbacks").'` ;');
+    $xoopsDB->queryF('ALTER TABLE  `'.$xoopsDB->prefix("mod_mywords_trackbacks").'` ENGINE = INNODB;');
+
+    $xoopsDB->queryF("ALTER TABLE  `".$xoopsDB->prefix("mod_mywords_posts")."` ADD  `format` VARCHAR( 10 ) NOT NULL DEFAULT  'post', ADD INDEX (  `format` );");
 
     return true;
     

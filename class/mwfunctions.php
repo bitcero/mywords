@@ -33,7 +33,7 @@ class MWFunctions
 	*/
 	function get_metas(){
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
-		$result = $db->query("SELECT name FROM ".$db->prefix("mw_meta")." GROUP BY name");
+		$result = $db->query("SELECT name FROM ".$db->prefix("mod_mywords_meta")." GROUP BY name");
 		$ret = array();
 		while($row = $db->fetchArray($result)){
 			$ret[] = $row['name'];
@@ -55,7 +55,7 @@ class MWFunctions
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         
-        $sql = "SELECT * FROM ".$db->prefix("mw_categories")." WHERE parent='$parent' ORDER BY $order";
+        $sql = "SELECT * FROM ".$db->prefix("mod_mywords_categories")." WHERE parent='$parent' ORDER BY $order";
         $result = $db->query($sql);
         while ($row = $db->fetchArray($result)){
             if ($row['id_cat']==$exclude) continue;
@@ -81,7 +81,7 @@ class MWFunctions
     public function category_exists(MWCategory $cat){
 		
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
-		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_categories")." WHERE name='".$cat->getVar('name','n')."' OR
+		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_categories")." WHERE name='".$cat->getVar('name','n')."' OR
 				shortname='".$cat->getVar('shortname','n')."'";
 		
 		if (!$cat->isNew()){
@@ -127,7 +127,7 @@ class MWFunctions
         }
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
-        $sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE (pubdate>=$bdate AND pubdate<=$tdate) AND 
+        $sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE (pubdate>=$bdate AND pubdate<=$tdate) AND
         		(title='".$post->getVar('title','n')."' OR shortname='".$post->getVar('shortname','n')."')";
         
 
@@ -155,7 +155,7 @@ class MWFunctions
     */
     public function get_tags($select = '*', $where='',$order='',$limit=''){
         $db = XoopsDatabaseFactory::getDatabaseConnection();
-        $sql = "SELECT $select FROM ".$db->prefix("mw_tags").($where!='' ? " WHERE $where" : '').($order!='' ? " ORDER BY $order" : '' ).($limit!='' ? " LIMIT $limit" : '');
+        $sql = "SELECT $select FROM ".$db->prefix("mod_mywords_tags").($where!='' ? " WHERE $where" : '').($order!='' ? " ORDER BY $order" : '' ).($limit!='' ? " LIMIT $limit" : '');
         $result = $db->query($sql);
         $tags = array();
         while ($row = $db->fetchArray($result)){
@@ -175,7 +175,7 @@ class MWFunctions
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         if ($this->max_popularity<=0){
-            $sql = "SELECT MAX(posts) FROM ".$db->prefix("mw_tags");
+            $sql = "SELECT MAX(posts) FROM ".$db->prefix("mod_mywords_tags");
             list($this->max_popularity) = $db->fetchRow($db->query($sql));
         }
         
@@ -198,7 +198,7 @@ class MWFunctions
     public function default_category_id(){
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
-        $result = $db->query("SELECT id_cat FROM ".$db->prefix("mw_categories")." WHERE id_cat='1'");
+        $result = $db->query("SELECT id_cat FROM ".$db->prefix("mod_mywords_categories")." WHERE id_cat='1'");
         if ($db->getRowsNum($result)<=0) return false;
         
         list($id) = $db->fetchRow($result);
@@ -214,7 +214,7 @@ class MWFunctions
     public function author_name($uid){
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
-        $result = $db->query("SELECT name FROM ".$db->prefix("mw_editors")." WHERE uid='$uid'");
+        $result = $db->query("SELECT name FROM ".$db->prefix("mod_mywords_editors")." WHERE uid='$uid'");
         if ($db->getRowsNum($result)>0){
             $row = $db->fetchArray($result);
             return $row['name'];
@@ -242,7 +242,7 @@ class MWFunctions
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         
-        $sql = "SELECT id_tag, shortname FROM ".$db->prefix('mw_tags')." WHERE ";
+        $sql = "SELECT id_tag, shortname FROM ".$db->prefix('mod_mywords_tags')." WHERE ";
         $sa = '';
         foreach($tags as $tag){
             $sa .= $sa=='' ? "shortname='".TextCleaner::sweetstring($tag)."'" : " OR shortname='".TextCleaner::sweetstring($tag)."'";
@@ -264,7 +264,7 @@ class MWFunctions
             $short = TextCleaner::sweetstring($tag);
             
             if (isset($existing[$short])) continue;
-            $sql = "INSERT INTO ".$db->prefix("mw_tags")." (`tag`,`shortname`,`posts`) VALUES ('$tag','$short','0')";
+            $sql = "INSERT INTO ".$db->prefix("mod_mywords_tags")." (`tag`,`shortname`,`posts`) VALUES ('$tag','$short','0')";
             if ($db->queryF($sql)){
                 $ids[] = $db->getInsertId();
             }
@@ -319,7 +319,7 @@ class MWFunctions
     
     public function go_scheduled(){
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
-		$sql = "UPDATE ".$db->prefix("mw_posts")." SET pubdate=schedule, schedule=0, status='publish' WHERE status<>'draft' AND pubdate<schedule AND schedule<=".time();
+		$sql = "UPDATE ".$db->prefix("mod_mywords_posts")." SET pubdate=schedule, schedule=0, status='publish' WHERE status<>'draft' AND pubdate<schedule AND schedule<=".time();
 		return $db->queryF($sql);
     }
     
@@ -350,10 +350,10 @@ class MWFunctions
 		
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
 		if ($cat>0){
-			$sql = "SELECT a.* FROM ".$db->prefix("mw_posts")." as a, ".$db->prefix("mw_catpost")." as b WHERE
+			$sql = "SELECT a.* FROM ".$db->prefix("mod_mywords_posts")." as a, ".$db->prefix("mod_mywords_catpost")." as b WHERE
 				b.cat='$cat' AND a.id_post=b.post AND a.status='$status' ORDER BY a.$orderby $order LIMIT $start,$limit";
         } else {
-			$sql = "SELECT a.* FROM ".$db->prefix("mw_posts")." as a WHERE
+			$sql = "SELECT a.* FROM ".$db->prefix("mod_mywords_posts")." as a WHERE
 				a.status='$status' ORDER BY a.$orderby $order LIMIT $start,$limit";
 		}
 
@@ -390,7 +390,7 @@ class MWFunctions
 		$tags = !is_array($tags) ? array($tags) : $tags;
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
 
-		$sql = "SELECT a.* FROM ".$db->prefix("mw_posts")." as a, ".$db->prefix("mw_tagspost")." as b WHERE
+		$sql = "SELECT a.* FROM ".$db->prefix("mod_mywords_posts")." as a, ".$db->prefix("mod_mywords_tagspost")." as b WHERE
 				b.tag IN (".implode(",",$tags).") AND a.id_post=b.post AND a.status='$status' GROUP BY a.id_post ORDER BY a.$orderby $order LIMIT $start,$limit";
 
 		$result = $db->query($sql);
@@ -417,7 +417,7 @@ class MWFunctions
 		
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
 		
-		$sql = "SELECT * FROM ".$db->prefix("mw_posts");
+		$sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts");
 		if ($where!=''){
 			$sql .= " WHERE $where";
 		}

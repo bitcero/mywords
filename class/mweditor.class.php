@@ -15,7 +15,7 @@ class MWEditor extends RMObject
 	public function __construct($id = null){
 		
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mw_editors");
+        $this->_dbtable = $this->db->prefix("mod_mywords_editors");
         $this->setNew();
         $this->initVarsFromTable();
         $this->setVarType('privileges', XOBJ_DTYPE_ARRAY);
@@ -36,7 +36,7 @@ class MWEditor extends RMObject
     
     public function posts(){
         
-        $sql = "SELECT COUNT(*) FROM ".$this->db->prefix("mw_posts")." WHERE author=".$this->id();
+        $sql = "SELECT COUNT(*) FROM ".$this->db->prefix("mod_mywords_posts")." WHERE author=".$this->id();
         list($num) = $this->db->fetchRow($this->db->query($sql));
         return $num;
         

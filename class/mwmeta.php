@@ -12,7 +12,7 @@ class MWMeta extends RMObject
 {
 	public function __construct($id = null){
         $this->db = XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mw_meta");
+        $this->_dbtable = $this->db->prefix("mod_mywords_meta");
         $this->setNew();
         $this->initVarsFromTable();
         

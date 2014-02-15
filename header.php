@@ -28,7 +28,7 @@ if ($mc['use_css']){
 }
 
 // Redes Sociales
-$sql = "SELECT * FROM ".$db->prefix("mw_bookmarks")." WHERE `active`='1'";
+$sql = "SELECT * FROM ".$db->prefix("mod_mywords_bookmarks")." WHERE `active`='1'";
 $result = $db->query($sql);
 
 $socials = array();

@@ -130,6 +130,7 @@ $post->setVar('comstatus', isset($comstatus) ? $comstatus : 0);
 $post->setVar('pingstatus', isset($pingstatus) ? $pingstatus : 0);
 $post->setVar('authorname', $authorname);
 $post->setVar('image', $image);
+$post->setVar('format', $format);
 
 // SEO
 $post->setVar('description', $description);

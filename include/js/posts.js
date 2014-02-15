@@ -376,6 +376,7 @@ $(document).ready( function($) {
         // Serialize all data
         var params = $("form#mw-form-posts").serialize();
         params += "&"+$("form#mw-post-publish-form").serialize();
+        params += "&"+$("form#frm-post-type").serialize();
         params += "&"+$("form#mw-post-categos-form").serialize();
         params += "&"+$("form#mw-post-tags-form").serialize();
         params += "&"+$("form#frm-defimage").serialize();

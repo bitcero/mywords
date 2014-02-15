@@ -11,17 +11,15 @@
 /**
 * Categories widget
 */
-function mw_widget_categories(){
+function mywords_widget_categories( $post = null ){
 	global $xoopsUser, $allowed_cats;
 	
 	$widget['title'] = __('Categories','admin_mywords');
 	$widget['icon'] = '';
     
-    $id = rmc_server_var($_REQUEST,'id',0);
     $postcat = array();
     $edit = false;
-    if ($id>0){
-        $post = new MWPost($id);
+    if (isset($post) && is_a( $post, 'MWPost')){
         if ($post->isNew()){
             unset($post);
             $postcat = array();

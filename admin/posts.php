@@ -27,15 +27,15 @@ function showPosts($aprovado = -1){
 		$$k = $v;
 	}
 	
-	$tbl1 = $db->prefix("mw_posts");
-	$tbl2 = $db->prefix("mw_catpost");
+	$tbl1 = $db->prefix("mod_mywords_posts");
+	$tbl2 = $db->prefix("mod_mywords_catpost");
 	$and = false;
     
 	if ($cat>0){
 		$sql = "SELECT COUNT(*) FROM $tbl1 a, $tbl2 b WHERE b.cat='$cat' AND a.id_post=b.post";
         $and = true;
 	} else {
-		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts");
+		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts");
 	}	
 	
 	if (isset($status) && $status!=''){
@@ -101,13 +101,13 @@ function showPosts($aprovado = -1){
 	}
 	
 	// Published count
-	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE status='publish'";
+	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='publish'";
 	list($pub_count) = $db->fetchRow($db->query($sql));
 	// Drafts count
-	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE status='draft'";
+	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='draft'";
 	list($draft_count) = $db->fetchRow($db->query($sql));
 	// Pending count
-	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE status='waiting'";
+	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='waiting'";
 	list($pending_count) = $db->fetchRow($db->query($sql));
 	
 	// Confirm message
@@ -227,7 +227,7 @@ function deletePost(){
 	}
 	
 	$db = XoopsDatabaseFactory::getDatabaseConnection();
-	$sql = "SELECT * FROM ".$db->prefix("mw_posts")." WHERE id_post IN (".implode(",",$posts).")";
+	$sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE id_post IN (".implode(",",$posts).")";
 	$result = $db->query($sql);
 	
 	while($row = $db->fetchArray($result)){
@@ -267,7 +267,7 @@ function set_posts_status($status){
     }
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "UPDATE ".$db->prefix("mw_posts")." SET status='$status' WHERE id_post IN (".implode(",", $posts).")";
+    $sql = "UPDATE ".$db->prefix("mod_mywords_posts")." SET status='$status' WHERE id_post IN (".implode(",", $posts).")";
     if (!$db->queryF($sql)){
         redirectMsg('posts.php?'.$q, __('Posts could not be updated!', 'mw_categories'), 1);
         die();

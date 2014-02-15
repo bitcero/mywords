@@ -15,7 +15,7 @@ include 'header.php';
 /**
  * Paginación de Resultados
  */
-$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1)."))";
+$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1)."))";
 list($num) = $db->fetchRow($db->query($sql));
 
 $page = rmc_server_var($_GET, 'page', 0);
@@ -36,7 +36,7 @@ $nav = new RMPageNav($num, $limit, $page, 5);
 $nav->target_url(MW_URL.($mc['permalinks']>1 ? 'page/{PAGE_NUM}/' : '?page={PAGE_NUM}'));
 $xoopsTpl->assign('pagenav', $nav->render(false));
 
-$sql = "SELECT * FROM ".$db->prefix("mw_posts")." WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1).")) ORDER BY pubdate DESC LIMIT $start,$limit";
+$sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1).")) ORDER BY pubdate DESC LIMIT $start,$limit";
 $result = $db->query($sql);
 
 include 'post_data.php';

@@ -24,7 +24,7 @@ class MywordsController implements iCommentsController
         
         if(!isset($post) || $post<=0) return;
         
-        $sql = "UPDATE ".$db->prefix("mw_posts")." SET comments=comments+1 WHERE id_post=$post";
+        $sql = "UPDATE ".$db->prefix("mod_mywords_posts")." SET comments=comments+1 WHERE id_post=$post";
         $db->queryF($sql);
         
     }
@@ -37,7 +37,7 @@ class MywordsController implements iCommentsController
         
         if(!isset($post) || $post<=0) return;
         
-        $sql = "UPDATE ".$db->prefix("mw_posts")." SET comments=comments-1 WHERE id_post=$post AND comments>0";
+        $sql = "UPDATE ".$db->prefix("mod_mywords_posts")." SET comments=comments-1 WHERE id_post=$post AND comments>0";
         $db->queryF($sql);
 		
     }

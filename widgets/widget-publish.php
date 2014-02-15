@@ -12,7 +12,7 @@
 * Publish widget
 * @return array
 */
-function mw_widget_publish(){
+function mywords_widget_publish( $post = null ){
 	global $xoopsUser;
 	
 	RMTemplate::get()->add_style('publish_widget.css','mywords');
@@ -26,17 +26,10 @@ function mw_widget_publish(){
     
     $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
     $edit = false;
-    if ($id>0){
-        $post = new MWPost($id);
-        if ($post->isNew()){
-            unset($post);
-        } else {
-            $edit = true;
-        }
-    }
     
-    if ($edit){
-        
+    if ( isset($post) && is_a( $post, 'MWPost' ) ){
+
+        $edit = true;
         switch($post->getVar('status')){
 			case 'draft':
 				$status = __('Draft','mywords');

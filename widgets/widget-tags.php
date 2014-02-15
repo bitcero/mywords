@@ -11,18 +11,15 @@
 /**
 * Widget that show tags selection in a post form
 */
-function mw_widget_addtags(){
+function mywords_widget_addtags( $post = null ){
     global $xoopsModuleConfig, $xoopsUser, $allowed_tags;
     
     $widget['title'] = __('Add Tags','admin_mywords');
     RMTemplate::get()->add_script(XOOPS_URL.'/modules/mywords/include/js/scripts.php?file=tags.js');
     $widget['icon'] = '';
-    
-    
-    $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
+
     $edit = false;
-    if ($id>0){
-        $post = new MWPost($id);
+    if ( isset($post) && is_a( $post, 'MWPost' ) ){
         if ($post->isNew()){
             unset($post);
         } else {

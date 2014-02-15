@@ -23,7 +23,7 @@ function show_tags(){
     
     // More used tags
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "SELECT * FROM ".$db->prefix("mw_tags")." ORDER BY posts DESC LIMIT 0,30";
+    $sql = "SELECT * FROM ".$db->prefix("mod_mywords_tags")." ORDER BY posts DESC LIMIT 0,30";
     $result = $db->query($sql);
     $mtags = array();
     $size = 0;
@@ -35,7 +35,7 @@ function show_tags(){
     ksort($mtags);
     
     // All tags
-    list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_tags")));
+    list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_tags")));
     $page = rmc_server_var($_GET, 'page', 1);
 	$limit = isset($limit) && $limit>0 ? $limit : 15;
 	
@@ -47,7 +47,7 @@ function show_tags(){
 	$nav = new RMPageNav($num, $limit, $page, 5);
     $nav->target_url('tags.php?page={PAGE_NUM}');
 	
-	$sql = "SELECT * FROM ".$db->prefix("mw_tags")." ORDER BY id_tag DESC LIMIT $start,$limit";
+	$sql = "SELECT * FROM ".$db->prefix("mod_mywords_tags")." ORDER BY id_tag DESC LIMIT $start,$limit";
     
     $result = $db->query($sql);
     $tags = array();
@@ -119,9 +119,9 @@ function save_tag($edit = false){
 	// Check if tag exists
 	$db = XoopsDatabaseFactory::getDatabaseConnection();
 	if ($edit){
-		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_tags")." WHERE (tag='$name' OR shortname='$short') AND id_tag<>$id";
+		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_tags")." WHERE (tag='$name' OR shortname='$short') AND id_tag<>$id";
 	} else {
-		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mw_tags")." WHERE tag='$name' OR shortname='$short'";
+		$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_tags")." WHERE tag='$name' OR shortname='$short'";
 	}
 	
 	list($num) = $db->fetchRow($db->query($sql));
@@ -193,13 +193,13 @@ function delete_tag(){
 	
 	// Delete all relations
 	$db = XoopsDatabaseFactory::getDatabaseConnection();
-	$sql = "DELETE FROM ".$db->prefix("mw_tagspost")." WHERE tag IN(".implode(",",$tags).")";
+	$sql = "DELETE FROM ".$db->prefix("mod_mywords_tagspost")." WHERE tag IN(".implode(",",$tags).")";
 	if (!$db->queryF($sql)){
 		redirectMsg('tags.php?page='.$page, __('Errors ocurred while trying to delete tags!','mywords').'<br />'.$db->error(), 1);
 		die();
 	}
 	
-	$sql = "DELETE FROM ".$db->prefix("mw_tags")." WHERE id_tag IN(".implode(",",$tags).")";
+	$sql = "DELETE FROM ".$db->prefix("mod_mywords_tags")." WHERE id_tag IN(".implode(",",$tags).")";
 	if (!$db->queryF($sql)){
 		redirectMsg('tags.php?page='.$page, __('Errors ocurred while trying to delete tags!','mywords').'<br />'.$db->error(), 1);
 		die();

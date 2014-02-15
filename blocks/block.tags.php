@@ -14,7 +14,7 @@ include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php';
 function myWordsBlockTags($options){
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "SELECT * FROM ".$db->prefix("mw_tags")." ORDER BY RAND() LIMIT 0,$options[0]";
+    $sql = "SELECT * FROM ".$db->prefix("mod_mywords_tags")." ORDER BY RAND() LIMIT 0,$options[0]";
     $result = $db->query($sql);
     $block = array();
     $max = 0;

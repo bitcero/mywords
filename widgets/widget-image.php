@@ -11,25 +11,16 @@
 /**
  * Provides a widget to specify the default image for posts
  */
-function mw_widget_image(){
+function mywords_widget_image( $post = null ){
     global $xoopsSecurity, $xoopsModuleConfig, $xoopsUser, $rm_config;
-
-    $id = RMHttpRequest::request( 'id', 'integer', 0 );
     
     $type   = RMHttpRequest::request( 'type', 'string', '' );
-    $op   = RMHttpRequest::request( 'op', 'string', '' );
-    $edit = $op=='edit' ? 1 : 0;
 
     $widget = array();
     $widget['title'] = __('Default Image','mywords');
     $util = new RMUtilities();
 
-    if ($edit){
-        //Verificamos que el software sea válido
-        if ($id<=0)
-            $params = '';
-
-        $post = new MWPost($id);
+    if ( isset($post) && is_a( $post, 'MWPost' ) ){
 
         if ($post->isNew())
             $params = '';

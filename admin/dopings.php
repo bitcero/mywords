@@ -61,14 +61,14 @@ function trackback($url, &$post){
 	return true;
 }
 
-$sql = "SELECT id_post, toping FROM ".$db->prefix("mw_posts")." WHERE toping<>'' LIMIT 0, 2";
+$sql = "SELECT id_post, toping FROM ".$db->prefix("mod_mywords_posts")." WHERE toping<>'' LIMIT 0, 2";
 $result = $db->query($sql);
 while ($row = $db->fetchArray($result)){
 	$tracks = explode(' ',$row['toping']);
 	foreach ($tracks as $k){
 		if (trackback($k, new NPPost($row['id_post']))){
-			$db->queryF("UPDATE ".$db->prefix("mw_posts")." SET pinged = CONCAT(pinged, '\n', '$k') WHERE id_post = '$row[id_post]'");
-			$db->queryF("UPDATE ".$db->prefix("mw_posts")." SET toping = TRIM(REPLACE(toping, '$k', '')) WHERE id_post = '$row[id_post]'");
+			$db->queryF("UPDATE ".$db->prefix("mod_mywords_posts")." SET pinged = CONCAT(pinged, '\n', '$k') WHERE id_post = '$row[id_post]'");
+			$db->queryF("UPDATE ".$db->prefix("mod_mywords_posts")." SET toping = TRIM(REPLACE(toping, '$k', '')) WHERE id_post = '$row[id_post]'");
 		}
 	}
 }

@@ -12,9 +12,9 @@ $xoopsOption['template_main'] = 'mywords_cats.html';
 $xoopsOption['module_subpage'] = 'catego';
 include 'header.php';
 
-$tbl1 = $db->prefix("mw_categories");
-$tbl2 = $db->prefix("mw_catpost");
-$tbl3 = $db->prefix("mw_posts");
+$tbl1 = $db->prefix("mod_mywords_categories");
+$tbl2 = $db->prefix("mod_mywords_catpost");
+$tbl3 = $db->prefix("mod_mywords_posts");
 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page']: 0;
 	
@@ -64,7 +64,7 @@ $request = substr($request, 0, strpos($request, 'page')>0 ? strpos($request, 'pa
 //$request = 
 
 // Select all posts from relations table
-//$sql = "SELECT post FROM ".$db->prefix("mw_catpost")." WHERE cat='$category'";
+//$sql = "SELECT post FROM ".$db->prefix("mod_mywords_catpost")." WHERE cat='$category'";
 //$result = $db->query($sql);
 
 /**

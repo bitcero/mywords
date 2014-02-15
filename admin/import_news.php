@@ -89,7 +89,7 @@ switch ($op){
 		$result = $db->query("SELECT * FROM ".$db->prefix("xoopscomments")." WHERE com_modid='".$module->mid()."'");
 		while ($row = $db->fetchArray($result)){
 			$xu = new XoopsUser($row['com_uid']);
-			$sql = "INSERT INTO ".$db->prefix("mw_comments")." (`post`,`nombre`,`email`,`texto`,`xu`,`fecha`,`aprovado`)
+			$sql = "INSERT INTO ".$db->prefix("mod_mywords_comments")." (`post`,`nombre`,`email`,`texto`,`xu`,`fecha`,`aprovado`)
 					VALUES ('".$stories[$row['com_itemid']]."','".$xu->uname()."','".$xu->email()."','$row[com_text]',
 					'$row[com_uid]','$row[com_created]','".($row['com_status']==2 ? 1 : 0)."')";
 			$db->queryF($sql);

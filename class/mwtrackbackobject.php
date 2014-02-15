@@ -13,7 +13,7 @@ class MWTrackbackObject extends RMObject
 	public function __construct($id=null){
 		
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("mw_trackbacks");
+		$this->_dbtable = $this->db->prefix("mod_mywords_trackbacks");
 		$this->setNew();
 		$this->initVarsFromTable();
 		if ($id==null && $id<=0){

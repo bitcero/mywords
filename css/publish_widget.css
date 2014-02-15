@@ -150,3 +150,11 @@ div#w-catnew-form input[type='text'], div#w-catnew-form select{
 label.error{
 	display: none;
 }
+
+.mywords-post-types .fa{
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+    color: #b3b3b3;
+    vertical-align: middle;
+}

@@ -202,7 +202,7 @@ function saveCatego($edit = 0){
 	$shortname = $shortname=='' ? TextCleaner::sweetstring($name) : $shortname;
 	
 	# Verificamos que no exista la categoría
-	$result = $db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_categories")." WHERE parent='$parent'".($edit ? " AND id_cat<>$id" : '')." AND (name='$name' OR shortname='$shortname')");
+	$result = $db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_categories")." WHERE parent='$parent'".($edit ? " AND id_cat<>$id" : '')." AND (name='$name' OR shortname='$shortname')");
 	list($num) = $db->fetchRow($result);
 	
 	if ($num>0){
@@ -247,7 +247,7 @@ function deleteCatego(){
 	}
 	
 	$db = XoopsDatabaseFactory::getDatabaseConnection();
-	$sql = "SELECT * FROM ".$db->prefix("mw_categories")." WHERE id_cat IN (".implode(",", $cats).")";
+	$sql = "SELECT * FROM ".$db->prefix("mod_mywords_categories")." WHERE id_cat IN (".implode(",", $cats).")";
 	$result = $db->query($sql);
 	
 	while($row = $db->fetchArray($result)){

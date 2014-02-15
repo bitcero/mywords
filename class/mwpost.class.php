@@ -54,7 +54,7 @@ class MWPost extends RMObject
 	function __construct($id=null){
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
 		$this->myts =& MyTextSanitizer::getInstance();
-		$this->_dbtable = $this->db->prefix("mw_posts");
+		$this->_dbtable = $this->db->prefix("mod_mywords_posts");
 		$this->setNew();
 		$this->initVarsFromTable();
 		$this->setVarType('toping', XOBJ_DTYPE_ARRAY);
@@ -134,7 +134,7 @@ class MWPost extends RMObject
 	 */
 	public function add_comment(){
 		$this->setVar('comments', $this->getVar('comments') + 1);
-        $this->db->queryF("UPDATE ".$this->db->prefix("mw_posts")." SET comments='".($this->getVar('comments'))."' 
+        $this->db->queryF("UPDATE ".$this->db->prefix("mod_mywords_posts")." SET comments='".($this->getVar('comments'))."'
                 WHERE id_post='".$this->id()."'");
 	}
 	
@@ -149,7 +149,7 @@ class MWPost extends RMObject
 		if ($xoopsUser && $editor->id()==$xoopsUser->uid()) return;
 		
 		$this->setVar('reads', $this->getVar('reads') + 1);
-		$this->db->queryF("UPDATE ".$this->db->prefix("mw_posts")." SET `reads`='".($this->getVar('reads'))."' 
+		$this->db->queryF("UPDATE ".$this->db->prefix("mod_mywords_posts")." SET `reads`='".($this->getVar('reads'))."'
 				WHERE id_post='".$this->id()."'");
 	}
 
@@ -161,8 +161,8 @@ class MWPost extends RMObject
 	public function get_categos($w='ids'){
 		global $mc;
 		
-		$tbl1 = $this->db->prefix("mw_categories");
-		$tbl2 = $this->db->prefix("mw_catpost");
+		$tbl1 = $this->db->prefix("mod_mywords_categories");
+		$tbl2 = $this->db->prefix("mod_mywords_catpost");
 		
 		$objs = array();
 		if (empty($this->categos)){	
@@ -267,7 +267,7 @@ class MWPost extends RMObject
 		
 		$db = $this->db;
 		
-		$sql = "SELECT t.* FROM ".$db->prefix("mw_tags")." as t, ".$db->prefix("mw_tagspost")." as r WHERE r.post='".$this->id()."' AND t.id_tag=r.tag";
+		$sql = "SELECT t.* FROM ".$db->prefix("mod_mywords_tags")." as t, ".$db->prefix("mod_mywords_tagspost")." as r WHERE r.post='".$this->id()."' AND t.id_tag=r.tag";
 		
 		$result = $db->query($sql);
 		$this->tags = array();
@@ -320,7 +320,7 @@ class MWPost extends RMObject
 	private function load_meta(){
 		if (!empty($this->metas)) return;
 
-		$result = $this->db->query("SELECT * FROM ".$this->db->prefix("mw_meta")." WHERE post='".$this->id()."'");
+		$result = $this->db->query("SELECT * FROM ".$this->db->prefix("mod_mywords_meta")." WHERE post='".$this->id()."'");
 		while($row = $this->db->fetchArray($result)){
 			$this->metas[$row['name']] = $row;
 		}
@@ -431,7 +431,7 @@ class MWPost extends RMObject
         if (!empty($this->trackbacks)) return $this->trackbacks;
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
-        $sql = "SELECT * FROM ".$db->prefix("mw_trackbacks")." WHERE post='".$this->id()."'";
+        $sql = "SELECT * FROM ".$db->prefix("mod_mywords_trackbacks")." WHERE post='".$this->id()."'";
         
         $result = $db->query($sql);
         $rtn = array();
@@ -453,7 +453,7 @@ class MWPost extends RMObject
      */
     public function getImage($size='thumbnail'){
 
-        if($this->getVar('image', 'e')<=0) return false;
+        if($this->getVar('image', 'e') == '') return false;
         $func = new RMFunctions();
         $image = $func->get_image($this->getVar('image', 'e'), $size);
         
@@ -496,7 +496,7 @@ class MWPost extends RMObject
         $this->save_tags();
         
         // Increment tags post number
-        $sql = "UPDATE ".$this->db->prefix("mw_tags")." SET posts=posts+1 WHERE id_tag IN(".implode(',',$this->tags).")";
+        $sql = "UPDATE ".$this->db->prefix("mod_mywords_tags")." SET posts=posts+1 WHERE id_tag IN(".implode(',',$this->tags).")";
         $this->db->queryF($sql);
         
 		return true;
@@ -506,9 +506,9 @@ class MWPost extends RMObject
 	* Save existing meta
 	*/
 	private function save_metas(){
-		$this->db->queryF("DELETE FROM ".$this->db->prefix("mw_meta")." WHERE post='".$this->id()."'");
+		$this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_meta")." WHERE post='".$this->id()."'");
 		if (empty($this->metas)) return true;
-		$sql = "INSERT INTO ".$this->db->prefix("mw_meta")." (`name`,`value`,`post`) VALUES ";
+		$sql = "INSERT INTO ".$this->db->prefix("mod_mywords_meta")." (`name`,`value`,`post`) VALUES ";
 		$values = '';
 		foreach ($this->metas as $name => $value){
             if (is_array($value)) $value = $value['value'];
@@ -529,8 +529,8 @@ class MWPost extends RMObject
 		if (empty($this->categos)){
 			$this->add_categories(MWFunctions::default_category_id());
 		}
-		$this->db->queryF("DELETE FROM ".$this->db->prefix("mw_catpost")." WHERE post='".$this->id()."'");
-		$sql = "INSERT INTO ".$this->db->prefix("mw_catpost")." (`post`,`cat`) VALUES ";
+		$this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE post='".$this->id()."'");
+		$sql = "INSERT INTO ".$this->db->prefix("mod_mywords_catpost")." (`post`,`cat`) VALUES ";
 		foreach ($this->categos as $k){
 			$sql .= "('".$this->id()."','$k'), ";
 		}
@@ -549,12 +549,12 @@ class MWPost extends RMObject
     */
     public function save_tags(){
         if (!$this->isNew()){
-            $this->db->queryF("DELETE FROM ".$this->db->prefix("mw_tagspost")." WHERE post='".$this->id()."'");
+            $this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE post='".$this->id()."'");
         }
         
         if (empty($this->tags)) return true;
         
-        $sql = "INSERT INTO ".$this->db->prefix("mw_tagspost")." (`post`,`tag`) VALUES ";
+        $sql = "INSERT INTO ".$this->db->prefix("mod_mywords_tagspost")." (`post`,`tag`) VALUES ";
         $sa = '';
         foreach ($this->tags as $tag){
             $sa .= $sa=='' ? "('".$this->id()."','$tag')" : ",('".$this->id()."','$tag')";
@@ -583,28 +583,28 @@ class MWPost extends RMObject
         // Event
         RMEvents::get()->run_event('mywords.delete.post', $this);
         
-		$sql = "DELETE FROM ".$this->db->prefix("mw_catpost")." WHERE post='".$this->id()."'";
+		$sql = "DELETE FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE post='".$this->id()."'";
 		if (!$this->db->queryF($sql)){
 			$this->addError($this->db->error());
 		}
         
-        $sql = "DELETE FROM ".$this->db->prefix("mw_meta")." WHERE post='".$this->id()."'";
+        $sql = "DELETE FROM ".$this->db->prefix("mod_mywords_meta")." WHERE post='".$this->id()."'";
         if (!$this->db->queryF($sql)){
             $this->addError($this->db->error());
         }
         
         // Deleting trackbacks
-        $sql = "DELETE FROM ".$this->db->prefix("mw_trackbacks")." WHERE post='".$this->id()."'";
+        $sql = "DELETE FROM ".$this->db->prefix("mod_mywords_trackbacks")." WHERE post='".$this->id()."'";
         if (!$this->db->queryF($sql)){
             $this->addError($this->db->error());
         }
         
-        $this->db->queryF("DELETE FROM ".$this->db->prefix("mw_tagspost")." WHERE post='".$this->id()."'");
+        $this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE post='".$this->id()."'");
         foreach($this->tags(false) as $tag){
             $tags[] = $tag['id_tag'];
         }
         
-        $sql = "UPDATE ".$this->db->prefix("mw_tags")." SET posts=posts-1 WHERE id_tag IN(".implode(',',$this->tags).")";
+        $sql = "UPDATE ".$this->db->prefix("mod_mywords_tags")." SET posts=posts-1 WHERE id_tag IN(".implode(',',$this->tags).")";
         $this->db->queryF($sql);
 		
 		$this->deleteFromTable();

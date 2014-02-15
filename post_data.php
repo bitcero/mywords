@@ -54,6 +54,7 @@ while ($row = $db->fetchArray($result)){
     $xoopsTpl->append('posts', array(
         'id'                =>$post->id(),
         'title'            	=>$post->getVar('title'),
+        'format'            =>$post->getVar('format'),
         'text'              =>$text,
         'cats'           	=>$post->get_categos('data'),
         'link'              =>$link,

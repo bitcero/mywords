@@ -12,20 +12,20 @@ define('RMCLOCATION','dashboard');
 require 'header.php';
 
 	
-list($numcats) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_categories")));
-list($numposts) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_posts")));
-list($numdrafts) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE status='draft'"));
-list($numpending) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE status='waiting'"));
-list($numeditors) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_editors")));
-list($numsocials) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_bookmarks")));
-list($numcoms) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("rmc_comments")." WHERE id_obj='mywords'"));
-list($numtags) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mw_tags")));
+list($numcats) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_categories")));
+list($numposts) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")));
+list($numdrafts) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='draft'"));
+list($numpending) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='waiting'"));
+list($numeditors) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_editors")));
+list($numsocials) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_bookmarks")));
+list($numcoms) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_rmcommon_comments")." WHERE id_obj='mywords'"));
+list($numtags) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_tags")));
 	
 /**
 * @desc Caragmaos los artículos recientemente enviados
 */
 $drafts = array();
-$result = $db->query("SELECT * FROM ".$db->prefix("mw_posts")." WHERE status='draft' ORDER BY id_post DESC LIMIT 0,5");
+$result = $db->query("SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE status='draft' ORDER BY id_post DESC LIMIT 0,5");
 while ($row = $db->fetchArray($result)){
     $post = new MWPost();
     $post->assignVars($row);
@@ -33,7 +33,7 @@ while ($row = $db->fetchArray($result)){
 }
 
 $pendings = array();
-$result = $db->query("SELECT * FROM ".$db->prefix("mw_posts")." WHERE status='waiting' ORDER BY id_post DESC LIMIT 0,8");
+$result = $db->query("SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE status='waiting' ORDER BY id_post DESC LIMIT 0,8");
 while ($row = $db->fetchArray($result)){
     $post = new MWPost();
     $post->assignVars($row);
@@ -41,7 +41,7 @@ while ($row = $db->fetchArray($result)){
 }
 
 // Editors
-$sql = "SELECT *, (SELECT COUNT(*) FROM ".$db->prefix("mw_posts")." WHERE author=id_editor) as counter FROM ".$db->prefix("mw_editors")." ORDER BY counter DESC LIMIT 0, 5";
+$sql = "SELECT *, (SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE author=id_editor) as counter FROM ".$db->prefix("mod_mywords_editors")." ORDER BY counter DESC LIMIT 0, 5";
 $result = $db->query($sql);
 $editors = array();
 while($row = $db->fetchArray($result)){
