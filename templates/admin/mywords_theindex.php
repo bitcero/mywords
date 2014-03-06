@@ -1,8 +1,8 @@
 <h1 class="cu-section-title mw_titles"><em class="fa fa-home"></em> <?php _e('Dashboard','mywords'); ?></h1>
 
-<div id="row">
+<div id="row"  data-news="load" data-boxes="load" data-module="mywords" data-target="#mywords-news">
     
-    <div class="col-md-4 col-lg-4">
+    <div class="col-md-4 col-lg-4" data-box="mywords-left">
         <!-- Quick overview -->
         <div class="cu-box">
             <div class="box-header">
@@ -84,7 +84,7 @@
     </div>
 
 
-    <div class="col-md-4 col-lg-4">
+    <div class="col-md-4 col-lg-4" data-box="mywords-center">
 
         <?php if(isset($htResult) && $htResult!==true): ?>
         <div class="alert alert-block">
@@ -170,10 +170,10 @@
     </div>
 
 
-    <div class="col-md-4 col-lg-4">
+    <div class="col-md-4 col-lg-4" data-box="mywords-right">
 
         <!-- Recent News -->
-        <div class="cu-box" data-load="news" data-module="mywords" data-target="#mywords-news">
+        <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('Recent News','mywords'); ?></h3>
@@ -187,8 +187,6 @@
         <!-- Other blocks -->
         <?php RMEvents::get()->run_event('mywords.dashboard.right.widgets'); ?>
         <!-- /End other blocks -->
-
-        <div data-load="boxes"></div>
 
     </div>
     
