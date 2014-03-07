@@ -49,26 +49,26 @@
 <table border="0" cellspacing="1" cellpadding="0" class="table table-bordered">
 	<thead>
   <tr class="head" align="center">
-  	<th align="center" width="30"><input type="checkbox" name="checkall" id="checkall" value="1" onclick='$("#form-posts").toggleCheckboxes(":not(#checkall)");' /></th>
-    <th align="left" width="30%"><?php _e('Post','mywords'); ?></th>
-    <th><?php _e('Author','mywords'); ?></th>
-    <th align="left"><?php _e('Categories','mywords'); ?></th>
-    <th align="left"><?php _e('Tags','mywords'); ?></th>
-    <th><img src="../images/commi.png" alt="" /></th>
-    <th><img src="../images/reads.png" alt="" /></th>
-	<th><?php _e('Date','mywords'); ?></th>
+  	<th class="text-center" width="30"><input type="checkbox" name="checkall" id="checkall" value="1" onclick='$("#form-posts").toggleCheckboxes(":not(#checkall)");' /></th>
+    <th width="30%"><?php _e('Post','mywords'); ?></th>
+    <th class="text-center"><?php _e('Author','mywords'); ?></th>
+    <th><?php _e('Categories','mywords'); ?></th>
+    <th><?php _e('Tags','mywords'); ?></th>
+    <th class="text-center"><img src="../images/commi.png" alt="" /></th>
+    <th class="text-center"><img src="../images/reads.png" alt="" /></th>
+	<th class="text-center"><?php _e('Date','mywords'); ?></th>
   </tr>
 	</thead>
     <tfoot>
     <tr class="head" align="center">
-        <th align="center" width="30"><input type="checkbox" name="checkall2" id="checkall2" value="1" onclick='$("#form-posts").toggleCheckboxes(":not(#checkall2)");' /></th>
-        <th align="left" width="30%"><?php _e('Post','mywords'); ?></th>
-        <th><?php _e('Author','mywords'); ?></th>
-        <th align="left"><?php _e('Categories','mywords'); ?></th>
-        <th align="left"><?php _e('Tags','mywords'); ?></th>
-        <th><img src="../images/commi.png" alt="" /></th>
-        <th><img src="../images/reads.png" alt="" /></th>
-        <th><?php _e('Date','mywords'); ?></th>
+        <th class="text-center" width="30"><input type="checkbox" name="checkall" id="checkall" value="1" onclick='$("#form-posts").toggleCheckboxes(":not(#checkall)");' /></th>
+        <th width="30%"><?php _e('Post','mywords'); ?></th>
+        <th class="text-center"><?php _e('Author','mywords'); ?></th>
+        <th><?php _e('Categories','mywords'); ?></th>
+        <th><?php _e('Tags','mywords'); ?></th>
+        <th class="text-center"><img src="../images/commi.png" alt="" /></th>
+        <th class="text-center"><img src="../images/reads.png" alt="" /></th>
+        <th class="text-center"><?php _e('Date','mywords'); ?></th>
     </tr>
     </tfoot>
 	<tbody>
