@@ -8,7 +8,7 @@ CREATE TABLE `mod_mywords_bookmarks` (
   PRIMARY KEY (`id_book`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-INSERT INTO `x48c_mod_mywords_bookmarks` (`id_book`, `title`, `alt`, `url`, `icon`, `active`) VALUES
+INSERT INTO `mod_mywords_bookmarks` (`id_book`, `title`, `alt`, `url`, `icon`, `active`) VALUES
 (1, 'BlinkList.com', 'Agregar a BlinkList.com!', 'http://blinklist.com/blink?u={URL}&t={TITLE}&d={DESC}', 'blinklist.png', 1),
 (2, 'Delicious', 'Add to Del.icio.us!', 'http://delicious.com/save?jump=yes&url={URL}&title={TITLE}&notes={DESC}', 'delicious.png', 1),
 (3, 'Digg', 'Digg It!', 'http://digg.com/submit?phase=2&url={URL}&title={TITLE}', 'digg.png', 1),
