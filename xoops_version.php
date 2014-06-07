@@ -32,7 +32,7 @@ if(function_exists("load_mod_locale")) load_mod_locale('mywords');
 $modversion['name'] = "MyWords";
 $modversion['description'] = _MI_MW_DESC;
 $modversion['version'] = '2.2';
-$modversion['help'] = "http://www.xoopsmexico.net/docs/mywords/";
+$modversion['help'] = "docs/readme.html";
 $modversion['license'] = "GPL v2";
 $modversion['official'] = 1;
 $modversion['image'] = "images/logo.png";
