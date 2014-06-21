@@ -1,4 +1,4 @@
-![alt MyWords Logo](https://raw.github.com/bitcero/mywords/master/images/logo.png) MyWords
+![alt MyWords Logo](https://raw.githubusercontent.com/bitcero/mywords/master/mywords/images/logo.png) MyWords
 =======
 
 Blogging module for XOOPS
