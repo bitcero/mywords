@@ -62,9 +62,12 @@ $modversion['authorurl'] = "http://www.bitcero.info";
 $modversion['credits'] = "Red México";
 
 // Social links
-$modversion['social'][0] = array('title' => __('Twitter', 'rmcommon'),'type' => 'twitter','url' => 'http://www.twitter.com/xoopsmexico/');
-$modversion['social'][1] = array('title' => __('Facebook', 'rmcommon'),'type' => 'linkedin','url' => 'http://www.facebook.com/XoopsMexico/');
-$modversion['social'][2] = array('title' => __('bitcero', 'rmcommon'),'type' => 'linkedin','url' => 'http://www.linkedin.com/bitcero/');
+$modversion['social'][0] = array('title' => __('Twitter', 'mywords'),'type' => 'twitter','url' => 'http://www.twitter.com/bitcero/');
+$modversion['social'][1] = array('title' => __('Facebook', 'mywords'),'type' => 'facebook-square','url' => 'http://www.facebook.com/eduardo.cortes.hervis/');
+$modversion['social'][2] = array('title' => __('Instagram', 'mywords'),'type' => 'instagram','url' => 'http://www.instagram.com/eduardocortesh/');
+$modversion['social'][3] = array('title' => __('LinkedIn', 'mywords'),'type' => 'linkedin-square','url' => 'http://www.linkedin.com/in/bitcero/');
+$modversion['social'][4] = array('title' => __('GithHub', 'mywords'),'type' => 'github','url' => 'http://www.github.com/bitcero/');
+$modversion['social'][5] = array('title' => __('My Blog', 'mywords'),'type' => 'quote-left','url' => 'http://eduardocortes.mx');
 
 // Admin things
 $modversion['hasAdmin'] = 1;
@@ -84,15 +87,17 @@ $modversion['search']['file'] = "include/search.php";
 $modversion['search']['func'] = "mywords_search";
 
 // Tablas
-$modversion['tables'][0] = "mw_categories";
-$modversion['tables'][1] = "mw_posts";
-$modversion['tables'][2] = "mw_catpost";
-$modversion['tables'][3] = "mw_trackbacks";
-$modversion['tables'][4] = "mw_editors";
-$modversion['tables'][5] = "mw_bookmarks";
-$modversion['tables'][6] = "mw_meta";
-$modversion['tables'][7] = "mw_tags";
-$modversion['tables'][8] = "mw_tagspost";
+$modversion['tables'] = array(
+    "mod_mywords_categories",
+    "mod_mywords_posts",
+    "mod_mywords_catpost",
+    "mod_mywords_trackbacks",
+    "mod_mywords_editors",
+    "mod_mywords_bookmarks",
+    "mod_mywords_meta",
+    "mod_mywords_tags",
+    "mod_mywords_tagspost"
+);
 
 // Plantillas
 $modversion['templates'][1]['file'] = 'mywords_index.html';

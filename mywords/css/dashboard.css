@@ -15,6 +15,19 @@ $Id: dashboard.css 555 2010-11-15 16:42:05Z i.bitcero $
     margin: 0 5px 0 0;
     width: 80px;
 }
+.support-me + .box-footer{
+    text-align: center;
+}
+.support-me + .box-footer > a{
+    display: inline-block;
+    text-align: center;
+    width: 30px; height: 30px;
+    background: rgba(0,0,0,0.1);
+    padding: 3px;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 2px 3px 2px 0;
+}
 
 #mw_widgets_container{
     overflow: hidden;

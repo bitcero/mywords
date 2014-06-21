@@ -103,6 +103,14 @@
                 <p><?php _e('Do you like my work? Then maybe you want support me to continue developing new modules.','dtransport'); ?></p>
                 <?php echo $donateButton; ?>
             </div>
+            <div class="box-footer">
+                <a href="http://eduardocortes.mx" title="<?php _e('My Blog', 'mywords'); ?>"><span class="fa fa-quote-left"></span></a>
+                <a href="http://twitter.com/bitcero/" title="Twitter"><span class="fa fa-twitter"></span></a>
+                <a href="http://www.facebook.com/eduardo.cortes.hervis/" title="Facebook"><span class="fa fa-facebook"></span></a>
+                <a href="http://www.instagram.com/eduardocortesh/" title="Instagram"><span class="fa fa-instagram"></span></a>
+                <a href="http://www.linkedin.com/in/bitcero/" title="LinkedIn"><span class="fa fa-linkedin"></span></a>
+                <a href="http://www.github.com/bitcero/" title="GitHub"><span class="fa fa-github"></span></a>
+            </div>
         </div>
 
         <!-- Editors -->
