@@ -94,25 +94,6 @@
         </div>
         <?php endif; ?>
 
-        <div class="cu-box">
-            <div class="box-header">
-                <h3><i class="fa fa-thumbs-up"></i> <?php _e('Support my Work','dtransport'); ?></h3>
-            </div>
-            <div class="box-content support-me">
-                <img class="avatar" src="http://www.gravatar.com/avatar/<?php echo $myEmail; ?>?s=80" alt="Eduardo Cortés (bitcero)" />
-                <p><?php _e('Do you like my work? Then maybe you want support me to continue developing new modules.','dtransport'); ?></p>
-                <?php echo $donateButton; ?>
-            </div>
-            <div class="box-footer">
-                <a href="http://eduardocortes.mx" title="<?php _e('My Blog', 'mywords'); ?>"><span class="fa fa-quote-left"></span></a>
-                <a href="http://twitter.com/bitcero/" title="Twitter"><span class="fa fa-twitter"></span></a>
-                <a href="http://www.facebook.com/eduardo.cortes.hervis/" title="Facebook"><span class="fa fa-facebook"></span></a>
-                <a href="http://www.instagram.com/eduardocortesh/" title="Instagram"><span class="fa fa-instagram"></span></a>
-                <a href="http://www.linkedin.com/in/bitcero/" title="LinkedIn"><span class="fa fa-linkedin"></span></a>
-                <a href="http://www.github.com/bitcero/" title="GitHub"><span class="fa fa-github"></span></a>
-            </div>
-        </div>
-
         <!-- Editors -->
         <div class="cu-box">
             <div class="box-header">
