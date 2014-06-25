@@ -2,7 +2,7 @@
 
 <div id="row"  data-news="load" data-boxes="load" data-module="mywords" data-target="#mywords-news">
     
-    <div class="col-md-4 col-lg-4" data-box="module-box-left">
+    <div class="col-md-4 col-lg-4" data-box="mywords-box-left">
         <!-- Quick overview -->
         <div class="cu-box">
             <div class="box-header">
@@ -84,7 +84,7 @@
     </div>
 
 
-    <div class="col-md-4 col-lg-4" data-box="module-box-center">
+    <div class="col-md-4 col-lg-4" data-box="mywords-box-center">
 
         <?php if(isset($htResult) && $htResult!==true): ?>
         <div class="alert alert-block">
@@ -159,7 +159,7 @@
     </div>
 
 
-    <div class="col-md-4 col-lg-4" data-box="module-box-right">
+    <div class="col-md-4 col-lg-4" data-box="mywords-box-right">
 
         <!-- Recent News -->
         <div class="cu-box">
