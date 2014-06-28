@@ -69,21 +69,21 @@ class MywordsRmcommonPreload
         
     }
     
-    public function eventRmcommonLoadingSingleEditorimgs($items, $url){
-    	
-    	if (FALSE === strpos($url, 'modules/mywords/admin/posts.php')) return $items;
-    	
+    public function eventRmcommonImageInsertLinks( $links, $image, $url ){
+
+    	if (FALSE === strpos($url, 'modules/mywords/admin/posts.php')) return $links;
+
 		parse_str($url);
-		if (!isset($id) || $id<=0) return $items;
-		
+		if (!isset($id) || $id<=0) return $links;
+
 		xoops_load('mwpost.class','mywords');
 		xoops_load('mwfunctions','mywords');
-		
+
 		$post = new MWPost($id);
-		if ($post->isNew()) return $items;
-		
-		$items['links']['post'] = array('caption'=>__('Link to post','mywords'),'value'=>$post->permalink());
-		return $items;
+		if ($post->isNew()) return $links;
+
+		$links['post'] = array('caption'=>__('Link to post','mywords'),'value'=>$post->permalink());
+		return $links;
 		
     }
     
