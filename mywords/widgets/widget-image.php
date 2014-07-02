@@ -32,7 +32,7 @@ function mywords_widget_image( $post = null ){
     }
 
     $widget['content'] = '<form name="frmDefimage" id="frm-defimage" method="post">';
-    $widget['content'] .= $util->image_manager('image', 'image', $params, array('accept' => 'normal', 'multiple' => 'no'));
+    $widget['content'] .= $util->image_manager('image', 'image', $params, array('accept' => 'thumbnail', 'multiple' => 'no'));
     $widget['content'] .= '</form>';
     return $widget;
 
