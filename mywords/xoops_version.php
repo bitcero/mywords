@@ -45,7 +45,7 @@ $modversion['onUpdate'] = 'include/install.php';
  */
 // Behaviour
 $modversion['rmnative'] = 1;
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>18, 'stage'=>-2,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>27, 'stage'=>-1,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
@@ -100,24 +100,65 @@ $modversion['tables'] = array(
 );
 
 // Plantillas
-$modversion['templates'][1]['file'] = 'mywords_index.html';
-$modversion['templates'][1]['description'] = '';
-$modversion['templates'][2]['file'] = 'mywords_post.html';
-$modversion['templates'][2]['description'] = '';
-$modversion['templates'][3]['file'] = 'mywords_cats.html';
-$modversion['templates'][3]['description'] = '';
-$modversion['templates'][4]['file'] = 'mywords_author.html';
-$modversion['templates'][4]['description'] = '';
-$modversion['templates'][5]['file'] = 'mywords_trackback.html';
-$modversion['templates'][5]['description'] = '';
-$modversion['templates'][6]['file'] = 'mywords_single_post.html';
-$modversion['templates'][6]['description'] = '';
-$modversion['templates'][7]['file'] = 'mywords_password.html';
-$modversion['templates'][7]['description'] = '';
-$modversion['templates'][8]['file'] = 'mywords_tag.html';
-$modversion['templates'][8]['description'] = '';
-$modversion['templates'][9]['file'] = 'mywords_date.html';
-$modversion['templates'][9]['description'] = '';
+$modversion['templates'] = array(
+    array(
+        'file' =>'mywords_index.html',
+        'description' => __('Homepage of module', 'mywords')
+    ),
+    array(
+        'file' => 'mywords_post.html',
+        'description' => __('Full post template', 'mywords')
+    ),
+    array(
+        'file' => 'mywords_cats.html',
+        'description' => __('Content of a category', 'mywords')
+    ),
+    array(
+        'file' => 'mywords_author.html',
+        'description' => 'Post list from a specific author'
+    ),
+    array(
+        'file' => 'mywords_single_post.html',
+        'description' => __('The specific post content')
+    ),
+    array(
+        'file' => 'mywords_password.html',
+        'description' => __('Form for protected posts', 'mywords')
+    ),
+    array(
+        'file' => 'mywords_tag.html',
+        'description' => __('Posts list for a specific tag', 'mywords')
+    ),
+    array(
+        'file' => 'mywords_date.html',
+        'description' => __('Posts from a specific date', 'mywords')
+    ),
+    array(
+        'file' => 'formats/post.tpl',
+        'description' => __('Template for normal post', 'mywords')
+    ),
+    array(
+        'file' => 'formats/video.tpl',
+        'description' => __('Template for video post', 'mywords')
+    ),
+    array(
+        'file' => 'formats/gallery.tpl',
+        'description' => __('Template for gallery post', 'mywords')
+    ),
+    array(
+        'file' => 'formats/image.tpl',
+        'description' => __('Template for image post', 'mywords')
+    ),
+    array(
+        'file' => 'formats/mini.tpl',
+        'description' => __('Template for mini post', 'mywords')
+    ),
+    array(
+        'file' => 'formats/quote.tpl',
+        'description' => __('Template for quote post', 'mywords')
+    )
+);
+
 
 // Blog name
 $modversion['config'][0]['name'] = 'blogname';

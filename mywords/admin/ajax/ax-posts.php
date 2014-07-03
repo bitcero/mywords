@@ -93,7 +93,7 @@ if (!isset($shortname) || $shortname==''){
 }
 
 // Check content
-if ($content==''){
+if ($content=='' && $format != 'image'){
     return_error(__('Content for this post has not been provided!','mywords'), true);
     die();
 }

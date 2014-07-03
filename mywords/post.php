@@ -95,13 +95,6 @@ if($xoopsUser && ($xoopsUser->isAdmin() || $editor->getVar('uid')==$xoopsUser->u
 
 $xoopsTpl->assign('lang_reads', sprintf(__('%u views','mywords'), $post->getVar('reads')));
 
-// Tags
-$tags = $post->tags(true);
-$tags_list = '';
-foreach($tags as $i => $tag){
-    $tags_list .= ($tags_list==''?'':', ').'<a href="'.$tag->permalink().'">'.$tag->getVar('tag').'</a>';
-}
-
 // Post pages
 $total_pages = $post->total_pages();
 $nav = new RMPageNav($total_pages, 1, $page, 5);
@@ -115,8 +108,8 @@ $post_arr = array(
     'title'     => $post->getVar('title'),
     'published' => sprintf(__('%s by %s','mywords'), MWFunctions::format_time($post->getVar('pubdate')) . ' ' . date('H:i',$post->getVar('pubdate')),'<a href="'.$editor->permalink().'">'.(isset($editor) ? $editor->getVar('name') : __('Anonymous','mywords'))."</a>"),
     'text'      => $post->content(false, $page),
-    'cats'      => $post->get_categories_names(),
-    'tags'      => $tags_list,
+    'cats'      => $post->get_categos('data'),
+    'tags'      => $post->tags(false),
     'trackback' => $post->getVar('pingstatus') ? MWFunctions::get_url(true).$post->id() : '',
     'meta'      => $post->get_meta('', false),
     'time'      => $post->getVar('pubdate'),
@@ -128,8 +121,15 @@ $post_arr = array(
                     'bio'   => $editor->getVar('bio'),
                     'email' => $editor->data('email')
                    ),
-    'alink'     => $editor->permalink()
+    'alink'     => $editor->permalink(),
+    'format'    => $post->format
 );
+
+$xoopsTpl->assign('full_post', 1);
+$xoopsTpl->assign('lang_editpost', __('Edit Post','mywords'));
+$xoopsTpl->assign('lang_postedin', __('Posted in:','mywords'));
+$xoopsTpl->assign('lang_taggedas', __('Tagged as:','mywords'));
+$xoopsTpl->assign('enable_images', $xoopsModuleConfig['list_post_imgs']);
 
 // Plugins?
 $post_arr = RMEvents::get()->run_event('mywords.view.post', $post_arr, $post);

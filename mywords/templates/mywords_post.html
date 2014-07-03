@@ -19,12 +19,22 @@
         <{/if}>
     </header>
     <section class="mwtext">
-        <{if $enable_images}><img src="<{$post.image}>" alt="<{$post.title}>" class="full_post_image" /><{/if}>
+        <{if $enable_images && $post.image != ''}><img src="<{$post.image}>" alt="<{$post.title}>" class="img-responsive full_post_image" /><{/if}>
         <{$post.text}>
     </section>
     <footer class="mwfoot">
-        <{if $post.cats!=''}><span class="mwcats"><{$lang_publish}> <{$post.cats}></span><{/if}>
-        <{if $post.tags!=''}><span class="mwtags"><{$lang_tagged}> <{$post.tags}></span><{/if}>
+        <{$lang_taggedas}>
+        <{foreach item=tag from=$post.tags key=i}>
+        <a href="<{$tag.permalink}>"><{$tag.tag}></a><{if ($i<count($post.tags)-1)}>, <{else}><{/if}>
+        <{/foreach}>
+        <{if ($post.cats) }> |
+        <{$lang_postedin}>
+        <{assign var="i" value=0}>
+        <{foreach item=cat from=$post.cats}>
+        <a href="<{$cat.permalink}>"><{$cat.name}></a><{if ($i<count($post.cats)-1)}>, <{else}><{/if}>
+        <{assign var="i" value=$i+1}>
+        <{/foreach}>
+        <{/if}>
     </footer>
 </article>
 <{$post_navbar}>

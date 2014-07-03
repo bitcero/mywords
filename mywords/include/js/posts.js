@@ -368,10 +368,10 @@ $(document).ready( function($) {
             tinyMCE.activeEditor.save();
         }
         
-        if ($("#content").val()==''){
+        /*if ($("#content").val()==''){
             alert('<?php _e('Add content before to save this post','mywords'); ?>');
             return false;
-        }
+        }*/
         
         // Serialize all data
         var params = $("form#mw-form-posts").serialize();
@@ -388,7 +388,7 @@ $(document).ready( function($) {
         $.post('<?php echo XOOPS_URL; ?>/modules/mywords/admin/ajax/ax-posts.php', params, function(data){
             
             if(data['error']!=undefined && data['error']!=''){
-                $('div#mw-messages-post').addClass('messages_error');
+                $('div#mw-messages-post').addClass('alert-danger');
                 $('div#mw-messages-post').html(data['error']);
                 $('div#mw-messages-post').slideDown();
                 if(data['token'])

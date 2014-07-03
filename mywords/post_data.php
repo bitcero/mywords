@@ -14,7 +14,7 @@ if (!defined('XOOPS_ROOT_PATH')){
 }
 
 // Authors cache
-$authors = array();
+$editors = array();
 
 while ($row = $db->fetchArray($result)){
 	
@@ -27,15 +27,14 @@ while ($row = $db->fetchArray($result)){
     $link = $post->permalink();
     # Generamos el vínculo para el autor
     if ($post->getVar('author')>0){
-    	if(!isset($authors[$post->getVar('author')])) $authors[$post->getVar('author')] = new MWEditor($post->getVar('author'));
-    	$author = $authors[$post->getVar('author')];
-    	$alink = $author->permalink();
+    	if(!isset($editors[$post->getVar('author')])) $editors[$post->getVar('author')] = new MWEditor($post->getVar('author'));
+        $editor = $editors[$post->getVar('author')];
     } else {
 		$alink = '';
     }
     
     # Información de Publicación
-    $published = sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate'),'string'), '<a href="'.$alink.'">'.(isset($author) ? $author->getVar('name') : __('Anonymous','mywords'))."</a>");
+    $published = sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate'),'string'), '<a href="'.$alink.'">'.(isset($editor) ? $editor->name : __('Anonymous','mywords'))."</a>");
     # Texto de continuar leyendo
     if ($post->getVar('visibility')=='password'){
         $text = isset($_SESSION['password-'.$post->id()]) && $_SESSION['password-'.$post->id()]==$post->getVar('password') ? $post->content(true) : MWFunctions::show_password($post);
@@ -65,7 +64,13 @@ while ($row = $db->fetchArray($result)){
         'lang_continue'		=> $post->hasmore_text() ? sprintf(__('Read more about "%s"','mywords'), $post->getVar('title')) : '',
         'bookmarks'         =>$bms,
         'time'              =>$post->getVar('pubdate'),
-        'author'            =>$authors[$post->getVar('author')]->getVar('name'),
+        'author'            =>array(
+                                'name'  => $editor->getVar('name'),
+                                'id'    => $editor->id(),
+                                'link'  => $editor->permalink(),
+                                'bio'   => $editor->getVar('bio'),
+                                'email' => $editor->data('email')
+                            ),
         'alink'				=>$alink,
         'edit'              => $xoopsUser && ($xoopsUser->isAdmin() || $author->getVar('uid')==$xoopsUser->uid()),
         'tags'              => $post->tags(false),

@@ -97,17 +97,9 @@ td.mw_cat_description{
 	color: #333;
 }
 div.mw_messages_post{
-    background: #fbec88;
-    padding: 5px;
     text-align: center;
-    border: 1px solid #fad42e;
     display: none;
-    -moz-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
     margin-bottom: 10px;
-    color: #363636;
 }
 div.messages_error{
     background: #cd0a0a;
