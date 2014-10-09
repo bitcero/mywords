@@ -29,6 +29,7 @@ while ($row = $db->fetchArray($result)){
     if ($post->getVar('author')>0){
     	if(!isset($editors[$post->getVar('author')])) $editors[$post->getVar('author')] = new MWEditor($post->getVar('author'));
         $editor = $editors[$post->getVar('author')];
+        $alink = $editor->permalink();
     } else {
 		$alink = '';
     }
@@ -57,7 +58,7 @@ while ($row = $db->fetchArray($result)){
         'text'              =>$text,
         'description'       => $post->getVar('description'),
         'keywords'          => $post->getVar('keywords'),
-        'cats'           	=>$post->get_categos('data'),
+        'cats'           	=> $post->get_categos('data'),
         'link'              =>$link,
         'published'         =>$published,
         'comments'          =>$post->getVar('comments'),

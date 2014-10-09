@@ -11,8 +11,13 @@
 class MWEditor extends RMObject
 {
     private $xuser;
-    
-	public function __construct($id = null){
+
+    /**
+     * Constructor of the class.
+     * @param null $id <p>Editor ID</p>
+     * @param string $from <p>Where this class will search the editor ID: user for User table and editor for Editors table</p>
+     */
+	public function __construct( $id = null, $from = 'editor' ){
 		
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_dbtable = $this->db->prefix("mod_mywords_editors");
@@ -23,9 +28,16 @@ class MWEditor extends RMObject
         $id = intval($id);
         
         if ($id==null || $id<=0) return;
+
+        if ( $from == 'user' )
+            $this->primary = 'uid';
         
-        if (!$this->loadValues($id)) return;
-        
+        if (!$this->loadValues($id)){
+            $this->primary = 'id_editor';
+            return;
+        }
+
+        $this->primary = 'id_editor';
         $this->unsetNew();
                 
 	}

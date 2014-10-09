@@ -59,7 +59,8 @@ class MWPost extends RMObject
 		$this->initVarsFromTable();
 		$this->setVarType('toping', XOBJ_DTYPE_ARRAY);
 		$this->setVarType('pinged', XOBJ_DTYPE_ARRAY);
-		
+		$this->setVarType('image', XOBJ_DTYPE_SOURCE);
+
 		if ($id==null) return;
 	
 		if ($this->loadValues($id)){

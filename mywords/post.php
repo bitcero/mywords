@@ -44,7 +44,7 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page']: 0;
 
 
 # Generamos el vínculo para el autor
-$editor = new MWEditor($post->getVar('author'));
+$editor = new MWEditor( $post->getVar('author'), 'user' );
 # Texto de continuar leyendo
 
 $xoopsTpl->assign('xoops_pagetitle', $post->getVar('customtitle')!='' ? $post->getVar('customtitle') : $post->getVar('title'));
@@ -142,15 +142,17 @@ foreach($rtags as $tag){
     $tt[] = $tag['id_tag'];
 }
 unset($rtags, $tag);
-$related = MWFunctions::get_posts_by_tag($tt, 0, 5);
+$related = MWFunctions::get_posts_by_tag($tt, 0, $xoopsModuleConfig['related_num'], 'RAND()', '', 'publish', $post->id() );
 unset($tt);
 
 $tf = new RMTimeFormatter(0, "%d% %T%, %Y%");
 foreach($related as $rpost){
+
     $xoopsTpl->append('relatedPosts', array(
         'title'     => $rpost->getVar('title'),
-        'pubdate'   => $tf->format($rpost->getVar('pubdate')),
-        'link'      => $rpost->permalink()
+        'pubdate'   => $tf->format( $rpost->getVar('pubdate') ),
+        'link'      => $rpost->permalink(),
+        'image'     => RMImage::get()->load_from_params( $rpost->image )
     ));
 }
 

@@ -12,6 +12,7 @@
  * Provides a widget to specify the default image for posts
  */
 function mywords_widget_image( $post = null ){
+
     global $xoopsSecurity, $xoopsModuleConfig, $xoopsUser, $rm_config;
     
     $type   = RMHttpRequest::request( 'type', 'string', '' );

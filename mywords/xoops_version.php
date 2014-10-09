@@ -266,6 +266,14 @@ $modversion['config'][12]['formtype'] = 'yesno';
 $modversion['config'][12]['valuetype'] = 'int';
 $modversion['config'][12]['default'] = 1;
 
+// Related posts num
+$modversion['config'][13]['name'] = 'related_num';
+$modversion['config'][13]['title'] = __('Number of related posts', 'mywords');
+$modversion['config'][13]['description'] = __('Specify the limit of posts that will be shown in posts content', 'mywords');
+$modversion['config'][13]['formtype'] = 'textbox';
+$modversion['config'][13]['valuetype'] = 'int';
+$modversion['config'][13]['default'] = 5;
+
 // Bloque Categorias
 $modversion['blocks'][1]['file'] = "block.cats.php";
 $modversion['blocks'][1]['name'] = __('Categories','mywords');
