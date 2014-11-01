@@ -20,6 +20,7 @@ while ($row = $db->fetchArray($result)){
 	
     $post = new MWPost();
     $post->assignVars($row);
+
     # Generamos los vínculos
     $day = date('d', $post->getVar('pubdate'));
     $month = date('m', $post->getVar('pubdate'));
@@ -27,13 +28,34 @@ while ($row = $db->fetchArray($result)){
     $link = $post->permalink();
     # Generamos el vínculo para el autor
     if ($post->getVar('author')>0){
-    	if(!isset($editors[$post->getVar('author')])) $editors[$post->getVar('author')] = new MWEditor($post->getVar('author'));
+
+    	if( !isset( $editors[$post->getVar('author')] ) )
+            $editors[$post->getVar('author')] = new MWEditor( $post->getVar('author'), 'user' );
+
+        if ( $editors[$post->getVar('author')]->isNew() ){
+
+            if ( $xoopsUser && $xoopsUser->uid() == $post->author )
+                $user = $xoopsUser;
+            else
+                $user = new RMUser( $post->author );
+
+            $editors[$post->getVar('author')]->uid = $user->uid();
+            $editors[$post->getVar('author')]->name = $user->getVar('name');
+            $editors[$post->getVar('author')]->shortname = $user->getVar('uname');
+            $editors[$post->getVar('author')]->privileges = array( 'tags', 'tracks', 'comms' );
+            $editors[$post->getVar('author')]->save();
+
+        }
+
         $editor = $editors[$post->getVar('author')];
         $alink = $editor->permalink();
+
     } else {
+
 		$alink = '';
+
     }
-    
+
     # Información de Publicación
     $published = sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate'),'string'), '<a href="'.$alink.'">'.(isset($editor) ? $editor->name : __('Anonymous','mywords'))."</a>");
     # Texto de continuar leyendo
@@ -68,7 +90,7 @@ while ($row = $db->fetchArray($result)){
         'bookmarks'         =>$bms,
         'time'              =>$post->getVar('pubdate'),
         'author'            =>array(
-                                'name'  => $editor->getVar('name'),
+                                'name'  => $editor->name != '' ? $editor->name : $editor->shortname,
                                 'id'    => $editor->id(),
                                 'link'  => $editor->permalink(),
                                 'bio'   => $editor->getVar('bio'),
@@ -80,9 +102,8 @@ while ($row = $db->fetchArray($result)){
         'meta'              => $post->get_meta('', false),
         'image'             => $post->getImage($xoopsModuleConfig['list_post_imgs_size'])
     ));
-    
-}
 
+}
 $xoopsTpl->assign('lang_editpost', __('Edit Post','mywords'));
 $xoopsTpl->assign('lang_postedin', __('Posted in:','mywords'));
 $xoopsTpl->assign('lang_taggedas', __('Tagged as:','mywords'));

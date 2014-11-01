@@ -21,6 +21,13 @@
     <section class="mwtext">
         <{if $enable_images && $post.image != ''}><img src="<{$post.image}>" alt="<{$post.title}>" class="img-responsive full_post_image" /><{/if}>
         <{$post.text}>
+        <span class="mwbooks">
+        <{if ($post.bookmarks) }>
+            <{foreach item=bm from=$post.bookmarks key=i}>
+                <a href="javascript:;" onclick="mwOpenWindow('<{$bm.link}>','bookmark',600,400);" title="<{$bm.alt}>"><img src="<{$xoops_url}>/modules/mywords/images/icons/<{$bm.icon}>" alt="<{$bm.alt}>" /></a>
+            <{/foreach}>
+        <{/if}>
+        </span>
     </section>
     <footer class="mwfoot">
         <{$lang_taggedas}>
@@ -52,6 +59,7 @@
 <!-- End Related Posts -->
 <{/if}>
 
+<{if $comments}>
 <h2 class="comments_title"><{$lang_numcoms}></h2>
 
 <!-- Start Comments -->
@@ -59,6 +67,7 @@
 <{include file="db:rmc-comments-display.html"}>
 <{include file="db:rmc-comments-form.html"}>
 <!-- /End comments -->
+<{/if}>
 
 <!-- Trackbacks -->
 <{if $trackbacks}>

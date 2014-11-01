@@ -42,9 +42,23 @@ $year = date('Y', $post->getVar('pubdate'));
 // 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page']: 0;
 
-
-# Generamos el vínculo para el autor
+# Cargamos los datos del autor
 $editor = new MWEditor( $post->getVar('author'), 'user' );
+if ( $editor->isNew() ){
+
+    if ( $xoopsUser && $xoopsUser->uid() == $post->author )
+        $user = $xoopsUser;
+    else
+        $user = new RMUser( $post->author );
+
+    $editor->uid = $user->uid();
+    $editor->name = $user->getVar('name');
+    $editor->shortname = $user->getVar('uname');
+    $editor->privileges = array( 'tags', 'tracks', 'comms' );
+    $editor->save();
+
+}
+
 # Texto de continuar leyendo
 
 $xoopsTpl->assign('xoops_pagetitle', $post->getVar('customtitle')!='' ? $post->getVar('customtitle') : $post->getVar('title'));
@@ -104,25 +118,27 @@ $xoopsTpl->assign('post_navbar', $nav->render(true));
 // Post data
 
 $post_arr = array(
-    'id'        => $post->id(),
-    'title'     => $post->getVar('title'),
-    'published' => sprintf(__('%s by %s','mywords'), MWFunctions::format_time($post->getVar('pubdate')) . ' ' . date('H:i',$post->getVar('pubdate')),'<a href="'.$editor->permalink().'">'.(isset($editor) ? $editor->getVar('name') : __('Anonymous','mywords'))."</a>"),
-    'text'      => $post->content(false, $page),
-    'cats'      => $post->get_categos('data'),
-    'tags'      => $post->tags(false),
-    'trackback' => $post->getVar('pingstatus') ? MWFunctions::get_url(true).$post->id() : '',
-    'meta'      => $post->get_meta('', false),
-    'time'      => $post->getVar('pubdate'),
-    'image'     => $post->getImage($xoopsModuleConfig['post_imgs_size']),
-    'author'    => array(
-                    'name'  => $editor->getVar('name'),
-                    'id'    => $editor->id(),
-                    'link'  => $editor->permalink(),
-                    'bio'   => $editor->getVar('bio'),
-                    'email' => $editor->data('email')
-                   ),
-    'alink'     => $editor->permalink(),
-    'format'    => $post->format
+    'id'                => $post->id(),
+    'title'             => $post->getVar('title'),
+    'published'         => sprintf(__('%s by %s','mywords'), MWFunctions::format_time($post->getVar('pubdate')) . ' ' . date('H:i',$post->getVar('pubdate')),'<a href="'.$editor->permalink().'">'.(isset($editor) ? $editor->getVar('name') : __('Anonymous','mywords'))."</a>"),
+    'text'              => $post->content(false, $page),
+    'cats'              => $post->get_categos('data'),
+    'tags'              => $post->tags(false),
+    'trackback'         => $post->getVar('pingstatus') ? MWFunctions::get_url(true).$post->id() : '',
+    'meta'              => $post->get_meta('', false),
+    'time'              => $post->getVar('pubdate'),
+    'image'             => $post->getImage($xoopsModuleConfig['post_imgs_size']),
+    'author'            => array(
+                            'name'  => $editor->getVar('name') != '' ? $editor->name : $editor->shortname,
+                            'id'    => $editor->id(),
+                            'link'  => $editor->permalink(),
+                            'bio'   => $editor->getVar('bio'),
+                            'email' => $editor->data('email')
+                       ),
+    'alink'             => $editor->permalink(),
+    'format'            => $post->format,
+    'comments'          => $post->comments,
+    'comments_enabled' => $post->comstatus
 );
 
 $xoopsTpl->assign('full_post', 1);
@@ -136,24 +152,26 @@ $post_arr = RMEvents::get()->run_event('mywords.view.post', $post_arr, $post);
 $xoopsTpl->assign('post', $post_arr);
 
 // Related posts
-$rtags = $post->tags();
-$tt = array();
-foreach($rtags as $tag){
-    $tt[] = $tag['id_tag'];
-}
-unset($rtags, $tag);
-$related = MWFunctions::get_posts_by_tag($tt, 0, $xoopsModuleConfig['related_num'], 'RAND()', '', 'publish', $post->id() );
-unset($tt);
+if ( $xoopsModuleConfig['related'] ){
+    $rtags = $post->tags();
+    $tt = array();
+    foreach($rtags as $tag){
+        $tt[] = $tag['id_tag'];
+    }
+    unset($rtags, $tag);
+    $related = MWFunctions::get_posts_by_tag( $tt, 0, $xoopsModuleConfig['related_num'], 'RAND()', '', 'publish', $post->id() );
+    unset($tt);
 
-$tf = new RMTimeFormatter(0, "%d% %T%, %Y%");
-foreach($related as $rpost){
+    $tf = new RMTimeFormatter(0, "%d% %T%, %Y%");
+    foreach($related as $rpost){
 
-    $xoopsTpl->append('relatedPosts', array(
-        'title'     => $rpost->getVar('title'),
-        'pubdate'   => $tf->format( $rpost->getVar('pubdate') ),
-        'link'      => $rpost->permalink(),
-        'image'     => RMImage::get()->load_from_params( $rpost->image )
-    ));
+        $xoopsTpl->append('relatedPosts', array(
+            'title'     => $rpost->getVar('title'),
+            'pubdate'   => $tf->format( $rpost->getVar('pubdate') ),
+            'link'      => $rpost->permalink(),
+            'image'     => RMImage::get()->load_from_params( $rpost->image )
+        ));
+    }
 }
 
 // Social sites

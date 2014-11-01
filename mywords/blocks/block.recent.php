@@ -53,7 +53,7 @@ function mywordsBlockRecent($options){
             $ret['comments'] = sprintf(__('%u Comments','mywords'), $post->getVar('comments'));
         }
         $ret['time'] = $post->getVar('pubdate');
-        $ret['image'] = $post->getImage($mc->list_post_imgs_size);
+        $ret['image'] = RMIMage::get()->load_from_params( $post->image );
 		$block['posts'][] = $ret;
         
 	}

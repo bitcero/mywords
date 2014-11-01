@@ -18,7 +18,7 @@ class MWEditor extends RMObject
      * @param string $from <p>Where this class will search the editor ID: user for User table and editor for Editors table</p>
      */
 	public function __construct( $id = null, $from = 'editor' ){
-		
+
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_dbtable = $this->db->prefix("mod_mywords_editors");
         $this->setNew();
@@ -26,7 +26,7 @@ class MWEditor extends RMObject
         $this->setVarType('privileges', XOBJ_DTYPE_ARRAY);
         
         $id = intval($id);
-        
+
         if ($id==null || $id<=0) return;
 
         if ( $from == 'user' )

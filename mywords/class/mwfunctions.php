@@ -431,7 +431,7 @@ class MWFunctions
 			$sql .= " $sort";
 		}
 		$sql .= " LIMIT $start,$limit";
-		//echo $sql;
+
 		$result = $db->query($sql);
 		$ret = array();
 		while($row = $db->fetchArray($result)){

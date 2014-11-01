@@ -38,7 +38,6 @@ while ($row = $db->fetchArray($result)){
     $socials[$i]->assignVars($row);
     $i++;
 }
-
 $socials = RMEvents::get()->run_event('mywords.loding.socials', $socials);
 
 $tpl = $rmTpl;
