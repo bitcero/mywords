@@ -45,7 +45,7 @@ $modversion['onUpdate'] = 'include/install.php';
  */
 // Behaviour
 $modversion['rmnative'] = 1;
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>31, 'stage'=>-1,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>38, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
@@ -102,35 +102,35 @@ $modversion['tables'] = array(
 // Plantillas
 $modversion['templates'] = array(
     array(
-        'file' =>'mywords_index.html',
+        'file' =>'mywords-index.tpl',
         'description' => __('Homepage of module', 'mywords')
     ),
     array(
-        'file' => 'mywords_post.html',
+        'file' => 'mywords-post.tpl',
         'description' => __('Full post template', 'mywords')
     ),
     array(
-        'file' => 'mywords_cats.html',
+        'file' => 'mywords-cats.tpl',
         'description' => __('Content of a category', 'mywords')
     ),
     array(
-        'file' => 'mywords_author.html',
+        'file' => 'mywords-author.tpl',
         'description' => 'Post list from a specific author'
     ),
     array(
-        'file' => 'mywords_single_post.html',
+        'file' => 'mywords-single-post.tpl',
         'description' => __('The specific post content')
     ),
     array(
-        'file' => 'mywords_password.html',
+        'file' => 'mywords-password.tpl',
         'description' => __('Form for protected posts', 'mywords')
     ),
     array(
-        'file' => 'mywords_tag.html',
+        'file' => 'mywords-tag.tpl',
         'description' => __('Posts list for a specific tag', 'mywords')
     ),
     array(
-        'file' => 'mywords_date.html',
+        'file' => 'mywords-date.tpl',
         'description' => __('Posts from a specific date', 'mywords')
     ),
     array(
@@ -274,13 +274,21 @@ $modversion['config'][13]['formtype'] = 'textbox';
 $modversion['config'][13]['valuetype'] = 'int';
 $modversion['config'][13]['default'] = 5;
 
+// Related posts num
+$modversion['config'][14]['name'] = 'submit';
+$modversion['config'][14]['title'] = __('Enable posts submission', 'mywords');
+$modversion['config'][14]['description'] = __('By enabling this options, registered users can submit their own articles to MyWords', 'mywords');
+$modversion['config'][14]['formtype'] = 'yesno';
+$modversion['config'][14]['valuetype'] = 'int';
+$modversion['config'][14]['default'] = 1;
+
 // Bloque Categorias
 $modversion['blocks'][1]['file'] = "block.cats.php";
 $modversion['blocks'][1]['name'] = __('Categories','mywords');
 $modversion['blocks'][1]['description'] = "";
 $modversion['blocks'][1]['show_func'] = "mywordsBlockCats";
 $modversion['blocks'][1]['edit_func'] = "mywordsBlockCatsEdit";
-$modversion['blocks'][1]['template'] = 'bk_mywords_categos.html';
+$modversion['blocks'][1]['template'] = 'bk-mywords-categos.tpl';
 $modversion['blocks'][1]['options'] = "1";
 
 // Bloque Recientes
@@ -289,7 +297,7 @@ $modversion['blocks'][2]['name'] = __('Recent Posts','mywords');
 $modversion['blocks'][2]['description'] = "";
 $modversion['blocks'][2]['show_func'] = "mywordsBlockRecent";
 $modversion['blocks'][2]['edit_func'] = "mywordsBlockRecentEdit";
-$modversion['blocks'][2]['template'] = 'bk_mywords_recent.html';
+$modversion['blocks'][2]['template'] = 'bk-mywords-recent.tpl';
 $modversion['blocks'][2]['options'] = "10|recent|1|50|1|0";
 
 // Tags
@@ -298,7 +306,7 @@ $modversion['blocks'][3]['name'] = __('Tags','mywords');
 $modversion['blocks'][3]['description'] = "";
 $modversion['blocks'][3]['show_func'] = "mywordsBlockTags";
 $modversion['blocks'][3]['edit_func'] = "mywordsBlockTagsEdit";
-$modversion['blocks'][3]['template'] = 'bk_mywords_tags.html';
+$modversion['blocks'][3]['template'] = 'bk-mywords-tags.tpl';
 $modversion['blocks'][3]['options'] = "50|.05";
 
 // Subpáginas

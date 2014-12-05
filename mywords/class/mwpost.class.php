@@ -452,20 +452,11 @@ class MWPost extends RMObject
      * @param string Size name to get
      * @return string
      */
-    public function getImage($size='thumbnail'){
+    public function image(){
 
-        if($this->getVar('image', 'e') == '') return false;
-        $func = new RMFunctions();
-        $image = $func->get_image($this->getVar('image', 'e'), $size);
+        if($this->getVar('image', 'e') == '') return '';
         
-        if(!is_file(str_replace(XOOPS_URL, XOOPS_ROOT_PATH, $image))){
-            $img = new RMImage();
-            $img->load_from_params($this->getVar('image','e'));
-            $image = $img->getOriginal();
-        }
-            
-        
-        return $image;
+        return RMImage::get()->load_from_params( $this->getVar('image', 'e') );
     }
 	
 	/**

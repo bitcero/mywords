@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-$xoopsOption['template_main'] = 'mywords_author.html';
+$xoopsOption['template_main'] = 'mywords-author.tpl';
 $xoopsOption['module_subpage'] = 'author';
 include 'header.php';
 
@@ -23,9 +23,19 @@ if (!is_numeric($editor)){
 $ed = new MWEditor($editor);
 
 if ($ed->isNew()){
-    redirect_header(MWFunctions::get_url(), 2, __('Sorry, We don\'t know to this editor', 'admin_mywords'));
+    $params = array(
+        'page'  => 'author'
+    );
+    RMFunctions::error_404( __('Sorry, we don\'t know this editor', 'admin_mywords'), 'mywords', $params );
     die();
 }
+
+$xoopsTpl->assign('editor', array(
+    'id'    => $ed->id(),
+    'name'  => $ed->name,
+    'email' => $ed->data('email'),
+    'uname' => $ed->uname
+));
 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page']: 0;	
 if ($page<=0){

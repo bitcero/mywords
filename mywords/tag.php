@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-$xoopsOption['template_main'] = 'mywords_tag.html';
+$xoopsOption['template_main'] = 'mywords-tag.tpl';
 $xoopsOption['module_subpage'] = 'author';
 include 'header.php';
 

@@ -46,7 +46,7 @@ function show_bookmarks(){
 
 	xoops_cp_header();
 	
-	include $rmTpl->get_template('admin/mywords_bookmarks.php','module','mywords');
+	include $rmTpl->get_template('admin/mywords-bookmarks.php','module','mywords');
 	$rmTpl->assign('xoops_pagetitle', __('Bookmarks Management','mywords'));
 	$rmTpl->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
     $rmTpl->add_script('../include/js/scripts.php?file=bookmarks.js');

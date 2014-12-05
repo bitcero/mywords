@@ -94,7 +94,7 @@ function showCategos(){
 	
     $desc = ''; $posts = ''; $parent = ''; $selcat = ''; $new = ''; $name=''; $shortcut = '';
     extract($_GET);
-	include RMTemplate::get()->get_template('admin/mywords_categories.php','module','mywords');
+	include RMTemplate::get()->get_template('admin/mywords-categories.php','module','mywords');
 	RMTemplate::get()->assign('xoops_pagetitle', __('Categories Management','mywords'));
 	RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
 	RMTemplate::get()->add_script('../include/js/categories.js');

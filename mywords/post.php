@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-$xoopsOption['template_main'] = 'mywords_post.html';
+$xoopsOption['template_main'] = 'mywords-post.tpl';
 $xoopsOption['module_subpage'] = 'post';
 include 'header.php';
 
@@ -127,13 +127,14 @@ $post_arr = array(
     'trackback'         => $post->getVar('pingstatus') ? MWFunctions::get_url(true).$post->id() : '',
     'meta'              => $post->get_meta('', false),
     'time'              => $post->getVar('pubdate'),
-    'image'             => $post->getImage($xoopsModuleConfig['post_imgs_size']),
+    'image'             => $post->image(),
     'author'            => array(
                             'name'  => $editor->getVar('name') != '' ? $editor->name : $editor->shortname,
                             'id'    => $editor->id(),
                             'link'  => $editor->permalink(),
                             'bio'   => $editor->getVar('bio'),
-                            'email' => $editor->data('email')
+                            'email' => $editor->data('email'),
+                            'uid'   => $editor->uid
                        ),
     'alink'             => $editor->permalink(),
     'format'            => $post->format,
@@ -202,6 +203,8 @@ if ($post->getVar('comstatus')){
     // Comments form
     RMFunctions::comments_form('mywords', 'post='.$post->id(), 'module', MW_PATH.'/class/mywordscontroller.php');
 }
+
+
 
 // Load trackbacks
 $trackbacks = $post->trackbacks();

@@ -1,13 +1,8 @@
 label.error{
 	color: #F00;
 }
-.mw_biginput{
-	width: 98%;
-	font-size: 2em;
-	padding: 4px;
-}
-.mw_large{
-	width: 95%;
+.mw_submit_title{
+    margin: 0 0 20px;
 }
 .mw_permacont{
 	padding: 6px 0;

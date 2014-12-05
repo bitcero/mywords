@@ -12,13 +12,13 @@
 * Publish widget
 * @return array
 */
-function mywords_widget_publish( $post = null ){
+function mywords_widget_publish( $post = null, $frontend = false ){
 	global $xoopsUser;
 	
 	RMTemplate::get()->add_style('publish_widget.css','mywords');
 	RMTemplate::get()->add_style('forms.css','rmcommon');
 	RMTemplate::get()->add_style('jquery.css','rmcommon');
-	RMTemplate::get()->add_script(XOOPS_URL.'/modules/mywords/include/js/scripts.php?file=posts.js');
+	RMTemplate::get()->add_script('scripts.php?file=posts.js', 'mywords', array('directory' => 'include', 'footer' => 1));
 	RMTemplate::get()->add_script(XOOPS_URL.'/modules/mywords/include/js/mktime.js');
 	RMTemplate::get()->add_script('forms.js', 'rmcommon');
 	$widget['title'] = __('Publish','mywords');
@@ -27,7 +27,7 @@ function mywords_widget_publish( $post = null ){
     $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
     $edit = false;
     
-    if ( isset($post) && is_a( $post, 'MWPost' ) ){
+    if ( isset($post) && is_a( $post, 'MWPost' ) && !$post->isNew() ){
 
         $edit = true;
         switch($post->getVar('status')){
@@ -136,19 +136,21 @@ function mywords_widget_publish( $post = null ){
     </div>
 </div>
 <!-- /Shedule -->
-<div class="publish_options no_border">
-<?php _e('Author:','mywords'); ?>
-<?php
-	$user = new RMFormUser('', 'author', 0, $edit ? array($post->getVar('author')) : array($xoopsUser->uid()));
-	if (!$xoopsUser->isAdmin()) $user->button(false);
-	echo $user->render();
-?>
-</div>
+    <?php if( !$frontend ): ?>
+        <div class="publish_options no_border">
+        <?php _e('Author:','mywords'); ?>
+        <?php
+            $user = new RMFormUser('', 'author', 0, $edit ? array($post->getVar('author')) : array($xoopsUser->uid()));
+            if (!$xoopsUser->isAdmin()) $user->button(false);
+            echo $user->render();
+        ?>
+        </div>
+    <?php else: ?>
+        <input type="hidden" name="author" value="<?php echo $xoopsUser->uid(); ?>">
+    <?php endif; ?>
 <div class="widget_button">
 
-
-<input type="submit" value="<?php _e($edit ? 'Update Post' : 'Publish','mywords'); ?>" class="button default btn
-btn-primary" id="publish-submit" />
+<button type="button" class="button default btn btn-primary" id="publish-submit"><?php $edit ? _e('Update Post', 'mywords') : _e('Publish','mywords'); ?></button>
 </div>
 
 

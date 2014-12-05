@@ -60,7 +60,7 @@ function array_slice(array, val){
     return array;
 }
 
-<?php $front = rmc_server_var($_GET, 'front', 0); ?>
+<?php $front = RMHttpRequest::get( 'f', 'integer', 0 ); ?>
 
 $(document).ready( function($) {
 
@@ -79,7 +79,7 @@ $(document).ready( function($) {
         }
         //$("#status option:selected").removeAttr("selected");
         //$("#status option[value='publish']").attr("selected", true);
-        
+
     });
 
     $("#edit-publish").click(function() {
@@ -90,13 +90,13 @@ $(document).ready( function($) {
     $("#publish-ok").click(function() {
     	if ($("#status").val()=='draft'){
 			$("#publish-status-legend").text('<?php _e('Draft','mywords'); ?>');
-			$("#publish-submit").val("<?php _e('Save as Draft','mywords'); ?>");
+			$("#publish-submit").html("<?php _e('Save as Draft','mywords'); ?>");
     	} else if($("#status").val()=='pending') {
 			$("#publish-status-legend").text('<?php _e('Pending Review','mywords'); ?>');
-			$("#publish-submit").val("<?php _e('Save as Pending','mywords'); ?>");
+			$("#publish-submit").html("<?php _e('Save as Pending','mywords'); ?>");
     	} else {
             $("#publish-status-legend").text('<?php _e('Published','mywords'); ?>');
-            $("#publish-submit").val("<?php _e('Publish','mywords'); ?>");
+            $("#publish-submit").html("<?php _e('Publish','mywords'); ?>");
         }
 	
 		$("#publish-options").slideUp("fast");
@@ -353,12 +353,12 @@ $(document).ready( function($) {
 		
     });
     
-    $("input#publish-submit").click(function(){
+    $("#publish-submit").click(function(){
 		
         $('div#mw-messages-post').slideUp('slow',function(){
             $('div#mw-messages-post').html('');
         });
-        
+
         if($("input#post-title").val()==''){
             $("label[for='post-title']").slideDown();
             return false;
@@ -385,6 +385,7 @@ $(document).ready( function($) {
         $("body").append(blocker);
         $("#mw-blocker, #mw-blocker-message").fadeIn('fast');
         // Send Post data
+
         $.post('<?php echo XOOPS_URL; ?>/modules/mywords/admin/ajax/ax-posts.php', params, function(data){
             
             if(data['error']!=undefined && data['error']!=''){
@@ -399,7 +400,7 @@ $(document).ready( function($) {
             }
             
             $("#mw-blocker-message").html('<img src="../images/wait.gif" alt="" /><br /><?php _e("Loading post...","rmcommon"); ?>');
-            window.location.href = '<?php if(!$front): echo "posts.php?op=edit"; else: echo "submit.php?action=edit"; endif; ?>&id='+data['post'];
+            window.location.href = data.url;
             
         },'json');
         

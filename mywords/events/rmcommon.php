@@ -91,11 +91,12 @@ class MywordsRmcommonPreload
     * Return the feed options to show in RSS Center
     */
 	public function eventRmcommonGetFeedsList($feeds){
-		
+		global $cuSettings;
+
         include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php';
 		load_mod_locale('mywords');
 		
-		$module = RMFunctions::load_module('mywords');
+		$module = RMModules::load_module('mywords');
 		$config = RMSettings::module_settings('mywords');
 
 		$data = array(
@@ -115,12 +116,13 @@ class MywordsRmcommonPreload
 		
 		$table = '<table cellpadding="2" cellspacing="2" width="100%"><tr class="even">';
 		$count = 0;
+        $base_link = $cuSettings->permalinks ? XOOPS_URL . '/rss/' : XOOPS_URL . '/backend.php';
 		foreach($categories as $cat){
 			if ($count>=3){
 				$count = 0;
 				$table .= '</tr><tr class="'.tpl_cycle("odd,even").'">';
 			}
-			$table .= '<td width="33%"><a href="'.XOOPS_URL.'/backend.php?action=showfeed&amp;mod=mywords&amp;show=cat&amp;cat='.$cat['id_cat'].'">'.$cat['name'].'</a></td>';
+			$table .= '<td width="33%"><a href="'.$base_link.'?action=showfeed&amp;mod=mywords&amp;show=cat&amp;cat='.$cat['id_cat'].'">'.$cat['name'].'</a></td>';
 			$count++;
 		}
 		$table .= '</tr></table>';
@@ -141,7 +143,7 @@ class MywordsRmcommonPreload
 				$count = 0;
 				$table .= '</tr><tr class="'.tpl_cycle("odd,even").'">';
 			}
-			$table .= '<td width="33%"><a href="'.XOOPS_URL.'/backend.php?action=showfeed&amp;mod=mywords&amp;show=tag&amp;tag='.$tag['id_tag'].'">'.$tag['tag'].'</a></td>';
+			$table .= '<td width="33%"><a href="'.$base_link.'?action=showfeed&amp;mod=mywords&amp;show=tag&amp;tag='.$tag['id_tag'].'">'.$tag['tag'].'</a></td>';
 			$count++;
 		}
 		$table .= '</tr></table>';
@@ -170,7 +172,7 @@ class MywordsRmcommonPreload
                 $count = 0;
                 $table .= '</tr><tr class="'.tpl_cycle("odd,even").'">';
             }
-            $table .= '<td width="33%"><a href="'.XOOPS_URL.'/backend.php?action=showfeed&amp;mod=mywords&amp;show=author&amp;author='.$ed['id_editor'].'">'.$ed['name'].'</a></td>';
+            $table .= '<td width="33%"><a href="'.$base_link.'?action=showfeed&amp;mod=mywords&amp;show=author&amp;author='.$ed['id_editor'].'">'.$ed['name'].'</a></td>';
             $count++;
         }
         $table .= '</tr></table>';

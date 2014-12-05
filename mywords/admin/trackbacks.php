@@ -67,7 +67,7 @@ function show_mw_trackbacks(){
 
     xoops_cp_header();
     
-    include RMTemplate::get()->get_template('admin/mywords_trackbacks.php', 'module', 'mywords');
+    include RMTemplate::get()->get_template('admin/mywords-trackbacks.php', 'module', 'mywords');
     
     xoops_cp_footer();
     

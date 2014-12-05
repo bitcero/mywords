@@ -57,34 +57,20 @@ while($row = $db->fetchArray($result)){
 unset($editor, $result, $sql);
 
 // URL rewriting
+$rule = "RewriteRule ^".trim($xoopsModuleConfig['basepath'],'/')."/?(.*)$ modules/mywords/index.php [L]";
 if($xoopsModuleConfig['permalinks']>1){
 
-    $rule = "RewriteRule ^".trim($xoopsModuleConfig['basepath'],'/')."/?(.*)$ modules/mywords/index.php [L]";
     $ht = new RMHtaccess('mywords');
     $htResult = $ht->write($rule);
     if($htResult!==true){
         showMessage(__('An error ocurred while trying to write .htaccess file!','mywords'), RMMSG_ERROR);
     }
 
+} else {
+    $ht = new RMHtaccess( 'mywords' );
+    $ht->removeRule();
+    $ht->write();
 }
-
-$donateButton = '<form id="paypal-form" name="_xclick" action="https://www.paypal.com/fr/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="ohervis@redmexico.com.mx">
-                    <input type="hidden" name="item_name" value="MyWords Support">
-                    <input type="hidden" name="amount" value=0>
-                    <input type="hidden" name="currency_code" value="USD">
-                    <img src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" onclick="$(\'#paypal-form\').submit()" alt="PayPal - The safer, easier way to pay online!" />
-    </form>';
-$myEmail = 'a888698732624c0a1d4da48f1e5c6bb4';
-	
-$url = "http://www.redmexico.com.mx/modules/vcontrol/?id=5&limit=4";
-
-$cHead = "<script type='text/javascript'>
-			var url = '".XOOPS_URL."/include/proxy.php?url=' + encodeURIComponent('$url');
-         	new Ajax.Updater('versionInfo',url);
-		 </script>\n";
-$cHead .= "<link href=\"".XOOPS_URL."/modules/mywords/styles/admin.css\" media=\"all\" rel=\"stylesheet\" type=\"text/css\" />";
 
 RMBreadCrumb::get()->add_crumb(__('Dashboard','mywords'));
 	
@@ -100,6 +86,6 @@ xoops_cp_header();
 RMTemplate::get()->add_style('dashboard.css', 'mywords');
 RMTemplate::get()->add_style('admin.css', 'mywords');
 //$tpl->header();
-include RMtemplate::get()->get_template('admin/mywords_theindex.php', 'module', 'mywords');
+include RMtemplate::get()->get_template('admin/mywords-theindex.php', 'module', 'mywords');
 //$tpl->footer();
 xoops_cp_footer();

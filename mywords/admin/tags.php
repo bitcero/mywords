@@ -61,7 +61,7 @@ function show_tags(){
     RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
     RMTemplate::get()->add_script('..//include/js/scripts.php?file=tags-list.js');
     RMTemplate::get()->add_style('jquery.css','rmcommon');
-    include RMTemplate::get()->get_template('admin/mywords_tags.php','module','mywords');
+    include RMTemplate::get()->get_template('admin/mywords-tags.php','module','mywords');
     
     xoops_cp_footer();
     
@@ -166,7 +166,7 @@ function edit_form(){
     RMTemplate::get()->assign('xoops_pagetitle', __('Editing Tag','mywords'));
 	xoops_cp_header();   
 	$show_edit = true;
-    include RMTemplate::get()->get_template('admin/mywords_tags.php','module','mywords');
+    include RMTemplate::get()->get_template('admin/mywords-tags.php','module','mywords');
     
     xoops_cp_footer();
 	

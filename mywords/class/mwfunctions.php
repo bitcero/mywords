@@ -278,7 +278,7 @@ class MWFunctions
     /**
     * Get correct base url for links
     */
-    function get_url($track = false){
+    public static function get_url($track = false){
         global $xoopsModule, $xoopsModuleConfig;
         $mc = RMSettings::module_settings( 'mywords' );
         
@@ -343,7 +343,7 @@ class MWFunctions
     /**
     * Get posts by category
     */
-    public function get_posts_by_cat($cat, $start=0, $limit=1, $orderby='pubdate', $order='DESC', $status='publish'){
+    static public function get_posts_by_cat($cat, $start=0, $limit=1, $orderby='pubdate', $order='DESC', $status='publish'){
 		
 		$path = XOOPS_ROOT_PATH.'/modules/mywords';
 		include_once $path.'/class/mwpost.class.php';
@@ -404,13 +404,13 @@ class MWFunctions
 		return $ret;
 	}
     
-    public function get_posts($start=0, $limit=1, $orderby='pubdate', $order='DESC', $status='publish'){
+    static public function get_posts($start=0, $limit=1, $orderby='pubdate', $order='DESC', $status='publish'){
 		
 		return self::get_posts_by_cat(0, $start, $limit, $orderby, $order, $status);
 		
     }
     
-    public function get_filtered_posts($where = '', $start = 0, $limit = 1, $orderby='pubdate',$sort='desc',$status='publish'){
+    static public function get_filtered_posts($where = '', $start = 0, $limit = 1, $orderby='pubdate',$sort='desc',$status='publish'){
 		
 		$path = XOOPS_ROOT_PATH.'/modules/mywords';
 		include_once $path.'/class/mwpost.class.php';
@@ -454,6 +454,30 @@ class MWFunctions
         $editor->from_user($uid);
         return !$editor->isNew();
         
+    }
+
+    public static function get_editors( $start, $limit, $where = '', $sort = 'name', $order = 'ASC' ){
+
+        $db = XoopsDatabaseFactory::getDatabaseConnection();
+        $sql = "SELECT * FROM " . $db->prefix("mod_mywords_editors");
+        if ( $where != '' )
+            $sql .= " WHERE $where";
+
+        if ( $sort != '' )
+            $sql .= " ORDER BY $sort $order";
+
+        $sql .= " LIMIT $start, $limit";
+
+        $editors = array();
+        $result = $db->query( $sql );
+        while( $row = $db->fetchArray ( $result ) ) {
+            $editor = new MWEditor();
+            $editor->assignVars( $row );
+            $editors[] = $editor;
+        }
+
+        return $editors;
+
     }
 	
 }

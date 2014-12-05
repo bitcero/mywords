@@ -54,7 +54,7 @@ function mywordsBlockCatsEdit($options){
                     <?php _e('Yes','mywords'); ?>
                 </label>
                 <label class="radio inline">
-                    <input type="radio" name="options[0]" value="1"'<?php echo $options[0]<=0 ? ' checked="checked"' : ''; ?>>
+                    <input type="radio" name="options[0]" value="0"'<?php echo $options[0]<=0 ? ' checked="checked"' : ''; ?>>
                     <?php _e('No','mywords'); ?>
                 </label>
             </div>
@@ -70,7 +70,7 @@ function mywordsBlockCatsEdit($options){
                     <?php _e('Yes','mywords'); ?>
                 </label>
                 <label class="radio inline">
-                    <input type="radio" name="options[1]" value="1"'<?php echo $options[1]<=0 ? ' checked="checked"' : ''; ?>>
+                    <input type="radio" name="options[1]" value="0"'<?php echo $options[1]<=0 ? ' checked="checked"' : ''; ?>>
                     <?php _e('No','mywords'); ?>
                 </label>
             </div>

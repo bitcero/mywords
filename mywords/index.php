@@ -13,7 +13,7 @@ include("../../mainfile.php");
 $request = str_replace(XOOPS_URL, '', RMUris::current_url());
 $request = str_replace("/modules/mywords/", '', $request);
 
-if ($xoopsModuleConfig['permalinks']>1 && $xoopsModuleConfig['basepath']!='/'){
+if ($xoopsModuleConfig['permalinks']>1 && $xoopsModuleConfig['basepath']!='/' && $request != 'index.php'){
     $request = str_replace(rtrim($xoopsModuleConfig['basepath'],'/').'/', '', rtrim($request,'/').'/');
 }
 
@@ -40,7 +40,7 @@ if (isset($vars['post'])){ $post = $vars['post']; require 'post.php'; die(); }
 if (isset($vars['cat'])){ $category = $vars['cat']; require 'categories.php'; die(); }
 if (isset($vars['author'])){ $editor = $vars['author']; require 'author.php'; die(); }
 if (isset($vars['tag'])){ $tag = $vars['tag']; require 'tag.php'; die(); }
-if (isset($vars['edit'])){ require 'submit.php'; die(); }
+if (isset($vars['edit'])){ $edit = $vars['edit']; require 'submit.php'; die(); }
 if (isset($vars['trackback'])){ $id = $vars['trackback']; require 'trackbacks.php'; die(); }
 if (isset($vars['date'])){ 
     $vars = explode("/", $vars['date']);
@@ -123,7 +123,7 @@ if ($vars[0]=='submit'){
 }
 
 if ($vars[0]=='edit'){
-	$vars['edit'] = $vars[1];
+	$edit = $vars[1];
 	require 'submit.php';
 	die();
 }

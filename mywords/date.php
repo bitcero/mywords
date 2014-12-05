@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-$xoopsOption['template_main'] = 'mywords_date.html';
+$xoopsOption['template_main'] = 'mywords-date.tpl';
 $xoopsOption['module_subpage'] = 'date';
 include 'header.php';
 

@@ -88,19 +88,20 @@ while ($row = $db->fetchArray($result)){
         'continue'          =>$post->hasmore_text(),
         'lang_continue'		=> $post->hasmore_text() ? sprintf(__('Read more about "%s"','mywords'), $post->getVar('title')) : '',
         'bookmarks'         =>$bms,
-        'time'              =>$post->getVar('pubdate'),
+        'time'              => $post->getVar('pubdate'),
         'author'            =>array(
                                 'name'  => $editor->name != '' ? $editor->name : $editor->shortname,
                                 'id'    => $editor->id(),
                                 'link'  => $editor->permalink(),
                                 'bio'   => $editor->getVar('bio'),
-                                'email' => $editor->data('email')
+                                'email' => $editor->data('email'),
+                                'avatar'=> RMEvents::get()->run_event( 'rmcommon.get.avatar', $editor->data('email') )
                             ),
         'alink'				=>$alink,
         'edit'              => $xoopsUser && ($xoopsUser->isAdmin() || $author->getVar('uid')==$xoopsUser->uid()),
         'tags'              => $post->tags(false),
         'meta'              => $post->get_meta('', false),
-        'image'             => $post->getImage($xoopsModuleConfig['list_post_imgs_size'])
+        'image'             => $post->image()
     ));
 
 }

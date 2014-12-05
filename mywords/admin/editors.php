@@ -53,7 +53,7 @@ function show_editors(){
 	xoops_cp_header();
 	RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
     RMTemplate::get()->add_script('../include/js/scripts.php?file=editors.js');
-	include RMTemplate::get()->get_template('admin/mywords_editors.php','module','mywords');
+	include RMTemplate::get()->get_template('admin/mywords-editors.php','module','mywords');
 	
 	xoops_cp_footer();
 	
@@ -87,7 +87,7 @@ function edit_editor(){
 
     xoops_cp_header();   
     $show_edit = true;
-    include RMTemplate::get()->get_template('admin/mywords_editors.php','module','mywords');
+    include RMTemplate::get()->get_template('admin/mywords-editors.php','module','mywords');
     xoops_cp_footer();
     
 }

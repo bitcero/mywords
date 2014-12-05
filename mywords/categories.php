@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-$xoopsOption['template_main'] = 'mywords_cats.html';
+$xoopsOption['template_main'] = 'mywords-cats.tpl';
 $xoopsOption['module_subpage'] = 'catego';
 include 'header.php';
 

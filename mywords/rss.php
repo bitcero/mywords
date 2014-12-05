@@ -7,6 +7,12 @@
 // Email: i.bitcero@gmail.com
 // License: GPL 2.0
 // --------------------------------------------------------------
+
+if ( !defined('XOOPS_MAINFILE_INCLUDED') ){
+    header('Location: ../../backend.php');
+    die();
+}
+
 load_mod_locale("mywords");
 $show = rmc_server_var($_GET,'show','all');
 

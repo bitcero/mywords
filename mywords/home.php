@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-$xoopsOption['template_main'] = 'mywords_index.html';
+$xoopsOption['template_main'] = 'mywords-index.tpl';
 $xoopsOption['module_subpage'] = 'index';
 include 'header.php';
 

@@ -40,7 +40,7 @@ extract($_POST);
     die();
 }*/
 
-if (!isset($xoopsUser)){
+if (!isset($xoopsUser) || ( isset( $frontend ) && !$xoopsModuleConfig['submit'] )){
 	return_error(__('You are not allowed to do this action!','mywords'), false, MW_URL);
 }
 
@@ -201,11 +201,19 @@ if ($return){
     if (!$edit) $xoopsUser->incrementPost();
     
     showMessage($edit ? __('Post updated successfully','mywords') : __('Post saved successfully','mywords'), 0);
+
+    $url = MWFunctions::get_url();
+    if ( $xoopsModuleConfig['permalinks'] > 1 )
+        $url .= $frontend ? 'edit/' . $post->id() : 'posts.php?op=edit&amp;id=' . $post->id();
+    else
+        $url .= $frontend ? '?edit=' . $post->id() : 'posts.php?op=edit&amp;id=' . $post->id();
+
     $rtn = array(
-        'message' => $edit ? __('Post updated successfully','mywords') : __('Post saved successfully','mywords'),
-        'token' => $xoopsSecurity->createToken(),
-        'link' => '<strong>'.__('Permalink:','mywords').'</strong> '.$post->permalink(),
-        'post' => $post->id()
+        'message'   => $edit ? __('Post updated successfully','mywords') : __('Post saved successfully','mywords'),
+        'token'     => $xoopsSecurity->createToken(),
+        'link'      => '<strong>'.__('Permalink:','mywords').'</strong> '.$post->permalink(),
+        'post'      => $post->id(),
+        'url'       => $url
     );
     echo json_encode($rtn);
     die();

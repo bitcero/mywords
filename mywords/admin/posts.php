@@ -154,7 +154,7 @@ function showPosts($aprovado = -1){
     }
 
 	xoops_cp_header();
-	include_once '../templates/admin/mywords_posts.php';    
+	include_once '../templates/admin/mywords-posts.php';
 	xoops_cp_footer();
 }
 /**
@@ -202,7 +202,7 @@ function newForm($edit = 0){
     //RMTemplate::get()->add_script(RMCURL.'/include/js/forms.js');
     //RMTemplate::get()->add_head('<script type="text/javascript">$("form#mw-form-posts").validate();</script>');
     
-	include '../templates/admin/mywords_formposts.php';
+	include '../templates/admin/mywords-formposts.php';
 	
 	xoops_cp_footer();
 }
