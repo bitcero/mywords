@@ -9,27 +9,33 @@
 // --------------------------------------------------------------
 set_time_limit(0);
 /**
-* This function show an error message
-*/
+ * This function show an error message
+ */
 function return_error($msg, $token=true, $redirect=''){
     global $xoopsSecurity;
-    
+
     $ret['error'] = $msg;
     if ($token) $ret['token'] = $xoopsSecurity->createToken();
     if ($redirect!='') $ret['redirect'] = $redirect;
-    
+
     echo json_encode($ret);
     die();
 
 }
 
+$no_includes = true;
+
+include '../../../mainfile.php';
 include '../header.php';
+
+include XOOPS_ROOT_PATH . '/modules/mywords/class/mwtrackback.php';
 
 global $xoopsLogger;
 $xoopsLogger->renderingEnabled = false;
 error_reporting(0);
 $xoopsLogger->activated = false;
 
+$frontend = 0;
 extract($_POST);
 
 /*if(!$xoopsSecurity->check() || !$xoopsSecurity->checkReferer()){
@@ -39,33 +45,33 @@ extract($_POST);
     echo json_encode($ret);
     die();
 }*/
+$mc = RMSettings::module_settings( 'mywords' );
+
+if (!isset($xoopsUser) || ( !$xoopsUser->isAdmin() && !$mc->submit ) )
+    return_error(__('You are not allowed to do this action!','mywords'), false, MW_URL);
 
 $editor = new MWEditor();
 $editor->from_user($author);
-
-if ($editor->isNew() && !$xoopsUser->isAdmin()){
-	return_error(__('You are not allowed to do this action!','mywords'), false, MW_URL);
-}
 
 if ($op=='saveedit'){
     if(!isset($id) || $id<=0){
         return_error(__('You must provide a valid post ID','mywords'), 0, 'posts.php');
         die();
     }
-        
+
     $post = new MWPost($id);
     if($post->isNew()){
         return_error(__('You must provide an existing post ID','mywords'), 0, 'posts.php');
         die();
     }
-    
+
     if (!$editor->id()==$post->getVar('author') && !$xoopsUser->isAdmin()){
-		return_error(__('You are not allowed to do this action!','mywords'), false, MW_URL);
+        return_error(__('You are not allowed to do this action!','mywords'), false, MW_URL);
     }
-        
+
     $query = 'op=edit&id='.$id;
     $edit = true;
-        
+
 } else {
     $query = 'op=new';
     $post = new MWPost();
@@ -73,9 +79,9 @@ if ($op=='saveedit'){
 }
 
 /**
-* @todo Insert code to verify token
-*/
-    
+ * @todo Insert code to verify token
+ */
+
 // Verify title
 if ($title==''){
     return_error(__('You must provide a title for this post','mywords'), true);
@@ -93,38 +99,61 @@ if ($content=='' && $format != 'image'){
     return_error(__('Content for this post has not been provided!','mywords'), true);
     die();
 }
-    
+
 // Categories
 if (!isset($categories) || empty($categories)){
     $categories = array(MWFunctions::get()->default_category_id());
 }
-    
+
 // Check publish options
 if ($visibility=='password' && $vis_password==''){
     return_error(__('You must provide a password for this post or select another visibility option','mywords'), true);
     die();
 }
-    
+
 $time = explode("-", $schedule);
 $schedule = mktime($time[3], $time[4], 0, $time[1], $time[0], $time[2]);
 if ($schedule<=time())
     $schedule = 0;
 
-$author = !isset($author) || $author<=0 ? $xoopsUser->uid() : $author;
-$authorname = !isset($author) || $author<=0 ? $xoopsUser->uname() : MWFunctions::author_name($author);
+$editor = new MWEditor( $xoopsUser->uid(), 'user' );
+if ( $editor ->isNew() ){
+
+    $editor->setVar('uid', $xoopsUser->uid() );
+    $editor->setVar('shortname', $xoopsUser->getVar('uname') );
+    $editor->setVar('name', $xoopsUser->getVar('name') );
+    $editor->setVar('bio', $xoopsUser->getVar('bio') );
+    $editor->setVar('active', 0 );
+    $editor->save();
+
+}
 
 // Add Data
 $post->setVar('title', $title);
 $post->setVar('shortname', $shortname);
 $post->setVar('content', $content);
-$post->setVar('status', $schedule>time() && $status!='draft' ? 'scheduled' : $status);
+
+if ( $editor->isNew() && !$xoopsUser->isAdmin() )
+    $status = 'pending';
+else{
+
+    if ( $xoopsUser->isAdmin() )
+        $status = $status;
+    elseif ( $mc->approve && $editor->active )
+        $status = $status;
+    else
+        $status = 'pending';
+
+}
+
+$post->setVar('status', $status);
 $post->setVar('visibility', $visibility);
 $post->setVar('schedule', $schedule);
 $post->setVar('password', $vis_password);
-$post->setVar('author', $author);
+$post->setVar('author', $editor->id() );
 $post->setVar('comstatus', isset($comstatus) ? $comstatus : 0);
 $post->setVar('pingstatus', isset($pingstatus) ? $pingstatus : 0);
-$post->setVar('authorname', $authorname);
+$post->setVar('authorname', $editor->name != '' ? $editor->name : $editor->shortname );
 $post->setVar('image', $image);
 $post->setVar('format', $format);
 
@@ -172,21 +201,21 @@ RMEvents::get()->run_event('mywords.saving.post', $post);
 $toping = array();
 $pinged = $edit ? $post->getVar('pinged') : array();
 if ($trackbacks!='' && $post->getVar('pingstatus')){
-	
-	$trackbacks = explode(" ", $trackbacks);
-	
+
+    $trackbacks = explode(" ", $trackbacks);
+
 } elseif($trackbacks=='' && $post->getVar('pingstatus')){
-	
-	$tb = new MWTrackback('','');
-	$trackbacks = $tb->auto_discovery($content);
-	
+
+    $tb = new MWTrackback('','');
+    $trackbacks = $tb->auto_discovery($content);
+
 }
 
 if (!empty($trackbacks)){
-	foreach ($trackbacks as $t){
-		if (!empty($pinged) && in_array($t, $pinged)) continue;
-		$toping[] = $t;
-	}
+    foreach ($trackbacks as $t){
+        if (!empty($pinged) && in_array($t, $pinged)) continue;
+        $toping[] = $t;
+    }
 }
 
 $post->setVar('toping', !empty($toping) ? $toping : '');
@@ -195,10 +224,14 @@ $return = $edit ? $post->update() : $post->save();
 
 if ($return){
     if (!$edit) $xoopsUser->incrementPost();
-    
+
     showMessage($edit ? __('Post updated successfully','mywords') : __('Post saved successfully','mywords'), 0);
 
-    $url .= 'posts.php?op=edit&id=' . $post->id();
+    $url = MWFunctions::get_url();
+    if ( $mc->permalinks > 1 )
+        $url .= $frontend ? 'edit/' . $post->id() : 'posts.php?op=edit&id=' . $post->id();
+    else
+        $url .= $frontend ? '?edit=' . $post->id() : 'posts.php?op=edit&id=' . $post->id();
 
     $rtn = array(
         'message'   => $edit ? __('Post updated successfully','mywords') : __('Post saved successfully','mywords'),

@@ -49,7 +49,7 @@ if ($edit > 0){
     }
 
     // Check if user is the admin or a editor of this this post
-    if ($author->id()!=$post->getVar('author') && !$xoopsUser->isAdmin()){
+    if ($author->id() != $post->getVar('author') && !$xoopsUser->isAdmin()){
         redirect_header($post->permalink(), 1, __('You are not allowed to do this action!','mywords'));
         die();
     }
@@ -72,7 +72,7 @@ $xoopsOption['module_subpage'] = 'submit';
 include 'header.php';
 
 $form = new RMForm('','','');
-$editor = new RMFormEditor('','content','100%','300px', $edit ? $post->getVar('content') : '');
+$editor = new RMFormEditor('','content','100%','300px', $edit ? $post->getVar('content',$rmc_config['editor_type']=='tiny' ? 's' : 'e') : '');
 $editor->setExtra('required');
 $meta_names = MWFunctions::get()->get_metas();
 

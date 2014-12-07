@@ -98,7 +98,7 @@ while ($row = $db->fetchArray($result)){
                                 'avatar'=> RMEvents::get()->run_event( 'rmcommon.get.avatar', $editor->data('email') )
                             ),
         'alink'				=>$alink,
-        'edit'              => $xoopsUser && ($xoopsUser->isAdmin() || $author->getVar('uid')==$xoopsUser->uid()),
+        'edit'              => $xoopsUser && ($xoopsUser->isAdmin() || $editor->getVar('uid')==$xoopsUser->uid()),
         'tags'              => $post->tags(false),
         'meta'              => $post->get_meta('', false),
         'image'             => $post->image()

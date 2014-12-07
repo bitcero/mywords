@@ -146,6 +146,20 @@
             </div>
         </div>
 
+        <!-- Formats -->
+        <?php
+        include 'widgets/widget-post-type.php';
+        $w = mywords_widget_post_type( $post );
+        ?>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $w['title']; ?></h3>
+            </div>
+            <div class="panel-body">
+                <?php echo $w['content']; ?>
+            </div>
+        </div>
+
         <!-- Categories -->
         <?php
         include 'widgets/widget-categories.php';

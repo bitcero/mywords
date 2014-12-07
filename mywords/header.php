@@ -20,6 +20,9 @@ $myts =& MyTextSanitizer::getInstance();
 define('MW_PATH',XOOPS_ROOT_PATH.'/modules/mywords');
 define('MW_URL',MWFunctions::get_url());
 
+if ( $no_includes )
+    return;
+
 $xoopsTpl->assign('mw_url', MW_URL);
 
 $xmh = '';

@@ -28,6 +28,7 @@ $xoopsLogger->renderingEnabled = false;
 error_reporting(0);
 $xoopsLogger->activated = false;
 
+header('Content-Type: application/javascript');
 switch($wfile){
 	
 	default:

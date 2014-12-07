@@ -45,7 +45,7 @@ $modversion['onUpdate'] = 'include/install.php';
  */
 // Behaviour
 $modversion['rmnative'] = 1;
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>38, 'stage'=>0,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>39, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
@@ -277,10 +277,18 @@ $modversion['config'][13]['default'] = 5;
 // Related posts num
 $modversion['config'][14]['name'] = 'submit';
 $modversion['config'][14]['title'] = __('Enable posts submission', 'mywords');
-$modversion['config'][14]['description'] = __('By enabling this options, registered users can submit their own articles to MyWords', 'mywords');
+$modversion['config'][14]['description'] = __('By enabling this option, registered users can submit their own articles to MyWords', 'mywords');
 $modversion['config'][14]['formtype'] = 'yesno';
 $modversion['config'][14]['valuetype'] = 'int';
 $modversion['config'][14]['default'] = 1;
+
+// Related posts num
+$modversion['config'][15]['name'] = 'approve';
+$modversion['config'][15]['title'] = __('Auto approve posts submitted by editors', 'mywords');
+$modversion['config'][15]['description'] = __('By enabling this option, the posts submitted by editors will automatically approve', 'mywords');
+$modversion['config'][15]['formtype'] = 'yesno';
+$modversion['config'][15]['valuetype'] = 'int';
+$modversion['config'][15]['default'] = 0;
 
 // Bloque Categorias
 $modversion['blocks'][1]['file'] = "block.cats.php";

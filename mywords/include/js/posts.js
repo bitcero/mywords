@@ -380,13 +380,18 @@ $(document).ready( function($) {
         params += "&"+$("form#mw-post-categos-form").serialize();
         params += "&"+$("form#mw-post-tags-form").serialize();
         params += "&"+$("form#frm-defimage").serialize();
+
+        if ( $("#mw-frontend").length > 0 )
+            var procesor = '<?php echo XOOPS_URL; ?>/modules/mywords/include/posts.php';
+        else
+            var procesor = '<?php echo XOOPS_URL; ?>/modules/mywords/admin/ajax/ax-posts.php';
         
         var blocker = '<div id="mw-blocker"></div><div id="mw-blocker-message"><img src="../images/wait.gif" alt="" /><br /><?php _e("Saving post...","mywords"); ?></div>';
         $("body").append(blocker);
         $("#mw-blocker, #mw-blocker-message").fadeIn('fast');
         // Send Post data
 
-        $.post('<?php echo XOOPS_URL; ?>/modules/mywords/admin/ajax/ax-posts.php', params, function(data){
+        $.post( procesor, params, function(data){
             
             if(data['error']!=undefined && data['error']!=''){
                 $('div#mw-messages-post').addClass('alert-danger');

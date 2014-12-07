@@ -107,7 +107,7 @@ function showPosts($aprovado = -1){
 	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='draft'";
 	list($draft_count) = $db->fetchRow($db->query($sql));
 	// Pending count
-	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='waiting'";
+	$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='pending'";
 	list($pending_count) = $db->fetchRow($db->query($sql));
 	
 	// Confirm message
@@ -161,7 +161,7 @@ function showPosts($aprovado = -1){
  * Muestra el formulario para la creación de un nuevo artículo
  */
 function newForm($edit = 0){
-	global $db, $xoopsModule, $myts, $util, $xoopsConfig, $tpl, $xoopsSecurity, $rmc_config;
+	global $db, $xoopsModule, $myts, $util, $xoopsConfig, $tpl, $xoopsSecurity, $cuSettings;
 	
 	define('RMCSUBLOCATION','new_post');
 	
@@ -194,7 +194,7 @@ function newForm($edit = 0){
 	//TinyEditor::getInstance()->add_config('theme_advanced_buttons1', 'bold,italic,strikethrough,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,|,link,unlink,|,spellchecker,fullscreen,|,exm_more,exm_adv', true);
 	//TinyEditor::getInstance()->add_config('theme_advanced_buttons2','formatselect,underline,justifyfull,forecolor,|,pastetext,pasteword,removeformat,|,media,charmap,|,outdent,indent,|,undo,redo,|,exm_img,exm_icons,exm_page', true);
     //echo $post->getVar('content'); die();
-    $editor = new RMFormEditor('','content','100%','350px', $edit ? $post->getVar('content',$rmc_config['editor_type']=='tiny' ? 's' : 'e') : '');
+    $editor = new RMFormEditor('','content','100%','350px', $edit ? $post->getVar('content',$cuSettings->editor_type=='tiny' ? 's' : 'e') : '');
     
     // Get current metas
     $meta_names = MWFunctions::get()->get_metas();

@@ -20,7 +20,7 @@
                 <li<?php echo $status=='' ? ' class="active"' : ''; ?>><a href="posts.php?limit=<?php echo $limit ?>"><?php _e('Show all','mywords'); ?> <strong>(<?php echo ($pub_count+$draft_count+$pending_count); ?>)</strong></a></li>
                 <li<?php echo $status=='publish' ? ' class="active"' : ''; ?>><a href="posts.php?status=publish&amp;limit=<?php echo $limit ?>"><?php _e('Published', 'admin_mywords'); ?> <strong>(<?php echo $pub_count; ?>)</strong></a></li>
                 <li<?php echo $status=='draft' ? ' class="active"' : ''; ?>><a href="posts.php?status=draft&amp;limit=<?php echo $limit ?>"><?php _e('Drafts', 'admin_mywords'); ?> <strong>(<?php echo $draft_count; ?>)</strong></a></li>
-                <li<?php echo $status=='waiting' ? ' class="active"' : ''; ?>><a href="posts.php?status=waiting&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
+                <li<?php echo $status=='pending' ? ' class="active"' : ''; ?>><a href="posts.php?status=pending&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
             </ul>
             
         </div>
@@ -90,7 +90,7 @@
                 case 'scheduled':
                     echo "<span class=\"sheduled\">- ".__('Scheduled','mywords')."</span> ";
                     break;
-                case 'waiting':
+                case 'pending':
                     echo "<span class=\"pending\">- ".__('Pending','mywords')."</span> ";
                     break;
             } ?>
