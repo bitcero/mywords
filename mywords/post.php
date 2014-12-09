@@ -134,7 +134,8 @@ $post_arr = array(
                             'link'  => $editor->permalink(),
                             'bio'   => $editor->getVar('bio'),
                             'email' => $editor->data('email'),
-                            'uid'   => $editor->uid
+                            'uid'   => $editor->uid,
+                            'url'   => $editor->data( 'url' )
                        ),
     'alink'             => $editor->permalink(),
     'format'            => $post->format,

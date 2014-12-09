@@ -45,7 +45,7 @@ $modversion['onUpdate'] = 'include/install.php';
  */
 // Behaviour
 $modversion['rmnative'] = 1;
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>39, 'stage'=>0,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>40, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
@@ -66,7 +66,7 @@ $modversion['social'][0] = array('title' => __('Twitter', 'mywords'),'type' => '
 $modversion['social'][1] = array('title' => __('Facebook', 'mywords'),'type' => 'facebook-square','url' => 'http://www.facebook.com/eduardo.cortes.hervis/');
 $modversion['social'][2] = array('title' => __('Instagram', 'mywords'),'type' => 'instagram','url' => 'http://www.instagram.com/eduardocortesh/');
 $modversion['social'][3] = array('title' => __('LinkedIn', 'mywords'),'type' => 'linkedin-square','url' => 'http://www.linkedin.com/in/bitcero/');
-$modversion['social'][4] = array('title' => __('GithHub', 'mywords'),'type' => 'github','url' => 'http://www.github.com/bitcero/');
+$modversion['social'][4] = array('title' => __('GitHub', 'mywords'),'type' => 'github','url' => 'http://www.github.com/bitcero/');
 $modversion['social'][5] = array('title' => __('My Blog', 'mywords'),'type' => 'quote-left','url' => 'http://eduardocortes.mx');
 
 // Admin things
