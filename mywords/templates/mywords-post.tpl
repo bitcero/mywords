@@ -65,9 +65,9 @@
 <!-- Start Comments -->
 <a name="comments"></a>
 <{include file="db:rmc-comments-display.html"}>
-<{include file="db:rmc-comments-form.html"}>
 <!-- /End comments -->
 <{/if}>
+<{include file="db:rmc-comments-form.html"}>
 
 <!-- Trackbacks -->
 <{if $trackbacks}>
