@@ -8,10 +8,15 @@
 	        <{$post.published }> <{if ($post.edit)}>| <a href="<{if $xoops_isadmin}><{$xoops_url}>/modules/mywords/admin/posts.php?op=edit&amp;id=<{$post.id}><{else}><{$xoops_url}>/modules/mywords/submit.php?action=edit&amp;id=<{$post.id}><{/if}>"><{$lang_editpost}></a><{/if}>
 	    </span>
     </header>
+    <section class="mw-video">
+        <{$post.player}>
+    </section>
+    <{if $post.text != ''}>
     <section class="mwtext">
         <{$post.text}>
         <{if ($post.continue) }><span class="mwcontinue"><a href="<{$post.link}>#mwmore"><{$post.lang_continue}></a></span><{/if}>
     </section>
+    <{/if}>
     <footer class="mwfoot">
         <span class="mwcats">
         <{if ($post.cats) }>

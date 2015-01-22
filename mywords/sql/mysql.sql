@@ -84,6 +84,7 @@ CREATE TABLE `mod_mywords_posts` (
   `toping` text NOT NULL,
   `pinged` text NOT NULL,
   `image` text NOT NULL,
+  `video` text NOT NULL,
   `description` text NOT NULL,
   `keywords` text NOT NULL,
   `customtitle` varchar(255) NOT NULL,

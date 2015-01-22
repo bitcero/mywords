@@ -101,7 +101,9 @@ while ($row = $db->fetchArray($result)){
         'edit'              => $xoopsUser && ($xoopsUser->isAdmin() || $editor->getVar('uid')==$xoopsUser->uid()),
         'tags'              => $post->tags(false),
         'meta'              => $post->get_meta('', false),
-        'image'             => $post->image()
+        'image'             => $post->image(),
+        'video'             => $post->video,
+        'player'            => $post->format == 'video' ? $post->video_player() : '',
     ));
 
 }

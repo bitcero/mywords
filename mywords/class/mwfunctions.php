@@ -479,5 +479,157 @@ class MWFunctions
         return $editors;
 
     }
+
+    /**
+     * Create the appropriate HTML code for video player
+     * @param string $source
+     * @return null|string;
+     */
+    static public function construct_video_player( $source )
+    {
+
+        if ('' == $source)
+            return null;
+
+        $video = array();
+
+    //if ( '<iframe ' == substr( html_entity_decode($source), 0, 8 ) ){
+    if ( preg_match( "/^[<iframe|<object|<embed|<video]/si", html_entity_decode($source) ) ){
+
+        /* OTHER VIDEO PLAYER */
+        $source = html_entity_decode($source);
+        $params = array();
+        //preg_match( "/[<iframe|<object|<embed|<video] .*?(?=src)src=[\"\']([^\"]+)\"/si", $source, $params );
+
+        if ( preg_match( "/class=\"(.*?)\"/si", $source ) )
+            $source = preg_replace( "/class=\"(.*?)\"/si", 'class="\%class\%"', $source );
+        else
+            $source = preg_replace( "/^(<iframe|<object|<embed|<video)/si", '$1 class="%class%"', $source );
+
+        $video = array(
+            'src'   => $source,
+            'type'  => 'other'
+        );
+
+
+    } elseif ( strpos( $source, 'vimeo.com/' ) !== FALSE ){
+
+            /* VIMEO */
+
+            $matches = array();
+            preg_match( "/.*.\/([0-9]{3,}).*/", $source, $matches );
+
+            if ( isset( $matches[1] ) && $matches[1] != '' ){
+                $video = array(
+                    'src'   => '//player.vimeo.com/video/' . $matches[1],
+                    'attrs' => 'webkitallowfullscreen mozallowfullscreen allowfullscreen',
+                    'type'  => 'vimeo'
+                );
+            }
+
+        } elseif ( FALSE !== strpos( $source, 'youtube.com' ) ){
+
+            /* YOUTUBE */
+
+            $params = array();
+            $params = parse_url( $source );
+            parse_str( $params['query'], $params );
+
+            if ( isset( $params['v'] ) && '' != $params['v'] ){
+                $video = array(
+                    'src'   => '//www.youtube.com/embed/'. $params['v'] . '?rel=0',
+                    'attrs' => 'allowfullscreen',
+                    'type'  => 'youtube'
+                );
+            }
+
+        } elseif ( FALSE !== strpos( $source, 'youtu.be' ) ){
+
+            /* YOUTUBE */
+
+            $params = array();
+            preg_match( "/^http.*youtu\.be\/([a-zA-Z\d]+)$/", $source, $params );
+
+            if ( isset( $params[1] ) && '' != $params[1] ){
+                $video = array(
+                    'src'   => '//www.youtube.com/embed/'. $params[1] . '?rel=0',
+                    'attrs' => 'allowfullscreen',
+                    'type'  => 'youtube'
+                );
+            }
+
+        } elseif ( FALSE !== strpos( $source, '//www.dailymotion.com/video') ) {
+            /* DAILY MOTION */
+            $params = array();
+            preg_match( "/^http.*dailymotion\.com\/video\/([a-zA-Z\d]+)/", $source, $params );
+
+            if ( isset( $params[1] ) && '' != $params[1] ){
+                $video = array(
+                    'src'   => '//www.dailymotion.com/embed/video/'. $params[1],
+                    'attrs' => 'allowfullscreen',
+                    'type'  => 'daily'
+                );
+            }
+
+        } elseif ( FALSE !== strpos( $source, '//www.dailymotion.com/embed/video/') ) {
+
+            /* DAILY MOTION */
+            $video = array(
+                'src'   => $source,
+                'attrs' => 'allowfullscreen',
+                'type'  => 'daily'
+            );
+
+        } elseif ( FALSE !== strpos( $source, 'www.liveleak.com') ) {
+
+            /* LIVE LEAK */
+            preg_match( "/^http.*liveleak\.com\/ll_embed\?f=([a-zA-Z\d]+)$/", $source, $params );
+
+            if ( isset( $params[1] ) && '' != $params[1] ){
+                $video = array(
+                    'src'   => $source,
+                    'attrs' => 'allowfullscreen',
+                    'type'  => 'liveleak'
+                );
+            }
+
+        } elseif ( FALSE !== strpos( $source, 'vine.co') ) {
+
+            /* VINE */
+            preg_match( "/^https.*vine\.co\/v\/([a-zA-Z\d]+)\/embed*/", $source, $params );
+
+            if ( isset( $params[1] ) && '' != $params[1] ){
+                $video = array(
+                    'src'   => 'https://vine.co/v/' . $params[1] . '/embed/simple?audio=1',
+                    'attrs' => 'allowfullscreen',
+                    'type'  => 'vine'
+                );
+            }
+
+        } elseif ( FALSE !== strpos( $source, 'www.metacafe.com/') ) {
+
+            /* META CAFE */
+            $params = array();
+            preg_match( "/^http.*metacafe\.com\/(embed|watch)\/([0-9]+)*/", $source, $params );
+
+            if ( isset( $params[2] ) && '' != $params[2] ){
+                $video = array(
+                    'src'   => 'http://www.metacafe.com/embed/' . $params[2] . '/',
+                    'attrs' => 'allowFullScreen',
+                    'type'  => 'metacafe'
+                );
+            }
+
+        }
+
+        if ( empty( $video ) )
+            return null;
+
+        global $xoopsTpl;
+        $xoopsTpl->assign( 'video', $video );
+
+        return $xoopsTpl->fetch( "db:formats/video-player.tpl" );
+
+    }
 	
 }

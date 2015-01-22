@@ -128,6 +128,8 @@ $post_arr = array(
     'meta'              => $post->get_meta('', false),
     'time'              => $post->getVar('pubdate'),
     'image'             => $post->image(),
+    'video'             => $post->video,
+    'player'            => $post->video != '' ? $post->video_player() : '',
     'author'            => array(
                             'name'  => $editor->getVar('name') != '' ? $editor->name : $editor->shortname,
                             'id'    => $editor->id(),

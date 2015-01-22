@@ -60,6 +60,7 @@ class MWPost extends RMObject
 		$this->setVarType('toping', XOBJ_DTYPE_ARRAY);
 		$this->setVarType('pinged', XOBJ_DTYPE_ARRAY);
 		$this->setVarType('image', XOBJ_DTYPE_SOURCE);
+		$this->setVarType('video', XOBJ_DTYPE_SOURCE);
 
 		if ($id==null) return;
 	
@@ -457,6 +458,19 @@ class MWPost extends RMObject
         if($this->getVar('image', 'e') == '') return '';
         
         return RMImage::get()->load_from_params( $this->getVar('image', 'e') );
+    }
+
+    /**
+     * Get the video iframe when post type is 'video'
+     */
+    public function video_player(){
+
+        if ( 'video' != $this->format )
+            return null;
+
+        $player = MWFunctions::construct_video_player( $this->video );
+        return $player;
+
     }
 	
 	/**

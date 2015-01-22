@@ -18,6 +18,19 @@
 <?php echo $editor->render(); ?>
 <br />
 
+    <div class="cu-box" id="format-video"<?php echo $post->format != 'video' ? ' style="display: none;"' : ''; ?>>
+        <div class="box-header">
+            <span class="fa fa-caret-up box-handler"></span>
+            <h3><span class="fa fa-video-camera"></span> <?php _e('Video URL', 'mywords'); ?></h3>
+        </div>
+        <div class="box-header">
+            <div class="form-group">
+                <input type="text" name="video" id="video" value="<?php echo $edit ? $post->getVar('video', 'e'): ''; ?>" class="form-control" placeholder="e.g. http://youtu.be/jhgSCghjIu">
+                <small class="help-block"><?php _e('Input here the video URL for supported services.', 'mywords'); ?></small>
+            </div>
+        </div>
+    </div>
+
     <!-- Basic SEO -->
     <div class="cu-box">
         <div class="box-header">

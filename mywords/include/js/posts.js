@@ -469,6 +469,15 @@ $(document).ready( function($) {
 		$("#shortname-editor").focus();
 	});
 
+    /**
+     * Formats
+     */
+    $("#frm-post-type input").change( function(){
+        if ( $(this).val() == 'video' )
+            $("#format-video").slideDown( 250 );
+        else
+            $("#format-video").slideUp( 250 );
+    } );
  });
  
  function remove_meta(id){

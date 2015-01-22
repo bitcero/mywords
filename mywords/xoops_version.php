@@ -45,7 +45,7 @@ $modversion['onUpdate'] = 'include/install.php';
  */
 // Behaviour
 $modversion['rmnative'] = 1;
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>41, 'stage'=>0,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>43, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
@@ -156,6 +156,10 @@ $modversion['templates'] = array(
     array(
         'file' => 'formats/quote.tpl',
         'description' => __('Template for quote post', 'mywords')
+    ),
+    array(
+        'file' => 'formats/video-player.tpl',
+        'description' => __('Template for video player', 'mywords')
     )
 );
 
