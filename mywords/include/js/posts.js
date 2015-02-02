@@ -366,6 +366,8 @@ $(document).ready( function($) {
         
         if(typeof tinyMCE!='undefined'){
             tinyMCE.activeEditor.save();
+        }else if (undefined != typeof mdEditor){
+            mdEditor.save('content');
         }
         
         /*if ($("#content").val()==''){

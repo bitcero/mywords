@@ -11,6 +11,11 @@
 define('RMCLOCATION','tags');
 require('header.php');
 
+RMTemplate::get()->add_help(
+    'Etiqueta',
+    'http://www.xoopsmexico.net/docs/mywords/etiquetas/'
+);
+
 /**
 * Show all existing tags
 */

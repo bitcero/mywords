@@ -43,6 +43,9 @@
 
         <div class="form-group">
             <button type="button" id="submit-newtag" class="btn btn-primary"><?php _e('Add Tag','mywords'); ?></button>
+            <a href="http://www.xoopsmexico.net/docs/mywords/etiquetas/#add-tags" class="btn btn-info rm_help_button">
+                <span class="fa fa-question-circle"></span>
+            </a>
         </div>
 
         <input type="hidden" name="XOOPS_TOKEN_REQUEST" value="<?php echo $xoopsSecurity->createToken(); ?>" />

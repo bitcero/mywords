@@ -77,8 +77,7 @@ RMBreadCrumb::get()->add_crumb(__('Dashboard','mywords'));
 include 'menu.php';
 MWFunctions::include_required_files();
 RMTemplate::get()->add_script('../include/js/scripts.php?file=dashboard.js');
-RMTemplate::get()->add_help(__('MyWords Documentation','mywords'), 'http://www.xoopsmexico.net/docs/mywords/standalone/1/');
-RMTemplate::get()->add_help(__('Dashboard Help','mywords'), 'http://www.xoopsmexico.net/docs/mywords/descripcion-del-modulo/standalone/1/#administracion');
+RMTemplate::get()->add_help(__('MyWords Documentation','mywords'), 'http://www.xoopsmexico.net/docs/mywords/introduccion/');
 
 xoops_cp_header();
 	

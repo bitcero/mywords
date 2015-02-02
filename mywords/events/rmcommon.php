@@ -186,8 +186,7 @@ class MywordsRmcommonPreload
         unset($editors);
 		unset($table);
         
-        RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.min.js');
-        RMTemplate::get()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
+        RMTemplate::get()->add_jquery();
 		
 		$feed = array('data'=>$data,'options'=>$options);
 		$feeds[] = $feed;

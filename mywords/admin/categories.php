@@ -11,6 +11,11 @@
 define('RMCLOCATION','categories');
 require('header.php');
 
+RMTemplate::get()->add_help(
+    'Uso de las categorías',
+    'http://www.xoopsmexico.net/docs/mywords/categorias/'
+);
+
 /**
  * Muestra una lista de las categorías existentes
  */
@@ -85,8 +90,6 @@ function showCategos(){
 		  }
 	  </script>'
 	);
-	
-	RMTemplate::get()->set_help('http://redmexico.com.mx/docs/mywords/descripcion-del-modulo#categorias');
 
     RMBreadCrumb::get()->add_crumb(__('Categories','mywords'));
 
@@ -96,7 +99,7 @@ function showCategos(){
     extract($_GET);
 	include RMTemplate::get()->get_template('admin/mywords-categories.php','module','mywords');
 	RMTemplate::get()->assign('xoops_pagetitle', __('Categories Management','mywords'));
-	RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
+	RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
 	RMTemplate::get()->add_script('../include/js/categories.js');
 	
 	xoops_cp_footer();

@@ -35,7 +35,10 @@
         	RMEvents::get()->run_event('mywords.newcategory_form', null);
         ?>
         
-            <p class="submit"><button type="submit" class="btn btn-primary"><?php _e('Add Category','mywords'); ?></button></p>
+            <p class="submit">
+                <button type="submit" class="btn btn-primary"><?php _e('Add Category','mywords'); ?></button>
+                <a href="http://www.xoopsmexico.net/docs/mywords/categorias/#add-categories" class="btn btn-info rm_help_button"><span class="fa fa-question-circle"></span></a>
+            </p>
             <input type="hidden" name="op" id="op" value="save" />
             <?php echo $xoopsSecurity->getTokenHTML(); ?>
         </form>
