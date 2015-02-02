@@ -23,4 +23,3 @@ This module will allow you to create a news or articles section, or even a blog 
 You can view MyWords in action in next sites:
 
 * [Xoops México](http://xoopsmexico.net/blog)
-* [Club Gallos](http://clubgallos.com.mx/blog)
