@@ -27,7 +27,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <input type="text" name="video" id="video" value="<?php echo $edit ? $post->getVar('video', 'e'): ''; ?>" class="form-control" placeholder="e.g. http://youtu.be/jhgSCghjIu">
-                    <a href="http://www.xoopsmexico.net/docs/mywords/standalone/1" class="input-group-addon rm_help_button" title="<?php _e('Create video post type', 'mywords'); ?>">
+                    <a href="http://www.xoopsmexico.net/docs/mywords/publicar-videos/standalone/1" class="input-group-addon rm_help_button" title="<?php _e('Create video post type', 'mywords'); ?>">
                         <span class="fa fa-question-circle"></span>
                     </a>
                 </div>

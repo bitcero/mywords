@@ -12,9 +12,9 @@ include("../../mainfile.php");
 
 $path = parse_url( RMUris::current_url() );
 //$request = str_replace(XOOPS_URL, '', RMUris::current_url());
-$request = $path['path'] . ( isset($path['query']) ? '/' . $path['query'] : '' );
+$request = rtrim( $path['path'], '/' ) . ( isset($path['query']) ? '/' . $path['query'] : '' );
 $request .= isset( $path['anchor'] ) != '' ? '#' . $path['anchor'] : '';
-$request = str_replace("/modules/mywords/", '', $request);
+$request = str_replace( RMUris::relative_url("/modules/mywords/"), '', $request);
 
 if ($xoopsModuleConfig['permalinks']>1 && $xoopsModuleConfig['basepath']!='/' && $request != 'index.php'){
     $request = str_replace(rtrim($xoopsModuleConfig['basepath'],'/').'/', '', rtrim($request,'/').'/');

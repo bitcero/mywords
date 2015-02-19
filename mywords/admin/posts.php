@@ -11,6 +11,11 @@
 define('RMCLOCATION','posts');
 require 'header.php';
 
+$tpl->add_help(
+    __('Posts help', 'mywords'),
+    'http://www.xoopsmexico.net/docs/mywords/articulos/'
+);
+
 /**
  * Muestra los envíos existentes
  */
@@ -177,6 +182,12 @@ function newForm($edit = 0){
 			die();
 		}
 	}
+
+    // Context help
+    $tpl->add_help(
+        __('Publish articles', 'mywords'),
+        'http://www.xoopsmexico.net/docs/mywords/publicar-entradas/'
+    );
 	
 	MWFunctions::include_required_files( false );
 

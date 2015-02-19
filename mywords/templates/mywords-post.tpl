@@ -5,45 +5,9 @@
     <a href="<{$mw_url}>"><{$lang_lang_homemw}></a>
 </nav>
 <{/if}>
-<article class="mwitem">
-    <header>
-        <h1><{$post.title}></h1>
-        <{if $post.published!=''}>
-            <span class="mwinfotop">
-            <{$post.published}>. <{if $edit_link}> | <{$edit_link}><{/if}>
-            | <{$lang_reads}>
-            <{if $post.trackback!=''}>
-            | <a href="<{$post.trackback}>"><{$lang_trackback}></a>
-            <{/if}>
-            </span>
-        <{/if}>
-    </header>
-    <section class="mwtext">
-        <{if $enable_images && $post.image != ''}><img src="<{$post.image}>" alt="<{$post.title}>" class="img-responsive full_post_image" /><{/if}>
-        <{$post.text}>
-        <span class="mwbooks">
-        <{if ($post.bookmarks) }>
-            <{foreach item=bm from=$post.bookmarks key=i}>
-                <a href="javascript:;" onclick="mwOpenWindow('<{$bm.link}>','bookmark',600,400);" title="<{$bm.alt}>"><img src="<{$xoops_url}>/modules/mywords/images/icons/<{$bm.icon}>" alt="<{$bm.alt}>" /></a>
-            <{/foreach}>
-        <{/if}>
-        </span>
-    </section>
-    <footer class="mwfoot">
-        <{$lang_taggedas}>
-        <{foreach item=tag from=$post.tags key=i}>
-        <a href="<{$tag.permalink}>"><{$tag.tag}></a><{if ($i<count($post.tags)-1)}>, <{else}><{/if}>
-        <{/foreach}>
-        <{if ($post.cats) }> |
-        <{$lang_postedin}>
-        <{assign var="i" value=0}>
-        <{foreach item=cat from=$post.cats}>
-        <a href="<{$cat.permalink}>"><{$cat.name}></a><{if ($i<count($post.cats)-1)}>, <{else}><{/if}>
-        <{assign var="i" value=$i+1}>
-        <{/foreach}>
-        <{/if}>
-    </footer>
-</article>
+
+<{include file="db:formats/`$post.format`.tpl"}>
+
 <{$post_navbar}>
 
 <{if $relatedPosts}>
