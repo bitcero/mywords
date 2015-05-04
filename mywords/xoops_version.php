@@ -45,6 +45,7 @@ $modversion['onUpdate'] = 'include/install.php';
  */
 // Behaviour
 $modversion['rmnative'] = 1;
+$modversion['url'] = 'https://github.com/bitcero/mywords';
 $modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>45, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
@@ -55,11 +56,11 @@ $modversion['icon24'] = 'images/icon24.png';
 $modversion['icon32'] = 'images/icon32.png';
 $modversion['icon48'] = "images/icon48.png";
 // Credits
-$modversion['author'] = "BitC3R0";
+$modversion['author'] = "Eduardo Cortés";
 $modversion['authormail'] = "i.bitcero@gmail.com";
-$modversion['authorweb'] = "Red México";
-$modversion['authorurl'] = "http://www.bitcero.info";
-$modversion['credits'] = "Red México";
+$modversion['authorweb'] = "Eduardo Cortés";
+$modversion['authorurl'] = "http://eduardocortes.mx";
+$modversion['credits'] = "Eduardo Cortés";
 
 // Social links
 $modversion['social'][0] = array('title' => __('Twitter', 'mywords'),'type' => 'twitter','url' => 'http://www.twitter.com/bitcero/');
