@@ -102,9 +102,10 @@ if($xoopsModuleConfig['shownav']){
 $xoopsTpl->assign('shownav', $xoopsModuleConfig['shownav']);
 
 if($xoopsUser && ($xoopsUser->isAdmin() || $editor->getVar('uid')==$xoopsUser->uid())){
-    $edit = '<a href="'.XOOPS_URL.'/modules/mywords/admin/posts.php?op=edit&amp;id='.$post->id().'">'.__('Edit Post','mywords').'</a>';
-    $xoopsTpl->assign('edit_link', $edit);
-    unset($edit);
+    $editLink = XOOPS_URL.'/modules/mywords/admin/posts.php?op=edit&amp;id='.$post->id();
+    $xoopsTpl->assign('can_edit', true);
+    $xoopsTpl->assign('edit_link', $editLink);
+    unset($editLink);
 }
 
 $xoopsTpl->assign('lang_reads', sprintf(__('%u views','mywords'), $post->getVar('reads')));

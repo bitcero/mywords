@@ -46,84 +46,98 @@
     </div>
 
 </div>
-<table border="0" cellspacing="1" cellpadding="0" class="table table-bordered">
-	<thead>
-  <tr class="head" align="center">
-  	<th class="text-center" width="30"><input type="checkbox" name="checkall" id="checkall" value="1" onclick='$("#form-posts").toggleCheckboxes(":not(#checkall)");' /></th>
-    <th width="30%"><?php _e('Post','mywords'); ?></th>
-    <th class="text-center"><?php _e('Author','mywords'); ?></th>
-    <th><?php _e('Categories','mywords'); ?></th>
-    <th><?php _e('Tags','mywords'); ?></th>
-    <th class="text-center"><img src="../images/commi.png" alt="" /></th>
-    <th class="text-center"><img src="../images/reads.png" alt="" /></th>
-	<th class="text-center"><?php _e('Date','mywords'); ?></th>
-  </tr>
-	</thead>
-    <tfoot>
-    <tr class="head" align="center">
-        <th class="text-center" width="30"><input type="checkbox" name="checkall" id="checkall" value="1" onclick='$("#form-posts").toggleCheckboxes(":not(#checkall)");' /></th>
-        <th width="30%"><?php _e('Post','mywords'); ?></th>
-        <th class="text-center"><?php _e('Author','mywords'); ?></th>
-        <th><?php _e('Categories','mywords'); ?></th>
-        <th><?php _e('Tags','mywords'); ?></th>
-        <th class="text-center"><img src="../images/commi.png" alt="" /></th>
-        <th class="text-center"><img src="../images/reads.png" alt="" /></th>
-        <th class="text-center"><?php _e('Date','mywords'); ?></th>
-    </tr>
-    </tfoot>
-	<tbody>
-  <?php if(empty($posts)): ?>
-  <tr class="even">
-  	<td colspan="8" align="center" class="error"><?php _e('No posts where found','mywords'); ?></td>
-  </tr>
-  <?php endif; ?>
-  <?php foreach($posts as $post): ?>
-  <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
-  	<td align="center" valign="top"><input type="checkbox" name="posts[]" id="post-<?php echo $post['id']; ?>" value="<?php echo $post['id']; ?>" /></td>
-    <td>
-    	<strong>
-    	    <a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
-            <?php switch($post['status']){
-                case 'draft':
-                    echo "<span class=\"draft\">- ".__('Draft','mywords')."</span> ";
-                    break;
-                case 'scheduled':
-                    echo "<span class=\"sheduled\">- ".__('Scheduled','mywords')."</span> ";
-                    break;
-                case 'pending':
-                    echo "<span class=\"pending\">- ".__('Pending','mywords')."</span> ";
-                    break;
-            } ?>
-        </strong>
-    	<span class="mw_options">
-    		<a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>"><?php _e('Edit','mywords'); ?></a> |
-    		<a href="javascript:;" onclick="return post_del_confirm('<?php echo $post['title']; ?>', <?php echo $post['id']; ?>);"><?php _e('Delete','mywords'); ?></a> |
-    		<?php if($post['status']!='publish'): ?>
-    			<a href="<?php echo MW_URL.'?p='.$post['id']; ?>"><?php _e('Preview','mywords'); ?></a>
-    		<?php else: ?>
-    			<a href="<?php echo $post['link']; ?>"><?php _e('View','mywords'); ?></a>
-    		<?php endif; ?>
+
+    <div class="panel panel-default">
+
+            <div class="table-responsive">
+                <table border="0" cellspacing="1" cellpadding="0" class="table">
+                    <thead>
+                    <tr class="head" align="center">
+                        <th class="text-center" width="30">
+                            <input type="checkbox" name="checkall" id="checkall" value="1" data-checkbox="chk-posts">
+                        </th>
+                        <th width="30%"><?php _e('Post','mywords'); ?></th>
+                        <th class="text-center"><?php _e('Author','mywords'); ?></th>
+                        <th><?php _e('Categories','mywords'); ?></th>
+                        <th><?php _e('Tags','mywords'); ?></th>
+                        <th class="text-center"><span class="fa fa-comment"></span></th>
+                        <th class="text-center"><span class="fa fa-eye"></span></th>
+                        <th class="text-center"><?php _e('Date','mywords'); ?></th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr class="head" align="center">
+                        <th class="text-center" width="30">
+                            <input type="checkbox" name="checkall" id="checkall" value="1" data-checkbox="chk-posts">
+                        </th>
+                        <th width="30%"><?php _e('Post','mywords'); ?></th>
+                        <th class="text-center"><?php _e('Author','mywords'); ?></th>
+                        <th><?php _e('Categories','mywords'); ?></th>
+                        <th><?php _e('Tags','mywords'); ?></th>
+                        <th class="text-center"><span class="fa fa-comment"></span></th>
+                        <th class="text-center"><span class="fa fa-eye"></span></th>
+                        <th class="text-center"><?php _e('Date','mywords'); ?></th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <?php if(empty($posts)): ?>
+                        <tr class="even">
+                            <td colspan="8" align="center" class="error"><?php _e('No posts where found','mywords'); ?></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php foreach($posts as $post): ?>
+                        <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
+                            <td align="center" valign="top">
+                                <input type="checkbox" name="posts[]" id="post-<?php echo $post['id']; ?>" value="<?php echo $post['id']; ?>" data-oncheck="chk-posts">
+                            </td>
+                            <td>
+                                <strong>
+                                    <a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+                                    <?php switch($post['status']){
+                                        case 'draft':
+                                            echo "<span class=\"draft\">- ".__('Draft','mywords')."</span> ";
+                                            break;
+                                        case 'scheduled':
+                                            echo "<span class=\"sheduled\">- ".__('Scheduled','mywords')."</span> ";
+                                            break;
+                                        case 'pending':
+                                            echo "<span class=\"pending\">- ".__('Pending','mywords')."</span> ";
+                                            break;
+                                    } ?>
+                                </strong>
+    	<span class="cu-item-options">
+    		<a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>"><?php _e('Edit','mywords'); ?></a>
+    		<a href="javascript:;" onclick="return post_del_confirm('<?php echo $post['title']; ?>', <?php echo $post['id']; ?>);"><?php _e('Delete','mywords'); ?></a>
+            <?php if($post['status']!='publish'): ?>
+                <a href="<?php echo MW_URL.'?p='.$post['id']; ?>"><?php _e('Preview','mywords'); ?></a>
+            <?php else: ?>
+                <a href="<?php echo $post['link']; ?>"><?php _e('View','mywords'); ?></a>
+            <?php endif; ?>
     	</span>
-    </td>
-    <td align="center"><a href="posts.php?author=<?php echo $post['uid'] ?>"><?php echo $post['uname'] ?></a></td>
-    <td class="mw_postcats"><?php echo $post['categories']; ?></td>
-    <td class="mw_postcats">
-    <?php 
-    $count = 1;
-    $ct = count($post['tags']);
-    foreach ($post['tags'] as $tag): ?>
-    <?php echo $tag['tag']; ?><?php echo $count<$ct ? ',' : ''; ?>
-    <?php $count++; endforeach; ?>
-    </td>
-    <td align="center">
-		<?php echo $post['comments']; ?>
-	</td>
-    <td align="center"><?php echo $post['reads']; ?></td>
-    <td align="center"><?php echo $post['date']; ?></td>
-  </tr>
-  <?php endforeach; ?>
-	</tbody>
-</table>
+                            </td>
+                            <td align="center"><a href="posts.php?author=<?php echo $post['uid'] ?>"><?php echo $post['uname'] ?></a></td>
+                            <td class="mw_postcats"><?php echo $post['categories']; ?></td>
+                            <td class="mw_postcats">
+                                <?php
+                                $count = 1;
+                                $ct = count($post['tags']);
+                                foreach ($post['tags'] as $tag): ?>
+                                    <?php echo $tag['tag']; ?><?php echo $count<$ct ? ',' : ''; ?>
+                                    <?php $count++; endforeach; ?>
+                            </td>
+                            <td align="center">
+                                <?php echo $post['comments']; ?>
+                            </td>
+                            <td align="center"><?php echo $post['reads']; ?></td>
+                            <td align="center"><?php echo $post['date']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
+
 <?php echo $xoopsSecurity->getTokenHTML(); ?>
 <input type="hidden" name="page" value="<?php echo $page; ?>" />
 <input type="hidden" name="keyw" value="<?php echo $keyw; ?>" />

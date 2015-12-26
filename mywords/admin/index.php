@@ -79,9 +79,14 @@ MWFunctions::include_required_files();
 RMTemplate::get()->add_script('../include/js/scripts.php?file=dashboard.js');
 RMTemplate::get()->add_help(__('MyWords Documentation','mywords'), 'http://www.xoopsmexico.net/docs/mywords/introduccion/');
 
+// Other panels for dashboard
+$dashboardPanels = [];
+$dashboardPanels = RMEvents::get()->trigger('mywords.dashboard.panels', $dashboardPanels);
+
 xoops_cp_header();
 	
 // Show Templates
+RMTemplate::get()->add_body_class('dashboard');
 RMTemplate::get()->add_style('dashboard.css', 'mywords');
 RMTemplate::get()->add_style('admin.css', 'mywords');
 //$tpl->header();

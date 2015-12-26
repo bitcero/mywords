@@ -46,7 +46,7 @@ $modversion['onUpdate'] = 'include/install.php';
 // Behaviour
 $modversion['rmnative'] = 1;
 $modversion['url'] = 'https://github.com/bitcero/mywords';
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>45, 'stage'=>0,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>48, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
@@ -55,6 +55,7 @@ $modversion['icon16'] = "images/icon16.png";
 $modversion['icon24'] = 'images/icon24.png';
 $modversion['icon32'] = 'images/icon32.png';
 $modversion['icon48'] = "images/icon48.png";
+$modversion['icon']   = "svg-rmcommon-comment text-warning";
 // Credits
 $modversion['author'] = "Eduardo Cortés";
 $modversion['authormail'] = "i.bitcero@gmail.com";

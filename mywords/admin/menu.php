@@ -13,21 +13,21 @@ load_mod_locale('mywords','');
 $adminmenu[] = array(
     'title'=>__('Dashboard','mywords'),
     'link'=>"admin/index.php",
-    'icon'=>"../images/dashboard.png",
+    'icon'=>"images/dashboard.png",
     'location'=>"dashboard"
 );
 
 $adminmenu[] = array(
     'title'=>__('Categories','mywords'),
     'link'=>"admin/categories.php",
-    'icon'=>"../images/categos.png",
+    'icon'=>"images/categos.png",
     'location'=>"categories"
 );
 
 $adminmenu[] = array(
     'title'=>__('Tags','mywords'),
     'link'=>"admin/tags.php",
-    'icon'=>"../images/tag.png",
+    'icon'=>"images/tag.png",
     'location'=>"tags"
 );
 
@@ -36,38 +36,38 @@ $options[] = array(
     'title'     => __('All Posts','mywords'),
     'link'      => 'admin/posts.php',
     'selected'  => 'posts_list',
-    'icon'      => '../images/icon16.png'
+    'icon'      => 'images/icon16.png'
 );
 $options[] = array(
     'title'     => __('Add New','mywords'),
     'link'      => 'admin/posts.php?op=new',
     'selected'  => 'new_post',
-    'icon'      => '../images/newpost.png',
+    'icon'      => 'images/newpost.png',
 );
 $options[] = array('divider' => 1);
 $options[] = array(
     'title'     => __('Published','mywords'),
-    'link'      => 'admin/posts.php?op=publish',
+    'link'      => 'admin/posts.php?status=publish',
     'selected'  => 'publish',
-    'icon'      => '../images/published.png',
+    'icon'      => 'images/published.png',
 );
 $options[] = array(
     'title'     => __('Drafts','mywords'),
-    'link'      => 'admin/posts.php?op=draft',
+    'link'      => 'admin/posts.php?status=draft',
     'selected'  => 'draft',
-    'icon'      => '../images/draft.gif',
+    'icon'      => 'images/draft.gif',
 );
 $options[] = array(
     'title'     => __('Pending of Review','mywords'),
-    'link'      => 'admin/posts.php?op=waiting',
+    'link'      => 'admin/posts.php?status=pending',
     'selected'  => 'waiting',
-    'icon'      => '../images/wait.png',
+    'icon'      => 'images/wait.png',
 );
 
 $adminmenu[] = array(
     'title'=>__('Posts','mywords'),
     'link'=>"admin/posts.php",
-    'icon'=>"../images/post.png",
+    'icon'=>"images/post.png",
     'location'=>"posts",
     'options'=>$options
 );
@@ -75,21 +75,21 @@ $adminmenu[] = array(
 $adminmenu[] = array(
     'title'=>__('Editors','mywords'),
     'link'=>"admin/editors.php",
-    'icon'=>"../images/editor.png",
+    'icon'=>"images/editor.png",
     'location'=>"editors"
 );
 
 $adminmenu[] = array(
     'title'=>__('Social Sites','mywords'),
     'link'=>"admin/bookmarks.php",
-    'icon'=>"../images/bookmark.png",
+    'icon'=>"images/bookmark.png",
     'location'=>"bookmarks",
 );
 
 $adminmenu[] = array(
     'title'=>__('Trackbacks','mywords'),
     'link'=>"admin/trackbacks.php",
-    'icon'=>"../images/trackbacks.png",
+    'icon'=>"images/trackbacks.png",
     'location'=>"trackbacks",
 );
 

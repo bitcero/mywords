@@ -21,7 +21,7 @@
     <div class="cu-box" id="format-video"<?php echo $post->format != 'video' ? ' style="display: none;"' : ''; ?>>
         <div class="box-header">
             <span class="fa fa-caret-up box-handler"></span>
-            <h3><span class="fa fa-video-camera"></span> <?php _e('Video URL', 'mywords'); ?></h3>
+            <h3 class="box-title"><span class="fa fa-video-camera"></span> <?php _e('Video URL', 'mywords'); ?></h3>
         </div>
         <div class="box-header">
             <div class="form-group">
@@ -40,7 +40,7 @@
     <div class="cu-box">
         <div class="box-header">
             <span class="fa fa-caret-up box-handler"></span>
-            <h3><?php _e('Post SEO', 'mywords'); ?></h3>
+            <h3 class="box-title"><?php _e('Post SEO', 'mywords'); ?></h3>
         </div>
         <div class="box-content">
 
@@ -70,7 +70,7 @@
 <div class="cu-box">
 	<div class="box-header">
         <span class="fa fa-caret-up box-handler"></span>
-        <h3><?php _e('Send Trackbacks','mywords'); ?></h3>
+        <h3 class="box-title"><?php _e('Send Trackbacks','mywords'); ?></h3>
 	</div>
 	<div class="mw_bcontent box-content">
 		<div class="form-group">
@@ -91,7 +91,7 @@
 <div class="cu-box">
 	<div class="box-header">
         <span class="fa fa-caret-up box-handler"></span>
-        <h3><?php _e('Custom Fields','mywords'); ?></h3>
+        <h3 class="box-title"><?php _e('Custom Fields','mywords'); ?></h3>
     </div>
 	<div class="mw_bcontent box-content">
 		<table id="metas-container" class="outer<?php echo !$edit || (!isset($post) && !$post->fields()) ? ' mw_hidden' : ''; ?>" cellspacing="0" width="100%" />
@@ -147,10 +147,10 @@
 	</div>
 </div>
 
-<div class="cu-box">
+<div class="cu-box box-default">
     <div class="box-header">
         <span class="fa fa-caret-up box-handler"></span>
-        <h3><?php _e('Comments and Trackbacks','mywords'); ?></h3>
+        <h3 class="box-title"><?php _e('Comments and Trackbacks','mywords'); ?></h3>
     </div>
     <div class="mw_bcontent box-content">
         <table width="100%" cellpadding="0" cellspacing="0">

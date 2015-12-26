@@ -57,13 +57,14 @@ class MywordsRmcommonPreload
         
         load_mod_locale('mywords', 'admin_');
         
-        $rtn = array(
-            'link'  => '../mywords/admin/',
-            'icon'  => '../mywords/images/icon16.png',
-            'caption' => __('MyWords Administration', 'admin_mywords')
-        );
+        $rtn[] = (object) [
+            'link'  => '../mywords/admin/posts.php',
+            'icon'  => 'svg-rmcommon-comment',
+            'caption' => __('Articles', 'admin_mywords'),
+            'color' => 'amber'
+        ];
         
-        $tools[] = $rtn;
+        $tools = array_merge($rtn, $tools);
         
         return $tools;
         
