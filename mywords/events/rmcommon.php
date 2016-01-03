@@ -55,7 +55,7 @@ class MywordsRmcommonPreload
     
     public function eventRmcommonGetSystemTools($tools){
         
-        load_mod_locale('mywords', 'admin_');
+        load_mod_locale('mywords');
         
         $rtn[] = (object) [
             'link'  => '../mywords/admin/posts.php',
