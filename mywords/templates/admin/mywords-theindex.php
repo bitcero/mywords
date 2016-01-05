@@ -1,13 +1,13 @@
 <h1 class="cu-section-title mw_titles"><em class="fa fa-home"></em> <?php _e('Dashboard','mywords'); ?></h1>
 
-<div id="row"  data-news="load" data-boxes="load" data-module="mywords" data-target="#mywords-news">
+<div class="row"  data-news="load" data-boxes="load" data-module="mywords" data-target="#mywords-news" data-box="mywords-dashboard" data-container="dashboard">
     
-    <div class="col-md-4 col-lg-4" data-box="mywords-box-left">
+    <div class="size-1" data-dashboard="item">
         <!-- Quick overview -->
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Quick Overview','mywords'); ?></h3>
+                <h3 class="box-title"><?php _e('Quick Overview','mywords'); ?></h3>
             </div>
             <div class="box-content">
                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -36,112 +36,117 @@
                         <td><a href="<?php echo XOOPS_URL; ?>/modules/mywords/admin/tags.php"><?php _e('Tags','mywords'); ?></a></td>
                     </tr>
                 </table><br />
-                <span class="descriptions"><?php _e('Current version:','mywords'); ?> <strong><?php echo RMModules::format_module_version($xoopsModule->getInfo('rmversion')); ?></strong></span>
+            </div>
+            <div class="box-footer">
+                <?php _e('Current version:','mywords'); ?> <strong><?php echo RMModules::format_module_version($xoopsModule->getInfo('rmversion')); ?></strong>
             </div>
         </div>
         <!-- / End quick overview -->
-        
-        <!-- Drafts -->
-        <div class="cu-box">
-        	<div class="box-header">
-                <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Recent Drafts', 'admin_mywords'); ?></h3>
-            </div>
-        	<?php foreach($drafts as $post): ?>
-        	<div class="box-content mw_tools">
-        		<a href="posts.php?op=edit&amp;id=<?php echo $post->id(); ?>" class="item">
-        			<?php echo $post->getVar('title'); ?><br />
-        			<span><?php echo substr(strip_tags($post->content(true)), 0, 150).'...'; ?></span>
-        		</a>
-        		
-        	</div>
-        	<?php endforeach; ?>
-        </div>
-        <!-- / End Drafts -->
-        
-        <!-- Pending of review -->
-        <div class="cu-box">
-        	<div class="box-header">
-                <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Posts pending for review', 'admin_mywords'); ?></h3>
-            </div>
-        	<?php foreach($pendings as $post): ?>
-        	<div class="box-content">
-        		<a href="posts.php?op=edit&amp;id=<?php echo $post->id(); ?>" class="item">
-        			<?php echo $post->getVar('title'); ?><br />
-        			<span><?php echo substr(strip_tags($post->content(true)), 0, 150).'...'; ?></span>
-        		</a>
-        		
-        	</div>
-        	<?php endforeach; ?>
-        </div>
-        <!-- / End Pending of Review -->
-        
-        <!-- Other blocks -->
-        <?php RMEvents::get()->run_event('mywords.dashboard.left.widgets'); ?>
-        <!-- /End other blocks -->
-        
     </div>
 
 
-    <div class="col-md-4 col-lg-4" data-box="mywords-box-center">
+    <div class="size-1" data-dashboard="item">
+        <!-- Drafts -->
+        <div class="cu-box">
+            <div class="box-header">
+                <span class="fa fa-caret-up box-handler"></span>
+                <h3 class="box-title"><?php _e('Recent Drafts', 'admin_mywords'); ?></h3>
+            </div>
+            <?php foreach($drafts as $post): ?>
+                <div class="box-content mw_tools">
+                    <a href="posts.php?op=edit&amp;id=<?php echo $post->id(); ?>" class="item">
+                        <?php echo $post->getVar('title'); ?><br />
+                        <span><?php echo substr(strip_tags($post->content(true)), 0, 150).'...'; ?></span>
+                    </a>
 
-        <?php if(isset($htResult) && $htResult!==true): ?>
-        <div class="alert alert-block">
-            <h4><?php _e('Important!','mywords'); ?></h4>
-            <p><?php _e('MyWords tried to write your htaccess file in order to enable friendly urls but has been impossible. Please copy and paste next code into your htaccess file.','mywords'); ?></p><br />
-            <pre><?php echo $htResult; ?></pre>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <?php endif; ?>
+        <!-- / End Drafts -->
+    </div>
 
+
+    <div class="size-1" data-dashboard="item">
+        <!-- Pending of review -->
+        <div class="cu-box">
+            <div class="box-header">
+                <span class="fa fa-caret-up box-handler"></span>
+                <h3 class="box-title"><?php _e('Posts pending for review', 'admin_mywords'); ?></h3>
+            </div>
+            <?php foreach($pendings as $post): ?>
+                <div class="box-content">
+                    <a href="posts.php?op=edit&amp;id=<?php echo $post->id(); ?>" class="item">
+                        <?php echo $post->getVar('title'); ?><br />
+                        <span><?php echo substr(strip_tags($post->content(true)), 0, 150).'...'; ?></span>
+                    </a>
+
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <!-- / End Pending of Review -->
+    </div>
+
+    <?php if(isset($htResult) && $htResult!==true): ?>
+    <div class="size-1" data-dashboard="item">
+            <div class="alert alert-block">
+                <h4><?php _e('Important!','mywords'); ?></h4>
+                <p><?php _e('MyWords tried to write your htaccess file in order to enable friendly urls but has been impossible. Please copy and paste next code into your htaccess file.','mywords'); ?></p><br />
+                <pre><?php echo $htResult; ?></pre>
+            </div>
+    </div>
+    <?php endif; ?>
+
+    <div class="size-1" data-dashboard="item">
         <!-- Editors -->
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Editors Activity','mywords'); ?></h3>
+                <h3 class="box-title"><?php _e('Editors Activity','mywords'); ?></h3>
             </div>
             <div class="box-content">
-            <?php if(empty($editors)): ?>
-            <?php _e('There are not editors registered yet!','mywords'); ?>
+                <?php if(empty($editors)): ?>
+                    <?php _e('There are not editors registered yet!','mywords'); ?>
 
-            <?php else: ?>
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th><?php _e('Name','mywords'); ?></th>
-                        <th align="center"><?php _e('Posts','mywords'); ?></th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach($editors as $ed): ?>
-                <tr class="even">
-                    <td>
-                        <a href="<?php echo $ed['link']; ?>"><?php echo $ed['name']; ?></a>
-                    </td>
-                    <td align="center">
-                        <?php echo $ed['total']; ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+                <?php else: ?>
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th><?php _e('Name','mywords'); ?></th>
+                            <th align="center"><?php _e('Posts','mywords'); ?></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($editors as $ed): ?>
+                            <tr class="even">
+                                <td>
+                                    <a href="<?php echo $ed['link']; ?>"><?php echo $ed['name']; ?></a>
+                                </td>
+                                <td align="center">
+                                    <?php echo $ed['total']; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
 
-            <?php endif; ?>
+                <?php endif; ?>
             </div>
         </div>
         <!-- End editors -->
+    </div>
 
+    <div class="size-1" data-dashboard="item">
         <!-- Resources -->
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('MyWords Resources','mywords'); ?></h3>
+                <h3 class="box-title"><?php _e('MyWords Resources','mywords'); ?></h3>
             </div>
             <div class="box-content">
                 <a href="http://redmexico.com.mx/docs/mywords" target="_blank" class="item">
                     <span class="fa fa-caret-right"></span>
                     <?php _e('MyWords documentation','mywords'); ?>
-            		<span class="help-block"><?php _e('Learn more about MyWords. Installation, configuration and all information to improve this module.','mywords'); ?></span>
+                    <span class="help-block"><?php _e('Learn more about MyWords. Installation, configuration and all information to improve this module.','mywords'); ?></span>
                 </a>
                 <a href="http://redmexico.com.mx/" target="_blank" class="item">
                     <span class="fa fa-caret-right"></span>
@@ -150,33 +155,29 @@
                 </a>
                 <?php
                 // Print new resources
-                RMEvents::get()->run_event('mywords.get.resources.list');
+                RMEvents::get()->trigger('mywords.get.resources.list');
                 ?>
             </div>
         </div>
         <!--// End resources -->
-
     </div>
 
-
-    <div class="col-md-4 col-lg-4" data-box="mywords-box-right">
-
+    <div class="size-1" data-dashboard="item">
         <!-- Recent News -->
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Recent News','mywords'); ?></h3>
+                <h3 class="box-title"><?php _e('Recent News','mywords'); ?></h3>
             </div>
             <div class="box-content" id="mywords-news">
 
             </div>
         </div>
         <!-- /End recent news -->
-
-        <!-- Other blocks -->
-        <?php RMEvents::get()->run_event('mywords.dashboard.right.widgets'); ?>
-        <!-- /End other blocks -->
-
     </div>
+
+    <?php foreach($dashboardPanels as $panel): ?>
+    <?php echo $panel; ?>
+    <?php endforeach; ?>
     
 </div>

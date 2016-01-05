@@ -2,2043 +2,1925 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MyWords\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-08 10:06-0600\n"
-"PO-Revision-Date: 2014-12-08 10:06-0600\n"
+"POT-Creation-Date: 2016-01-03 12:58-0600\n"
+"PO-Revision-Date: 2016-01-03 12:58-0600\n"
 "Last-Translator: Eduardo Cortés <me@eduardocortes.mx>\n"
 "Language-Team: Red Mexico <i.bitcero@gmail.com>\n"
-"Language: en_GB\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _e;__\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6.10\n"
-"X-Poedit-SearchPath-0: Y:\\www\\xoops\\modules\\mywords\n"
+"X-Generator: Poedit 1.8.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-categories.php:26
+#: admin/ajax/ax-categories.php:26
 msgid "You are not allowed to do this operation!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-categories.php:34
+#: admin/ajax/ax-categories.php:34
 msgid "A name is neccesary to create a new category!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-categories.php:48
+#: admin/ajax/ax-categories.php:48
 msgid "There is already a category with same name!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-categories.php:57
+#: admin/ajax/ax-categories.php:57
 msgid "Category could not inserted!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-categories.php:65
+#: admin/ajax/ax-categories.php:65
 msgid "Category created successfully!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:47
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:63
-#: Y:\www\xoops\modules\mywords/include/posts.php:51
-#: Y:\www\xoops\modules\mywords/include/posts.php:69
-#: Y:\www\xoops\modules\mywords/submit.php:24
-#: Y:\www\xoops\modules\mywords/submit.php:31
-#: Y:\www\xoops\modules\mywords/submit.php:53
+#: admin/ajax/ax-posts.php:47 admin/ajax/ax-posts.php:63 include/posts.php:51
+#: include/posts.php:69 submit.php:24 submit.php:31 submit.php:53
 msgid "You are not allowed to do this action!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:52
-#: Y:\www\xoops\modules\mywords/include/posts.php:58
+#: admin/ajax/ax-posts.php:52 include/posts.php:58
 msgid "You must provide a valid post ID"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:58
-#: Y:\www\xoops\modules\mywords/include/posts.php:64
+#: admin/ajax/ax-posts.php:58 include/posts.php:64
 msgid "You must provide an existing post ID"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:81
-#: Y:\www\xoops\modules\mywords/include/posts.php:87
+#: admin/ajax/ax-posts.php:81 include/posts.php:87
 msgid "You must provide a title for this post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:93
-#: Y:\www\xoops\modules\mywords/include/posts.php:99
+#: admin/ajax/ax-posts.php:93 include/posts.php:99
 msgid "Content for this post has not been provided!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:104
-#: Y:\www\xoops\modules\mywords/include/posts.php:110
+#: admin/ajax/ax-posts.php:104 include/posts.php:110
 msgid ""
 "You must provide a password for this post or select another visibility option"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:152
-#: Y:\www\xoops\modules\mywords/include/posts.php:181
+#: admin/ajax/ax-posts.php:153 include/posts.php:181
 msgid "There is already another post with same title for same date"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:199
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:204
-#: Y:\www\xoops\modules\mywords/include/posts.php:228
-#: Y:\www\xoops\modules\mywords/include/posts.php:237
+#: admin/ajax/ax-posts.php:200 admin/ajax/ax-posts.php:205
+#: include/posts.php:228 include/posts.php:237
 msgid "Post updated successfully"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:199
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:204
-#: Y:\www\xoops\modules\mywords/include/posts.php:228
-#: Y:\www\xoops\modules\mywords/include/posts.php:237
+#: admin/ajax/ax-posts.php:200 admin/ajax/ax-posts.php:205
+#: include/posts.php:228 include/posts.php:237
 msgid "Post saved successfully"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:206
-#: Y:\www\xoops\modules\mywords/include/posts.php:239
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:10
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:16
+#: admin/ajax/ax-posts.php:207 include/posts.php:239
+#: templates/admin/mywords-formposts.php:10
+#: templates/mywords-submit-form.php:16
 msgid "Permalink:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/ajax/ax-posts.php:213
-#: Y:\www\xoops\modules\mywords/include/posts.php:246
+#: admin/ajax/ax-posts.php:214 include/posts.php:246
 msgid "Errors ocurred while trying to save this post."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:45
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:84
-#: Y:\www\xoops\modules\mywords/admin/menu.php:83
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:39
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:1
+#: admin/bookmarks.php:45 admin/bookmarks.php:84 admin/menu.php:83
+#: templates/admin/mywords-bookmarks.php:1
 msgid "Social Sites"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:50
+#: admin/bookmarks.php:50
 msgid "Bookmarks Management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:67
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:114
+#: admin/bookmarks.php:67 admin/bookmarks.php:114
 msgid "Site ID not provided!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:73
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:120
+#: admin/bookmarks.php:73 admin/bookmarks.php:120
 msgid "Social site not exists!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:85
+#: admin/bookmarks.php:85
 msgid "Edit Site"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:91
+#: admin/bookmarks.php:91
 msgid "Edit Social Site"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:106
-#: Y:\www\xoops\modules\mywords/admin/editors.php:104
-#: Y:\www\xoops\modules\mywords/admin/tags.php:80
+#: admin/bookmarks.php:106 admin/editors.php:104 admin/tags.php:85
 msgid "Operation not allowed!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:138
+#: admin/bookmarks.php:138
 msgid "You must specify a title for this site!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:143
+#: admin/bookmarks.php:143
 msgid "You must specify a formatted URL for this site!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:156
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:185
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:214
-#: Y:\www\xoops\modules\mywords/admin/editors.php:196
-#: Y:\www\xoops\modules\mywords/admin/tags.php:136
+#: admin/bookmarks.php:156 admin/bookmarks.php:185 admin/bookmarks.php:214
+#: admin/editors.php:196 admin/tags.php:141
 msgid "Database updated successfully!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:158
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:187
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:216
-#: Y:\www\xoops\modules\mywords/admin/editors.php:192
+#: admin/bookmarks.php:158 admin/bookmarks.php:187 admin/bookmarks.php:216
+#: admin/editors.php:192
 msgid "Errors ocurred while trying to update database!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:172
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:201
-#: Y:\www\xoops\modules\mywords/admin/editors.php:179
-#: Y:\www\xoops\modules\mywords/admin/editors.php:207
-#: Y:\www\xoops\modules\mywords/admin/tags.php:185
-#: Y:\www\xoops\modules\mywords/admin/tags.php:220
+#: admin/bookmarks.php:172 admin/bookmarks.php:201 admin/editors.php:179
+#: admin/editors.php:207 admin/tags.php:190 admin/tags.php:225
 msgid "Sorry, operation not allowed!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:177
-#: Y:\www\xoops\modules\mywords/admin/bookmarks.php:206
+#: admin/bookmarks.php:177 admin/bookmarks.php:206
 msgid "Please, specify a valid site ID!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:74
-#: Y:\www\xoops\modules\mywords/admin/posts.php:117
+#: admin/categories.php:79 admin/posts.php:122
 #, php-format
 msgid "Do you really want to delete \\\"%s\\\""
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:91
-#: Y:\www\xoops\modules\mywords/admin/categories.php:128
-#: Y:\www\xoops\modules\mywords/admin/menu.php:21
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:35
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:23
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:71
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:2
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:55
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:67
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:34
-#: Y:\www\xoops\modules\mywords/widgets/widget-categories.php:17
-#: Y:\www\xoops\modules\mywords/xoops_version.php:295
+#: admin/categories.php:94 admin/categories.php:131 admin/menu.php:21
+#: language/english/modinfo.php:23 language/english/modinfo.php:71
+#: templates/admin/mywords-categories.php:2
+#: templates/admin/mywords-posts.php:61 templates/admin/mywords-posts.php:75
+#: templates/admin/mywords-theindex.php:34 widgets/widget-categories.php:17
+#: xoops_version.php:297
 msgid "Categories"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:98
+#: admin/categories.php:101
 msgid "Categories Management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:115
-#: Y:\www\xoops\modules\mywords/admin/categories.php:184
+#: admin/categories.php:118 admin/categories.php:186
 msgid "You must specify a valid category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:122
-#: Y:\www\xoops\modules\mywords/admin/categories.php:190
+#: admin/categories.php:125 admin/categories.php:192
 msgid "Specified category not exists!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:129
+#: admin/categories.php:132
 msgid "Edit category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:136
+#: admin/categories.php:139
 msgid "Edit Category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:138
+#: admin/categories.php:140
 msgid "Category name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:139
+#: admin/categories.php:141
 msgid "Category slug"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:140
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:29
+#: admin/categories.php:142 templates/admin/mywords-categories.php:35
 msgid "Category description"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:141
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:19
+#: admin/categories.php:143 templates/admin/mywords-categories.php:25
 msgid "Category Parent"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:152
+#: admin/categories.php:154
 msgid "Update Category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:153
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:35
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:46
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:112
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:19
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:83
-#: Y:\www\xoops\modules\mywords/widgets/widget-categories.php:60
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:68
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:93
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:134
+#: admin/categories.php:155 templates/admin/mywords-bookmarks.php:35
+#: templates/admin/mywords-editors.php:46
+#: templates/admin/mywords-formposts.php:130
+#: templates/admin/mywords-tags.php:19 templates/mywords-submit-form.php:83
+#: widgets/widget-categories.php:60 widgets/widget-publish.php:68
+#: widgets/widget-publish.php:93 widgets/widget-publish.php:134
 msgid "Cancel"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:169
+#: admin/categories.php:171
 msgid "Sorry, session token expired!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:198
+#: admin/categories.php:200
 msgid "Please specify a name for this category!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:209
+#: admin/categories.php:211
 msgid "There is already a category with the same name!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:223
+#: admin/categories.php:225
 msgid "Category created succesfully!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:225
+#: admin/categories.php:227
 msgid "There was an error!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:240
+#: admin/categories.php:242
 msgid "You must select one category at least!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:245
-#: Y:\www\xoops\modules\mywords/admin/posts.php:225
-#: Y:\www\xoops\modules\mywords/admin/posts.php:265
-#: Y:\www\xoops\modules\mywords/admin/trackbacks.php:87
+#: admin/categories.php:247 admin/posts.php:236 admin/posts.php:276
+#: admin/trackbacks.php:87
 msgid "Session token expired!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:257
+#: admin/categories.php:259
 #, php-format
 msgid "Category \"%s\" could not be deleted"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/categories.php:261
-#: Y:\www\xoops\modules\mywords/admin/posts.php:245
+#: admin/categories.php:263 admin/posts.php:256
 msgid "Database updated!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:23
-#: Y:\www\xoops\modules\mywords/admin/editors.php:51
-#: Y:\www\xoops\modules\mywords/admin/editors.php:85
+#: admin/editors.php:23 admin/editors.php:51 admin/editors.php:85
 msgid "Editors Management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:69
+#: admin/editors.php:69
 msgid "Editor ID not provided!."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:75
+#: admin/editors.php:75
 msgid "Editor does not exists!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:83
+#: admin/editors.php:83
 msgid "Editing Editor"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:86
+#: admin/editors.php:86
 msgid "Edit Editor"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:112
+#: admin/editors.php:112
 msgid "Editor ID has not been provided!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:118
+#: admin/editors.php:118
 msgid "Editor has not been found!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:135
+#: admin/editors.php:135
 msgid "You must provide a display name for this editor!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:140
+#: admin/editors.php:140
 msgid "You must specify a registered user ID for this editor!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:151
+#: admin/editors.php:151
 msgid "This user has been registered as editor before."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:162
+#: admin/editors.php:162
 msgid "Errors occurs while trying to save editor data"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:165
-#: Y:\www\xoops\modules\mywords/admin/editors.php:230
-#: Y:\www\xoops\modules\mywords/admin/tags.php:208
+#: admin/editors.php:165 admin/editors.php:230 admin/tags.php:213
 msgid "Database updated succesfully!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:184
-#: Y:\www\xoops\modules\mywords/admin/editors.php:212
+#: admin/editors.php:184 admin/editors.php:212
 msgid "Please, specify a valid editor ID!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/editors.php:220
-#: Y:\www\xoops\modules\mywords/admin/editors.php:226
+#: admin/editors.php:220 admin/editors.php:226
 msgid "Errors ocurred while trying to delete editors!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/index.php:66
+#: admin/index.php:66
 msgid "An error ocurred while trying to write .htaccess file!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/index.php:75
-#: Y:\www\xoops\modules\mywords/admin/menu.php:14
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:34
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:1
+#: admin/index.php:75 admin/menu.php:14 templates/admin/mywords-theindex.php:1
 msgid "Dashboard"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/index.php:80
+#: admin/index.php:80
 msgid "MyWords Documentation"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/index.php:81
-msgid "Dashboard Help"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/admin/menu.php:28
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:36
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:56
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:68
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:1
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:36
-#: Y:\www\xoops\modules\mywords/xoops_version.php:313
+#: admin/menu.php:28 templates/admin/mywords-posts.php:62
+#: templates/admin/mywords-posts.php:76 templates/admin/mywords-tags.php:1
+#: templates/admin/mywords-theindex.php:36 xoops_version.php:315
 msgid "Tags"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:36
+#: admin/menu.php:36
 msgid "All Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:42
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:19
+#: admin/menu.php:42 templates/admin/mywords-posts.php:19
 msgid "Add New"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:49
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:30
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:21
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:41
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:63
+#: admin/menu.php:49 templates/admin/mywords-posts.php:21
+#: widgets/widget-publish.php:41 widgets/widget-publish.php:63
 msgid "Published"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:55
-#: Y:\www\xoops\modules\mywords/admin/posts.php:140
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:31
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:22
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:22
+#: admin/menu.php:55 admin/posts.php:145 templates/admin/mywords-posts.php:22
+#: templates/admin/mywords-theindex.php:22
 msgid "Drafts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:61
-#: Y:\www\xoops\modules\mywords/admin/posts.php:143
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:32
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:23
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:28
+#: admin/menu.php:61 admin/posts.php:148 templates/admin/mywords-posts.php:23
+#: templates/admin/mywords-theindex.php:28
 msgid "Pending of Review"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:68
-#: Y:\www\xoops\modules\mywords/admin/posts.php:183
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:28
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:37
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:71
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:80
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:131
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:140
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:86
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:94
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:16
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:112
+#: admin/menu.php:68 admin/posts.php:194
+#: templates/admin/mywords-categories.php:87
+#: templates/admin/mywords-categories.php:96
+#: templates/admin/mywords-editors.php:143
+#: templates/admin/mywords-editors.php:152 templates/admin/mywords-tags.php:100
+#: templates/admin/mywords-theindex.php:16
+#: templates/admin/mywords-theindex.php:115
 msgid "Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:76
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:38
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:25
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:1
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:24
+#: admin/menu.php:76 language/english/modinfo.php:25
+#: templates/admin/mywords-editors.php:1
+#: templates/admin/mywords-theindex.php:24
 msgid "Editors"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/menu.php:90
-#: Y:\www\xoops\modules\mywords/admin/trackbacks.php:66
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:40
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:1
+#: admin/menu.php:90 admin/trackbacks.php:66
+#: templates/admin/mywords-trackbacks.php:1
 msgid "Trackbacks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:90
+#: admin/posts.php:15
+msgid "Posts help"
+msgstr ""
+
+#: admin/posts.php:95
 msgid "Not published"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:137
+#: admin/posts.php:142
 msgid "Published Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:148
-#: Y:\www\xoops\modules\mywords/admin/posts.php:152
+#: admin/posts.php:153 admin/posts.php:157
 msgid "Posts management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:150
+#: admin/posts.php:155
 #, php-format
 msgid "Posts Management: %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:153
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:1
+#: admin/posts.php:158 templates/admin/mywords-posts.php:1
 msgid "Posts Management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:171
-#: Y:\www\xoops\modules\mywords/submit.php:42
+#: admin/posts.php:176 submit.php:42
 msgid "Please, specify a valid post ID"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:176
-#: Y:\www\xoops\modules\mywords/submit.php:47
+#: admin/posts.php:181 submit.php:47
 msgid "Specified post does not exists!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:184
-#: Y:\www\xoops\modules\mywords/admin/posts.php:185
+#: admin/posts.php:188
+msgid "Publish articles"
+msgstr ""
+
+#: admin/posts.php:195 admin/posts.php:196
 msgid "Write post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:220
-#: Y:\www\xoops\modules\mywords/admin/posts.php:260
+#: admin/posts.php:231 admin/posts.php:271
 msgid "Select one post at least!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:238
+#: admin/posts.php:249
 #, php-format
 msgid "Errors ocurred while deleting \"%s\""
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:272
+#: admin/posts.php:283
 msgid "Posts could not be updated!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/posts.php:276
+#: admin/posts.php:287
 msgid "Posts updated successfully!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:22
+#: admin/tags.php:27
 msgid "Tags Management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:58
-#: Y:\www\xoops\modules\mywords/admin/tags.php:163
+#: admin/tags.php:63 admin/tags.php:168
 msgid "Tags management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:88
+#: admin/tags.php:93
 msgid "You must provide a name!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:96
+#: admin/tags.php:101
 msgid "Tag id not provided!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:102
-#: Y:\www\xoops\modules\mywords/admin/tags.php:157
+#: admin/tags.php:107 admin/tags.php:162
 msgid "Tag does not exists!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:129
+#: admin/tags.php:134
 msgid "A tag with same name or same short name already exists!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:139
+#: admin/tags.php:144
 msgid "A problem occurs while trying to save tag."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:152
+#: admin/tags.php:157
 msgid "Tag ID not provided!."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:164
+#: admin/tags.php:169
 msgid "Edit tag"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:166
+#: admin/tags.php:171
 msgid "Editing Tag"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:190
-#: Y:\www\xoops\modules\mywords/admin/tags.php:225
+#: admin/tags.php:195 admin/tags.php:230
 msgid "Please, specify a valid tag id!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:198
-#: Y:\www\xoops\modules\mywords/admin/tags.php:204
+#: admin/tags.php:203 admin/tags.php:209
 msgid "Errors ocurred while trying to delete tags!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/tags.php:238
+#: admin/tags.php:243
 msgid "Tags updated!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/trackbacks.php:14
+#: admin/trackbacks.php:14
 msgid "Trackbacks management"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/trackbacks.php:82
+#: admin/trackbacks.php:82
 msgid "Select one trackback at least!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/admin/trackbacks.php:101
+#: admin/trackbacks.php:101
 msgid "Trackbacks deleted successfully"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/author.php:29
+#: author.php:29
 msgid "Sorry, we don't know this editor"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/author.php:77
+#: author.php:77
 #, php-format
 msgid "Posts by \"%s\""
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.cats.php:49
+#: blocks/block.cats.php:49
 msgid "Show subcategories:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.cats.php:54
-#: Y:\www\xoops\modules\mywords/blocks/block.cats.php:70
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:110
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:129
+#: blocks/block.cats.php:54 blocks/block.cats.php:70
+#: blocks/block.recent.php:110 blocks/block.recent.php:129
 msgid "Yes"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.cats.php:58
-#: Y:\www\xoops\modules\mywords/blocks/block.cats.php:74
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:111
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:130
+#: blocks/block.cats.php:58 blocks/block.cats.php:74
+#: blocks/block.recent.php:111 blocks/block.recent.php:130
 msgid "No"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.cats.php:65
+#: blocks/block.cats.php:65
 msgid "Show posts number:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:51
+#: blocks/block.recent.php:51
 #, php-format
 msgid "%u Reads"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:53
-#: Y:\www\xoops\modules\mywords/post.php:225
-#: Y:\www\xoops\modules\mywords/post_data.php:87
+#: blocks/block.recent.php:53 post.php:229 post_data.php:87
 #, php-format
 msgid "%u Comments"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:79
+#: blocks/block.recent.php:79
 msgid "Posts Number:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:88
+#: blocks/block.recent.php:88
 msgid "Block type:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:92
-#: Y:\www\xoops\modules\mywords/home.php:44
-#: Y:\www\xoops\modules\mywords/xoops_version.php:304
+#: blocks/block.recent.php:92 home.php:44 xoops_version.php:306
 msgid "Recent Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:96
+#: blocks/block.recent.php:96
 msgid "Popular Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:100
+#: blocks/block.recent.php:100
 msgid "Most Commented"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:108
+#: blocks/block.recent.php:108
 msgid "Show text:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:118
+#: blocks/block.recent.php:118
 msgid "Text length:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:127
+#: blocks/block.recent.php:127
 msgid "Show date:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:137
+#: blocks/block.recent.php:137
 msgid "Posts from category:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.recent.php:140
+#: blocks/block.recent.php:140
 msgid "Select category..."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.tags.php:45
+#: blocks/block.tags.php:45
 msgid "Number of tags"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/blocks/block.tags.php:52
+#: blocks/block.tags.php:52
 msgid "Size increment per post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/categories.php:55
+#: categories.php:55
 msgid "Specified category could not be found"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/categories.php:61
+#: categories.php:61
 #, php-format
 msgid "Posts in &#8216;%s&#8217; Category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/categories.php:93
+#: categories.php:93
 msgid "Permalink to this post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/categories.php:102
+#: categories.php:102
 #, php-format
 msgid "Posts published under \"%s\""
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/class/mwfunctions.php:303
+#: class/mwfunctions.php:303
 #, php-format
 msgid "Published on %s at %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/class/mwfunctions.php:312
+#: class/mwfunctions.php:312
 msgid "D d M, Y"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/class/mwfunctions.php:313
+#: class/mwfunctions.php:313
 msgid "H:i"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/class/mwfunctions.php:335
+#: class/mwfunctions.php:335
 msgid ""
 "This post has been protected by a password. To read it you must provide the "
 "correct password."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/class/mwfunctions.php:336
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:87
+#: class/mwfunctions.php:336 widgets/widget-publish.php:87
 msgid "Password:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/class/mwfunctions.php:337
+#: class/mwfunctions.php:337
 msgid "Show Post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/class/mywordscontroller.php:50
-#: Y:\www\xoops\modules\mywords/class/mywordscontroller.php:60
+#: class/mywordscontroller.php:50 class/mywordscontroller.php:60
 msgid "Not found"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/date.php:20
+#: date.php:20
 msgid "There are not posts published on this date"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/date.php:48
+#: date.php:48
 #, php-format
 msgid "Posts published on %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:63
-msgid "MyWords Administration"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:85
-msgid "Link to post"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:109
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:78
-msgid "All Recent Posts"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:111
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:79
-msgid "Show all recent posts"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:131
-msgid "Posts by category"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:132
-msgid "Select a category to see the posts published recently."
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:152
-msgid "Show posts by tag"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:153
-msgid "Select a tag to see the posts published recently."
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:181
-msgid "Show posts by author"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/events/rmcommon.php:182
-msgid "Select an author to see the posts published recently."
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/include/permissions.php:17
-msgid "Submit Posts"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/include/toolbar.php:29
-msgid "New Post"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:20
-msgid "Module for publishing and management of news and blogs"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:22
-msgid "Module Status"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:24
+#: events/rmcommon.php:63 language/english/modinfo.php:24
 msgid "Articles"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:26
+#: events/rmcommon.php:86
+msgid "Link to post"
+msgstr ""
+
+#: events/rmcommon.php:110 language/english/modinfo.php:78
+msgid "All Recent Posts"
+msgstr ""
+
+#: events/rmcommon.php:112 language/english/modinfo.php:79
+msgid "Show all recent posts"
+msgstr ""
+
+#: events/rmcommon.php:132
+msgid "Posts by category"
+msgstr ""
+
+#: events/rmcommon.php:133
+msgid "Select a category to see the posts published recently."
+msgstr ""
+
+#: events/rmcommon.php:153
+msgid "Show posts by tag"
+msgstr ""
+
+#: events/rmcommon.php:154
+msgid "Select a tag to see the posts published recently."
+msgstr ""
+
+#: events/rmcommon.php:182
+msgid "Show posts by author"
+msgstr ""
+
+#: events/rmcommon.php:183
+msgid "Select an author to see the posts published recently."
+msgstr ""
+
+#: include/permissions.php:17
+msgid "Submit Posts"
+msgstr ""
+
+#: language/english/modinfo.php:20
+msgid "Module for publishing and management of news and blogs"
+msgstr ""
+
+#: language/english/modinfo.php:22
+msgid "Module Status"
+msgstr ""
+
+#: language/english/modinfo.php:26
 msgid "Bookmarks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:29
-#: Y:\www\xoops\modules\mywords/xoops_version.php:78
+#: language/english/modinfo.php:29 xoops_version.php:76
 msgid "Submit Article"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:32
+#: language/english/modinfo.php:32
 msgid "Links Format"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:33
+#: language/english/modinfo.php:33
 msgid "Determines the way the links in the module will be shown and processed."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:34
-#: Y:\www\xoops\modules\mywords/xoops_version.php:178
+#: language/english/modinfo.php:34 xoops_version.php:180
 msgid "Default"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:35
+#: language/english/modinfo.php:35
 msgid "Based on name and date"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:36
+#: language/english/modinfo.php:36
 msgid "Numeric"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:38
+#: language/english/modinfo.php:38
 msgid "Base Path"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:39
+#: language/english/modinfo.php:39
 msgid ""
 "This path is used when the links format has been set to use dates or numbers."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:41
+#: language/english/modinfo.php:41
 msgid "Number of tags on admin widget"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:43
+#: language/english/modinfo.php:43
 msgid "Posts per page"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:44
+#: language/english/modinfo.php:44
 msgid "Use CSS file"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:45
+#: language/english/modinfo.php:45
 msgid "CSS file to use"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:46
+#: language/english/modinfo.php:46
 msgid "Show navigation bar between posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:48
+#: language/english/modinfo.php:48
 msgid "Blog name (section name)"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:49
+#: language/english/modinfo.php:49
 msgid "This name will be used in trackbacks."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:51
+#: language/english/modinfo.php:51
 msgid "Enable related posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:54
+#: language/english/modinfo.php:54
 msgid "Image Size for the Block"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:55
+#: language/english/modinfo.php:55
 msgid ""
 "The specified image in the article will be resized with this sizes. Format: "
 "\"width|height\""
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:56
+#: language/english/modinfo.php:56
 msgid "Default Image for the articles in blocks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:57
+#: language/english/modinfo.php:57
 msgid ""
 "When the \"graphic\" mode is enabled in the \"Recent Articles\" blocks, this "
 "image will be used when there is not a specified one for the article"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:60
+#: language/english/modinfo.php:60
 msgid "Enable images in posts list"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:61
+#: language/english/modinfo.php:61
 msgid "Size of images to use in posts list"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:62
+#: language/english/modinfo.php:62
 #, php-format
 msgid "You must specify a custom size name created for a category in %s of %s."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:62
+#: language/english/modinfo.php:62
 msgid "Images Manager"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:62
+#: language/english/modinfo.php:62
 msgid "Common Utilities"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:63
+#: language/english/modinfo.php:63
 msgid "Enable images in post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:64
+#: language/english/modinfo.php:64
 msgid "Size of images of post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:66
+#: language/english/modinfo.php:66
 msgid "Maximum file size"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:68
+#: language/english/modinfo.php:68
 msgid "Show social bookmarks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:72
+#: language/english/modinfo.php:72
 msgid "Recent Articles"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:73
+#: language/english/modinfo.php:73
 msgid "Recent Comments"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:75
+#: language/english/modinfo.php:75
 msgid "Posts Syndication"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:76
+#: language/english/modinfo.php:76
 #, php-format
 msgid "Articles Syndication in %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:77
+#: language/english/modinfo.php:77
 msgid "Syndication Description"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:82
+#: language/english/modinfo.php:82
 msgid "Home Page"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:83
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:53
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:65
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:26
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:36
+#: language/english/modinfo.php:83 templates/admin/mywords-posts.php:59
+#: templates/admin/mywords-posts.php:73
+#: templates/admin/mywords-trackbacks.php:30
+#: templates/admin/mywords-trackbacks.php:40
 msgid "Post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:84
+#: language/english/modinfo.php:84
 msgid "Category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:85
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:54
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:66
+#: language/english/modinfo.php:85 templates/admin/mywords-posts.php:60
+#: templates/admin/mywords-posts.php:74
 msgid "Author"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/language/english/modinfo.php:86
+#: language/english/modinfo.php:86
 msgid "Post Article"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:23
+#: post.php:23
 msgid "Document not found"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:28
+#: post.php:28
 msgid "Sorry, you are not allowed to view this post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:105
-#: Y:\www\xoops\modules\mywords/post.php:146
-#: Y:\www\xoops\modules\mywords/post_data.php:108
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:1
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:7
-msgid "Edit Post"
-msgstr ""
-
-#: Y:\www\xoops\modules\mywords/post.php:110
+#: post.php:111
 #, php-format
 msgid "%u views"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:123
-#: Y:\www\xoops\modules\mywords/post_data.php:60
+#: post.php:124 post_data.php:60
 #, php-format
 msgid "%s by %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:123
-#: Y:\www\xoops\modules\mywords/post_data.php:60
+#: post.php:124 post_data.php:60
 msgid "Anonymous"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:147
-#: Y:\www\xoops\modules\mywords/post_data.php:109
+#: post.php:150 post_data.php:110 templates/admin/mywords-formposts.php:1
+#: templates/mywords-submit-form.php:7
+msgid "Edit Post"
+msgstr ""
+
+#: post.php:151 post_data.php:111
 msgid "Posted in:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:148
-#: Y:\www\xoops\modules\mywords/post_data.php:110
+#: post.php:152 post_data.php:112
 msgid "Tagged as:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:223
+#: post.php:227
 msgid "Published in"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:224
+#: post.php:228
 msgid "Tagged as"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:226
+#: post.php:230
 #, php-format
 msgid "%u trackbacks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:227
+#: post.php:231
 msgid "Trackback"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:228
+#: post.php:232
 msgid "Main Page"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post.php:229
+#: post.php:233
 msgid "Related Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/post_data.php:89
+#: post_data.php:89
 #, php-format
 msgid "Read more about \"%s\""
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:30
-#: Y:\www\xoops\modules\mywords/rss.php:36
+#: rss.php:30 rss.php:36
 msgid "Sorry, specified category was not foud!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:40
+#: rss.php:40
 #, php-format
 msgid "Posts in %s - %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:77
-#: Y:\www\xoops\modules\mywords/rss.php:83
+#: rss.php:77 rss.php:83
 msgid "Sorry, specified tag was not foud!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:87
+#: rss.php:87
 #, php-format
 msgid "Posts tagged %s in %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:89
+#: rss.php:89
 #, php-format
 msgid "Posts tagged as %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:122
-#: Y:\www\xoops\modules\mywords/rss.php:128
+#: rss.php:122 rss.php:128
 msgid "Sorry, specified author was not foud!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:132
+#: rss.php:132
 #, php-format
 msgid "Posts by %s in %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:134
+#: rss.php:134
 #, php-format
 msgid "Posts published by %s."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:165
+#: rss.php:165
 #, php-format
 msgid "Posts in %s"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/rss.php:167
+#: rss.php:167
 msgid "All recent published posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/submit.php:18
+#: submit.php:18
 msgid "Posts submission is currently disabled"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/tag.php:18
+#: tag.php:18
 msgid "Sorry, this tag does not exists!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/tag.php:62
-#: Y:\www\xoops\modules\mywords/tag.php:71
+#: tag.php:62 tag.php:71
 #, php-format
 msgid "Posts tagged as \"%s\""
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:8
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:105
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:114
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:22
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:32
+#: templates/admin/mywords-bookmarks.php:8
+#: templates/admin/mywords-bookmarks.php:119
+#: templates/admin/mywords-bookmarks.php:128
+#: templates/admin/mywords-trackbacks.php:26
+#: templates/admin/mywords-trackbacks.php:36
 msgid "Title"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:13
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:59
+#: templates/admin/mywords-bookmarks.php:13
+#: templates/admin/mywords-bookmarks.php:65
 msgid "Short description:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:18
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:64
+#: templates/admin/mywords-bookmarks.php:18
+#: templates/admin/mywords-bookmarks.php:70
 msgid "Formated URL:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:23
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:70
+#: templates/admin/mywords-bookmarks.php:23
+#: templates/admin/mywords-bookmarks.php:76
 msgid "Icon:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:30
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:76
+#: templates/admin/mywords-bookmarks.php:30
+#: templates/admin/mywords-bookmarks.php:82
 #, php-format
 msgid "You can create new icons by uploading files to %s folder."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:34
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:45
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:18
+#: templates/admin/mywords-bookmarks.php:34
+#: templates/admin/mywords-editors.php:45 templates/admin/mywords-tags.php:18
 msgid "Save Changes"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:46
+#: templates/admin/mywords-bookmarks.php:47
 msgid ""
 "Social Sites allows to publish directly, on these sites, links and content "
 "from MyWords posts."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:47
+#: templates/admin/mywords-bookmarks.php:48
 msgid ""
 "You can add new sites easily by configuring parameters for each site (eg. "
 "Twitter, Facebook, etc.), then your visitors can recommend posts to other "
 "users from these social networks."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:52
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:81
+#: templates/admin/mywords-bookmarks.php:55
+#: templates/admin/mywords-bookmarks.php:87
 msgid "Create Site"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:54
+#: templates/admin/mywords-bookmarks.php:60
 msgid "Site title:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:66
+#: templates/admin/mywords-bookmarks.php:72
 msgid ""
 "Please, note that the URL can contain parameters {TITLE}, {URL} and {DESC} "
 "that will be replaced with their respective values."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:92
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:153
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:51
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:111
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:117
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:198
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:68
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:124
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:11
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:68
+#: templates/admin/mywords-bookmarks.php:101
+#: templates/admin/mywords-bookmarks.php:168
+#: templates/admin/mywords-categories.php:63
+#: templates/admin/mywords-categories.php:128
+#: templates/admin/mywords-editors.php:122 templates/admin/mywords-tags.php:76
+#: templates/admin/mywords-tags.php:133
+#: templates/admin/mywords-trackbacks.php:11
+#: templates/admin/mywords-trackbacks.php:73
 msgid "Bulk actions"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:93
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:154
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:118
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:199
+#: templates/admin/mywords-bookmarks.php:102
+#: templates/admin/mywords-bookmarks.php:169
+#: templates/admin/mywords-editors.php:123
 msgid "Activate"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:94
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:155
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:119
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:200
+#: templates/admin/mywords-bookmarks.php:103
+#: templates/admin/mywords-bookmarks.php:170
+#: templates/admin/mywords-editors.php:124
 msgid "Deactivate"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:95
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:139
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:156
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:52
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:96
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:112
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:120
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:161
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:201
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:100
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:70
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:111
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:126
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:12
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:52
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:69
+#: templates/admin/mywords-bookmarks.php:104
+#: templates/admin/mywords-bookmarks.php:153
+#: templates/admin/mywords-bookmarks.php:171
+#: templates/admin/mywords-categories.php:64
+#: templates/admin/mywords-categories.php:112
+#: templates/admin/mywords-categories.php:129
+#: templates/admin/mywords-editors.php:125
+#: templates/admin/mywords-editors.php:173
+#: templates/admin/mywords-posts.php:110 templates/admin/mywords-tags.php:78
+#: templates/admin/mywords-tags.php:117 templates/admin/mywords-tags.php:135
+#: templates/admin/mywords-trackbacks.php:12
+#: templates/admin/mywords-trackbacks.php:56
+#: templates/admin/mywords-trackbacks.php:74
 msgid "Delete"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:97
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:158
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:54
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:114
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:122
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:203
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:41
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:72
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:128
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:14
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:71
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:67
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:92
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:133
+#: templates/admin/mywords-bookmarks.php:106
+#: templates/admin/mywords-bookmarks.php:173
+#: templates/admin/mywords-categories.php:66
+#: templates/admin/mywords-categories.php:131
+#: templates/admin/mywords-editors.php:127 templates/admin/mywords-posts.php:41
+#: templates/admin/mywords-tags.php:80 templates/admin/mywords-tags.php:137
+#: templates/admin/mywords-trackbacks.php:14
+#: templates/admin/mywords-trackbacks.php:76 widgets/widget-publish.php:67
+#: widgets/widget-publish.php:92 widgets/widget-publish.php:133
 msgid "Apply"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:106
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:115
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:69
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:78
+#: templates/admin/mywords-bookmarks.php:111
+msgid "Existing sites"
+msgstr ""
+
+#: templates/admin/mywords-bookmarks.php:120
+#: templates/admin/mywords-bookmarks.php:129
+#: templates/admin/mywords-categories.php:85
+#: templates/admin/mywords-categories.php:94
 msgid "Description"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:107
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:116
+#: templates/admin/mywords-bookmarks.php:121
+#: templates/admin/mywords-bookmarks.php:130
 msgid "URL"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:122
+#: templates/admin/mywords-bookmarks.php:136
 msgid "There are not social sites registered yet!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:131
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:153
+#: templates/admin/mywords-bookmarks.php:145
+#: templates/admin/mywords-editors.php:165
 msgid "Inactive"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:133
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:94
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:155
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:99
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:109
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:60
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:74
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:99
+#: templates/admin/mywords-bookmarks.php:147
+#: templates/admin/mywords-categories.php:110
+#: templates/admin/mywords-editors.php:167
+#: templates/admin/mywords-posts.php:109 templates/admin/mywords-tags.php:115
+#: widgets/widget-publish.php:60 widgets/widget-publish.php:74
+#: widgets/widget-publish.php:99
 msgid "Edit"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:135
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:157
+#: templates/admin/mywords-bookmarks.php:149
+#: templates/admin/mywords-editors.php:169
 msgid "Desactivar"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-bookmarks.php:137
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:159
+#: templates/admin/mywords-bookmarks.php:151
+#: templates/admin/mywords-editors.php:171
 msgid "Activar"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:7
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:38
+#: templates/admin/mywords-categories.php:10
+#: templates/admin/mywords-categories.php:45
 msgid "Add Category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:10
+#: templates/admin/mywords-categories.php:16
 msgid "Category Name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:14
+#: templates/admin/mywords-categories.php:20
 msgid "Category Slug"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:16
+#: templates/admin/mywords-categories.php:22
 msgid ""
 "The “slug” is the URL-friendly version of the name. It is usually all "
 "lowercase and contains only letters, numbers, and hyphens."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:21
+#: templates/admin/mywords-categories.php:27
 msgid "None"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:26
+#: templates/admin/mywords-categories.php:32
 msgid ""
 "Categories, unlike tags, can have a hierarchy. You might have a Jazz "
 "category, and under that have children categories for Bebop and Big Band. "
 "Totally optional."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:68
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:77
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:6
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:81
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:97
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:8
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:84
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:92
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:111
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:52
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:68
+#: templates/admin/mywords-categories.php:77
+msgid "Existing Categories"
+msgstr ""
+
+#: templates/admin/mywords-categories.php:84
+#: templates/admin/mywords-categories.php:93
+#: templates/admin/mywords-editors.php:6
+#: templates/admin/mywords-formposts.php:99
+#: templates/admin/mywords-formposts.php:115 templates/admin/mywords-tags.php:8
+#: templates/admin/mywords-tags.php:98 templates/admin/mywords-theindex.php:114
+#: templates/mywords-submit-form.php:52 templates/mywords-submit-form.php:68
 msgid "Name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:70
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:79
+#: templates/admin/mywords-categories.php:86
+#: templates/admin/mywords-categories.php:95
 msgid "Slug"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-categories.php:85
+#: templates/admin/mywords-categories.php:101
 msgid "There are not categories registered yet!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:11
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:13
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:40
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:85
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:93
+#: templates/admin/mywords-editors.php:11 templates/admin/mywords-tags.php:13
+#: templates/admin/mywords-tags.php:43 templates/admin/mywords-tags.php:99
 msgid "Short name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:16
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:72
+#: templates/admin/mywords-editors.php:16
+#: templates/admin/mywords-editors.php:76
 msgid "Biography:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:21
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:77
+#: templates/admin/mywords-editors.php:21
+#: templates/admin/mywords-editors.php:81
 msgid "Registered user:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:29
+#: templates/admin/mywords-editors.php:29
 msgid "Permissions:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:31
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:87
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:171
+#: templates/admin/mywords-editors.php:31
+#: templates/admin/mywords-editors.php:91
+#: templates/admin/mywords-editors.php:183
 msgid "Create tags"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:34
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:90
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:175
+#: templates/admin/mywords-editors.php:34
+#: templates/admin/mywords-editors.php:94
+#: templates/admin/mywords-editors.php:187
 msgid "Create categories"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:37
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:93
+#: templates/admin/mywords-editors.php:37
+#: templates/admin/mywords-editors.php:97
 msgid "Send trackbacks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:40
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:96
+#: templates/admin/mywords-editors.php:40
+#: templates/admin/mywords-editors.php:100
 msgid "Manage discussions"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:57
+#: templates/admin/mywords-editors.php:57
 msgid ""
 "Editors are people that can send and publish content without admin approval. "
 "You can create new editors and assign individuals permissions for them."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:58
+#: templates/admin/mywords-editors.php:58
 msgid "All webmasters are allowed as editors with all privileges."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:65
+#: templates/admin/mywords-editors.php:66
 msgid "Register Editor"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:67
+#: templates/admin/mywords-editors.php:71
 msgid "Display name:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:85
+#: templates/admin/mywords-editors.php:89
 msgid "Privilieges:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:101
+#: templates/admin/mywords-editors.php:105
 msgid "Create Editor"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:128
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:137
+#: templates/admin/mywords-editors.php:132
+msgid "Registered editors"
+msgstr ""
+
+#: templates/admin/mywords-editors.php:140
+#: templates/admin/mywords-editors.php:149
 msgid "Display name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:129
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:138
+#: templates/admin/mywords-editors.php:141
+#: templates/admin/mywords-editors.php:150
 msgid "User"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:130
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:139
+#: templates/admin/mywords-editors.php:142
+#: templates/admin/mywords-editors.php:151
 msgid "Permissions"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:146
+#: templates/admin/mywords-editors.php:158
 msgid "There are not editors registered yet."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:164
+#: templates/admin/mywords-editors.php:176
 msgid "Edit user"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:179
+#: templates/admin/mywords-editors.php:191
 msgid "Send trackbacks and pings"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-editors.php:183
+#: templates/admin/mywords-editors.php:195
 msgid "Enable/disable discussions"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:1
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:7
+#: templates/admin/mywords-formposts.php:1 templates/mywords-submit-form.php:7
 msgid "Create Post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:6
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:10
+#: templates/admin/mywords-formposts.php:6 templates/mywords-submit-form.php:10
 msgid "You must specify the title for this post!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:7
+#: templates/admin/mywords-formposts.php:7
 msgid "Post Title..."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:12
+#: templates/admin/mywords-formposts.php:12
 msgid "View Post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:12
+#: templates/admin/mywords-formposts.php:12
 msgid "Preview Post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:15
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:18
+#: templates/admin/mywords-formposts.php:15
+#: templates/mywords-submit-form.php:18
 msgid ""
 "This post has not been saved. Remember to save it before leave this page."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:25
+#: templates/admin/mywords-formposts.php:24
+msgid "Video URL"
+msgstr ""
+
+#: templates/admin/mywords-formposts.php:30
+msgid "Create video post type"
+msgstr ""
+
+#: templates/admin/mywords-formposts.php:34
+msgid "Input here the video URL for supported services."
+msgstr ""
+
+#: templates/admin/mywords-formposts.php:43
 msgid "Post SEO"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:31
+#: templates/admin/mywords-formposts.php:49
 msgid "Custom Title"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:33
+#: templates/admin/mywords-formposts.php:51
 msgid ""
 "Insert here your own custom title for SEO purposes. This custom title will "
 "be used in title tag."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:38
+#: templates/admin/mywords-formposts.php:56
 msgid "Meta Description"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:43
+#: templates/admin/mywords-formposts.php:61
 msgid "Meta Keywords"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:55
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:29
+#: templates/admin/mywords-formposts.php:73
+#: templates/mywords-submit-form.php:29
 msgid "Send Trackbacks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:59
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:32
+#: templates/admin/mywords-formposts.php:77
+#: templates/mywords-submit-form.php:32
 msgid "Send trackbacks to:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:62
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:34
+#: templates/admin/mywords-formposts.php:80
+#: templates/mywords-submit-form.php:34
 msgid "Separate multiple URLs with spaces"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:65
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:36
+#: templates/admin/mywords-formposts.php:83
+#: templates/mywords-submit-form.php:36
 msgid "Pinged:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:76
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:47
+#: templates/admin/mywords-formposts.php:94
+#: templates/mywords-submit-form.php:47
 msgid "Custom Fields"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:82
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:98
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:53
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:69
+#: templates/admin/mywords-formposts.php:100
+#: templates/admin/mywords-formposts.php:116
+#: templates/mywords-submit-form.php:53 templates/mywords-submit-form.php:69
 msgid "Value"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:88
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:59
+#: templates/admin/mywords-formposts.php:106
+#: templates/mywords-submit-form.php:59
 msgid "Remove"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:94
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:65
+#: templates/admin/mywords-formposts.php:112
+#: templates/mywords-submit-form.php:65
 msgid "Add new field:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:105
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:76
+#: templates/admin/mywords-formposts.php:123
+#: templates/mywords-submit-form.php:76
 msgid "- Select -"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:111
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:82
+#: templates/admin/mywords-formposts.php:129
+#: templates/mywords-submit-form.php:82
 msgid "Enter New"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:124
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:95
+#: templates/admin/mywords-formposts.php:142
+#: templates/mywords-submit-form.php:95
 msgid "Add custom field"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:128
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:99
+#: templates/admin/mywords-formposts.php:146
+#: templates/mywords-submit-form.php:99
 msgid ""
 "Custom fields can be used to add extra metadata to a post that you can use "
 "in your theme."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:135
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:108
+#: templates/admin/mywords-formposts.php:153
+#: templates/mywords-submit-form.php:108
 msgid "Comments and Trackbacks"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:141
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:112
+#: templates/admin/mywords-formposts.php:159
+#: templates/mywords-submit-form.php:112
 msgid "Enable comments for this post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-formposts.php:144
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:115
+#: templates/admin/mywords-formposts.php:162
+#: templates/mywords-submit-form.php:115
 msgid "Allow trackbacks for this post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:5
+#: templates/admin/mywords-posts.php:5
 msgid "Search"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:9
+#: templates/admin/mywords-posts.php:9
 msgid "Results:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:20
+#: templates/admin/mywords-posts.php:20
 msgid "Show all"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:35
+#: templates/admin/mywords-posts.php:35
 msgid "Bulk Actions"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:36
+#: templates/admin/mywords-posts.php:36
 msgid "Delete Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:37
+#: templates/admin/mywords-posts.php:37
 msgid "Set status as Pending review"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:38
+#: templates/admin/mywords-posts.php:38
 msgid "Set status as Draft"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:39
+#: templates/admin/mywords-posts.php:39
 msgid "Set status as published"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:59
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:71
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:25
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:35
+#: templates/admin/mywords-posts.php:65 templates/admin/mywords-posts.php:79
+#: templates/admin/mywords-trackbacks.php:29
+#: templates/admin/mywords-trackbacks.php:39
 msgid "Date"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:77
+#: templates/admin/mywords-posts.php:85
 msgid "No posts where found"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:88
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:35
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:64
+#: templates/admin/mywords-posts.php:98 widgets/widget-publish.php:35
+#: widgets/widget-publish.php:64
 msgid "Draft"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:91
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:44
+#: templates/admin/mywords-posts.php:101 widgets/widget-publish.php:44
 msgid "Scheduled"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:94
+#: templates/admin/mywords-posts.php:104
 msgid "Pending"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:102
+#: templates/admin/mywords-posts.php:112
 msgid "Preview"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-posts.php:104
+#: templates/admin/mywords-posts.php:114
 msgid "View"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:31
+#: templates/admin/mywords-tags.php:33
 msgid "New Tag"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:35
+#: templates/admin/mywords-tags.php:38
 msgid "Tag name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:45
+#: templates/admin/mywords-tags.php:48
 msgid "Add Tag"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:53
+#: templates/admin/mywords-tags.php:59
 msgid "More used tags"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:57
+#: templates/admin/mywords-tags.php:63
 #, php-format
 msgid "%u Posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:69
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:125
+#: templates/admin/mywords-tags.php:77 templates/admin/mywords-tags.php:134
 msgid "Update posts number"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:100
+#: templates/admin/mywords-tags.php:91
+msgid "Existing tags"
+msgstr ""
+
+#: templates/admin/mywords-tags.php:106
 msgid "There is not any tag yet!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-tags.php:110
+#: templates/admin/mywords-tags.php:116
 msgid "Update"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:10
+#: templates/admin/mywords-theindex.php:10
 msgid "Quick Overview"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:18
+#: templates/admin/mywords-theindex.php:18
 msgid "Comments"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:30
+#: templates/admin/mywords-theindex.php:30
 msgid "Social sites"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:39
+#: templates/admin/mywords-theindex.php:41
 msgid "Current version:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:48
+#: templates/admin/mywords-theindex.php:53
 msgid "Recent Drafts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:66
+#: templates/admin/mywords-theindex.php:74
 msgid "Posts pending for review"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:91
+#: templates/admin/mywords-theindex.php:92
 msgid "Important!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:92
+#: templates/admin/mywords-theindex.php:93
 msgid ""
 "MyWords tried to write your htaccess file in order to enable friendly urls "
 "but has been impossible. Please copy and paste next code into your htaccess "
 "file."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:101
+#: templates/admin/mywords-theindex.php:104
 msgid "Editors Activity"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:105
+#: templates/admin/mywords-theindex.php:108
 msgid "There are not editors registered yet!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:138
+#: templates/admin/mywords-theindex.php:143
 msgid "MyWords Resources"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:143
+#: templates/admin/mywords-theindex.php:148
 msgid "MyWords documentation"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:144
+#: templates/admin/mywords-theindex.php:149
 msgid ""
 "Learn more about MyWords. Installation, configuration and all information to "
 "improve this module."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:148
+#: templates/admin/mywords-theindex.php:153
 msgid "Red México"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:149
+#: templates/admin/mywords-theindex.php:154
 msgid "New modules, themes and awesome resources for XOOPS."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-theindex.php:168
+#: templates/admin/mywords-theindex.php:170
 msgid "Recent News"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:3
+#: templates/admin/mywords-trackbacks.php:3
 msgid ""
 "A trackback is one of three types of linkbacks, methods for Web authors to "
 "request notification when somebody links to one of their documents."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:4
+#: templates/admin/mywords-trackbacks.php:4
 msgid "Learn more"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:23
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:33
+#: templates/admin/mywords-trackbacks.php:19
+msgid "Received trackbacks"
+msgstr ""
+
+#: templates/admin/mywords-trackbacks.php:27
+#: templates/admin/mywords-trackbacks.php:37
 msgid "Blog name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:24
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:34
+#: templates/admin/mywords-trackbacks.php:28
+#: templates/admin/mywords-trackbacks.php:38
 msgid "Excerpt"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:42
+#: templates/admin/mywords-trackbacks.php:46
 msgid "There are not trackbacks yet"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/admin/mywords-trackbacks.php:58
+#: templates/admin/mywords-trackbacks.php:62
 msgid "Unknow"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/templates/mywords-submit-form.php:11
+#: templates/mywords-submit-form.php:11
 msgid "Post title here..."
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/trackbacks.php:38
+#: trackbacks.php:38
 msgid "Sorry, your trackback seems to be invalid!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/trackbacks.php:54
+#: trackbacks.php:54
 msgid "Sorry, your trackback seems to be SPAM"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/trackbacks.php:67
+#: trackbacks.php:67
 msgid "We are unable to store your trackback. Please try again later!"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-categories.php:49
+#: widgets/widget-categories.php:49
 msgid "+ Add Categories"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-categories.php:51
+#: widgets/widget-categories.php:51
 msgid "Please provide a name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-categories.php:54
+#: widgets/widget-categories.php:54
 msgid "Parent category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-categories.php:59
+#: widgets/widget-categories.php:59
 msgid "Add"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-image.php:21
+#: widgets/widget-image.php:21
 msgid "Default Image"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:18
+#: widgets/widget-post-type.php:18
 msgid "Post type"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:27
+#: widgets/widget-post-type.php:27
 msgid "Standard"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:34
+#: widgets/widget-post-type.php:34
 msgid "Video"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:41
+#: widgets/widget-post-type.php:41
 msgid "Gallery"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:48
+#: widgets/widget-post-type.php:48
 msgid "Quote"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:55
+#: widgets/widget-post-type.php:55
 msgid "Mini post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:62
+#: widgets/widget-post-type.php:62
 msgid "Image"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-post-type.php:69
+#: widgets/widget-post-type.php:69
 msgid "Link"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:24
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:99
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:153
+#: widgets/widget-publish.php:24 widgets/widget-publish.php:99
+#: widgets/widget-publish.php:153
 msgid "Publish"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:38
+#: widgets/widget-publish.php:38
 msgid "Pending review"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:60
+#: widgets/widget-publish.php:60
 msgid "Status:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:65
+#: widgets/widget-publish.php:65
 msgid "Pending Review"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:74
+#: widgets/widget-publish.php:74
 msgid "Visibility:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:83
+#: widgets/widget-publish.php:83
 msgid "Public"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:84
+#: widgets/widget-publish.php:84
 msgid "Password protected"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:85
+#: widgets/widget-publish.php:85
 msgid "password"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:91
+#: widgets/widget-publish.php:91
 msgid "Private"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:99
+#: widgets/widget-publish.php:99
 msgid "Inmediatly"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:110
+#: widgets/widget-publish.php:110
 msgid "Jan"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:111
+#: widgets/widget-publish.php:111
 msgid "Feb"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:112
+#: widgets/widget-publish.php:112
 msgid "Mar"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:113
+#: widgets/widget-publish.php:113
 msgid "Apr"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:114
+#: widgets/widget-publish.php:114
 msgid "May"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:115
+#: widgets/widget-publish.php:115
 msgid "Jun"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:116
+#: widgets/widget-publish.php:116
 msgid "Jul"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:117
+#: widgets/widget-publish.php:117
 msgid "Aug"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:118
+#: widgets/widget-publish.php:118
 msgid "Sep"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:119
+#: widgets/widget-publish.php:119
 msgid "Oct"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:120
+#: widgets/widget-publish.php:120
 msgid "Nov"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:121
+#: widgets/widget-publish.php:121
 msgid "Dec"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:141
+#: widgets/widget-publish.php:141
 msgid "Author:"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-publish.php:153
+#: widgets/widget-publish.php:153
 msgid "Update Post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-tags.php:17
+#: widgets/widget-tags.php:17
 msgid "Add Tags"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-tags.php:39
+#: widgets/widget-tags.php:39
 msgid "+ Add"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-tags.php:42
+#: widgets/widget-tags.php:42
 msgid "Separate multiple tags with commas"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-tags.php:48
+#: widgets/widget-tags.php:48
 msgid "Used Tags"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/widgets/widget-tags.php:58
+#: widgets/widget-tags.php:58
 msgid "Choose between most populars tags"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:65
+#: xoops_version.php:63
 msgid "Twitter"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:66
+#: xoops_version.php:64
 msgid "Facebook"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:67
+#: xoops_version.php:65
 msgid "Instagram"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:68
+#: xoops_version.php:66
 msgid "LinkedIn"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:69
+#: xoops_version.php:67
 msgid "GitHub"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:70
+#: xoops_version.php:68
 msgid "My Blog"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:106
+#: xoops_version.php:104
 msgid "Homepage of module"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:110
+#: xoops_version.php:108
 msgid "Full post template"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:114
+#: xoops_version.php:112
 msgid "Content of a category"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:122
+#: xoops_version.php:120
 msgid "The specific post content"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:126
+#: xoops_version.php:124
 msgid "Form for protected posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:130
+#: xoops_version.php:128
 msgid "Posts list for a specific tag"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:134
+#: xoops_version.php:132
 msgid "Posts from a specific date"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:138
+#: xoops_version.php:136
 msgid "Template for normal post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:142
+#: xoops_version.php:140
 msgid "Template for video post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:146
+#: xoops_version.php:144
 msgid "Template for gallery post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:150
+#: xoops_version.php:148
 msgid "Template for image post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:154
+#: xoops_version.php:152
 msgid "Template for mini post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:158
+#: xoops_version.php:156
 msgid "Template for quote post"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:178
+#: xoops_version.php:160
+msgid "Template for video player"
+msgstr ""
+
+#: xoops_version.php:180
 msgid "Based on date and name"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:178
+#: xoops_version.php:180
 msgid "Numeric format"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:271
+#: xoops_version.php:273
 msgid "Number of related posts"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:272
+#: xoops_version.php:274
 msgid "Specify the limit of posts that will be shown in posts content"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:279
+#: xoops_version.php:281
 msgid "Enable posts submission"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:280
+#: xoops_version.php:282
 msgid ""
 "By enabling this option, registered users can submit their own articles to "
 "MyWords"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:287
+#: xoops_version.php:289
 msgid "Auto approve posts submitted by editors"
 msgstr ""
 
-#: Y:\www\xoops\modules\mywords/xoops_version.php:288
+#: xoops_version.php:290
 msgid ""
 "By enabling this option, the posts submitted by editors will automatically "
 "approve"
