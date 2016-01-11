@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><span style="background-position: -32px 0;">&nbsp;</span><?php _e('Posts Management','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Posts Management','mywords'); ?></h1>
 <form name="frmSearch" method="get" action="posts.php" style="margin: 0;">
     <div class="row">
         <div class="col-md-2 col-lg-2">

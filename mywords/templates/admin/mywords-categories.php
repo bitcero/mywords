@@ -1,5 +1,5 @@
 <?php RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.validate.min.js'); ?>
-<h1 class="cu-section-title mw_titles"><span style="background-position: left 0;">&nbsp;</span><?php _e('Categories','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Categories','mywords'); ?></h1>
 <div class="row">
 
     <!-- Create form -->

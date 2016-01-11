@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><span style="background-position: -128px 0;">&nbsp;</span><?php _e('Editors','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Editors','mywords'); ?></h1>
 <?php if(isset($show_edit) && $show_edit): ?>
 <div class="edit_form">
     <form name="form_edit" id="form-edit" method="post" action="editors.php">

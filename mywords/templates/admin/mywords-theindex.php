@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><em class="fa fa-home"></em> <?php _e('Dashboard','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Dashboard','mywords'); ?></h1>
 
 <div class="row"  data-news="load" data-boxes="load" data-module="mywords" data-target="#mywords-news" data-box="mywords-dashboard" data-container="dashboard">
     

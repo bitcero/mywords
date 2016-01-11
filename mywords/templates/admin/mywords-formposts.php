@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><?php $edit ? _e('Edit Post','mywords') : _e('Create Post','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php $edit ? _e('Edit Post','mywords') : _e('Create Post','mywords'); ?></h1>
 <div id="mw-messages-post" class="alert alert-danger mw_messages_post">
 
 </div>

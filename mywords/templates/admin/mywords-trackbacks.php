@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><span style="background-position: -64px -32px;">&nbsp;</span><?php _e('Trackbacks','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Trackbacks','mywords'); ?></h1>
 <div class="help-block">
     <?php _e('A trackback is one of three types of linkbacks, methods for Web authors to request notification when somebody links to one of their documents.','mywords'); ?>
     <strong><a href="http://en.wikipedia.org/wiki/Trackback" target="_blank"><?php _e('Learn more', 'mywords'); ?></a></strong>.

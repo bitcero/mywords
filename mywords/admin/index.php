@@ -87,8 +87,7 @@ xoops_cp_header();
 	
 // Show Templates
 RMTemplate::get()->add_body_class('dashboard');
-RMTemplate::get()->add_style('dashboard.css', 'mywords');
-RMTemplate::get()->add_style('admin.css', 'mywords');
+
 //$tpl->header();
 include RMtemplate::get()->get_template('admin/mywords-theindex.php', 'module', 'mywords');
 //$tpl->footer();

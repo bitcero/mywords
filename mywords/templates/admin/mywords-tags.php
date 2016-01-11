@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><span style="background-position: -64px 0;">&nbsp;</span><?php _e('Tags','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Tags','mywords'); ?></h1>
 
 <?php if(isset($show_edit) && $show_edit): ?>
 	
