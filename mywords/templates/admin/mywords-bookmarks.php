@@ -1,4 +1,4 @@
-<h1 class="cu-section-title mw_titles"><span style="background-position: left -32px;">&nbsp;</span><?php _e('Social Sites','mywords'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Social Sites','mywords'); ?></h1>
 
 <?php if(isset($show_edit) && $show_edit): ?>
 

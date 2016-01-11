@@ -70,7 +70,7 @@ class MWFunctions
     * Show admin menu and include the javascript files
     */
     static function include_required_files( $toolbar = true ){
-		RMTemplate::get()->add_style('admin.css','mywords');
+		RMTemplate::get()->add_style('admin.min.css','mywords', ['id' => 'admin-js']);
     }
     
     /**
@@ -85,7 +85,7 @@ class MWFunctions
 				shortname='".$cat->getVar('shortname','n')."'";
 		
 		if (!$cat->isNew()){
-			$sql .= " AND id_cat<>".$cat->id();
+			$sql .= " AND id_cat != ".$cat->id();
 		}
 		
 		list($num) = $db->fetchRow($db->query($sql));

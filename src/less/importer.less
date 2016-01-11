@@ -1,0 +1,74 @@
+@import "https://raw.githubusercontent.com/bitcero/rmcommon/helium/src/helium/less/bootstrap/variables";
+@import "https://raw.githubusercontent.com/bitcero/rmcommon/helium/src/helium/less/helium/variables";
+
+.item-title{
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-family: @font-secondary;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+#importer-indicators{
+  display: none;
+
+  .progress{
+    height: 8px!important;
+  }
+  .progress-legend{
+    padding: 5px 0 10px 0;
+    font-size:  0.9em;
+  }
+}
+
+#importer-logger{
+  list-style: none;
+  margin: 15px 0 0;
+  padding: 15px;
+  background-color: @color-midnight;
+  border-radius: @border-radius-large;
+  display: none;
+  font-family: consolas, menlo, monospace;
+  max-height: 400px;
+  overflow: auto;
+
+  > li{
+
+    padding: 2px 0;
+
+    &:before{
+      font-family: 'FontAwesome';
+      font-size: 14px;
+      display: inline-block;
+      width: 20px;
+      line-height: 14px;
+      height: 14px;
+      text-align: center;
+    }
+
+    &.text-danger:before{
+      content: "\f00d";
+    }
+
+    &.text-light-green:before{
+      content: "\f0da";
+    }
+
+    strong{
+      color: @color-text-midnight;
+    }
+
+  }
+
+}
+
+#importer-finished{
+  padding: 20px 0;
+  font-size: 2em;
+  color: @brand-success;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: @font-secondary;
+  display: none;
+}

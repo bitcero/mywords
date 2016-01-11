@@ -40,13 +40,15 @@ function show_editors(){
     $nav = new RMPageNav($num, $limit, $page, 5);
     $nav->target_url('editors.php?page={PAGE_NUM}');
 	$result = $db->query("SELECT * FROM ".$db->prefix("mod_mywords_editors")." ORDER BY name LIMIT $start,$limit");
-    $editores = array();			
+    $editors = array();
     
 	while($row = $db->fetchArray($result)){
         $ed = new MWEditor();
         $ed->assignVars($row);
-		$tpl->append('editors', $ed);
+		$editors[] = $ed;
 	}
+
+    $tpl->assign('editors', $editors);
 
     RMBreadCrumb::get()->add_crumb(__('Editors Management','mywords'));
 	

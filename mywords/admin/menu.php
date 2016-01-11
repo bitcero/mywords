@@ -93,3 +93,9 @@ $adminmenu[] = array(
     'location'=>"trackbacks",
 );
 
+$adminmenu[] = array(
+    'title'=>__('Import Articles','mywords'),
+    'link'=>"admin/importer.php",
+    'icon'=>"svg-rmcommon-incoming text-deep-orange",
+    'location'=>"trackbacks",
+);
