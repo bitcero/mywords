@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MyWords\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-03 13:00-0600\n"
-"PO-Revision-Date: 2016-01-03 13:03-0600\n"
+"POT-Creation-Date: 2016-01-10 22:04-0600\n"
+"PO-Revision-Date: 2016-01-10 22:12-0600\n"
 "Last-Translator: Eduardo Cortés <me@eduardocortes.mx>\n"
 "Language-Team: Red México <i.bitcero@gmail.com>\n"
 "Language: es\n"
@@ -88,7 +88,7 @@ msgstr "Enlace permanente:"
 msgid "Errors ocurred while trying to save this post."
 msgstr "Ocurrieron errores al intentar almacenar esta entrada."
 
-#: admin/bookmarks.php:45 admin/bookmarks.php:84 admin/menu.php:83
+#: admin/bookmarks.php:45 admin/bookmarks.php:83 admin/menu.php:83
 #: templates/admin/mywords-bookmarks.php:1
 msgid "Social Sites"
 msgstr "Redes Sociales"
@@ -97,50 +97,50 @@ msgstr "Redes Sociales"
 msgid "Bookmarks Management"
 msgstr "Administración de Redes Sociales"
 
-#: admin/bookmarks.php:67 admin/bookmarks.php:114
+#: admin/bookmarks.php:66 admin/bookmarks.php:113
 msgid "Site ID not provided!"
 msgstr "¡No se ha proporcionado un ID de sitio!"
 
-#: admin/bookmarks.php:73 admin/bookmarks.php:120
+#: admin/bookmarks.php:72 admin/bookmarks.php:119
 msgid "Social site not exists!"
 msgstr "¡No existe el sitio especificado!"
 
-#: admin/bookmarks.php:85
+#: admin/bookmarks.php:84
 msgid "Edit Site"
 msgstr "Editar Sitio"
 
-#: admin/bookmarks.php:91
+#: admin/bookmarks.php:90
 msgid "Edit Social Site"
 msgstr "Editar Red Social"
 
-#: admin/bookmarks.php:106 admin/editors.php:104 admin/tags.php:85
+#: admin/bookmarks.php:105 admin/editors.php:106 admin/tags.php:85
 msgid "Operation not allowed!"
 msgstr "¡Operación no permitida!"
 
-#: admin/bookmarks.php:138
+#: admin/bookmarks.php:137
 msgid "You must specify a title for this site!"
 msgstr "¡Debes especificar un título para este sitio!"
 
-#: admin/bookmarks.php:143
+#: admin/bookmarks.php:142
 msgid "You must specify a formatted URL for this site!"
 msgstr "¡Debes especificar una URL formateada para este sitio!"
 
-#: admin/bookmarks.php:156 admin/bookmarks.php:185 admin/bookmarks.php:214
-#: admin/editors.php:196 admin/tags.php:141
+#: admin/bookmarks.php:155 admin/bookmarks.php:184 admin/bookmarks.php:213
+#: admin/editors.php:198 admin/tags.php:141
 msgid "Database updated successfully!"
 msgstr "¡Base de datos actualizada correctamente!"
 
-#: admin/bookmarks.php:158 admin/bookmarks.php:187 admin/bookmarks.php:216
-#: admin/editors.php:192
+#: admin/bookmarks.php:157 admin/bookmarks.php:186 admin/bookmarks.php:215
+#: admin/editors.php:194
 msgid "Errors ocurred while trying to update database!"
 msgstr "¡Ocurrieron algunos errores al intentar actualizar la base de datos!"
 
-#: admin/bookmarks.php:172 admin/bookmarks.php:201 admin/editors.php:179
-#: admin/editors.php:207 admin/tags.php:190 admin/tags.php:225
+#: admin/bookmarks.php:171 admin/bookmarks.php:200 admin/editors.php:181
+#: admin/editors.php:209 admin/tags.php:190 admin/tags.php:225
 msgid "Sorry, operation not allowed!"
 msgstr "¡Lo sentimos, esta operación no esta permitida!"
 
-#: admin/bookmarks.php:177 admin/bookmarks.php:206
+#: admin/bookmarks.php:176 admin/bookmarks.php:205
 msgid "Please, specify a valid site ID!"
 msgstr "Por favor especifica un ID válido para un sitio!"
 
@@ -245,59 +245,59 @@ msgstr "¡La categoría \"%s\" no pudo ser eliminada!"
 msgid "Database updated!"
 msgstr "¡Base de datos actualizada!"
 
-#: admin/editors.php:23 admin/editors.php:51 admin/editors.php:85
+#: admin/editors.php:23 admin/editors.php:53 admin/editors.php:87
 msgid "Editors Management"
 msgstr "Administración de Editores"
 
-#: admin/editors.php:69
+#: admin/editors.php:71
 msgid "Editor ID not provided!."
 msgstr "¡No se ha proporcionado un ID de Editor!"
 
-#: admin/editors.php:75
+#: admin/editors.php:77
 msgid "Editor does not exists!"
 msgstr "¡El editor no existe!"
 
-#: admin/editors.php:83
+#: admin/editors.php:85
 msgid "Editing Editor"
 msgstr "Editando Editor"
 
-#: admin/editors.php:86
+#: admin/editors.php:88
 msgid "Edit Editor"
 msgstr "Editar Editor"
 
-#: admin/editors.php:112
+#: admin/editors.php:114
 msgid "Editor ID has not been provided!"
 msgstr "¡El ID del editor no ha sido proporcionado!"
 
-#: admin/editors.php:118
+#: admin/editors.php:120
 msgid "Editor has not been found!"
 msgstr "¡No se ha encontrado el editor!"
 
-#: admin/editors.php:135
+#: admin/editors.php:137
 msgid "You must provide a display name for this editor!"
 msgstr "¡Debes proporcionar un nombre para mostrar para el editor!"
 
-#: admin/editors.php:140
+#: admin/editors.php:142
 msgid "You must specify a registered user ID for this editor!"
 msgstr "¡Debes especificar un ID de usuario registrado para este editor!"
 
-#: admin/editors.php:151
+#: admin/editors.php:153
 msgid "This user has been registered as editor before."
 msgstr "Este usuario ya ha sido registrado como un editor previamente."
 
-#: admin/editors.php:162
+#: admin/editors.php:164
 msgid "Errors occurs while trying to save editor data"
 msgstr "Ocurrieron algunos errores al intentar almacenar los datos del editor"
 
-#: admin/editors.php:165 admin/editors.php:230 admin/tags.php:213
+#: admin/editors.php:167 admin/editors.php:232 admin/tags.php:213
 msgid "Database updated succesfully!"
 msgstr "¡Base de datos actualizada satisfactoriamente!"
 
-#: admin/editors.php:184 admin/editors.php:212
+#: admin/editors.php:186 admin/editors.php:214
 msgid "Please, specify a valid editor ID!"
 msgstr "¡Por favor especifica un ID válido para el editor!"
 
-#: admin/editors.php:220 admin/editors.php:226
+#: admin/editors.php:222 admin/editors.php:228
 msgid "Errors ocurred while trying to delete editors!"
 msgstr "¡Ocurrieron errores al intentar eliminar estos editores!"
 
@@ -362,6 +362,10 @@ msgstr "Editores"
 #: templates/admin/mywords-trackbacks.php:1
 msgid "Trackbacks"
 msgstr "Trackbacks"
+
+#: admin/menu.php:97
+msgid "Import Articles"
+msgstr "Importar Artículos"
 
 #: admin/posts.php:15
 msgid "Posts help"
@@ -618,6 +622,60 @@ msgstr "Contraseña:"
 msgid "Show Post"
 msgstr "Mostrar Entrada"
 
+#: class/mwimporter.class.php:86 class/mwimporter.class.php:129
+#: class/mwimporter.class.php:204
+msgid "Session token not valid!"
+msgstr "¡Caducó el identificador de sesión!"
+
+#: class/mwimporter.class.php:111
+msgid "Data collected"
+msgstr "Datos recabados"
+
+#: class/mwimporter.class.php:136
+#, php-format
+msgid "Category ID %u is not valid!"
+msgstr "No es válido el ID de categoría %u"
+
+#: class/mwimporter.class.php:148
+#, php-format
+msgid "Category with ID %u was not found!"
+msgstr "¡No se encontró la categoría con ID %u!"
+
+#: class/mwimporter.class.php:172
+#, php-format
+msgid "Category %s already exists"
+msgstr "Ya existe la categoría %s"
+
+#: class/mwimporter.class.php:179
+#, php-format
+msgid "Category %s could not be saved!"
+msgstr "¡No se pudo guardar la categoría %s!"
+
+#: class/mwimporter.class.php:187
+#, php-format
+msgid "Category %s imported successfully!"
+msgstr "¡La categoría %s se importó correctamente!"
+
+#: class/mwimporter.class.php:211
+#, php-format
+msgid "Article ID %u is not valid!"
+msgstr "¡No es válido del ID de artículo %u!"
+
+#: class/mwimporter.class.php:223
+#, php-format
+msgid "Article with ID %u was not found!"
+msgstr "¡No se encontró el artículo con ID %u!"
+
+#: class/mwimporter.class.php:270
+#, php-format
+msgid "Article %s could not be saved!"
+msgstr "¡No se pudo importar el artículos %s!"
+
+#: class/mwimporter.class.php:277
+#, php-format
+msgid "Article %s imported successfully!"
+msgstr "¡El artículo %s se importó correctamente!"
+
 #: class/mywordscontroller.php:50 class/mywordscontroller.php:60
 msgid "Not found"
 msgstr "No se encontró"
@@ -673,6 +731,38 @@ msgstr "Mostrar entradas por autor"
 #: events/rmcommon.php:183
 msgid "Select an author to see the posts published recently."
 msgstr "Selecciona un autor para ver las entradas publicadas recientemente."
+
+#: include/mw-lang.php:33
+msgid "Collecting information..."
+msgstr "Reuniendo información..."
+
+#: include/mw-lang.php:34
+msgid "There are not data to import!"
+msgstr "¡No hay datos para importar!"
+
+#: include/mw-lang.php:35
+msgid "There are not articles to import!"
+msgstr "¡No hay artículos que importar!"
+
+#: include/mw-lang.php:36
+msgid "Categories importing done! Starting articles importing..."
+msgstr ""
+"¡Importación de categorías terminada! Iniciando la importación de "
+"artículos..."
+
+#: include/mw-lang.php:37
+#, php-format
+msgid "Importing category %s..."
+msgstr "Importando categoría %s..."
+
+#: include/mw-lang.php:38
+msgid "Articles importing done!"
+msgstr "¡Terminada la importación de artículos!"
+
+#: include/mw-lang.php:39
+#, php-format
+msgid "Importing article %s..."
+msgstr "Importando artículo %s..."
 
 #: include/permissions.php:17
 msgid "Submit Posts"
@@ -1465,6 +1555,39 @@ msgstr "Activar comentarios para esta entrada"
 #: templates/mywords-submit-form.php:115
 msgid "Allow trackbacks for this post"
 msgstr "Activar trackbacks para esta entrada"
+
+#: templates/admin/mywords-importer.php:3
+msgid ""
+"Please be careful from import articles from other sources multiple times. In "
+"the best of cases, the import must be done once time and no more, due to run "
+"this script multiple times can cause duplicity or errors in synchronization."
+msgstr ""
+"Por favor ni importe artículos de otros módulos múltiples veces. En el mejor "
+"de los casos la importación solo debe ser realizada una sola vez debido a "
+"que hacerlo más veces puede ocasionar duplicidad de datos o errores en la "
+"sincronización."
+
+#: templates/admin/mywords-importer.php:8
+msgid "Import from Publisher"
+msgstr "Importar desde Publisher"
+
+#: templates/admin/mywords-importer.php:12
+msgid ""
+"Importing articles from publisher may take some time depending of amount of "
+"data to be imported. Please be patient and do not close or reload window "
+"while operation is on course."
+msgstr ""
+"Importar artículos de Publisher puede tomar algo de tiempo, dependiendo de "
+"la cantidad de datos que serán importados. Por favor sé paciente y no "
+"cierres o recargues la página mientras la operación está en curso."
+
+#: templates/admin/mywords-importer.php:19
+msgid "Start Import"
+msgstr "Iniciar Importación"
+
+#: templates/admin/mywords-importer.php:40
+msgid "Importing articles done!"
+msgstr "¡Terminada la importación de artículos!"
 
 #: templates/admin/mywords-posts.php:5
 msgid "Search"
