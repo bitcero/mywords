@@ -115,7 +115,9 @@
             <?php endif; ?>
     	</span>
                             </td>
-                            <td align="center"><a href="posts.php?author=<?php echo $post['uid'] ?>"><?php echo $post['uname'] ?></a></td>
+                            <td align="center">
+                                <a href="posts.php?author=<?php echo $post['uid'] ?>"><?php echo $post['uname'] ?></a>
+                            </td>
                             <td class="mw_postcats"><?php echo $post['categories']; ?></td>
                             <td class="mw_postcats">
                                 <?php

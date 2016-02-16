@@ -95,7 +95,7 @@ while ($row = $db->fetchArray($result)){
                                 'link'  => $editor->permalink(),
                                 'bio'   => $editor->getVar('bio'),
                                 'email' => $editor->data('email'),
-                                'avatar'=> RMEvents::get()->run_event( 'rmcommon.get.avatar', $editor->data('email') )
+                                'avatar'=> $cuServices->avatar->getAvatarSrc($editor->data('email'), 100)// RMEvents::get()->run_event( 'rmcommon.get.avatar', $editor->data('email') )
                             ),
         'alink'				=>$alink,
         'edit'              => $xoopsUser && ($xoopsUser->isAdmin() || $editor->getVar('uid')==$xoopsUser->uid()),

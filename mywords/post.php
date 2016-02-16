@@ -138,7 +138,8 @@ $post_arr = array(
                             'bio'   => $editor->getVar('bio'),
                             'email' => $editor->data('email'),
                             'uid'   => $editor->uid,
-                            'url'   => $editor->data( 'url' )
+                            'url'   => $editor->data( 'url' ),
+                            'avatar'=> $cuServices->avatar->getAvatarSrc($editor->data('email'), 100)// RMEvents::get()->run_event( 'rmcommon.get.avatar', $editor->data('email') )
                        ),
     'alink'             => $editor->permalink(),
     'format'            => $post->format,
