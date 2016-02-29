@@ -1,7 +1,7 @@
 <h1 class="cu-section-title"><?php _e('Editors','mywords'); ?></h1>
 <?php if(isset($show_edit) && $show_edit): ?>
 <div class="edit_form">
-    <form name="form_edit" id="form-edit" method="post" action="editors.php">
+    <form name="form_edit" id="form-edit" method="post" action="editors.php" data-translate="true">
         <div class="form-group">
             <label for="name"><?php _e('Name','mywords'); ?></label>
             <input type="text" name="name" id="name" value="<?php echo $editor->getVar('name'); ?>" class="form-control">

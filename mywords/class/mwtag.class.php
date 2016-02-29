@@ -11,6 +11,15 @@
 class MWTag extends RMObject
 {
 	public function __construct($id = null){
+
+        // Prevent to be translated
+        $this->noTranslate = [
+            'shortname'
+        ];
+
+        $this->ownerType = 'module';
+        $this->ownerName = 'mywords';
+
         $this->db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_dbtable = $this->db->prefix("mod_mywords_tags");
         $this->setNew();

@@ -52,6 +52,13 @@ class MWPost extends RMObject
 	 * @param string $titulo Titulo amigable del post
 	 */
 	function __construct($id=null){
+
+        // Prevent to be translated
+        $this->noTranslate = [
+            'image', 'shortname', 'status', 'visibility', 'password', 'authorname',
+            'toping', 'pinged', 'video', 'format', 'pingstatus'
+        ];
+
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
 		$this->myts =& MyTextSanitizer::getInstance();
 		$this->_dbtable = $this->db->prefix("mod_mywords_posts");
@@ -61,6 +68,9 @@ class MWPost extends RMObject
 		$this->setVarType('pinged', XOBJ_DTYPE_ARRAY);
 		$this->setVarType('image', XOBJ_DTYPE_SOURCE);
 		$this->setVarType('video', XOBJ_DTYPE_SOURCE);
+
+        $this->ownerName = 'mywords';
+        $this->ownerType = 'module';
 
 		if ($id==null) return;
 	
@@ -528,6 +538,7 @@ class MWPost extends RMObject
 			return false;
 		}
 	}
+    
 	/**
 	 * Almacena las categorías a las que pertenece el artículo
 	 */

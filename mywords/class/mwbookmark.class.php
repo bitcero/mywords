@@ -11,6 +11,16 @@
 class MWBookmark extends RMObject
 {
     function __construct($id=null){
+
+        // Prevent to be translated
+        $this->noTranslate = [
+            'url',
+            'icon'
+        ];
+
+        $this->ownerName = 'mywords';
+        $this->ownerType = 'module';
+
         $this->db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_dbtable = $this->db->prefix("mod_mywords_bookmarks");
         $this->setNew();

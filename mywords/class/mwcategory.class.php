@@ -15,10 +15,20 @@ class MWCategory extends RMObject
 {
 	
 	function __construct($id=''){
+
+        // Prevent to be translated
+        $this->noTranslate = [
+            'shortname'
+        ];
+
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
 		$this->_dbtable = $this->db->prefix("mod_mywords_categories");
 		$this->setNew();
 		$this->initVarsFromTable();
+
+        $this->ownerName = 'mywords';
+        $this->ownerType = 'module';
+
 		if ($id==''){
 			return;
 		}
