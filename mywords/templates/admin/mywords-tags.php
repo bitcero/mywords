@@ -3,7 +3,7 @@
 <?php if(isset($show_edit) && $show_edit): ?>
 	
 	<div class="edit_form">
-	<form name="form_edit" id="form-edit" method="post" action="tags.php">
+	<form name="form_edit" id="form-edit" method="post" action="tags.php" data-translate="true">
         <div class="form-group">
             <label for="edit-name"><?php _e('Name','mywords'); ?></label>
             <input type="text" name="name" id="edit-name" value="<?php echo $tag->getVar('tag'); ?>" class="form-control" required>

@@ -86,7 +86,7 @@ function edit_bookmark(){
 	xoops_cp_header();
 	
     $show_edit = true;
-	include $rmTpl->get_template('admin/mywords_bookmarks.php','module','mywords');
+	include $rmTpl->get_template('admin/mywords-bookmarks.php','module','mywords');
 	$rmTpl->assign('xoops_pagetitle', __('Edit Social Site','mywords'));
 	$rmTpl->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
 	$rmTpl->add_script('../include/js/scripts.php?file=bookmarks.js');

@@ -2,7 +2,7 @@
 <div id="mw-messages-post" class="alert alert-danger mw_messages_post">
 
 </div>
-<form name="mwposts" id="mw-form-posts" action="posts.php" method="post">
+<form name="mwposts" id="mw-form-posts" action="posts.php" method="post" data-translate="true">
 <label class="error" for ="post-title" style="display: none;"><?php _e('You must specify the title for this post!','mywords'); ?></label>
 <input type="text" name="title" id="post-title" class="form-control input-lg" value="<?php echo $edit ? $post->getVar('title','e') : ''; ?>" placeholder="<?php _e('Post Title...', 'mywords'); ?>" />
 <div class="mw_permacont <?php if(!$edit): ?>mw_permainfo<?php endif; ?>" id="mw-perma-link">

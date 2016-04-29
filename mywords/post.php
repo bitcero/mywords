@@ -121,7 +121,7 @@ $xoopsTpl->assign('post_navbar', $nav->render(true));
 $post_arr = array(
     'id'                => $post->id(),
     'title'             => $post->getVar('title'),
-    'published'         => sprintf(__('%s by %s','mywords'), MWFunctions::format_time($post->getVar('pubdate')) . ' ' . date('H:i',$post->getVar('pubdate')),'<a href="'.$editor->permalink().'">'.(isset($editor) ? $editor->getVar('name') : __('Anonymous','mywords'))."</a>"),
+    'published'         => sprintf(__('%s by %s','mywords'), MWFunctions::format_time($post->getVar('pubdate')),'<a href="'.$editor->permalink().'">'.(isset($editor) ? $editor->getVar('name') : __('Anonymous','mywords'))."</a>"),
     'text'              => $post->content(false, $page),
     'cats'              => $post->get_categos('data'),
     'tags'              => $post->tags(false),

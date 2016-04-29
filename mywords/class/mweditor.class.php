@@ -19,6 +19,14 @@ class MWEditor extends RMObject
      */
 	public function __construct( $id = null, $from = 'editor' ){
 
+        // Prevent to be translated
+        $this->noTranslate = [
+            'name', 'shortname', 'privileges'
+        ];
+
+        $this->ownerName = 'mywords';
+        $this->ownerType = 'module';
+
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_dbtable = $this->db->prefix("mod_mywords_editors");
         $this->setNew();

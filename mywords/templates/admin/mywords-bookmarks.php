@@ -3,7 +3,7 @@
 <?php if(isset($show_edit) && $show_edit): ?>
 
 	<div class="edit_form">
-	<form name="form_edit" id="form-new-bookmark" method="post" action="bookmarks.php">
+	<form name="form_edit" id="form-new-bookmark" method="post" action="bookmarks.php" data-translate="true">
         <div class="form-group">
             <label for="new-title"><?php _e('Title','mywords'); ?></label>
             <input type="text" name="title" id="new-title" value="<?php echo $book->getVar('title'); ?>" class="form-control">
