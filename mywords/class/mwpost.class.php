@@ -60,7 +60,7 @@ class MWPost extends RMObject
         ];
 
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
-		$this->myts =& MyTextSanitizer::getInstance();
+		$this->myts = MyTextSanitizer::getInstance();
 		$this->_dbtable = $this->db->prefix("mod_mywords_posts");
 		$this->setNew();
 		$this->initVarsFromTable();

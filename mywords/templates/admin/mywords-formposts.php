@@ -18,7 +18,7 @@
 <?php echo $editor->render(); ?>
 <br />
 
-    <div class="cu-box" id="format-video"<?php echo $post->format != 'video' ? ' style="display: none;"' : ''; ?>>
+    <div class="cu-box" id="format-video"<?php echo $edit && $post->format != 'video' ? ' style="display: none;"' : ''; ?>>
         <div class="box-header">
             <span class="fa fa-caret-up box-handler"></span>
             <h3 class="box-title"><span class="fa fa-video-camera"></span> <?php _e('Video URL', 'mywords'); ?></h3>
