@@ -295,7 +295,7 @@ class MWFunctions
         return $ret;
     }
     
-    public function format_time($time){
+    static function format_time($time){
 		
 		$day = date('d', $time);
     	$month = date('m', $time);
@@ -317,7 +317,7 @@ class MWFunctions
 		
     }
     
-    public function go_scheduled(){
+    static function go_scheduled(){
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
 		$sql = "UPDATE ".$db->prefix("mod_mywords_posts")." SET pubdate=schedule, schedule=0, status='publish' WHERE status<>'draft' AND pubdate<schedule AND schedule<=".time();
 		return $db->queryF($sql);
