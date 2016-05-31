@@ -11,7 +11,7 @@
 class MywordsRmcommonPreload
 {
 	
-    public function eventRmcommonLoadRightWidgets($widgets){
+    static function eventRmcommonLoadRightWidgets($widgets){
 		global $xoopsModule;
         
 		if (!isset($xoopsModule) || ($xoopsModule->getVar('dirname')!='system' && $xoopsModule->getVar('dirname')!='mywords'))
@@ -53,7 +53,7 @@ class MywordsRmcommonPreload
 		return $widgets;
 	}
     
-    public function eventRmcommonGetSystemTools($tools){
+    static function eventRmcommonGetSystemTools($tools){
         
         load_mod_locale('mywords');
         
@@ -70,7 +70,7 @@ class MywordsRmcommonPreload
         
     }
     
-    public function eventRmcommonImageInsertLinks( $links, $image, $url ){
+    static function eventRmcommonImageInsertLinks( $links, $image, $url ){
 
     	if (FALSE === strpos($url, 'modules/mywords/admin/posts.php')) return $links;
 
@@ -91,7 +91,7 @@ class MywordsRmcommonPreload
     /**
     * Return the feed options to show in RSS Center
     */
-	public function eventRmcommonGetFeedsList($feeds){
+	static function eventRmcommonGetFeedsList($feeds){
 		global $cuSettings;
 
         include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php';

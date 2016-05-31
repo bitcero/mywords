@@ -129,6 +129,10 @@ $post->setVar('image', $image);
 $post->setVar('video', $video);
 $post->setVar('format', $format);
 
+if($post->isNew()){
+    $post->setVar('comments', 0);
+}
+
 // SEO
 $post->setVar('description', $description);
 $post->setVar('keywords', $keywords);

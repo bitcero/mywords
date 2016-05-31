@@ -51,7 +51,7 @@ class MWFunctions
     * @param mixed $exclude
     * @param mixed $order
     */
-    public function categos_list(&$categories, $parent = 0, $indent = 0, $include_subs = true, $exclude=0, $order="id_cat DESC"){
+    static function categos_list(&$categories, $parent = 0, $indent = 0, $include_subs = true, $exclude=0, $order="id_cat DESC"){
         
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         
