@@ -380,7 +380,7 @@ class MWFunctions
     * @param string Posts status, published, draft, etc.
     * @return array
     */
-    public function get_posts_by_tag($tags, $start=0, $limit=1, $orderby='pubdate', $order='DESC', $status='publish', $exclude = 0){
+    static function get_posts_by_tag($tags, $start=0, $limit=1, $orderby='pubdate', $order='DESC', $status='publish', $exclude = 0){
     	$path = XOOPS_ROOT_PATH.'/modules/mywords';
 		include_once $path.'/class/mwpost.class.php';
 
