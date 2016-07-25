@@ -17,7 +17,7 @@ class MWFunctions
 {
     private $max_popularity = 0;
 
-    public function get()
+    static function get()
     {
         static $instance;
 
