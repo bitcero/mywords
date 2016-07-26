@@ -215,3 +215,5 @@ pip-log.txt
 
 prepros.cfg
 src/prepros.cfg
+src/prepros.cfg
+*.cfg

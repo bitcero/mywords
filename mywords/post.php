@@ -168,15 +168,17 @@ if ( $xoopsModuleConfig['related'] ){
     $related = MWFunctions::get_posts_by_tag( $tt, 0, $xoopsModuleConfig['related_num'], 'RAND()', '', 'publish', $post->id() );
     unset($tt);
 
-    $tf = new RMTimeFormatter(0, "%d% %T%, %Y%");
-    foreach($related as $rpost){
+    if(!empty($related)){
+        $tf = new RMTimeFormatter(0, "%d% %T%, %Y%");
+        foreach($related as $rpost){
 
-        $xoopsTpl->append('relatedPosts', array(
-            'title'     => $rpost->getVar('title'),
-            'pubdate'   => $tf->format( $rpost->getVar('pubdate') ),
-            'link'      => $rpost->permalink(),
-            'image'     => RMImage::get()->load_from_params( $rpost->image )
-        ));
+            $xoopsTpl->append('relatedPosts', array(
+                'title'     => $rpost->getVar('title'),
+                'pubdate'   => $tf->format( $rpost->getVar('pubdate') ),
+                'link'      => $rpost->permalink(),
+                'image'     => RMImage::get()->load_from_params( $rpost->image )
+            ));
+        }
     }
 }
 
@@ -199,14 +201,28 @@ unset($tags_list);
 // use of Common Utilities templates or use your own templates
 // We will use MyWords included templates
 if ($post->getVar('comstatus')){
-    $comms = RMFunctions::get_comments('mywords','post='.$post->id(), 'module', 0, null, false);
-    if (count($comms)!=$post->getVar('comments')){
-        $post->setVar('comments', count($comms));
-        $xoopsDB->queryF("UPDATE ".$xoopsDB->prefix("mod_mywords_posts")." SET `comments`=".count($comms)." WHERE id_post=".$post->id());
+    //$comms = RMFunctions::get_comments('mywords','post='.$post->id(), 'module', 0, null, false);
+    $comments = $common->comments()->load([
+        'object' => 'mywords',
+        'type' => 'module',
+        'identifier' => 'post=' . $post->id(),
+        'assign' => false,
+        'url' => MW_URL . '/post.php'
+    ]);
+    if (count($comments)!=$post->getVar('comments')){
+        //$post->setVar('comments', count($comments));
+        $xoopsDB->queryF("UPDATE ".$xoopsDB->prefix("mod_mywords_posts")." SET `comments`=".count($comments)." WHERE id_post=".$post->id());
     }
-    $xoopsTpl->assign('comments', $comms);
+    $xoopsTpl->assign('comments', $comments);
     // Comments form
-    RMFunctions::comments_form('mywords', 'post='.$post->id(), 'module', MW_PATH.'/class/mywordscontroller.php');
+    $xoopsTpl->assign('comments_form', $common->comments()->form([
+        'url' => MW_URL . '/post.php',
+        'object' => 'mywords',
+        'type' => 'module',
+        'identifier' => 'post=' . $post->id(),
+        'file' => MW_PATH . '/class/mywordscontroller.php'
+    ]));
+
 }
 
 
