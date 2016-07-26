@@ -7,8 +7,8 @@ This module will allow you to create a news or articles section, or even a blog 
 
 ### Requirements
 
-* This version has been extensively tested in [XOOPS 2.5.7](http://xoops.org). I recommedn you to use the last version of XOOPS.
-* [Common Utilities 2.2](http://rmcommon.com)
+* This version has been extensively tested in [XOOPS 2.5.8](http://xoops.org). I recommedn you to use the last version of XOOPS.
+* [Common Utilities 2.3+](http://rmcommon.com)
 
 ### Install
 **Important:** before installing MyWords rmcommon ust be installed, otherwise the module may not be properly installed.
