@@ -131,6 +131,7 @@ $post->setVar('format', $format);
 
 if($post->isNew()){
     $post->setVar('comments', 0);
+    $post->setVar('reads', 0);
 }
 
 // SEO
