@@ -31,7 +31,7 @@
 <{include file="db:rmc-comments-display.html"}>
 <!-- /End comments -->
 <{/if}>
-{$comments_form}>
+<{$comments_form}>
 
 <!-- Trackbacks -->
 <{if $trackbacks}>
