@@ -10,7 +10,7 @@
 
 include("../../mainfile.php");
 
-$path = parse_url( RMUris::current_url() );
+$path = parse_url( str_replace(XOOPS_URL, '', RMUris::current_url() ) );
 //$request = str_replace(XOOPS_URL, '', RMUris::current_url());
 $request = rtrim( $path['path'], '/' ) . ( isset($path['query']) ? '/' . $path['query'] : '' );
 $request .= isset( $path['anchor'] ) != '' ? '#' . $path['anchor'] : '';
