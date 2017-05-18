@@ -102,4 +102,15 @@ class MywordsController implements iCommentsController
 		
     }
     
+    public static function getInstance()
+    {
+        static $instance;
+    
+        if (!isset($instance)) {
+            $instance = new MywordsController();
+        }
+    
+        return $instance;
+    }
+    
 }
