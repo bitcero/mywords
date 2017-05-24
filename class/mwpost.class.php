@@ -53,7 +53,7 @@ class MWPost extends RMObject
 	 */
 	function __construct($id=null){
 		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
-		$this->myts =& MyTextSanitizer::getInstance();
+		$this->myts = MyTextSanitizer::getInstance();
 		$this->_dbtable = $this->db->prefix("mw_posts");
 		$this->setNew();
 		$this->initVarsFromTable();

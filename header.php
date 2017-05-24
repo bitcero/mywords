@@ -15,7 +15,7 @@ load_mod_locale('mywords','');
 
 $mc =& $xoopsModuleConfig;
 $db = XoopsDatabaseFactory::getDatabaseConnection();
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 define('MW_PATH',XOOPS_ROOT_PATH.'/modules/mywords');
 define('MW_URL',MWFunctions::get_url());
