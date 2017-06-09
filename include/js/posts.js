@@ -210,6 +210,10 @@ $(document).ready( function($) {
     });
     
     // Tags
+    $("#mw-post-tags-form").submit(function(e){
+        e.preventDefault();
+    });
+
     $("#tags-button").click(function(){
 		tag = $("#tags-m").val();
 		if (tag=='') return;
@@ -247,7 +251,11 @@ $(document).ready( function($) {
 		
     });
     
-    $("input#tags").keydown(function(e) { if(e.which == 13){ $("input#tags-button").click(); return false; } });
+    $("#tags-m").keyup(function(e) {
+        if(e.which == 13){
+            $("#tags-button").click();
+        }
+    });
     
     // Popular Tags
     $("a#show-used-tags").click(function() {
@@ -418,9 +426,14 @@ $(document).ready( function($) {
     $("#a-show-new").click(function(){
 		$("div#w-catnew-form").slideDown('slow');
 	});
-	
+
+    $("#mw-post-categos-form").submit(function(e){
+        e.preventDefault();
+    });
+
 	$("#w-catnew-form a").click(function(){
 		$("div#w-catnew-form").slideUp('slow');
+		return false;
 	});
 	
 	$("#create-new-cat").click(function(){
@@ -463,6 +476,14 @@ $(document).ready( function($) {
 		},'json');
 		
 	});
+
+	$("#w-name").keyup(function(e){
+
+	    if(e.which == 13){
+            $("#create-new-cat").click();
+        }
+
+    });
 	
 	$("#post-shortname").click(function(){
 		if ($("#shortname-editor").length>0) return;

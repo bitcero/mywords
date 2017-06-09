@@ -15,8 +15,8 @@
 function mywords_widget_publish( $post = null, $frontend = false ){
 	global $xoopsUser;
 	
-	RMTemplate::get()->add_style('publish_widget.css','mywords');
-	RMTemplate::get()->add_style('forms.css','rmcommon');
+	RMTemplate::getInstance()->add_style('widget-publish.min.css','mywords');
+	RMTemplate::get()->add_style('forms.min.css','rmcommon');
 	RMTemplate::get()->add_style('jquery.css','rmcommon');
 	RMTemplate::get()->add_script('scripts.php?file=posts.js', 'mywords', array('directory' => 'include', 'footer' => 1));
 	RMTemplate::get()->add_script(XOOPS_URL.'/modules/mywords/include/js/mktime.js');

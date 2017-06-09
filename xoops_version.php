@@ -1,12 +1,30 @@
 <?php
-// $Id: xoops_version.php 1058 2012-09-14 03:18:00Z i.bitcero $
-// --------------------------------------------------------------
-// MyWords
-// Blogging System
-// Author: Eduardo Cortés <i.bitcero@gmail.com>
-// Email: i.bitcero@gmail.com
-// License: GPL 2.0
-// --------------------------------------------------------------
+/**
+ * MyWords for XOOPS
+ *
+ * Copyright © 2017 Eduardo Cortés http://www.eduardocortes.mx
+ * -------------------------------------------------------------
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ * -------------------------------------------------------------
+ * @copyright    Eduardo Cortés (http://www.eduardocortes.mx)
+ * @license      GNU GPL 2
+ * @package      mywords
+ * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
+ * @url          http://www.eduardocortes.mx
+ */
 
 $amod = xoops_getActiveModules();
 if(!in_array("rmcommon",$amod)){
@@ -46,7 +64,7 @@ $modversion['onUpdate'] = 'include/install.php';
 // Behaviour
 $modversion['rmnative'] = 1;
 $modversion['url'] = 'https://github.com/bitcero/mywords';
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>59, 'stage'=>0,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>62, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";

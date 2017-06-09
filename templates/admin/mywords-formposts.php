@@ -15,15 +15,17 @@
 		<?php _e('This post has not been saved. Remember to save it before leave this page.','mywords'); ?>
 	<?php endif; ?>
 </div>
-<?php echo $editor->render(); ?>
-<br />
+
+    <?php echo $editor->render(); ?>
+
+<br>
 
     <div class="cu-box" id="format-video"<?php echo $edit && $post->format != 'video' ? ' style="display: none;"' : ''; ?>>
         <div class="box-header">
             <span class="fa fa-caret-up box-handler"></span>
             <h3 class="box-title"><span class="fa fa-video-camera"></span> <?php _e('Video URL', 'mywords'); ?></h3>
         </div>
-        <div class="box-header">
+        <div class="box-content">
             <div class="form-group">
                 <div class="input-group">
                     <input type="text" name="video" id="video" value="<?php echo $edit ? $post->getVar('video', 'e'): ''; ?>" class="form-control" placeholder="e.g. http://youtu.be/jhgSCghjIu">
