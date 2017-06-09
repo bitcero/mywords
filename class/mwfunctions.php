@@ -159,7 +159,7 @@ class MWFunctions
      * @param string SQL Limit
      * @return array
      */
-    public function get_tags($select = '*', $where = '', $order = '', $limit = '')
+    static function get_tags($select = '*', $where = '', $order = '', $limit = '')
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "SELECT $select FROM " . $db->prefix("mod_mywords_tags") . ($where != '' ? " WHERE $where" : '') . ($order != '' ? " ORDER BY $order" : '') . ($limit != '' ? " LIMIT $limit" : '');
