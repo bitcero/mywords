@@ -121,3 +121,26 @@ CREATE TABLE `mod_mywords_trackbacks` (
   KEY `post` (`post`),
   KEY `url` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `mod_mywords_reports` (
+  `id_report` int(11) NOT NULL,
+  `post` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `when` datetime NOT NULL,
+  `title` varchar(60) NOT NULL,
+  `content` text NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'waiting'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `mod_mywords_reports`
+  ADD UNIQUE KEY `id_report` (`id_report`),
+  ADD KEY `post` (`post`),
+  ADD KEY `user` (`user`);
+
+
+ALTER TABLE `mod_mywords_reports`
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `mod_mywords_reports`
+  ADD CONSTRAINT `mod_mywords_reports_ibfk_1` FOREIGN KEY (`id_report`) REFERENCES `mod_mywords_posts` (`id_post`) ON DELETE CASCADE;

@@ -1,12 +1,30 @@
 <?php
-// $Id: mwpost.class.php 1067 2012-09-19 01:34:58Z i.bitcero $
-// --------------------------------------------------------------
-// MyWords
-// Complete Blogging System
-// Author: BitC3R0 <bitc3r0@gmail.com>
-// Email: bitc3r0@gmail.com
-// License: GPL 2.0
-// --------------------------------------------------------------
+/**
+ * MyWords for XOOPS
+ *
+ * Copyright © 2017 Eduardo Cortés http://www.eduardocortes.mx
+ * -------------------------------------------------------------
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ * -------------------------------------------------------------
+ * @copyright    Eduardo Cortés (http://www.eduardocortes.mx)
+ * @license      GNU GPL 2
+ * @package      mywords
+ * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
+ * @url          http://www.eduardocortes.mx
+ */
 
 include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php';
 include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwtag.class.php';
@@ -481,6 +499,17 @@ class MWPost extends RMObject
         $player = MWFunctions::construct_video_player( $this->video );
         return $player;
 
+    }
+
+    /**
+     * Determines if current post has reports
+     * @return bool
+     */
+    public function reports()
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->db->prefix('mod_mywords_reports') . " WHERE post = " . $this->id();
+        list($total) = $this->db->fetchRow($this->db->query($sql));
+        return $total;
     }
 	
 	/**

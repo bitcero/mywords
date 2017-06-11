@@ -8,8 +8,9 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-define('RMCLOCATION','posts');
 require 'header.php';
+
+$common->location = 'posts';
 
 $tpl->add_help(
     __('Posts help', 'mywords'),
@@ -20,7 +21,7 @@ $tpl->add_help(
  * Muestra los envíos existentes
  */
 function showPosts($aprovado = -1){
-	global $db, $xoopsSecurity, $xoopsModule, $xoopsModuleConfig;
+	global $db, $xoopsSecurity, $xoopsModule, $xoopsModuleConfig, $common;
 	
 	$mc =& $xoopsModuleConfig;
 	
@@ -34,6 +35,7 @@ function showPosts($aprovado = -1){
 	
 	$tbl1 = $db->prefix("mod_mywords_posts");
 	$tbl2 = $db->prefix("mod_mywords_catpost");
+	$tbl3 = $db->prefix("mod_mywords_reports");
 	$and = false;
     
 	if ($cat>0){
@@ -101,7 +103,8 @@ function showPosts($aprovado = -1){
 			'status'=>$post->getVar('status'),
 			'categories'=>$post->get_categories_names(true, ',', true, 'admin'),
 			'tags'=>$post->tags(false),
-            'reads'=>$post->getVar('reads')
+            'reads'=>$post->getVar('reads'),
+            'reports' => $post->reports()
 		);
 	}
 	
