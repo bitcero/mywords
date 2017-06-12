@@ -1,13 +1,5 @@
 <article class="mwitem mw-normal-post" id="mwitem-<{$post.id}>">
-    <header>
-        <h1><a href="<{$post.link}>"><{$post.title}></a></h1>
-	    <span class="mwinfotop">
-	        <span class="mwcomments">
-	            <a href="<{$post.link}>#comments"><{$post.lang_comments}></a> |
-	        </span>
-	        <{$post.published }> <{if ($post.edit)}>| <a href="<{if $xoops_isadmin}><{$xoops_url}>/modules/mywords/admin/posts.php?op=edit&amp;id=<{$post.id}><{else}><{$xoops_url}>/modules/mywords/submit.php?action=edit&amp;id=<{$post.id}><{/if}>"><{$lang_editpost}></a><{/if}>
-	    </span>
-    </header>
+    <{include file="db:mywords-post-header.tpl"}>
     <section class="mwtext">
         <{if $enable_images}>
         <a href="<{$post.link}>" title="<{$post.title}>"><img src="<{$post.image}>" alt="<{$post.title}>" class="post_image img-responsive" /></a>

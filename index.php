@@ -14,7 +14,7 @@ $path = parse_url( str_replace(XOOPS_URL, '', RMUris::current_url() ) );
 //$request = str_replace(XOOPS_URL, '', RMUris::current_url());
 $request = rtrim( $path['path'], '/' ) . ( isset($path['query']) ? '/' . $path['query'] : '' );
 $request .= isset( $path['anchor'] ) != '' ? '#' . $path['anchor'] : '';
-$request = str_replace( RMUris::relative_url("/modules/mywords/"), '', $request);
+$request = str_replace( "/modules/mywords/", '', $request);
 
 if ($xoopsModuleConfig['permalinks']>1 && $xoopsModuleConfig['basepath']!='/' && $request != 'index.php'){
     $request = str_replace(rtrim($xoopsModuleConfig['basepath'],'/').'/', '', rtrim($request,'/').'/');
@@ -40,6 +40,7 @@ parse_str($request, $vars);
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 0;
 if (isset($_REQUEST['trackback'])){ require 'track.php'; die(); }
 if (isset($vars['post'])){ $post = $vars['post']; require 'post.php'; die(); }
+if (isset($vars['report'])){ $id = $vars['report']; require 'report.php'; die(); }
 if (isset($vars['cat'])){ $category = $vars['cat']; require 'categories.php'; die(); }
 if (isset($vars['author'])){ $editor = $vars['author']; require 'author.php'; die(); }
 if (isset($vars['tag'])){ $tag = $vars['tag']; require 'tag.php'; die(); }
@@ -50,6 +51,12 @@ if (isset($vars['date'])){
     $time = mktime(0,0,0,$vars[1],$vars[0],$vars[2]);
     $time2 = mktime(23,59,59,$vars[1],$vars[0],$vars[2]);
     require 'date.php'; die();
+}
+
+$report = $common->httpRequest()::request('report', 'integer', 0);
+if($report > 0){
+    require 'report.php';
+    die();
 }
 
 $vars = explode('/', $request);
@@ -129,6 +136,12 @@ if ($vars[0]=='edit'){
 	$edit = $vars[1];
 	require 'submit.php';
 	die();
+}
+
+if($vars[0] == 'report'){
+    $id = $vars[1];
+    require 'report.php';
+    die();
 }
 
 if ($yesquery || $vars[0]==''){

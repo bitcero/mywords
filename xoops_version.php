@@ -127,6 +127,10 @@ $modversion['templates'] = array(
         'description' => __('Full post template', 'mywords')
     ),
     array(
+        'file' => 'mywords-post-header.tpl',
+        'description' => __('Common header for posts types', 'mywords')
+    ),
+    array(
         'file' => 'mywords-cats.tpl',
         'description' => __('Content of a category', 'mywords')
     ),
@@ -150,6 +154,10 @@ $modversion['templates'] = array(
         'file' => 'mywords-date.tpl',
         'description' => __('Posts from a specific date', 'mywords')
     ),
+    [
+        'file' => 'mywords-report.tpl',
+        'description' => __('Form to report posts', 'mywords')
+    ],
     array(
         'file' => 'formats/post.tpl',
         'description' => __('Template for normal post', 'mywords')

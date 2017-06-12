@@ -1,12 +1,30 @@
 <?php
-// $Id: post.php 1044 2012-09-10 05:43:38Z i.bitcero $
-// --------------------------------------------------------------
-// MyWords
-// Complete Blogging System
-// Author: BitC3R0 <bitc3r0@gmail.com>
-// Email: i.bitcero@gmail.com
-// License: GPL 2.0
-// --------------------------------------------------------------
+/**
+ * MyWords for XOOPS
+ *
+ * Copyright © 2017 Eduardo Cortés http://www.eduardocortes.mx
+ * -------------------------------------------------------------
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ * -------------------------------------------------------------
+ * @copyright    Eduardo Cortés (http://www.eduardocortes.mx)
+ * @license      GNU GPL 2
+ * @package      mywords
+ * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
+ * @url          http://www.eduardocortes.mx
+ */
 
 $xoopsOption['template_main'] = 'mywords-post.tpl';
 $xoopsOption['module_subpage'] = 'post';
@@ -144,13 +162,36 @@ $post_arr = array(
     'alink'             => $editor->permalink(),
     'format'            => $post->format,
     'comments'          => $post->comments,
+    'lang_comments'     => sprintf(__('%u Comments', 'mywords'), $post->comments),
     'comments_enabled' => $post->comstatus
 );
+
+// Enable reports
+if($xoopsModuleConfig['reports']){
+
+    $reportLink = MWFunctions::get_url();
+
+    if($xoopsModuleConfig['permalinks'] > 1){
+        $reportLink .= 'report/' . $post->id() . '/';
+    } else {
+        $reportLink .= '?report=' . $post->id();
+    }
+
+    if($xoopsUser){
+        $xoopsTpl->assign('canReport', true);
+        $xoopsTpl->assign('reportLink', $reportLink);
+    } elseif($xoopsModuleConfig['report_anonym']){
+        $xoopsTpl->assign('canReport', true);
+        $xoopsTpl->assign('reportLink', $reportLink);
+    }
+
+}
 
 $xoopsTpl->assign('full_post', 1);
 $xoopsTpl->assign('lang_editpost', __('Edit Post','mywords'));
 $xoopsTpl->assign('lang_postedin', __('Posted in:','mywords'));
 $xoopsTpl->assign('lang_taggedas', __('Tagged as:','mywords'));
+$xoopsTpl->assign('lang_report', __('Report','mywords'));
 $xoopsTpl->assign('enable_images', $xoopsModuleConfig['list_post_imgs']);
 
 // Plugins?
