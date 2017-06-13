@@ -2,7 +2,7 @@
 /**
  * MyWords for Xoops
  *
- * Copyright © 2015 Red Mexico http://www.redmexico.com.mx
+ * Copyright © 2015 - 2017 Red Mexico http://www.redmexico.com.mx
  * -------------------------------------------------------------
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

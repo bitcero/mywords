@@ -3,6 +3,21 @@
 <div class="row"  data-news="load" data-boxes="load" data-module="mywords" data-target="#mywords-news" data-box="mywords-dashboard" data-container="dashboard">
     
     <div class="size-1" data-dashboard="item">
+
+        <?php
+        $counter = $common->widgets()->load('rmcommon', 'TileBox');
+        $counter->setup([
+            'type' => 'counter',
+            'style' => 'icon-right',
+            'caption' => __('Total Posts', 'dtransport'),
+            'icon' => 'svg-rmcommon-pencil',
+            'counter' => $numposts,
+            'color' => 'cyan',
+            'footer' => __('Total of published posts', 'dtransport'),
+        ]);
+        echo $counter->getHtml();
+        ?>
+
         <!-- Quick overview -->
         <div class="cu-box">
             <div class="box-header">
@@ -46,7 +61,23 @@
 
 
     <div class="size-1" data-dashboard="item">
+
+        <?php
+        $counter = $common->widgets()->load('rmcommon', 'TileBox');
+        $counter->setup([
+            'type' => 'counter',
+            'style' => 'icon-right',
+            'caption' => __('Total Comments', 'dtransport'),
+            'icon' => 'svg-rmcommon-comments',
+            'counter' => $numcoms,
+            'color' => 'orange',
+            'footer' => __('Recevied Comments', 'dtransport')
+        ]);
+        echo $counter->getHtml();
+        ?>
+
         <!-- Drafts -->
+        <?php if($drafts): ?>
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
@@ -62,12 +93,32 @@
                 </div>
             <?php endforeach; ?>
         </div>
+        <?php endif; ?>
         <!-- / End Drafts -->
     </div>
 
 
     <div class="size-1" data-dashboard="item">
+
+        <?php
+        $counter = $common->widgets()->load('rmcommon', 'TileBox');
+        $counter->setup([
+            'type' => 'counter',
+            'style' => 'icon-right',
+            'caption' => __('Pending Posts', 'dtransport'),
+            'icon' => 'svg-rmcommon-sand-clock',
+            'counter' => $numpending,
+            'color' => 'pink',
+            'footer' => __('Posts waiting for review', 'dtransport')
+        ]);
+        $counter->display();
+        ?>
+
+    </div>
+
+    <div class="size-1" data-dashboard="item">
         <!-- Pending of review -->
+        <?php if($pendings): ?>
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
@@ -83,6 +134,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
+        <?php endif; ?>
         <!-- / End Pending of Review -->
     </div>
 
@@ -95,6 +147,53 @@
             </div>
     </div>
     <?php endif; ?>
+
+    <div class="size-1" data-dashboard="item">
+
+        <?php
+        $user = $common->widgets()->load('rmcommon', 'UserCard');
+        $user->setup([
+            'type' => 'large-header',
+            'image' => 'https://www.gravatar.com/avatar/a888698732624c0a1d4da48f1e5c6bb4?s=200',
+            'name' => 'Eduardo Cortes',
+            'link' => 'https://www.eduardocortes.mx',
+            'charge' => 'Web Developer (Freelance)',
+            'mainButton' => [
+                'caption' => __('Website', 'mywords'),
+                'link' => 'https://www.eduardocortes.mx',
+                'icon' => 'svg-rmcommon-user'
+            ],
+            'color' => 'blue',
+            'highlight' => 'bottom',
+            'headerGradient' => true,
+            'info' => __('Hello! I\'m the developer of Common Utilities and other modules that you\'ve propabily had used. If you are interested on my work, please visit my website to find more information.', 'mywords'),
+            'social' => [
+                [
+                    'icon' => 'svg-rmcommon-world',
+                    'link' => 'https://www.eduardocortes.mx/blog/'
+                ],
+                [
+                    'icon' => 'svg-rmcommon-twitter',
+                    'link' => 'https://www.twitter.com/bitcero'
+                ],
+                [
+                    'icon' => 'svg-rmcommon-facebook',
+                    'link' => 'https://www.facebook.com/bitcero'
+                ],
+                [
+                    'icon' => 'svg-rmcommon-instagram',
+                    'link' => 'https://www.instagram.com/bitcero'
+                ],
+                [
+                    'icon' => 'svg-rmcommon-github',
+                    'link' => 'https://www.github.com/bitcero'
+                ]
+            ],
+        ]);
+        $user->display();
+        ?>
+
+    </div>
 
     <div class="size-1" data-dashboard="item">
         <!-- Editors -->
