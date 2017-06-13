@@ -126,6 +126,8 @@ CREATE TABLE `mod_mywords_reports` (
   `id_report` int(11) NOT NULL,
   `post` int(11) NOT NULL,
   `user` int(11) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `when` datetime NOT NULL,
   `title` varchar(60) NOT NULL,
   `content` text NOT NULL,
@@ -141,6 +143,3 @@ ALTER TABLE `mod_mywords_reports`
 
 ALTER TABLE `mod_mywords_reports`
   MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `mod_mywords_reports`
-  ADD CONSTRAINT `mod_mywords_reports_ibfk_1` FOREIGN KEY (`id_report`) REFERENCES `mod_mywords_posts` (`id_post`) ON DELETE CASCADE;

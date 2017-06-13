@@ -64,7 +64,7 @@ $modversion['onUpdate'] = 'include/install.php';
 // Behaviour
 $modversion['rmnative'] = 1;
 $modversion['url'] = 'https://github.com/bitcero/mywords';
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>62, 'stage'=>0,'name'=>'MyWords');
+$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>63, 'stage'=>0,'name'=>'MyWords');
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
 $modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";

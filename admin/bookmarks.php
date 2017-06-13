@@ -1,6 +1,6 @@
 <?php
 /**
- * MyWords XOOPS
+ * MyWords for XOOPS
  *
  * Copyright © 2017 Eduardo Cortés http://www.eduardocortes.mx
  * -------------------------------------------------------------
