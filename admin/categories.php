@@ -26,8 +26,8 @@
  * @url          http://www.eduardocortes.mx
  */
 
-define('RMCLOCATION','categories');
 require('header.php');
+$common->location = 'categories';
 
 RMTemplate::get()->add_help(
     'Uso de las categorías',

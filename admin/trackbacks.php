@@ -26,8 +26,8 @@
  * @url          http://www.eduardocortes.mx
  */
 
-define('RMCLOCATION','trackbacks');
 require('header.php');
+$common->location = 'trackbacks';
 
 RMTemplate::get()->assign('xoops_pagetitle', __('Trackbacks management', 'mw_categories'));
 

@@ -162,13 +162,36 @@ $post_arr = array(
     'alink'             => $editor->permalink(),
     'format'            => $post->format,
     'comments'          => $post->comments,
+    'lang_comments'     => sprintf(__('%u Comments', 'mywords'), $post->comments),
     'comments_enabled' => $post->comstatus
 );
+
+// Enable reports
+if($xoopsModuleConfig['reports']){
+
+    $reportLink = MWFunctions::get_url();
+
+    if($xoopsModuleConfig['permalinks'] > 1){
+        $reportLink .= 'report/' . $post->id() . '/';
+    } else {
+        $reportLink .= '?report=' . $post->id();
+    }
+
+    if($xoopsUser){
+        $xoopsTpl->assign('canReport', true);
+        $xoopsTpl->assign('reportLink', $reportLink);
+    } elseif($xoopsModuleConfig['report_anonym']){
+        $xoopsTpl->assign('canReport', true);
+        $xoopsTpl->assign('reportLink', $reportLink);
+    }
+
+}
 
 $xoopsTpl->assign('full_post', 1);
 $xoopsTpl->assign('lang_editpost', __('Edit Post','mywords'));
 $xoopsTpl->assign('lang_postedin', __('Posted in:','mywords'));
 $xoopsTpl->assign('lang_taggedas', __('Tagged as:','mywords'));
+$xoopsTpl->assign('lang_report', __('Report','mywords'));
 $xoopsTpl->assign('enable_images', $xoopsModuleConfig['list_post_imgs']);
 
 // Plugins?

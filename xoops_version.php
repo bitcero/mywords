@@ -127,6 +127,10 @@ $modversion['templates'] = array(
         'description' => __('Full post template', 'mywords')
     ),
     array(
+        'file' => 'mywords-post-header.tpl',
+        'description' => __('Common header for posts types', 'mywords')
+    ),
+    array(
         'file' => 'mywords-cats.tpl',
         'description' => __('Content of a category', 'mywords')
     ),
@@ -150,6 +154,10 @@ $modversion['templates'] = array(
         'file' => 'mywords-date.tpl',
         'description' => __('Posts from a specific date', 'mywords')
     ),
+    [
+        'file' => 'mywords-report.tpl',
+        'description' => __('Form to report posts', 'mywords')
+    ],
     array(
         'file' => 'formats/post.tpl',
         'description' => __('Template for normal post', 'mywords')
@@ -310,6 +318,22 @@ $modversion['config'][15]['description'] = __('By enabling this option, the post
 $modversion['config'][15]['formtype'] = 'yesno';
 $modversion['config'][15]['valuetype'] = 'int';
 $modversion['config'][15]['default'] = 0;
+
+// Reports
+$modversion['config'][16]['name'] = 'reports';
+$modversion['config'][16]['title'] = __('Enable posts reports', 'mywords');
+$modversion['config'][16]['description'] = __('Allow to users send reports for posts', 'mywords');
+$modversion['config'][16]['formtype'] = 'yesno';
+$modversion['config'][16]['valuetype'] = 'int';
+$modversion['config'][16]['default'] = 1;
+
+// Anonymous reports
+$modversion['config'][17]['name'] = 'report_anonym';
+$modversion['config'][17]['title'] = __('Allow reports for anonoymous users', 'mywords');
+$modversion['config'][17]['description'] = __('This option allows to anonymous users to send reports', 'mywords');
+$modversion['config'][17]['formtype'] = 'yesno';
+$modversion['config'][17]['valuetype'] = 'int';
+$modversion['config'][17]['default'] = 0;
 
 // Bloque Categorias
 $modversion['blocks'][1]['file'] = "block.cats.php";

@@ -153,7 +153,7 @@
         <?php
         $user = $common->widgets()->load('rmcommon', 'UserCard');
         $user->setup([
-            'type' => 'large-header',
+            'type' => 'large',
             'image' => 'https://www.gravatar.com/avatar/a888698732624c0a1d4da48f1e5c6bb4?s=200',
             'name' => 'Eduardo Cortes',
             'link' => 'https://www.eduardocortes.mx',
@@ -165,7 +165,6 @@
             ],
             'color' => 'blue',
             'highlight' => 'bottom',
-            'headerGradient' => true,
             'info' => __('Hello! I\'m the developer of Common Utilities and other modules that you\'ve propabily had used. If you are interested on my work, please visit my website to find more information.', 'mywords'),
             'social' => [
                 [
@@ -242,14 +241,14 @@
                 <h3 class="box-title"><?php _e('MyWords Resources','mywords'); ?></h3>
             </div>
             <div class="box-content">
-                <a href="http://redmexico.com.mx/docs/mywords" target="_blank" class="item">
+                <a href="http://docs.rmcommon.com" target="_blank" class="item">
                     <span class="fa fa-caret-right"></span>
                     <?php _e('MyWords documentation','mywords'); ?>
                     <span class="help-block"><?php _e('Learn more about MyWords. Installation, configuration and all information to improve this module.','mywords'); ?></span>
                 </a>
-                <a href="http://redmexico.com.mx/" target="_blank" class="item">
+                <a href="https://www.eduardocortes.mx/" target="_blank" class="item">
                     <span class="fa fa-caret-right"></span>
-                    <?php _e('Red México','mywords'); ?>
+                    <strong><?php _e('Sitio web del autor','mywords'); ?></strong>
                     <span class="help-block"><?php _e('New modules, themes and awesome resources for XOOPS.','mywords'); ?></span>
                 </a>
                 <?php

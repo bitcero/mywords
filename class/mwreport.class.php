@@ -1,8 +1,8 @@
 <?php
 /**
- * MyWords for Xoops
+ * MyWords for XOOPS
  *
- * Copyright © 2015 - 2017 Red Mexico http://www.redmexico.com.mx
+ * Copyright © 2017 Eduardo Cortés http://www.eduardocortes.mx
  * -------------------------------------------------------------
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,35 +19,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  * -------------------------------------------------------------
- * @copyright    Red Mexico (http://www.redmexico.com.mx)
+ * @copyright    Eduardo Cortés (http://www.eduardocortes.mx)
  * @license      GNU GPL 2
  * @package      mywords
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
- * @link         http://www.redmexico.com.mx
- * @link         http://www.eduardocortes.mx
+ * @url          http://www.eduardocortes.mx
  */
 
-require 'header.php';
-$common->location = 'importer';
+class MWReport extends RMObject
+{
+    public function __construct($id = null)
+    {
+        $this->db = XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix("mod_mywords_reports");
+        $this->setNew();
+        $this->initVarsFromTable();
 
-$importer = new MWImporter();
+        if ($id==null) return;
 
-$action = RMHttpRequest::request('action', 'string', '');
-
-switch ($action) {
-    case 'collect':
-        $importer->collect();
-        break;
-    case 'import-category':
-        $importer->category();
-        break;
-    case 'import-article':
-        $importer->article();
-        break;
-    case 'close':
-        $importer->close();
-        break;
-    default:
-        $importer->panel();
-        break;
+        if ($this->loadValues($id)){
+            $this->unsetNew();
+        }
+    }
 }

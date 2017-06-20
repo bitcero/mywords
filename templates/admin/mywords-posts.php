@@ -56,13 +56,15 @@
                         <th class="text-center" width="30">
                             <input type="checkbox" name="checkall" id="checkall" value="1" data-checkbox="chk-posts">
                         </th>
-                        <th width="30%"><?php _e('Post','mywords'); ?></th>
+                        <th></th>
+                        <th><?php _e('Post','mywords'); ?></th>
                         <th class="text-center"><?php _e('Author','mywords'); ?></th>
                         <th><?php _e('Categories','mywords'); ?></th>
                         <th><?php _e('Tags','mywords'); ?></th>
                         <th class="text-center"><span class="fa fa-comment"></span></th>
                         <th class="text-center"><span class="fa fa-eye"></span></th>
                         <th class="text-center"><?php _e('Date','mywords'); ?></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -70,13 +72,15 @@
                         <th class="text-center" width="30">
                             <input type="checkbox" name="checkall" id="checkall" value="1" data-checkbox="chk-posts">
                         </th>
-                        <th width="30%"><?php _e('Post','mywords'); ?></th>
+                        <th style="width: 20px;"></th>
+                        <th style="white-space: nowrap;"><?php _e('Post','mywords'); ?></th>
                         <th class="text-center"><?php _e('Author','mywords'); ?></th>
                         <th><?php _e('Categories','mywords'); ?></th>
                         <th><?php _e('Tags','mywords'); ?></th>
                         <th class="text-center"><span class="fa fa-comment"></span></th>
                         <th class="text-center"><span class="fa fa-eye"></span></th>
                         <th class="text-center"><?php _e('Date','mywords'); ?></th>
+                        <th></th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -89,6 +93,11 @@
                         <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
                             <td align="center" valign="top">
                                 <input type="checkbox" name="posts[]" id="post-<?php echo $post['id']; ?>" value="<?php echo $post['id']; ?>" data-oncheck="chk-posts">
+                            </td>
+                            <td class="text-center">
+                                <?php if($post['reports'] > 0): ?>
+                                    <?php echo $common->icons()->getIcon('svg-rmcommon-report', ['class' => 'text-red', 'title' => __('This post has reports', 'mywords')]); ?>
+                                <?php endif; ?>
                             </td>
                             <td>
                                 <strong>
@@ -105,15 +114,6 @@
                                             break;
                                     } ?>
                                 </strong>
-    	<span class="cu-item-options">
-    		<a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>"><?php _e('Edit','mywords'); ?></a>
-    		<a href="javascript:;" onclick="return post_del_confirm('<?php echo $post['title']; ?>', <?php echo $post['id']; ?>);"><?php _e('Delete','mywords'); ?></a>
-            <?php if($post['status']!='publish'): ?>
-                <a href="<?php echo MW_URL.'?p='.$post['id']; ?>"><?php _e('Preview','mywords'); ?></a>
-            <?php else: ?>
-                <a href="<?php echo $post['link']; ?>"><?php _e('View','mywords'); ?></a>
-            <?php endif; ?>
-    	</span>
                             </td>
                             <td align="center">
                                 <a href="posts.php?author=<?php echo $post['uid'] ?>"><?php echo $post['uname'] ?></a>
@@ -132,6 +132,35 @@
                             </td>
                             <td align="center"><?php echo $post['reads']; ?></td>
                             <td align="center"><?php echo $post['date']; ?></td>
+                            <td style="white-space: nowrap;">
+                                <div class="cu-options">
+    		                        <a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>" title="<?php _e('Edit','mywords'); ?>" class="warning">
+                                        <?php echo $common->icons()->getIcon('svg-rmcommon-pencil'); ?>
+                                        <span class="sr-only"><?php _e('Edit','mywords'); ?></span>
+                                    </a>
+    		                        <a href="#" class="danger" onclick="return post_del_confirm('<?php echo $post['title']; ?>', <?php echo $post['id']; ?>);" title="<?php _e('Delete','mywords'); ?>">
+                                        <?php echo $common->icons()->getIcon('svg-rmcommon-cross'); ?>
+                                        <span class="sr-only"><?php _e('Delete','mywords'); ?></span>
+                                    </a>
+                                    <?php if($post['status']!='publish'): ?>
+                                        <a href="<?php echo MW_URL.'?p='.$post['id']; ?>" title="<?php _e('Preview','mywords'); ?>" class="grey">
+                                            <?php echo $common->icons()->getIcon('svg-rmcommon-eye'); ?>
+                                            <span class="sr-only"><?php _e('Preview','mywords'); ?></span>
+                                        </a>
+                                    <?php else: ?>
+                                        <a href="<?php echo $post['link']; ?>" title="<?php _e('View','mywords'); ?>" class="success">
+                                            <?php echo $common->icons()->getIcon('svg-rmcommon-eye'); ?>
+                                            <span class="sr-only"><?php _e('View','mywords'); ?></span>
+                                        </a>
+                                    <?php endif; ?>
+                                    <?php if($post['reports'] > 0): ?>
+                                        <a href="reports.php?action=view&amp;id=<?php echo $post['id']; ?>" class="red" title="<?php _e('Reports', 'mywords'); ?>">
+                                            <?php echo $common->icons()->getIcon('svg-rmcommon-report'); ?>
+                                            <span class="sr-only"><?php _e('View Reports', 'mywords'); ?></span>
+                                        </a>
+                                    <?php endif; ?>
+    	                        </div>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

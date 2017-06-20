@@ -500,6 +500,17 @@ class MWPost extends RMObject
         return $player;
 
     }
+
+    /**
+     * Determines if current post has reports
+     * @return bool
+     */
+    public function reports()
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->db->prefix('mod_mywords_reports') . " WHERE post = " . $this->id();
+        list($total) = $this->db->fetchRow($this->db->query($sql));
+        return $total;
+    }
 	
 	/**
 	 * Actualizamos los valores en la base de datos

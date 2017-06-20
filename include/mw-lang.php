@@ -36,6 +36,8 @@ var mwLang = {
     importingCategory: '<?php _e('Importing category %s...', 'mywords'); ?>',
     articlesDone: '<?php _e('Articles importing done!', 'mywords'); ?>',
     importingArticle: '<?php _e('Importing article %s...', 'mywords'); ?>',
+    confirmReportDeletion: '<?php _e('Do you really want to delete specified report?', 'mywords'); ?>',
+    selectReport: '<?php _e('Select at least one report before to perform this action', 'mywords'); ?>',
 };
 <?php
 $language = ob_get_clean();

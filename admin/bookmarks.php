@@ -26,8 +26,9 @@
  * @url          http://www.eduardocortes.mx
  */
 
-define('RMCLOCATION','bookmarks');
 require('header.php');
+
+$common->location = 'bookmarks';
 
 /**
 * @desc Muestra la lista de los elementos disponibles
