@@ -26,8 +26,8 @@
  * @url          http://www.eduardocortes.mx
  */
 
-define('RMCLOCATION','dashboard');
 require 'header.php';
+$common->location = 'dashboard';
 
 	
 list($numcats) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_categories")));

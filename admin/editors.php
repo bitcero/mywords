@@ -26,8 +26,8 @@
  * @url          http://www.eduardocortes.mx
  */
 
-define('RMCLOCATION','editors');
 require('header.php');
+$common->location = 'editors';
 
 /**
  * Mostramos la lista de editores junto con

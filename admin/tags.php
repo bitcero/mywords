@@ -26,8 +26,8 @@
  * @url          http://www.eduardocortes.mx
  */
 
-define('RMCLOCATION','tags');
 require('header.php');
+$common->location = 'tags';
 
 RMTemplate::get()->add_help(
     'Etiqueta',

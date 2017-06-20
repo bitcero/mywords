@@ -27,8 +27,8 @@
  * @link         http://www.eduardocortes.mx
  */
 
-define('RMCLOCATION', 'importer');
 require 'header.php';
+$common->location = 'importer';
 
 $importer = new MWImporter();
 
