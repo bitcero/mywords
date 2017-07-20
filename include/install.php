@@ -33,7 +33,7 @@ function xoops_module_pre_install_mywords(&$mod){
     $mods = xoops_getActiveModules();
     
     if(!in_array("rmcommon", $mods)){
-        $mod->setErrors('MyWords could not be instaled if <a href="http://www.redmexico.com.mx/w/common-utilities/" target="_blank">Common Utilities</a> has not be installed previously!<br />Please install <a href="http://www.redmexico.com.mx/w/common-utilities/" target="_blank">Common Utilities</a>.');
+        $mod->setErrors('MyWords could not be instaled if <a href="http://rmcommon.com/" target="_blank">Common Utilities</a> has not be installed previously!<br />Please install <a href="http://rmcommon.com/" target="_blank">Common Utilities</a>.');
         return false;
     }
     

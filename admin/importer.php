@@ -2,7 +2,7 @@
 /**
  * MyWords for Xoops
  *
- * Copyright © 2015 - 2017 Red Mexico http://www.redmexico.com.mx
+ * Copyright © 2015 - 2017 Eduardo Cortés (https://www.eduardcortes.mx)
  * -------------------------------------------------------------
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,11 +19,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  * -------------------------------------------------------------
- * @copyright    Red Mexico (http://www.redmexico.com.mx)
+ * @copyright    Eduardo Cortés (https://www.eduardocortes.mx)
  * @license      GNU GPL 2
  * @package      mywords
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
- * @link         http://www.redmexico.com.mx
  * @link         http://www.eduardocortes.mx
  */
 
