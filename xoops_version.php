@@ -29,10 +29,10 @@
 $amod = xoops_getActiveModules();
 if(!in_array("rmcommon",$amod)){
     $error = "<strong>WARNING:</strong> MyWords requires %s to be installed!<br />Please install %s before trying to use MyWords";
-    $error = str_replace("%s", '<a href="http://www.redmexico.com.mx/w/common-utilities/" target="_blank">Common Utilities</a>', $error);
+    $error = str_replace("%s", '<a href="http://rmcommon.com/" target="_blank">Common Utilities</a>', $error);
     xoops_error($error);
     $error = '%s is not installed! This might cause problems with functioning of MyWords and entire system. To solve, install %s or uninstall MyWords and then delete module folder.';
-    $error = str_replace("%s", '<a href="http://www.redmexico.com.mx/w/common-utilities/" target="_blank">Common Utilities</a>', $error);
+    $error = str_replace("%s", '<a href="http://rmcommon.com/" target="_blank">Common Utilities</a>', $error);
     trigger_error($error, E_USER_WARNING);
     echo "<br />";
 } else {
