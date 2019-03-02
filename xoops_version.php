@@ -27,7 +27,7 @@
  */
 
 $amod = xoops_getActiveModules();
-if(!in_array("rmcommon",$amod)){
+if (!in_array("rmcommon", $amod)) {
     $error = "<strong>WARNING:</strong> MyWords requires %s to be installed!<br />Please install %s before trying to use MyWords";
     $error = str_replace("%s", '<a href="http://rmcommon.com/" target="_blank">Common Utilities</a>', $error);
     xoops_error($error);
@@ -39,13 +39,16 @@ if(!in_array("rmcommon",$amod)){
     $mc = RMSettings::module_settings('mywords');
 }
 
-if (!function_exists("__")){
-    function __($text, $d){
+if (!function_exists("__")) {
+    function __($text, $d)
+    {
         return $text;
     }
 }
 
-if(function_exists("load_mod_locale")) load_mod_locale('mywords');
+if (function_exists("load_mod_locale")) {
+    load_mod_locale('mywords');
+}
 
 $modversion['name'] = "MyWords";
 $modversion['description'] = _MI_MW_DESC;
@@ -91,7 +94,7 @@ $modversion['adminindex'] = "admin/index.php";
 $modversion['adminmenu'] = "admin/menu.php";
 
 $modversion['hasMain'] = 1;
-$modversion['sub'][0]['name'] = __('Submit Article','mywords');
+$modversion['sub'][0]['name'] = __('Submit Article', 'mywords');
 $modversion['sub'][0]['url'] = $mc->permalinks > 1 ? "submit/" : 'submit.php';
 
 // Archivo SQL
@@ -204,7 +207,7 @@ $modversion['config'][1]['description'] = '_MI_MW_PERMA_DESC';
 $modversion['config'][1]['formtype'] = 'select';
 $modversion['config'][1]['valuetype'] = 'int';
 $modversion['config'][1]['default'] = 1;
-$modversion['config'][1]['options'] = array(__('Default','mywords')=>1, __('Based on date and name','mywords')=>2, __('Numeric format','mywords')=>3);
+$modversion['config'][1]['options'] = array(__('Default', 'mywords')=>1, __('Based on date and name', 'mywords')=>2, __('Numeric format', 'mywords')=>3);
 
 $modversion['config'][2]['name'] = 'basepath';
 $modversion['config'][2]['title'] = '_MI_MW_BASEPATH';
@@ -337,7 +340,7 @@ $modversion['config'][17]['default'] = 0;
 
 // Bloque Categorias
 $modversion['blocks'][1]['file'] = "block.cats.php";
-$modversion['blocks'][1]['name'] = __('Categories','mywords');
+$modversion['blocks'][1]['name'] = __('Categories', 'mywords');
 $modversion['blocks'][1]['description'] = "";
 $modversion['blocks'][1]['show_func'] = "mywordsBlockCats";
 $modversion['blocks'][1]['edit_func'] = "mywordsBlockCatsEdit";
@@ -346,7 +349,7 @@ $modversion['blocks'][1]['options'] = "1";
 
 // Bloque Recientes
 $modversion['blocks'][2]['file'] = "block.recent.php";
-$modversion['blocks'][2]['name'] = __('Recent Posts','mywords');
+$modversion['blocks'][2]['name'] = __('Recent Posts', 'mywords');
 $modversion['blocks'][2]['description'] = "";
 $modversion['blocks'][2]['show_func'] = "mywordsBlockRecent";
 $modversion['blocks'][2]['edit_func'] = "mywordsBlockRecentEdit";
@@ -355,7 +358,7 @@ $modversion['blocks'][2]['options'] = "10|recent|1|50|1|0";
 
 // Tags
 $modversion['blocks'][3]['file'] = "block.tags.php";
-$modversion['blocks'][3]['name'] = __('Tags','mywords');
+$modversion['blocks'][3]['name'] = __('Tags', 'mywords');
 $modversion['blocks'][3]['description'] = "";
 $modversion['blocks'][3]['show_func'] = "mywordsBlockTags";
 $modversion['blocks'][3]['edit_func'] = "mywordsBlockTagsEdit";

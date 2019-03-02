@@ -38,10 +38,16 @@ list($num) = $db->fetchRow($db->query($sql));
 
 $page = rmc_server_var($_GET, 'page', 0);
 
-if ($page<=0){
-	$path = explode("/", $request);
-	$srh = array_search('page', $path);
-	if (isset($path[$srh]) && $path[$srh]=='page')	if (!isset($path[$srh])){ $page = 0; } else { $page = $path[$srh +1]; }
+if ($page<=0) {
+    $path = explode("/", $request);
+    $srh = array_search('page', $path);
+    if (isset($path[$srh]) && $path[$srh]=='page') {
+        if (!isset($path[$srh])) {
+            $page = 0;
+        } else {
+            $page = $path[$srh +1];
+        }
+    }
 }
 
 $limit = $xoopsModuleConfig['posts_limit'];
@@ -59,6 +65,6 @@ $result = $db->query($sql);
 
 include 'post_data.php';
 
-$xoopsTpl->assign('xoops_pagetitle', __('Recent Posts','mywords'));
+$xoopsTpl->assign('xoops_pagetitle', __('Recent Posts', 'mywords'));
 
 include 'footer.php';

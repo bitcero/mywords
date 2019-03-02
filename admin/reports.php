@@ -43,7 +43,8 @@ class MyWordsSectionReports
 
         $common->uris()::redirect_with_message(
             __('Reports must be accessed directly from posts management', 'mywords'),
-            'posts.php', RMMSG_WARN
+            'posts.php',
+            RMMSG_WARN
         );
     }
 
@@ -53,18 +54,20 @@ class MyWordsSectionReports
 
         $id = $common->httpRequest()::get('id', 'integer', 0);
 
-        if($id <= 0){
+        if ($id <= 0) {
             $common->uris()::redirect_with_message(
                 __('You must provide a valid post ID to view its reports', 'mywords'),
-                'posts.php', RMMSG_ERROR
+                'posts.php',
+                RMMSG_ERROR
             );
         }
 
         $post = new MWPost($id);
-        if($post->isNew()){
+        if ($post->isNew()) {
             $common->uris()::redirect_with_message(
                 __('You must specify an existing post before to see reports', 'mywords'),
-                'posts.php', RMMSG_ERROR
+                'posts.php',
+                RMMSG_ERROR
             );
         }
 
@@ -72,23 +75,24 @@ class MyWordsSectionReports
         $sql = "SELECT * FROM " . $xoopsDB->prefix('mod_mywords_reports') . " WHERE post = $id ORDER BY `when` DESC";
         $result = $xoopsDB->query($sql);
 
-        if($xoopsDB->getRowsNum($result) <= 0){
+        if ($xoopsDB->getRowsNum($result) <= 0) {
             $common->uris()::redirect_with_message(
                 __('Specified post does not have any report', 'mywords'),
-                'posts.php', RMMSG_ERROR
+                'posts.php',
+                RMMSG_ERROR
             );
         }
 
         $reports = [];
         $report = new MWReport();
 
-        while($row = $xoopsDB->fetchArray($result)){
+        while ($row = $xoopsDB->fetchArray($result)) {
             $report->assignVars($row);
             $values = $report->getValues();
 
-            if($values['user'] > 0){
+            if ($values['user'] > 0) {
                 $user = new XoopsUser($values['user']);
-                if(false == $user->isNew()){
+                if (false == $user->isNew()) {
                     $values['user'] = (object) [
                         'id' => $report->user,
                         'name' => $user->getVar('name'),
@@ -114,7 +118,6 @@ class MyWordsSectionReports
 
             $reports[] = (object) $values;
             $values = null;
-
         }
 
         $common->template()->assign('reports', $reports);
@@ -143,18 +146,18 @@ class MyWordsSectionReports
 
         $common->checkToken();
 
-        $id = $common->httpRequest()::post('id', 'integer', 0 );
-        if($id <= 0){
+        $id = $common->httpRequest()::post('id', 'integer', 0);
+        if ($id <= 0) {
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
 
         $report = new MWReport($id);
-        if($report->isNew()){
+        if ($report->isNew()) {
             $common->ajax()->notifyError(__('Specified report does not exists or it is not valid!', 'mywords'));
         }
 
         // Get user
-        if($report->user > 0){
+        if ($report->user > 0) {
             $user = new XoopsUser($report->user);
             $common->template()->assign('user', [
                 'id' => $user->getVar('uid'),
@@ -172,7 +175,10 @@ class MyWordsSectionReports
         $common->template()->assign('report', $report);
 
         $common->ajax()->response(
-            sprintf(__('Report No. %s', 'mywords'), str_pad($report->id(), 5, '0', STR_PAD_LEFT)), 0, 1, [
+            sprintf(__('Report No. %s', 'mywords'), str_pad($report->id(), 5, '0', STR_PAD_LEFT)),
+            0,
+            1,
+            [
                 'openDialog' => true,
                 'content' => $common->template()->render('admin/mywords-report-details.php', 'module', 'mywords'),
                 'windowId' => 'mywords-report-details',
@@ -181,7 +187,6 @@ class MyWordsSectionReports
                 'icon' => 'svg-rmcommon-report'
             ]
         );
-
     }
 
     public function status($status)
@@ -192,19 +197,21 @@ class MyWordsSectionReports
 
         $common->checkToken();
 
-        $ids = $common->httpRequest()::post('ids', 'array', [] );
-        if(empty($ids)){
+        $ids = $common->httpRequest()::post('ids', 'array', []);
+        if (empty($ids)) {
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
 
         $sql = "UPDATE " . $xoopsDB->prefix("mod_mywords_reports") . " SET status='$status' WHERE id_report IN (" . implode(",", $ids) . ")";
 
-        if($xoopsDB->queryF($sql)){
-
+        if ($xoopsDB->queryF($sql)) {
             $statusText = $status == 'accepted' ? 'accepted' : 'waiting';
 
             $common->ajax()->response(
-                sprintf(__('Reports status updated to "%s" successfully', 'mywords'), $statusText), 0, 1, [
+                sprintf(__('Reports status updated to "%s" successfully', 'mywords'), $statusText),
+                0,
+                1,
+                [
                     'notify' => [
                         'type' => $status == 'accepted' ? 'alert-success' : 'alert-purple',
                         'icon' => 'svg-rmcommon-ok-circle'
@@ -228,18 +235,19 @@ class MyWordsSectionReports
 
         $common->checkToken();
 
-        $ids = $common->httpRequest()::post('ids', 'array', [] );
-        if(empty($ids)){
+        $ids = $common->httpRequest()::post('ids', 'array', []);
+        if (empty($ids)) {
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
 
         $sql = "DELETE FROM " . $xoopsDB->prefix("mod_mywords_reports") . " WHERE id_report IN (" . implode(",", $ids) . ")";
 
-        if($xoopsDB->queryF($sql)){
-
-
+        if ($xoopsDB->queryF($sql)) {
             $common->ajax()->response(
-                __('Sepecified reports has been deleted successfully', 'mywords'), 0, 1, [
+                __('Sepecified reports has been deleted successfully', 'mywords'),
+                0,
+                1,
+                [
                     'notify' => [
                         'type' => 'alert-success',
                         'icon' => 'svg-rmcommon-ok-circle'
@@ -262,7 +270,7 @@ $mywordsSection = new MyWordsSectionReports();
  */
 $action = $common->httpRequest()::request('action', 'string');
 
-switch($action){
+switch ($action) {
     case 'view':
         $mywordsSection->viewReports();
         break;

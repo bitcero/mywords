@@ -35,9 +35,11 @@ class MWReport extends RMObject
         $this->setNew();
         $this->initVarsFromTable();
 
-        if ($id==null) return;
+        if ($id==null) {
+            return;
+        }
 
-        if ($this->loadValues($id)){
+        if ($this->loadValues($id)) {
             $this->unsetNew();
         }
     }

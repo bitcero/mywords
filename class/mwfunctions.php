@@ -35,12 +35,13 @@ class MWFunctions
 {
     private $max_popularity = 0;
 
-    static function get()
+    public static function get()
     {
         static $instance;
 
-        if (isset($instance))
+        if (isset($instance)) {
             return $instance;
+        }
 
         $instance = new MWFunctions();
         return $instance;
@@ -50,7 +51,7 @@ class MWFunctions
      * Retrieve metas from database
      * @return array
      */
-    function get_metas()
+    public function get_metas()
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $result = $db->query("SELECT name FROM " . $db->prefix("mod_mywords_meta") . " GROUP BY name");
@@ -71,26 +72,28 @@ class MWFunctions
      * @param mixed $exclude
      * @param mixed $order
      */
-    static function categos_list(&$categories, $parent = 0, $indent = 0, $include_subs = true, $exclude = 0, $order = "id_cat DESC")
+    public static function categos_list(&$categories, $parent = 0, $indent = 0, $include_subs = true, $exclude = 0, $order = "id_cat DESC")
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
         $sql = "SELECT * FROM " . $db->prefix("mod_mywords_categories") . " WHERE parent='$parent' ORDER BY $order";
         $result = $db->query($sql);
         while ($row = $db->fetchArray($result)) {
-            if ($row['id_cat'] == $exclude) continue;
+            if ($row['id_cat'] == $exclude) {
+                continue;
+            }
             $row['indent'] = $indent;
             $categories[] = $row;
-            if ($include_subs) MWFunctions::categos_list($categories, $row['id_cat'], $indent + 1, $include_subs, $exclude);
+            if ($include_subs) {
+                MWFunctions::categos_list($categories, $row['id_cat'], $indent + 1, $include_subs, $exclude);
+            }
         }
-
     }
 
     /**
      * Show admin menu and include the javascript files
      */
-    static function include_required_files($toolbar = true)
+    public static function include_required_files($toolbar = true)
     {
         RMTemplate::get()->add_style('admin.min.css', 'mywords', ['id' => 'admin-js']);
     }
@@ -102,7 +105,6 @@ class MWFunctions
      */
     public function category_exists(MWCategory $cat)
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "SELECT COUNT(*) FROM " . $db->prefix("mod_mywords_categories") . " WHERE name='" . $cat->getVar('name', 'n') . "' OR
 				shortname='" . $cat->getVar('shortname', 'n') . "'";
@@ -113,10 +115,11 @@ class MWFunctions
 
         list($num) = $db->fetchRow($db->query($sql));
 
-        if ($num > 0) return true;
+        if ($num > 0) {
+            return true;
+        }
 
         return false;
-
     }
 
     /**
@@ -126,28 +129,25 @@ class MWFunctions
      */
     public function post_exists(MWPost &$post)
     {
-
-        if ($post->getVar('title', 'n') == '') return false;
+        if ($post->getVar('title', 'n') == '') {
+            return false;
+        }
 
         // the pubdate
         if ($post->getVar('pubdate') <= 0) {
-
             $day = date('j', $post->getVar('schedule'));
             $month = date('n', $post->getVar('schedule'));
             $year = $day = date('Y', $post->getVar('schedule'));
 
             $bdate = mktime(0, 0, 0, $month, $day, $year);
             $tdate = mktime(23, 59, 59, $month, $day, $year);
-
         } else {
-
             $day = date('j', $post->getVar('pubdate'));
             $month = date('n', $post->getVar('pubdate'));
             $year = date('Y', $post->getVar('pubdate'));
 
             $bdate = mktime(0, 0, 0, $month, $day, $year);
             $tdate = $bdate + 86400;
-
         }
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
@@ -166,7 +166,6 @@ class MWFunctions
         }
 
         return false;
-
     }
 
     /**
@@ -177,7 +176,7 @@ class MWFunctions
      * @param string SQL Limit
      * @return array
      */
-    static function get_tags($select = '*', $where = '', $order = '', $limit = '')
+    public static function get_tags($select = '*', $where = '', $order = '', $limit = '')
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "SELECT $select FROM " . $db->prefix("mod_mywords_tags") . ($where != '' ? " WHERE $where" : '') . ($order != '' ? " ORDER BY $order" : '') . ($limit != '' ? " LIMIT $limit" : '');
@@ -198,23 +197,25 @@ class MWFunctions
      */
     public function tag_font_size($posts, $max_size = 3)
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         if ($this->max_popularity <= 0) {
             $sql = "SELECT MAX(posts) FROM " . $db->prefix("mod_mywords_tags");
             list($this->max_popularity) = $db->fetchRow($db->query($sql));
         }
 
-        if ($this->max_popularity <= 0) return 0.85;
+        if ($this->max_popularity <= 0) {
+            return 0.85;
+        }
 
         $base_size = $max_size / $this->max_popularity;
 
         $ret = $posts * $base_size;
 
-        if ($ret < 0.85) return 0.85;
+        if ($ret < 0.85) {
+            return 0.85;
+        }
 
         return number_format($ret, 2);
-
     }
 
     /**
@@ -223,14 +224,14 @@ class MWFunctions
      */
     public function default_category_id()
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $result = $db->query("SELECT id_cat FROM " . $db->prefix("mod_mywords_categories") . " WHERE id_cat='1'");
-        if ($db->getRowsNum($result) <= 0) return false;
+        if ($db->getRowsNum($result) <= 0) {
+            return false;
+        }
 
         list($id) = $db->fetchRow($result);
         return $id;
-
     }
 
     /**
@@ -240,7 +241,6 @@ class MWFunctions
      */
     public function author_name($uid)
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $result = $db->query("SELECT name FROM " . $db->prefix("mod_mywords_editors") . " WHERE uid='$uid'");
         if ($db->getRowsNum($result) > 0) {
@@ -249,11 +249,12 @@ class MWFunctions
         }
 
         $result = $db->query("SELECT uname FROM " . $db->prefix("users") . " WHERE uid='$uid'");
-        if ($db->getRowsNum($result) <= 0) return;
+        if ($db->getRowsNum($result) <= 0) {
+            return;
+        }
 
         $row = $db->fetchArray($result);
         return $row['uname'];
-
     }
 
     /**
@@ -263,11 +264,13 @@ class MWFunctions
      */
     public function add_tags($tags)
     {
-
-        if (!is_array($tags))
+        if (!is_array($tags)) {
             $tags = array($tags);
+        }
 
-        if (empty($tags)) return;
+        if (empty($tags)) {
+            return;
+        }
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
@@ -289,19 +292,21 @@ class MWFunctions
         $sa = '';
 
         foreach ($tags as $tag) {
-            if ($tag == '') continue;
+            if ($tag == '') {
+                continue;
+            }
             $short = TextCleaner::sweetstring($tag);
 
-            if (isset($existing[$short])) continue;
+            if (isset($existing[$short])) {
+                continue;
+            }
             $sql = "INSERT INTO " . $db->prefix("mod_mywords_tags") . " (`tag`,`shortname`,`posts`) VALUES ('$tag','$short','0')";
             if ($db->queryF($sql)) {
                 $ids[] = $db->getInsertId();
             }
-
         }
 
         return empty($ids) ? array() : $ids;
-
     }
 
     /**
@@ -313,21 +318,22 @@ class MWFunctions
         $mc = RMSettings::module_settings('mywords');
 
         if ($mc->permalinks > 1) {
-
             $ret = XOOPS_URL . rtrim($mc->basepath, "/") . '/';
-            if ($track) $ret .= 'trackback/';
-
+            if ($track) {
+                $ret .= 'trackback/';
+            }
         } else {
             $ret = XOOPS_URL . '/modules/mywords/';
-            if ($track) $ret .= 'trackbacks.php?trackback=';
+            if ($track) {
+                $ret .= 'trackbacks.php?trackback=';
+            }
         }
 
         return $ret;
     }
 
-    static function format_time($time)
+    public static function format_time($time)
     {
-
         $day = date('d', $time);
         $month = date('m', $time);
         $year = date('Y', $time);
@@ -345,10 +351,9 @@ class MWFunctions
 
         $rtn = sprintf($format, $date, $hour);
         return $rtn;
-
     }
 
-    static function go_scheduled()
+    public static function go_scheduled()
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "UPDATE " . $db->prefix("mod_mywords_posts") . " SET pubdate=schedule, schedule=0, status='publish' WHERE status<>'draft' AND pubdate<schedule AND schedule<=" . time();
@@ -357,7 +362,6 @@ class MWFunctions
 
     public function show_password($post)
     {
-
         global $xoopsTpl;
 
         $xoopsTpl->assign('post', array(
@@ -370,15 +374,13 @@ class MWFunctions
         $xoopsTpl->assign('lang_submit', __('Show Post', 'mywords'));
 
         return $xoopsTpl->fetch("db:mywords_password.html");
-
     }
 
     /**
      * Get posts by category
      */
-    static public function get_posts_by_cat($cat, $start = 0, $limit = 1, $orderby = 'pubdate', $order = 'DESC', $status = 'publish')
+    public static function get_posts_by_cat($cat, $start = 0, $limit = 1, $orderby = 'pubdate', $order = 'DESC', $status = 'publish')
     {
-
         $path = XOOPS_ROOT_PATH . '/modules/mywords';
         include_once $path . '/class/mwpost.class.php';
 
@@ -400,7 +402,6 @@ class MWFunctions
         }
 
         return $ret;
-
     }
 
     /**
@@ -414,13 +415,14 @@ class MWFunctions
      * @param string Posts status, published, draft, etc.
      * @return array
      */
-    static function get_posts_by_tag($tags, $start = 0, $limit = 1, $orderby = 'pubdate', $order = 'DESC', $status = 'publish', $exclude = 0)
+    public static function get_posts_by_tag($tags, $start = 0, $limit = 1, $orderby = 'pubdate', $order = 'DESC', $status = 'publish', $exclude = 0)
     {
         $path = XOOPS_ROOT_PATH . '/modules/mywords';
         include_once $path . '/class/mwpost.class.php';
 
-        if (empty($tags) || $tags <= 0)
+        if (empty($tags) || $tags <= 0) {
             return false;
+        }
 
         $tags = !is_array($tags) ? array($tags) : $tags;
         $db = XoopsDatabaseFactory::getDatabaseConnection();
@@ -439,16 +441,13 @@ class MWFunctions
         return $ret;
     }
 
-    static public function get_posts($start = 0, $limit = 1, $orderby = 'pubdate', $order = 'DESC', $status = 'publish')
+    public static function get_posts($start = 0, $limit = 1, $orderby = 'pubdate', $order = 'DESC', $status = 'publish')
     {
-
         return self::get_posts_by_cat(0, $start, $limit, $orderby, $order, $status);
-
     }
 
-    static public function get_filtered_posts($where = '', $start = 0, $limit = 1, $orderby = 'pubdate', $sort = 'desc', $status = 'publish')
+    public static function get_filtered_posts($where = '', $start = 0, $limit = 1, $orderby = 'pubdate', $sort = 'desc', $status = 'publish')
     {
-
         $path = XOOPS_ROOT_PATH . '/modules/mywords';
         include_once $path . '/class/mwpost.class.php';
 
@@ -478,7 +477,6 @@ class MWFunctions
         }
 
         return $ret;
-
     }
 
     /**
@@ -486,24 +484,26 @@ class MWFunctions
      */
     public function is_editor($uid = 0)
     {
-        if ($uid <= 0) return false;
+        if ($uid <= 0) {
+            return false;
+        }
 
         $editor = new MWEditor();
         $editor->from_user($uid);
         return !$editor->isNew();
-
     }
 
     public static function get_editors($start, $limit, $where = '', $sort = 'name', $order = 'ASC')
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "SELECT * FROM " . $db->prefix("mod_mywords_editors");
-        if ($where != '')
+        if ($where != '') {
             $sql .= " WHERE $where";
+        }
 
-        if ($sort != '')
+        if ($sort != '') {
             $sql .= " ORDER BY $sort $order";
+        }
 
         $sql .= " LIMIT $start, $limit";
 
@@ -516,7 +516,6 @@ class MWFunctions
         }
 
         return $editors;
-
     }
 
     /**
@@ -524,11 +523,11 @@ class MWFunctions
      * @param string $source
      * @return null|string;
      */
-    static public function construct_video_player($source)
+    public static function construct_video_player($source)
     {
-
-        if ('' == $source)
+        if ('' == $source) {
             return null;
+        }
 
         $video = array();
 
@@ -540,18 +539,17 @@ class MWFunctions
             $params = array();
             //preg_match( "/[<iframe|<object|<embed|<video] .*?(?=src)src=[\"\']([^\"]+)\"/si", $source, $params );
 
-            if (preg_match("/class=\"(.*?)\"/si", $source))
+            if (preg_match("/class=\"(.*?)\"/si", $source)) {
                 $source = preg_replace("/class=\"(.*?)\"/si", 'class="\%class\%"', $source);
-            else
+            } else {
                 $source = preg_replace("/^(<iframe|<object|<embed|<video)/si", '$1 class="%class%"', $source);
+            }
 
             $video = array(
                 'src' => $source,
                 'type' => 'other'
             );
-
-
-        } elseif (strpos($source, 'vimeo.com/') !== FALSE) {
+        } elseif (strpos($source, 'vimeo.com/') !== false) {
 
             /* VIMEO */
 
@@ -565,8 +563,7 @@ class MWFunctions
                     'type' => 'vimeo'
                 );
             }
-
-        } elseif (FALSE !== strpos($source, 'youtube.com')) {
+        } elseif (false !== strpos($source, 'youtube.com')) {
 
             /* YOUTUBE */
 
@@ -581,8 +578,7 @@ class MWFunctions
                     'type' => 'youtube'
                 );
             }
-
-        } elseif (FALSE !== strpos($source, 'youtu.be')) {
+        } elseif (false !== strpos($source, 'youtu.be')) {
 
             /* YOUTUBE */
 
@@ -596,8 +592,7 @@ class MWFunctions
                     'type' => 'youtube'
                 );
             }
-
-        } elseif (FALSE !== strpos($source, '//www.dailymotion.com/video')) {
+        } elseif (false !== strpos($source, '//www.dailymotion.com/video')) {
             /* DAILY MOTION */
             $params = array();
             preg_match("/^http.*dailymotion\.com\/video\/([a-zA-Z\d]+)/", $source, $params);
@@ -609,8 +604,7 @@ class MWFunctions
                     'type' => 'daily'
                 );
             }
-
-        } elseif (FALSE !== strpos($source, '//www.dailymotion.com/embed/video/')) {
+        } elseif (false !== strpos($source, '//www.dailymotion.com/embed/video/')) {
 
             /* DAILY MOTION */
             $video = array(
@@ -618,8 +612,7 @@ class MWFunctions
                 'attrs' => 'allowfullscreen',
                 'type' => 'daily'
             );
-
-        } elseif (FALSE !== strpos($source, 'www.liveleak.com')) {
+        } elseif (false !== strpos($source, 'www.liveleak.com')) {
 
             /* LIVE LEAK */
             preg_match("/^http.*liveleak\.com\/ll_embed\?f=([a-zA-Z\d]+)$/", $source, $params);
@@ -631,8 +624,7 @@ class MWFunctions
                     'type' => 'liveleak'
                 );
             }
-
-        } elseif (FALSE !== strpos($source, 'vine.co')) {
+        } elseif (false !== strpos($source, 'vine.co')) {
 
             /* VINE */
             preg_match("/^https.*vine\.co\/v\/([a-zA-Z\d]+)\/embed*/", $source, $params);
@@ -644,8 +636,7 @@ class MWFunctions
                     'type' => 'vine'
                 );
             }
-
-        } elseif (FALSE !== strpos($source, 'www.metacafe.com/')) {
+        } elseif (false !== strpos($source, 'www.metacafe.com/')) {
 
             /* META CAFE */
             $params = array();
@@ -658,17 +649,15 @@ class MWFunctions
                     'type' => 'metacafe'
                 );
             }
-
         }
 
-        if (empty($video))
+        if (empty($video)) {
             return null;
+        }
 
         global $xoopsTpl;
         $xoopsTpl->assign('video', $video);
 
         return $xoopsTpl->fetch("db:formats/video-player.tpl");
-
     }
-
 }

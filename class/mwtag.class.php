@@ -28,7 +28,8 @@
 
 class MWTag extends RMObject
 {
-	public function __construct($id = null){
+    public function __construct($id = null)
+    {
 
         // Prevent to be translated
         $this->noTranslate = [
@@ -43,66 +44,69 @@ class MWTag extends RMObject
         $this->setNew();
         $this->initVarsFromTable();
         
-        if ($id==null) return;
+        if ($id==null) {
+            return;
+        }
     
-        if ($this->loadValues($id)){
+        if ($this->loadValues($id)) {
             $this->unsetNew();
             return true;
         }
         
         $this->primary = 'shortname';
         
-        if ($this->loadValues($id)){
+        if ($this->loadValues($id)) {
             $this->unsetNew();
             $this->primary = 'id_tag';
             return true;
         }
         
         $this->primary = 'id_tag';
-               
     }
     
-    public function id(){
-		return $this->getVar('id_tag');
+    public function id()
+    {
+        return $this->getVar('id_tag');
     }
     
     /**
-    * This function 
-    * 
+    * This function
+    *
     */
-    public function update_posts(){
-		$sql = "SELECT COUNT(*) FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE tag='".$this->id()."'";
-		list($num) = $this->db->fetchRow($this->db->query($sql));
-		$this->setVar('posts', $num);
-		$this->updateTable();
+    public function update_posts()
+    {
+        $sql = "SELECT COUNT(*) FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE tag='".$this->id()."'";
+        list($num) = $this->db->fetchRow($this->db->query($sql));
+        $this->setVar('posts', $num);
+        $this->updateTable();
     }
     
-    function permalink(){
-        $mc = RMSettings::module_settings( 'mywords' );
+    public function permalink()
+    {
+        $mc = RMSettings::module_settings('mywords');
         $ret = MWFunctions::get_url();
-        $ret .= $mc->permalinks == 1 ? '?tag='.$this->id() : ($mc->permalinks == 2 ? "tag/".$this->getVar('shortname','n')."/" : "tag/".$this->id());
+        $ret .= $mc->permalinks == 1 ? '?tag='.$this->id() : ($mc->permalinks == 2 ? "tag/".$this->getVar('shortname', 'n')."/" : "tag/".$this->id());
         return $ret;
     }
     
-    function save(){
-		if ($this->isNew()){
-			return $this->saveToTable();
-		} else {
-			return $this->updateTable();
-		}
+    public function save()
+    {
+        if ($this->isNew()) {
+            return $this->saveToTable();
+        } else {
+            return $this->updateTable();
+        }
     }
     
-    function delete(){
-		
-		// Delete posts relations
-		if (!$this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE tag=".$this->id())){
-			$this->addError($this->db->error());
-			return false;
-		}
-		
-		return $this->deleteFromTable();
-		
-		
+    public function delete()
+    {
+        
+        // Delete posts relations
+        if (!$this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_tagspost")." WHERE tag=".$this->id())) {
+            $this->addError($this->db->error());
+            return false;
+        }
+        
+        return $this->deleteFromTable();
     }
-    
 }

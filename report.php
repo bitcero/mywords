@@ -28,32 +28,36 @@
 
 $mwSettings = $common->settings()::module_settings('mywords');
 
-if($mwSettings->reports <= 0){
+if ($mwSettings->reports <= 0) {
     $common->uris()::redirect_with_message(
         __('Sorry, you are not allowed to perform this action.', 'mywords'),
-        MW_URL, RMMSG_WARN
+        MW_URL,
+        RMMSG_WARN
     );
 }
 
-if(!$xoopsUser && $mwSettings->report_anonym <= 0){
+if (!$xoopsUser && $mwSettings->report_anonym <= 0) {
     $common->uris()::redirect_with_message(
         __('Sorry, you are not allowed to perform this action.', 'mywords'),
-        MW_URL, RMMSG_WARN
+        MW_URL,
+        RMMSG_WARN
     );
 }
 
-if($id<=0){
+if ($id<=0) {
     $common->uris()::redirect_with_message(
         __('You must provide a valid post ID', 'mywords'),
-        MW_URL, RMMSG_WARN
+        MW_URL,
+        RMMSG_WARN
     );
 }
 
 $post = new MWPost($id);
-if($post->isNew()){
+if ($post->isNew()) {
     $common->uris()::redirect_with_message(
         __('Specified post does not exists!', 'mywords'),
-        MW_URL, RMMSG_ERROR
+        MW_URL,
+        RMMSG_ERROR
     );
 }
 
@@ -62,52 +66,51 @@ if($post->isNew()){
  */
 $action = $common->httpRequest()::post('action', 'string', '');
 
-if('submit' == $action)
-{
+if ('submit' == $action) {
     $name = $common->httpRequest()::post('name', 'string', '');
     $email = $common->httpRequest()::post('email', 'string', '');
     $title = $common->httpRequest()::post('title', 'string', '');
     $content = $common->httpRequest()::post('content', 'string', '');
     $user = $xoopsUser ? $xoopsUser->getVar('uid') : 0;
 
-    if($user <= 0){
-
-        if('' == trim($name) || '' == trim($email)){
+    if ($user <= 0) {
+        if ('' == trim($name) || '' == trim($email)) {
             $common->uris()::redirect_with_message(
                 __('You must provide your name and your email!', 'mywords'),
-                $post->permalink(), RMMSG_WARN
+                $post->permalink(),
+                RMMSG_WARN
             );
         }
 
-        if(false == checkEmail($mail)){
+        if (false == checkEmail($mail)) {
             $common->uris()::redirect_with_message(
                 __('You must provide a valid email!', 'mywords'),
-                $post->permalink(), RMMSG_WARN
+                $post->permalink(),
+                RMMSG_WARN
             );
         }
-
     }
 
-    if('' == trim($title) || '' == trim($content)){
+    if ('' == trim($title) || '' == trim($content)) {
         $common->uris()::redirect_with_message(
             __('The main reason and details for report are required', 'mywords'),
-            $post->permalink(), RMMSG_WARN
+            $post->permalink(),
+            RMMSG_WARN
         );
     }
 
     // Check captcha if exists
-    if($common->services()->service('captcha')){
-
-        if(!$common->services()->captcha->verify()){
+    if ($common->services()->service('captcha')) {
+        if (!$common->services()->captcha->verify()) {
             $common->uris()->redirect_with_message(
                 __('CAPTCHA challenge failed! Please try again', 'rmcommon'),
-                $post->permalink(), RMMSG_ERROR
+                $post->permalink(),
+                RMMSG_ERROR
             );
         }
-
     }
 
-    if($xoopsUser){
+    if ($xoopsUser) {
         $where = "user = $user";
     } else {
         $where = "name = '$name'";
@@ -116,10 +119,11 @@ if('submit' == $action)
 
     list($total) = $xoopsDB->fetchRow($xoopsDB->query($sql));
 
-    if($total > 0){
+    if ($total > 0) {
         $common->uris()->redirect_with_message(
             __('Another similar report from you already exists', 'rmcommon'),
-            $post->permalink(), RMMSG_ERROR
+            $post->permalink(),
+            RMMSG_ERROR
         );
     }
 
@@ -133,15 +137,17 @@ if('submit' == $action)
     $report->content = $content;
     $report->status = $status;
 
-    if($report->save()){
+    if ($report->save()) {
         $common->uris()->redirect_with_message(
             __('Your report has been sent. Thank you!', 'rmcommon'),
-            $post->permalink(), RMMSG_SUCCESS
+            $post->permalink(),
+            RMMSG_SUCCESS
         );
     } else {
         $common->uris()->redirect_with_message(
             __('Your report could not been sent. Please try again.', 'rmcommon'),
-            $post->permalink(), RMMSG_ERROR
+            $post->permalink(),
+            RMMSG_ERROR
         );
     }
 
@@ -156,7 +162,7 @@ $xoopsTpl->assign('xoops_pagetitle', sprintf(__('Report post "%s"', 'mywords'), 
 $xoopsTpl->assign('reportAnonym', !isset($xoopsUser));
 
 $reportLink = $common->uris()::relative_url(MWFunctions::get_url());
-if($xoopsModuleConfig['permalinks'] > 1){
+if ($xoopsModuleConfig['permalinks'] > 1) {
     $reportLink .= 'report/' . $post->id() . '/';
 } else {
     $reportLink .= '?report=' . $post->id();
@@ -184,4 +190,3 @@ $xoopsTpl->assign('lang', [
 ]);
 
 require 'footer.php';
-

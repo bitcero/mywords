@@ -13,10 +13,14 @@
 */
 
 $wfile = isset($_GET['file']) ? $_GET['file'] : '';
-if ($wfile=='') exit();
+if ($wfile=='') {
+    exit();
+}
 
 $path = dirname(__FILE__);
-if (!file_exists($path.'/'.$wfile)) exit();
+if (!file_exists($path.'/'.$wfile)) {
+    exit();
+}
 
 $path .= '/'.$wfile;
 
@@ -29,10 +33,10 @@ error_reporting(0);
 $xoopsLogger->activated = false;
 
 header('Content-Type: application/javascript');
-switch($wfile){
-	
-	default:
-		include $path;
-		break;
-	
+switch ($wfile) {
+    
+    default:
+        include $path;
+        break;
+    
 }

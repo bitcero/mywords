@@ -53,14 +53,14 @@
             </tr>
             </thead>
             <tbody>
-            <?php if(empty($reports)): ?>
+            <?php if (empty($reports)): ?>
             <tr class="text-center">
                 <td colspan="5" class="text-info">
                     <?php _e('There are not reports received for this post', 'mywords'); ?>
                 </td>
             </tr>
             <?php endif; ?>
-            <?php foreach($reports as $report): ?>
+            <?php foreach ($reports as $report): ?>
             <tr data-id="<?php echo $report->id_report; ?>">
                 <td class="text-center">
                     <input type="checkbox" name="ids[]" value="<?php echo $report->id_report; ?>" data-oncheck="check-reports">
@@ -72,14 +72,14 @@
                     <?php echo $report->title; ?>
                 </td>
                 <td class="text-center">
-                    <?php if($report->user->id > 0): ?>
+                    <?php if ($report->user->id > 0): ?>
                         <a href="<?php echo XOOPS_URL; ?>/userinfo.php?uid=<?php echo $report->user->id; ?>" target="_blank"><?php echo $report->user->name; ?></a>
                     <?php else: ?>
                         <?php echo $report->user->name; ?>
                     <?php endif; ?>
                 </td>
                 <td class="text-center">
-                    <?php if($report->user->id > 0): ?>
+                    <?php if ($report->user->id > 0): ?>
                         <?php echo $common->icons()->getIcon('svg-rmcommon-ok', ['class' => 'text-success']); ?>
                     <?php else: ?>
                         <?php echo $common->icons()->getIcon('svg-rmcommon-cross', ['class' => 'text-grey']); ?>
@@ -89,7 +89,7 @@
                     <?php echo $common->timeFormat()->ago($report->when); ?>
                 </td>
                 <td class="text-center <?php echo $report->status == 'accepted' ? 'text-success' : 'text-grey'; ?>" data-status="<?php echo $report->id_report; ?>">
-                    <?php if($report->status == 'accepted'): ?>
+                    <?php if ($report->status == 'accepted'): ?>
                         <?php echo $common->icons()->getIcon('svg-rmcommon-ok-circle'); ?>
                     <?php else: ?>
                         <?php echo $common->icons()->getIcon('svg-rmcommon-sand-clock'); ?>
@@ -101,7 +101,7 @@
                             <?php echo $common->icons()->getIcon('svg-rmcommon-eye'); ?>
                             <span class="sr-only"><?php _e('View report', 'mywords'); ?></span>
                         </a>
-                        <?php if($report->status=='accepted'): ?>
+                        <?php if ($report->status=='accepted'): ?>
                             <a href="#" data-do="status" data-action="waiting" data-id="<?php echo $report->id_report; ?>" class="purple status" title="<?php _e('Mark as not read', 'mywords'); ?>">
                                 <?php echo $common->icons()->getIcon('svg-rmcommon-sand-clock'); ?>
                             </a>
@@ -114,7 +114,7 @@
                             <?php echo $common->icons()->getIcon('svg-rmcommon-cross'); ?>
                             <span class="sr-only"><?php _e('Delete report', 'mywords'); ?></span>
                         </a>
-                        <?php if($report->user->id > 0): ?>
+                        <?php if ($report->user->id > 0): ?>
                         <a href="<?php echo $common->url('users.php?action=mailer&uid=' . $report->user->id); ?>" class="teal" title="<?php _e('Reply to user', 'mywords'); ?>">
                             <?php echo $common->icons()->getIcon('svg-rmcommon-envelope'); ?>
                             <span class="sr-only"><?php _e('Reply to user', 'mywords'); ?></span>

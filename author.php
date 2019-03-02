@@ -30,21 +30,21 @@ $xoopsOption['template_main'] = 'mywords-author.tpl';
 $xoopsOption['module_subpage'] = 'author';
 include 'header.php';
 
-if (!is_numeric($editor)){
-	
-	$sql = "SELECT id_editor FROM ".$db->prefix("mod_mywords_editors")." WHERE shortname='$editor'";
-	list($editor) = $db->fetchRow($db->query($sql));
-	if ($editor=='') $editor = 0;
-	
+if (!is_numeric($editor)) {
+    $sql = "SELECT id_editor FROM ".$db->prefix("mod_mywords_editors")." WHERE shortname='$editor'";
+    list($editor) = $db->fetchRow($db->query($sql));
+    if ($editor=='') {
+        $editor = 0;
+    }
 }
 
 $ed = new MWEditor($editor);
 
-if ($ed->isNew()){
+if ($ed->isNew()) {
     $params = array(
         'page'  => 'author'
     );
-    RMFunctions::error_404( __('Sorry, we don\'t know this editor', 'admin_mywords'), 'mywords', $params );
+    RMFunctions::error_404(__('Sorry, we don\'t know this editor', 'admin_mywords'), 'mywords', $params);
     die();
 }
 
@@ -56,11 +56,17 @@ $xoopsTpl->assign('editor', array(
     'uname' => $ed->uname
 ));
 
-$page = isset($_REQUEST['page']) ? $_REQUEST['page']: 0;	
-if ($page<=0){
-	$path = explode("/", $request);
-	$srh = array_search('page', $path);
-	if (isset($path[$srh]) && $path[$srh]=='page')	if (!isset($path[$srh])){ $page = 0; } else { $page = $path[$srh +1]; }
+$page = isset($_REQUEST['page']) ? $_REQUEST['page']: 0;
+if ($page<=0) {
+    $path = explode("/", $request);
+    $srh = array_search('page', $path);
+    if (isset($path[$srh]) && $path[$srh]=='page') {
+        if (!isset($path[$srh])) {
+            $page = 0;
+        } else {
+            $page = $path[$srh +1];
+        }
+    }
 }
 
 $request = substr($request, 0, strpos($request, 'page')>0 ? strpos($request, 'page') - 1 : strlen($request));
@@ -74,16 +80,20 @@ $sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE author='
 		author=".$ed->uid."))";
 list($num) = $db->fetchRow($db->query($sql));
 
-if ($page > 0){ $page -= 1; }
+if ($page > 0) {
+    $page -= 1;
+}
 
 $start = $page * $mc['posts_limit'];
 $tpages = (int)($num / $mc['posts_limit']);
-if($num % $mc['posts_limit'] > 0) $tpages++;
+if ($num % $mc['posts_limit'] > 0) {
+    $tpages++;
+}
 $pactual = $page + 1;
-if ($pactual>$tpages){
-	$rest = $pactual - $tpages;
-	$pactual = $pactual - $rest + 1;
-	$start = ($pactual - 1) * $limit;
+if ($pactual>$tpages) {
+    $rest = $pactual - $tpages;
+    $pactual = $pactual - $rest + 1;
+    $start = ($pactual - 1) * $limit;
 }
 
 $nav = new RMPageNav($num, $limit, $pactual, 6);
@@ -92,7 +102,7 @@ $xoopsTpl->assign("nav_pages", $nav->render(false, 0));
 
 $xoopsTpl->assign('pactual', $pactual);
 
-$xoopsTpl->assign('lang_fromauthor', sprintf(__('Posts by "%s"','mywords'), $ed->getVar('name')));
+$xoopsTpl->assign('lang_fromauthor', sprintf(__('Posts by "%s"', 'mywords'), $ed->getVar('name')));
 
 $sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE author='".$ed->uid."' AND status='publish' AND
 		((visibility='public' OR visibility='password') OR (visibility='private' AND

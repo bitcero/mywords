@@ -28,23 +28,24 @@
 
 include XOOPS_ROOT_PATH."/header.php";
 
-load_mod_locale('mywords','');
+load_mod_locale('mywords', '');
 
 $mc =& $xoopsModuleConfig;
 $db = XoopsDatabaseFactory::getDatabaseConnection();
 $myts = MyTextSanitizer::getInstance();
 
-define('MW_PATH',XOOPS_ROOT_PATH.'/modules/mywords');
-define('MW_URL',MWFunctions::get_url());
+define('MW_PATH', XOOPS_ROOT_PATH.'/modules/mywords');
+define('MW_URL', MWFunctions::get_url());
 
-if ( isset( $no_includes ) && $no_includes )
+if (isset($no_includes) && $no_includes) {
     return;
+}
 
 $xoopsTpl->assign('mw_url', MW_URL);
 
 $xmh = '';
-if ($mc['use_css']){
-	RMTemplate::get()->add_style('mywords.min.css', 'mywords');
+if ($mc['use_css']) {
+    RMTemplate::get()->add_style('mywords.min.css', 'mywords');
 }
 
 // Redes Sociales
@@ -53,7 +54,7 @@ $result = $db->query($sql);
 
 $socials = array();
 $i = 0;
-while ($row = $db->fetchArray($result)){
+while ($row = $db->fetchArray($result)) {
     $socials[$i] = new MWBookmark();
     $socials[$i]->assignVars($row);
     $i++;

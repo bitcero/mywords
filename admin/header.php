@@ -38,12 +38,12 @@ load_mod_locale('mywords', '');
 
 $db =& $xoopsDB;
 
-define('MW_PATH',XOOPS_ROOT_PATH.'/modules/mywords');
+define('MW_PATH', XOOPS_ROOT_PATH.'/modules/mywords');
 define('MW_URL', MWFunctions::get_url());
 
 # Asignamos las variables básicas a SMARTY
-$tpl->assign('MW_URL',MW_URL);
-$tpl->assign('MW_PATH',MW_PATH);
+$tpl->assign('MW_URL', MW_URL);
+$tpl->assign('MW_PATH', MW_PATH);
 
 $mc =& $xoopsModuleConfig;
 

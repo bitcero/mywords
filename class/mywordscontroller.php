@@ -34,90 +34,95 @@
 
 class MywordsController implements iCommentsController
 {
-    public function increment_comments_number($comment){
-        
+    public function increment_comments_number($comment)
+    {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
         parse_str($params);
         
-        if(!isset($post) || $post<=0) return;
+        if (!isset($post) || $post<=0) {
+            return;
+        }
         
         $sql = "UPDATE ".$db->prefix("mod_mywords_posts")." SET comments=comments+1 WHERE id_post=$post";
         $db->queryF($sql);
-        
     }
     
-    public function reduce_comments_number($comment){
-		
-		$db = XoopsDatabaseFactory::getDatabaseConnection();
+    public function reduce_comments_number($comment)
+    {
+        $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
         parse_str($params);
         
-        if(!isset($post) || $post<=0) return;
+        if (!isset($post) || $post<=0) {
+            return;
+        }
         
         $sql = "UPDATE ".$db->prefix("mod_mywords_posts")." SET comments=comments-1 WHERE id_post=$post AND comments>0";
         $db->queryF($sql);
-		
     }
     
-    public function get_item($params, $com){
+    public function get_item($params, $com)
+    {
         static $posts;
         
         $params = urldecode($params);
         parse_str($params);
-        if(!isset($post) || $post<=0) return __('Not found','mywords');;
+        if (!isset($post) || $post<=0) {
+            return __('Not found', 'mywords');
+        };
         
-        if(isset($posts[$post])){
-        	return $posts[$post]->getVar('title');
+        if (isset($posts[$post])) {
+            return $posts[$post]->getVar('title');
         }
         
-        include_once (XOOPS_ROOT_PATH.'/modules/mywords/class/mwpost.class.php');
-        include_once (XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php');
+        include_once(XOOPS_ROOT_PATH.'/modules/mywords/class/mwpost.class.php');
+        include_once(XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php');
         $item = new MWPost($post);
-        if($item->isNew()){
-			return __('Not found','mywords');
+        if ($item->isNew()) {
+            return __('Not found', 'mywords');
         }
         
         $posts[$post] = $item;
         return $item->getVar('title');
-        
     }
-	
-	public function get_item_url($params, $com){
-		static $posts;
+    
+    public function get_item_url($params, $com)
+    {
+        static $posts;
         
         $params = urldecode($params);
         parse_str($params);
-        if(!isset($post) || $post<=0) return '';
-        
-        if(isset($posts[$post])){
-        	$ret = $posts[$post]->permalink();
-			return $ret;
+        if (!isset($post) || $post<=0) {
+            return '';
         }
         
-        include_once (XOOPS_ROOT_PATH.'/modules/mywords/class/mwpost.class.php');
-        include_once (XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php');
+        if (isset($posts[$post])) {
+            $ret = $posts[$post]->permalink();
+            return $ret;
+        }
+        
+        include_once(XOOPS_ROOT_PATH.'/modules/mywords/class/mwpost.class.php');
+        include_once(XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php');
         $item = new MWPost($post);
-        if($item->isNew()){
-			return '';
+        if ($item->isNew()) {
+            return '';
         }
-		
-		$posts[$post] = $item;
+        
+        $posts[$post] = $item;
         
         return $item->permalink();
-        
-	}
+    }
     
-    public function get_main_link(){
-		
-		$mc = RMSettings::module_settings('mywords');
-		
-		if ($mc->permalinks > 1){
-			return XOOPS_URL.$mc->basepath;
-		} else {
-			return XOOPS_URL.'/modules/mywords';
-		}
-		
+    public function get_main_link()
+    {
+        $mc = RMSettings::module_settings('mywords');
+        
+        if ($mc->permalinks > 1) {
+            return XOOPS_URL.$mc->basepath;
+        } else {
+            return XOOPS_URL.'/modules/mywords';
+        }
     }
     
     public static function getInstance()
@@ -130,5 +135,4 @@ class MywordsController implements iCommentsController
     
         return $instance;
     }
-    
 }

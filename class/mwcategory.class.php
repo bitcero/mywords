@@ -31,84 +31,93 @@
  */
 class MWCategory extends RMObject
 {
-	
-	function __construct($id=''){
+    public function __construct($id='')
+    {
 
         // Prevent to be translated
         $this->noTranslate = [
             'shortname'
         ];
 
-		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("mod_mywords_categories");
-		$this->setNew();
-		$this->initVarsFromTable();
+        $this->db = XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix("mod_mywords_categories");
+        $this->setNew();
+        $this->initVarsFromTable();
 
         $this->ownerName = 'mywords';
         $this->ownerType = 'module';
 
-		if ($id==''){
-			return;
-		}
-		
-		if (is_numeric($id)){
-			if ($this->loadValues($id)){
-				$this->unsetNew();
-			}
-			return;
-		}
-		
-		$this->primary = 'shortcut';
-		if ($this->loadValues($id)) $this->unsetNew();
-		$this->primary = 'id_cat';
-			
-	}
-	/**
-	 * Funciones para asignar valores a las variables
-	 */
-	function id(){
-		return $this->getVar('id_cat');
-	}
-	
-	function loadPosts(){
-		$result = $this->db->query("SELECT COUNT(*) FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE cat='".$this->id()."'");
-		list($num) = $this->db->fetchRow($result);
-		$this->setVar('posts', $num);
-	}
-	/**
-	 * Obtiene la ruta completa de la categor?a basada en nombres
-	 */
-	function path(){
-		if ($this->getVar('parent')==0) return $this->getVar('shortname','n').'/';
-		$parent = new MWCategory($this->getVar('parent','n'));
-		return $parent->path() . $this->getVar('shortname').'/';
-	}
-	/**
-	 * Obtiene el enlace a la categor?a
-	 */
-	public function permalink(){
-		$mc = RMSettings::module_settings( 'mywords' );
-		$link = MWFunctions::get_url();
-		$link .= ($mc->permalinks == 1 ? '?cat='.$this->id() : ($mc->permalinks == 2 ? 'category/'.$this->path() : 'category/'.$this->id()));
-		return $link;
-	}
+        if ($id=='') {
+            return;
+        }
+        
+        if (is_numeric($id)) {
+            if ($this->loadValues($id)) {
+                $this->unsetNew();
+            }
+            return;
+        }
+        
+        $this->primary = 'shortcut';
+        if ($this->loadValues($id)) {
+            $this->unsetNew();
+        }
+        $this->primary = 'id_cat';
+    }
+    /**
+     * Funciones para asignar valores a las variables
+     */
+    public function id()
+    {
+        return $this->getVar('id_cat');
+    }
+    
+    public function loadPosts()
+    {
+        $result = $this->db->query("SELECT COUNT(*) FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE cat='".$this->id()."'");
+        list($num) = $this->db->fetchRow($result);
+        $this->setVar('posts', $num);
+    }
+    /**
+     * Obtiene la ruta completa de la categor?a basada en nombres
+     */
+    public function path()
+    {
+        if ($this->getVar('parent')==0) {
+            return $this->getVar('shortname', 'n').'/';
+        }
+        $parent = new MWCategory($this->getVar('parent', 'n'));
+        return $parent->path() . $this->getVar('shortname').'/';
+    }
+    /**
+     * Obtiene el enlace a la categor?a
+     */
+    public function permalink()
+    {
+        $mc = RMSettings::module_settings('mywords');
+        $link = MWFunctions::get_url();
+        $link .= ($mc->permalinks == 1 ? '?cat='.$this->id() : ($mc->permalinks == 2 ? 'category/'.$this->path() : 'category/'.$this->id()));
+        return $link;
+    }
 
-	/**
-	 * Guardamos los valores en la base de datos
-	 */
-	function save(){
-		if ($this->isNew()){
+    /**
+     * Guardamos los valores en la base de datos
+     */
+    public function save()
+    {
+        if ($this->isNew()) {
             return $this->saveToTable();
         } else {
             return $this->updateTable();
         }
-	}
-	/**
-	 * Elimina de la base de datos la categor?a actual
-	 */
-	function delete(){
-		$this->db->queryF("UPDATE ".$this->db->prefix("mod_mywords_categories")." SET parent='".$this->getVar('parent','n')."' WHERE parent='".$this->id()."'");
-		$this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE cat='".$this->id()."'");
-		return $this->deleteFromTable();
-	}
+    }
+    /**
+     * Elimina de la base de datos la categor?a actual
+     */
+    public function delete()
+    {
+        $this->db->queryF("UPDATE ".$this->db->prefix("mod_mywords_categories")." SET parent='".$this->getVar('parent', 'n')."' WHERE parent='".$this->id()."'");
+        $this->db->queryF("DELETE FROM ".$this->db->prefix("mod_mywords_catpost")." WHERE cat='".$this->id()."'");
+        return $this->deleteFromTable();
+    }
 }

@@ -29,15 +29,15 @@
 include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwtag.class.php';
 include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php';
 
-function myWordsBlockTags($options){
-    
+function myWordsBlockTags($options)
+{
     $db = XoopsDatabaseFactory::getDatabaseConnection();
     $sql = "SELECT * FROM ".$db->prefix("mod_mywords_tags")." ORDER BY RAND() LIMIT 0,$options[0]";
     $result = $db->query($sql);
     $block = array();
     $max = 0;
     $min = 0;
-    while($row = $db->fetchArray($result)){
+    while ($row = $db->fetchArray($result)) {
         $tag = new MWTag();
         $tag->assignVars($row);
         $block['tags'][] = array(
@@ -54,20 +54,20 @@ function myWordsBlockTags($options){
     return $block;
 }
 
-function myWordsBlockTagsEdit($options){
-
+function myWordsBlockTagsEdit($options)
+{
     ob_start(); ?>
 
     <div class="form-horizontal">
         <div class="control-group">
-            <label class="control-label"><?php _e('Number of tags','mywords'); ?></label>
+            <label class="control-label"><?php _e('Number of tags', 'mywords'); ?></label>
             <div class="controls">
                 <input type="text" size="5" name="options[0]" value="<?php echo $options[0]; ?>" />
             </div>
         </div>
 
         <div class="control-group">
-            <label class="label-control"><?php _e('Size increment per post','mywords'); ?></label>
+            <label class="label-control"><?php _e('Size increment per post', 'mywords'); ?></label>
             <div class="controls">
                 <input type="text" size="5" name="options[1]" value="<?php echo $options[1]; ?>" />
             </div>
@@ -78,5 +78,4 @@ function myWordsBlockTagsEdit($options){
     $form = ob_get_clean();
     
     return $form;
-    
 }

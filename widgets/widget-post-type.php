@@ -29,11 +29,12 @@
 /**
  * Provides a widget to specify the default image for posts
  */
-function mywords_widget_post_type( $post = null ){
+function mywords_widget_post_type($post = null)
+{
     global $xoopsSecurity, $xoopsModuleConfig, $xoopsUser, $rm_config;
 
     $widget = array();
-    $widget['title'] = __('Post type','mywords');
+    $widget['title'] = __('Post type', 'mywords');
 
     ob_start(); ?>
     <form name="frmformat" id="frm-post-type" method="post">
@@ -104,8 +105,8 @@ function mywords_widget_post_type( $post = null ){
              * In the example this icon must be converted to fa-check-square.
              */
             $types = array();
-            $types = RMEvents::get()->run_event( 'mywords.post.types', $types, $post );
-            foreach ( $types as $type ):
+    $types = RMEvents::get()->run_event('mywords.post.types', $types, $post);
+    foreach ($types as $type):
             ?>
                 <div class="radio">
                     <label>
@@ -120,5 +121,4 @@ function mywords_widget_post_type( $post = null ){
     <?php
     $widget['content'] = ob_get_clean();
     return $widget;
-
 }

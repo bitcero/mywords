@@ -31,14 +31,15 @@ $common->location = 'trackbacks';
 
 RMTemplate::get()->assign('xoops_pagetitle', __('Trackbacks management', 'mw_categories'));
 
-function show_mw_trackbacks(){
+function show_mw_trackbacks()
+{
     global $xoopsModule, $xoopsSecurity;
     
     $id = rmc_server_var($_GET, 'id', 0);
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
     $sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_trackbacks");
-    if ($id>0){
+    if ($id>0) {
         $sql .= "WHERE post=$id";
     }
     list($num) = $db->fetchRow($db->query($sql));
@@ -61,15 +62,15 @@ function show_mw_trackbacks(){
     $trackbacks = array();
     
     // Get trackbacks data
-    while ($row = $db->fetchArray($result)){
+    while ($row = $db->fetchArray($result)) {
         $trac = new MWTrackbackObject();
         $trac->assignVars($row);
         $posts[$trac->getVar('post')] = isset($posts[$trac->getVar('post')]) ? $posts[$trac->getVar('post')] : new MWPost($trac->getVar('post'));
         $trackbacks[] = array(
             'tb'    => $trac,
             'post'  => array(
-            	'title'=>$posts[$trac->getVar('post')]->getVar('title'),
-            	'link'=>$posts[$trac->getVar('post')]->isNew() ? '' : $posts[$trac->getVar('post')]->permalink()
+                'title'=>$posts[$trac->getVar('post')]->getVar('title'),
+                'link'=>$posts[$trac->getVar('post')]->isNew() ? '' : $posts[$trac->getVar('post')]->permalink()
             )
         );
     }
@@ -81,53 +82,54 @@ function show_mw_trackbacks(){
     RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
     RMTemplate::get()->add_script(XOOPS_URL.'/modules/mywords/include/js/scripts.php?file=trackbacks.js');
 
-    RMBreadCrumb::get()->add_crumb(__('Trackbacks','mywords'));
+    RMBreadCrumb::get()->add_crumb(__('Trackbacks', 'mywords'));
 
     xoops_cp_header();
     
     include RMTemplate::get()->get_template('admin/mywords-trackbacks.php', 'module', 'mywords');
     
     xoops_cp_footer();
-    
 }
 
-function delete_mw_trackbacks(){
+function delete_mw_trackbacks()
+{
     global $xoopsSecurity;
     
     $tbs = rmc_server_var($_POST, 'tbs', array());
     
-    if (empty($tbs) || !is_array($tbs)){
+    if (empty($tbs) || !is_array($tbs)) {
         redirectMsg('trackbacks.php', __('Select one trackback at least!', 'mw_categories'), 1);
         die();
     }
     
-    if (!$xoopsSecurity->check()){
-        redirectMsg('trackbacks.php', __('Session token expired!','mywords'), 1);
+    if (!$xoopsSecurity->check()) {
+        redirectMsg('trackbacks.php', __('Session token expired!', 'mywords'), 1);
         die();
     }
     
     // Event
     RMEvents::get()->run_event('mywords.before.delete.trackback', $tbs);
     
-    foreach($tbs as $id){
+    foreach ($tbs as $id) {
         $trac = new MWTrackbackObject($id);
-        if($trac->isNew()) continue;
+        if ($trac->isNew()) {
+            continue;
+        }
         
         $trac->delete();
     }
     
-    redirectMsg('trackbacks.php', __('Trackbacks deleted successfully','mywords'), 0);
-    
+    redirectMsg('trackbacks.php', __('Trackbacks deleted successfully', 'mywords'), 0);
 }
 
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
-switch ($action){
+switch ($action) {
     case 'delete':
         delete_mw_trackbacks();
         break;
-	default:
-		show_mw_trackbacks(0);
-		break;
+    default:
+        show_mw_trackbacks(0);
+        break;
 }

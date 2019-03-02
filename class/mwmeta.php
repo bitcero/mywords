@@ -28,32 +28,36 @@
 
 class MWMeta extends RMObject
 {
-	public function __construct($id = null){
+    public function __construct($id = null)
+    {
         $this->db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_dbtable = $this->db->prefix("mod_mywords_meta");
         $this->setNew();
         $this->initVarsFromTable();
         
-        if ($id==null) return;
+        if ($id==null) {
+            return;
+        }
     
-        if ($this->loadValues($id)){
+        if ($this->loadValues($id)) {
             $this->unsetNew();
             return true;
         } else {
             return;
-        }        
+        }
     }
     
-    public function id(){
+    public function id()
+    {
         return $this->getVar('id_meta');
     }
     
-    function save(){
-        if ($this->isNew()){
+    public function save()
+    {
+        if ($this->isNew()) {
             return $this->saveToTable();
         } else {
             return $this->updateTable();
         }
     }
-    
 }

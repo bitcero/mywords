@@ -26,23 +26,22 @@
  * @url          http://www.eduardocortes.mx
  */
 
-function xoops_module_pre_install_mywords(&$mod){
-    
+function xoops_module_pre_install_mywords(&$mod)
+{
     xoops_setActiveModules();
     
     $mods = xoops_getActiveModules();
     
-    if(!in_array("rmcommon", $mods)){
+    if (!in_array("rmcommon", $mods)) {
         $mod->setErrors('MyWords could not be instaled if <a href="http://rmcommon.com/" target="_blank">Common Utilities</a> has not be installed previously!<br />Please install <a href="http://rmcommon.com/" target="_blank">Common Utilities</a>.');
         return false;
     }
     
     return true;
-    
 }
 
-function xoops_module_update_mywords($mod, $pre){
-
+function xoops_module_update_mywords($mod, $pre)
+{
     global $xoopsDB;
 
     // Update table names and engine
@@ -70,5 +69,4 @@ function xoops_module_update_mywords($mod, $pre){
   MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT;");
 
     return true;
-    
 }

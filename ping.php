@@ -39,31 +39,41 @@ $xoopsLogger->activated = false;
 
 $id = rmc_server_var($_GET, 'post', 0);
 
-if ($id<=0) die();
+if ($id<=0) {
+    die();
+}
 
 $post = new MWPost($id);
 
-if ($post->isNew()) die();
+if ($post->isNew()) {
+    die();
+}
 
 $editor = new MWEditor($post->getVar('author'));
-if ($editor->isNew()) $user = new XoopsUser($post->getVar('author'));
+if ($editor->isNew()) {
+    $user = new XoopsUser($post->getVar('author'));
+}
 $tracks = $post->getVar('toping');
 
-if(empty($tracks)) die();
+if (empty($tracks)) {
+    die();
+}
 
 $pinged = $post->getVar('pinged');
 $toping = $post->getVar('toping');
 $tp = array();
 
 $tback = new MWTrackback($xoopsModuleConfig['blogname'], $editor->isNew() ? $user->getVar('uname') : $editor->getVar('name'));
-foreach ($tracks as $t){
-	if (!empty($pinged) && in_array($t, $pinged)) continue;
-	$ret = $tback->ping($t, $post->permalink(), $post->getVar('title'), TextCleaner::getInstance()->truncate($post->content(true), 240));
-	if ($ret){
-		$pinged[] = $t;
-	} else {
-		$tp[] = $t;
-	}
+foreach ($tracks as $t) {
+    if (!empty($pinged) && in_array($t, $pinged)) {
+        continue;
+    }
+    $ret = $tback->ping($t, $post->permalink(), $post->getVar('title'), TextCleaner::getInstance()->truncate($post->content(true), 240));
+    if ($ret) {
+        $pinged[] = $t;
+    } else {
+        $tp[] = $t;
+    }
 }
 
 $post->setVar('toping', empty($tp) ? '' : $tp);

@@ -26,7 +26,7 @@
  * @url          http://www.eduardocortes.mx
  */
 
-if (!defined('XOOPS_ROOT_PATH')){
+if (!defined('XOOPS_ROOT_PATH')) {
     header('location: ./');
     die();
 }
@@ -34,8 +34,7 @@ if (!defined('XOOPS_ROOT_PATH')){
 // Authors cache
 $editors = array();
 
-while ($row = $db->fetchArray($result)){
-	
+while ($row = $db->fetchArray($result)) {
     $post = new MWPost();
     $post->assignVars($row);
 
@@ -45,49 +44,45 @@ while ($row = $db->fetchArray($result)){
     $year = date('Y', $post->getVar('pubdate'));
     $link = $post->permalink();
     # Generamos el vínculo para el autor
-    if ($post->getVar('author')>0){
+    if ($post->getVar('author')>0) {
+        if (!isset($editors[$post->getVar('author')])) {
+            $editors[$post->getVar('author')] = new MWEditor($post->getVar('author'), 'user');
+        }
 
-    	if( !isset( $editors[$post->getVar('author')] ) )
-            $editors[$post->getVar('author')] = new MWEditor( $post->getVar('author'), 'user' );
-
-        if ( $editors[$post->getVar('author')]->isNew() ){
-
-            if ( $xoopsUser && $xoopsUser->uid() == $post->author )
+        if ($editors[$post->getVar('author')]->isNew()) {
+            if ($xoopsUser && $xoopsUser->uid() == $post->author) {
                 $user = $xoopsUser;
-            else
-                $user = new RMUser( $post->author );
+            } else {
+                $user = new RMUser($post->author);
+            }
 
             $editors[$post->getVar('author')]->uid = $user->uid();
             $editors[$post->getVar('author')]->name = $user->getVar('name');
             $editors[$post->getVar('author')]->shortname = $user->getVar('uname');
             $editors[$post->getVar('author')]->privileges = array( 'tags', 'tracks', 'comms' );
             $editors[$post->getVar('author')]->save();
-
         }
 
         $editor = $editors[$post->getVar('author')];
         $alink = $editor->permalink();
-
     } else {
-
-		$alink = '';
-
+        $alink = '';
     }
 
     # Información de Publicación
-    $published = sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate'),'string'), '<a href="'.$alink.'">'.(isset($editor) ? $editor->name : __('Anonymous','mywords'))."</a>");
+    $published = sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate'), 'string'), '<a href="'.$alink.'">'.(isset($editor) ? $editor->name : __('Anonymous', 'mywords'))."</a>");
     # Texto de continuar leyendo
-    if ($post->getVar('visibility')=='password'){
+    if ($post->getVar('visibility')=='password') {
         $text = isset($_SESSION['password-'.$post->id()]) && $_SESSION['password-'.$post->id()]==$post->getVar('password') ? $post->content(true) : MWFunctions::show_password($post);
     } else {
         $text = $post->content(true);
     }
     
     // Redes Sociales
-    if($xoopsModuleConfig['showbookmarks']){
+    if ($xoopsModuleConfig['showbookmarks']) {
         $bms = array();
-        foreach ($socials as $bm){
-            $bms[] = array('icon'=>$bm->getVar('icon'),'alt'=>$bm->getVar('alt'),'link'=>str_replace(array('{URL}','{TITLE}','{DESC}'), array($post->permalink(),$post->getVar('title'),TextCleaner::getInstance()->truncate($text, 50)),$bm->getVar('url')));
+        foreach ($socials as $bm) {
+            $bms[] = array('icon'=>$bm->getVar('icon'),'alt'=>$bm->getVar('alt'),'link'=>str_replace(array('{URL}','{TITLE}','{DESC}'), array($post->permalink(),$post->getVar('title'),TextCleaner::getInstance()->truncate($text, 50)), $bm->getVar('url')));
         }
     }
     
@@ -102,9 +97,9 @@ while ($row = $db->fetchArray($result)){
         'link'              =>$link,
         'published'         =>$published,
         'comments'          =>$post->getVar('comments'),
-        'lang_comments'		=>sprintf(__('%u Comments','mywords'), $post->getVar('comments')),
+        'lang_comments'		=>sprintf(__('%u Comments', 'mywords'), $post->getVar('comments')),
         'continue'          =>$post->hasmore_text(),
-        'lang_continue'		=> $post->hasmore_text() ? sprintf(__('Read more about "%s"','mywords'), $post->getVar('title')) : '',
+        'lang_continue'		=> $post->hasmore_text() ? sprintf(__('Read more about "%s"', 'mywords'), $post->getVar('title')) : '',
         'bookmarks'         =>$bms,
         'time'              => $post->getVar('pubdate'),
         'author'            =>array(
@@ -123,9 +118,8 @@ while ($row = $db->fetchArray($result)){
         'video'             => $post->video,
         'player'            => $post->format == 'video' ? $post->video_player() : '',
     ));
-
 }
-$xoopsTpl->assign('lang_editpost', __('Edit Post','mywords'));
-$xoopsTpl->assign('lang_postedin', __('Posted in:','mywords'));
-$xoopsTpl->assign('lang_taggedas', __('Tagged as:','mywords'));
+$xoopsTpl->assign('lang_editpost', __('Edit Post', 'mywords'));
+$xoopsTpl->assign('lang_postedin', __('Posted in:', 'mywords'));
+$xoopsTpl->assign('lang_taggedas', __('Tagged as:', 'mywords'));
 $xoopsTpl->assign('enable_images', $xoopsModuleConfig['list_post_imgs']);
