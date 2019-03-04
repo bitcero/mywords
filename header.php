@@ -27,14 +27,14 @@
  */
 include XOOPS_ROOT_PATH . '/header.php';
 
-load_mod_locale('mywords', '');
+load_mod_locale('mywords','');
 
-$mc = &$xoopsModuleConfig;
+$mc =& $xoopsModuleConfig;
 $db = XoopsDatabaseFactory::getDatabaseConnection();
 $myts = MyTextSanitizer::getInstance();
 
-define('MW_PATH', XOOPS_ROOT_PATH . '/modules/mywords');
-define('MW_URL', MWFunctions::get_url());
+define('MW_PATH',XOOPS_ROOT_PATH.'/modules/mywords');
+define('MW_URL',MWFunctions::get_url());
 
 if (isset($no_includes) && $no_includes) {
     return;
@@ -43,7 +43,7 @@ if (isset($no_includes) && $no_includes) {
 $xoopsTpl->assign('mw_url', MW_URL);
 
 $xmh = '';
-if ($mc['use_css']) {
+if ($mc['use_css']){
     RMTemplate::get()->add_style('mywords.min.css', 'mywords');
 }
 
