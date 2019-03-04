@@ -25,12 +25,11 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-$xoopsOption['template_main'] = 'mywords-post.tpl';
+$GLOBALS['xoopsOption']['template_main'] = 'mywords-post.tpl';
 $xoopsOption['module_subpage'] = 'post';
-include 'header.php';
+require __DIR__ . '/header.php';
 
-if ($post<=0) {
+if ($post <= 0) {
     redirect_header(MWFunctions::get_url(), 2, '');
     die();
 }
@@ -48,7 +47,7 @@ if (!$post->user_allowed()) {
 }
 
 // Check if post belong to some category
-if (count($post->get_categos())<=0) {
+if (count($post->get_categos()) <= 0) {
     $post->update();
 }
 
@@ -57,8 +56,7 @@ $day = date('d', $post->getVar('pubdate'));
 $month = date('m', $post->getVar('pubdate'));
 $year = date('Y', $post->getVar('pubdate'));
 
-//
-$page = isset($_REQUEST['page']) ? $_REQUEST['page']: 0;
+$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 0;
 
 # Cargamos los datos del autor
 $editor = new MWEditor($post->getVar('author'), 'user');
@@ -72,23 +70,23 @@ if ($editor->isNew()) {
     $editor->uid = $user->uid();
     $editor->name = $user->getVar('name');
     $editor->shortname = $user->getVar('uname');
-    $editor->privileges = array( 'tags', 'tracks', 'comms' );
+    $editor->privileges = [ 'tags', 'tracks', 'comms' ];
     $editor->save();
 }
 
 # Texto de continuar leyendo
 
-$xoopsTpl->assign('xoops_pagetitle', $post->getVar('customtitle')!='' ? $post->getVar('customtitle') : $post->getVar('title'));
+$xoopsTpl->assign('xoops_pagetitle', '' != $post->getVar('customtitle') ? $post->getVar('customtitle') : $post->getVar('title'));
 
 # Cargamos los comentarios del Artículo
-if ($page<=0) {
-    $path = explode("/", $request);
-    $srh = array_search('page', $path);
-    if (isset($path[$srh]) && $path[$srh]=='page') {
+if ($page <= 0) {
+    $path = explode('/', $request);
+    $srh = array_search('page', $path, true);
+    if (isset($path[$srh]) && 'page' == $path[$srh]) {
         if (!isset($path[$srh])) {
             $page = 1;
         } else {
-            $page = $path[$srh +1];
+            $page = $path[$srh + 1];
         }
     } else {
         $page = 1;
@@ -99,27 +97,27 @@ $post->add_read();
 
 // Navegación entre artículos
 if ($xoopsModuleConfig['shownav']) {
-    $sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE id_post<".$post->id()." AND status='publish' ORDER BY id_post DESC LIMIT 0, 1";
+    $sql = 'SELECT * FROM ' . $db->prefix('mod_mywords_posts') . ' WHERE id_post<' . $post->id() . " AND status='publish' ORDER BY id_post DESC LIMIT 0, 1";
     $result = $db->query($sql);
     $pn = new MWPost();
     // Anterior
-    if ($db->getRowsNum($result)>0) {
+    if ($db->getRowsNum($result) > 0) {
         $pn->assignVars($db->fetchArray($result));
-        $xoopsTpl->assign('prev_post', array('link'=>$pn->permalink(), 'title'=>$pn->getVar('title')));
+        $xoopsTpl->assign('prev_post', ['link' => $pn->permalink(), 'title' => $pn->getVar('title')]);
     }
 
     // Siguiente
-    $sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE id_post>".$post->id()." AND status='publish' ORDER BY id_post ASC LIMIT 0, 1";
+    $sql = 'SELECT * FROM ' . $db->prefix('mod_mywords_posts') . ' WHERE id_post>' . $post->id() . " AND status='publish' ORDER BY id_post ASC LIMIT 0, 1";
     $result = $db->query($sql);
-    if ($db->getRowsNum($result)>0) {
+    if ($db->getRowsNum($result) > 0) {
         $pn->assignVars($db->fetchArray($result));
-        $xoopsTpl->assign('next_post', array('link'=>$pn->permalink(), 'title'=>$pn->getVar('title')));
+        $xoopsTpl->assign('next_post', ['link' => $pn->permalink(), 'title' => $pn->getVar('title')]);
     }
 }
 $xoopsTpl->assign('shownav', $xoopsModuleConfig['shownav']);
 
-if ($xoopsUser && ($xoopsUser->isAdmin() || $editor->getVar('uid')==$xoopsUser->uid())) {
-    $editLink = XOOPS_URL.'/modules/mywords/admin/posts.php?op=edit&amp;id='.$post->id();
+if ($xoopsUser && ($xoopsUser->isAdmin() || $editor->getVar('uid') == $xoopsUser->uid())) {
+    $editLink = XOOPS_URL . '/modules/mywords/admin/posts.php?op=edit&amp;id=' . $post->id();
     $xoopsTpl->assign('can_edit', true);
     $xoopsTpl->assign('edit_link', $editLink);
     unset($editLink);
@@ -130,40 +128,40 @@ $xoopsTpl->assign('lang_reads', sprintf(__('%u views', 'mywords'), $post->getVar
 // Post pages
 $total_pages = $post->total_pages();
 $nav = new RMPageNav($total_pages, 1, $page, 5);
-$nav->target_url($post->permalink().($mc['permalinks']>1 ? 'page/{PAGE_NUM}/' : '&amp;page={PAGE_NUM}'));
+$nav->target_url($post->permalink() . ($mc['permalinks'] > 1 ? 'page/{PAGE_NUM}/' : '&amp;page={PAGE_NUM}'));
 $xoopsTpl->assign('post_navbar', $nav->render(true));
 
 // Post data
 
-$post_arr = array(
-    'id'                => $post->id(),
-    'title'             => $post->getVar('title'),
-    'published'         => sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate')), '<a href="'.$editor->permalink().'">'.(isset($editor) ? $editor->getVar('name') : __('Anonymous', 'mywords'))."</a>"),
-    'text'              => $post->content(false, $page),
-    'cats'              => $post->get_categos('data'),
-    'tags'              => $post->tags(false),
-    'trackback'         => $post->getVar('pingstatus') ? MWFunctions::get_url(true).$post->id() : '',
-    'meta'              => $post->get_meta('', false),
-    'time'              => $post->getVar('pubdate'),
-    'image'             => $post->image(),
-    'video'             => $post->video,
-    'player'            => $post->video != '' ? $post->video_player() : '',
-    'author'            => array(
-                            'name'  => $editor->getVar('name') != '' ? $editor->name : $editor->shortname,
-                            'id'    => $editor->id(),
-                            'link'  => $editor->permalink(),
-                            'bio'   => $editor->getVar('bio'),
+$post_arr = [
+    'id' => $post->id(),
+    'title' => $post->getVar('title'),
+    'published' => sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate')), '<a href="' . $editor->permalink() . '">' . (isset($editor) ? $editor->getVar('name') : __('Anonymous', 'mywords')) . '</a>'),
+    'text' => $post->content(false, $page),
+    'cats' => $post->get_categos('data'),
+    'tags' => $post->tags(false),
+    'trackback' => $post->getVar('pingstatus') ? MWFunctions::get_url(true) . $post->id() : '',
+    'meta' => $post->get_meta('', false),
+    'time' => $post->getVar('pubdate'),
+    'image' => $post->image(),
+    'video' => $post->video,
+    'player' => '' != $post->video ? $post->video_player() : '',
+    'author' => [
+                            'name' => '' != $editor->getVar('name') ? $editor->name : $editor->shortname,
+                            'id' => $editor->id(),
+                            'link' => $editor->permalink(),
+                            'bio' => $editor->getVar('bio'),
                             'email' => $editor->data('email'),
-                            'uid'   => $editor->uid,
-                            'url'   => $editor->data('url'),
-                            'avatar'=> $cuServices->avatar->getAvatarSrc($editor->data('email'), 100)// RMEvents::get()->run_event( 'rmcommon.get.avatar', $editor->data('email') )
-                       ),
-    'alink'             => $editor->permalink(),
-    'format'            => $post->format,
-    'comments'          => $post->comments,
-    'lang_comments'     => sprintf(__('%u Comments', 'mywords'), $post->comments),
-    'comments_enabled' => $post->comstatus
-);
+                            'uid' => $editor->uid,
+                            'url' => $editor->data('url'),
+                            'avatar' => $cuServices->avatar->getAvatarSrc($editor->data('email'), 100),// RMEvents::get()->run_event( 'rmcommon.get.avatar', $editor->data('email') )
+                       ],
+    'alink' => $editor->permalink(),
+    'format' => $post->format,
+    'comments' => $post->comments,
+    'lang_comments' => sprintf(__('%u Comments', 'mywords'), $post->comments),
+    'comments_enabled' => $post->comstatus,
+];
 
 // Enable reports
 if ($xoopsModuleConfig['reports']) {
@@ -198,7 +196,7 @@ $xoopsTpl->assign('post', $post_arr);
 // Related posts
 if ($xoopsModuleConfig['related']) {
     $rtags = $post->tags();
-    $tt = array();
+    $tt = [];
     foreach ($rtags as $tag) {
         $tt[] = $tag['id_tag'];
     }
@@ -207,14 +205,14 @@ if ($xoopsModuleConfig['related']) {
     unset($tt);
 
     if (!empty($related)) {
-        $tf = new RMTimeFormatter(0, "%d% %T%, %Y%");
+        $tf = new RMTimeFormatter(0, '%d% %T%, %Y%');
         foreach ($related as $rpost) {
-            $xoopsTpl->append('relatedPosts', array(
-                'title'     => $rpost->getVar('title'),
-                'pubdate'   => $tf->format($rpost->getVar('pubdate')),
-                'link'      => $rpost->permalink(),
-                'image'     => RMImage::get()->load_from_params($rpost->image)
-            ));
+            $xoopsTpl->append('relatedPosts', [
+                'title' => $rpost->getVar('title'),
+                'pubdate' => $tf->format($rpost->getVar('pubdate')),
+                'link' => $rpost->permalink(),
+                'image' => RMImage::get()->load_from_params($rpost->image),
+            ]);
         }
     }
 }
@@ -222,12 +220,12 @@ if ($xoopsModuleConfig['related']) {
 // Social sites
 if ($xoopsModuleConfig['showbookmarks']) {
     foreach ($socials as $site) {
-        $xoopsTpl->append('socials', array(
+        $xoopsTpl->append('socials', [
             'title' => $site->getVar('title'),
-            'icon'    => $site->getVar('icon'),
-            'url'    => $site->link($post->getVar('title'), $post->permalink(), TextCleaner::truncate($post->content(true), 60)),
-            'alt'    => $site->getVar('alt')
-        ));
+            'icon' => $site->getVar('icon'),
+            'url' => $site->link($post->getVar('title'), $post->permalink(), TextCleaner::truncate($post->content(true), 60)),
+            'alt' => $site->getVar('alt'),
+        ]);
     }
 }
 
@@ -244,11 +242,11 @@ if ($post->getVar('comstatus')) {
         'type' => 'module',
         'identifier' => 'post=' . $post->id(),
         'assign' => false,
-        'url' => MW_URL . '/post.php'
+        'url' => MW_URL . '/post.php',
     ]);
-    if (count($comments)!=$post->getVar('comments')) {
+    if (count($comments) != $post->getVar('comments')) {
         //$post->setVar('comments', count($comments));
-        $xoopsDB->queryF("UPDATE ".$xoopsDB->prefix("mod_mywords_posts")." SET `comments`=".count($comments)." WHERE id_post=".$post->id());
+        $xoopsDB->queryF('UPDATE ' . $xoopsDB->prefix('mod_mywords_posts') . ' SET `comments`=' . count($comments) . ' WHERE id_post=' . $post->id());
     }
     $xoopsTpl->assign('comments', $comments);
     // Comments form
@@ -257,23 +255,21 @@ if ($post->getVar('comstatus')) {
         'object' => 'mywords',
         'type' => 'module',
         'identifier' => 'post=' . $post->id(),
-        'file' => MW_PATH . '/class/mywordscontroller.php'
+        'file' => MW_PATH . '/class/mywordscontroller.php',
     ]));
 }
-
-
 
 // Load trackbacks
 $trackbacks = $post->trackbacks();
 foreach ($trackbacks as $tb) {
-    $xoopsTpl->append('trackbacks', array(
-        'id'    => $tb->id(),
+    $xoopsTpl->append('trackbacks', [
+        'id' => $tb->id(),
         'title' => $tb->getVar('title'),
-        'blog'  => $tb->getVar('blog_name'),
-        'url'  => $tb->getVar('url'),
-        'text'  => $tb->getVar('excerpt'),
-        'date'  => formatTimestamp($tb->getVar('date'), 'c')
-    ));
+        'blog' => $tb->getVar('blog_name'),
+        'url' => $tb->getVar('url'),
+        'text' => $tb->getVar('excerpt'),
+        'date' => formatTimestamp($tb->getVar('date'), 'c'),
+    ]);
 }
 
 // Language
@@ -290,17 +286,17 @@ $xoopsTpl->assign('enable_images', $xoopsModuleConfig['post_imgs']);
 if ($post->getVar('pingstatus')) {
     $tb = new MWTrackback($xoopsConfig['sitename'], $editor->getVar('name'));
     RMTemplate::get()->add_head(
-        $tb->rdf_autodiscover(date('r', $post->getVar('pubdate')), $post->getVar('title'), TextCleaner::getInstance()->truncate($post->content(true), 255), $post->permalink(), MWFunctions::get_url(true).$post->id(), $editor->getVar('name'))
+        $tb->rdf_autodiscover(date('r', $post->getVar('pubdate')), $post->getVar('title'), TextCleaner::getInstance()->truncate($post->content(true), 255), $post->permalink(), MWFunctions::get_url(true) . $post->id(), $editor->getVar('name'))
     );
 }
 
 $rmf = RMFunctions::get();
 $description = $post->getVar('description', 'e');
 $keywords = $post->getVar('keywords', 'e');
-$rmf->add_keywords_description($description!='' ? $description : '', $keywords!='' ? $keywords : '');
+$rmf->add_keywords_description('' != $description ? $description : '', '' != $keywords ? $keywords : '');
 
 // Send pings?
 $pings = $post->getVar('toping');
 $xoopsTpl->assign('pingnow', empty($pings));
- 
-include 'footer.php';
+
+require __DIR__ . '/footer.php';

@@ -24,40 +24,41 @@
  * @package      mywords
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
+ * @param null|mixed $post
  */
 
 /**
-* Categories widget
-*/
+ * Categories widget
+ */
 function mywords_widget_categories($post = null)
 {
     global $xoopsUser, $allowed_cats;
-    
+
     $widget['title'] = __('Categories', 'admin_mywords');
     $widget['icon'] = '';
-    
-    $postcat = array();
+
+    $postcat = [];
     $edit = false;
     if (isset($post) && is_a($post, 'MWPost')) {
         if ($post->isNew()) {
             unset($post);
-            $postcat = array();
+            $postcat = [];
         } else {
             $edit = true;
             $postcat = $post->get_categos(true);
         }
     }
-    
+
     ob_start(); ?>
 <div class="rmc_widget_content_reduced">
 <form id="mw-post-categos-form">
 <div class="w_categories" id="w-categos-container">
 <?php
-$categories = array();
+$categories = [];
     MWFunctions::categos_list($categories);
     foreach ($categories as $catego) {
         ?>
-<label class="cat_label" style="padding-left: <?php echo $catego['indent']*10; ?>px;"><input type="checkbox" name="categories[]" id="categories[]" value="<?php echo $catego['id_cat']; ?>"<?php echo in_array($catego['id_cat'], $postcat) ? ' checked="checked"' : '' ?> /> <?php echo $catego['name']; ?></label>
+<label class="cat_label" style="padding-left: <?php echo $catego['indent'] * 10; ?>px;"><input type="checkbox" name="categories[]" id="categories[]" value="<?php echo $catego['id_cat']; ?>"<?php echo in_array($catego['id_cat'], $postcat, true) ? ' checked' : '' ?>> <?php echo $catego['name']; ?></label>
 <?php
     } ?>
 </div>
@@ -82,5 +83,6 @@ $categories = array();
 </div>
 <?php
     $widget['content'] = ob_get_clean();
+
     return $widget;
 }

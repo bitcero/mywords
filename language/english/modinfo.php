@@ -8,12 +8,11 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-
-if (function_exists("load_mod_locale")) {
-    load_mod_locale("mywords");
+if (function_exists('load_mod_locale')) {
+    load_mod_locale('mywords');
 }
 
-if (!function_exists("__")) {
+if (!function_exists('__')) {
     function __($text, $d)
     {
         return $text;
@@ -27,7 +26,7 @@ define('_MI_MW_AMENU2', __('Categories', 'mywords'));
 define('_MI_MW_AMENU3', __('Articles', 'mywords'));
 define('_MI_MW_AMENU4', __('Editors', 'mywords'));
 define('_MI_MW_AMENU5', __('Bookmarks', 'mywords'));
-                                      
+
 // Menu principal
 define('_MI_MW_SEND', __('Submit Article', 'mywords'));
 
@@ -62,7 +61,7 @@ define('_MI_MW_DEFIMG_DESC', __('When the "graphic" mode is enabled in the "Rece
 // Images
 define('_MI_MW_ENABLELISTIMAGES', __('Enable images in posts list', 'mywords'));
 define('_MI_MW_LISTIMAGESSIZE', __('Size of images to use in posts list', 'mywords'));
-define('_MI_MW_LISTIMAGESSIZED', sprintf(__('You must specify a custom size name created for a category in %s of %s.', 'mywords'), '<a href="'.RMCURL.'/images.php">'.__('Images Manager', 'mywords').'</a>', '<a href="'.RMCURL.'">'.__('Common Utilities', 'mywords').'</a>'));
+define('_MI_MW_LISTIMAGESSIZED', sprintf(__('You must specify a custom size name created for a category in %s of %s.', 'mywords'), '<a href="' . RMCURL . '/images.php">' . __('Images Manager', 'mywords') . '</a>', '<a href="' . RMCURL . '">' . __('Common Utilities', 'mywords') . '</a>'));
 define('_MI_MW_ENABLEPOSTIMAGES', __('Enable images in post', 'mywords'));
 define('_MI_MW_POSTIMAGESSIZE', __('Size of images of post', 'mywords'));
 

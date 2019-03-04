@@ -2,12 +2,12 @@
 <form name="frmSearch" method="get" action="posts.php" style="margin: 0;">
     <div class="row">
         <div class="col-md-2 col-lg-2">
-            <input type="text" name="keyw" value="<?php echo $keyw!='' ? $keyw : ''; ?>" class="form-control" placeholder="<?php _e('Search', 'mywords'); ?>">
+            <input type="text" name="keyw" value="<?php echo '' != $keyw ? $keyw : ''; ?>" class="form-control" placeholder="<?php _e('Search', 'mywords'); ?>">
         </div>
         <div class="col-md-2 col-lg-2">
             <div class="input-group">
                 <span class="input-group-addon"><?php _e('Results:', 'mywords'); ?></span>
-                <input type="text" size="5" name="limit" value="<?php echo $limit; ?>" class="form-control" />
+                <input type="text" size="5" name="limit" value="<?php echo $limit; ?>" class="form-control">
                 <span class="input-group-btn">
                     <button class="btn btn-info" type="submit"><span class="fa fa-search"></span></button>
                 </span>
@@ -17,16 +17,16 @@
             
             <ul class="nav nav-pills">
                 <li><a href="posts.php?op=new"><?php _e('Add New', 'mywords'); ?></a></li>
-                <li<?php echo $status=='' ? ' class="active"' : ''; ?>><a href="posts.php?limit=<?php echo $limit ?>"><?php _e('Show all', 'mywords'); ?> <strong>(<?php echo($pub_count+$draft_count+$pending_count); ?>)</strong></a></li>
-                <li<?php echo $status=='publish' ? ' class="active"' : ''; ?>><a href="posts.php?status=publish&amp;limit=<?php echo $limit ?>"><?php _e('Published', 'admin_mywords'); ?> <strong>(<?php echo $pub_count; ?>)</strong></a></li>
-                <li<?php echo $status=='draft' ? ' class="active"' : ''; ?>><a href="posts.php?status=draft&amp;limit=<?php echo $limit ?>"><?php _e('Drafts', 'admin_mywords'); ?> <strong>(<?php echo $draft_count; ?>)</strong></a></li>
-                <li<?php echo $status=='pending' ? ' class="active"' : ''; ?>><a href="posts.php?status=pending&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
+                <li<?php echo '' == $status ? ' class="active"' : ''; ?>><a href="posts.php?limit=<?php echo $limit ?>"><?php _e('Show all', 'mywords'); ?> <strong>(<?php echo($pub_count + $draft_count + $pending_count); ?>)</strong></a></li>
+                <li<?php echo 'publish' == $status ? ' class="active"' : ''; ?>><a href="posts.php?status=publish&amp;limit=<?php echo $limit ?>"><?php _e('Published', 'admin_mywords'); ?> <strong>(<?php echo $pub_count; ?>)</strong></a></li>
+                <li<?php echo 'draft' == $status ? ' class="active"' : ''; ?>><a href="posts.php?status=draft&amp;limit=<?php echo $limit ?>"><?php _e('Drafts', 'admin_mywords'); ?> <strong>(<?php echo $draft_count; ?>)</strong></a></li>
+                <li<?php echo 'pending' == $status ? ' class="active"' : ''; ?>><a href="posts.php?status=pending&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
             </ul>
             
         </div>
     </div>
 </form>
-<br />
+<br>
 <form name="modPosts" id="form-posts" method="post" action="posts.php">
 <div class="cu-bulk-actions">
     <div class="row">
@@ -104,13 +104,13 @@
                                     <a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
                                     <?php switch ($post['status']) {
                                         case 'draft':
-                                            echo "<span class=\"draft\">- ".__('Draft', 'mywords')."</span> ";
+                                            echo '<span class="draft">- ' . __('Draft', 'mywords') . '</span> ';
                                             break;
                                         case 'scheduled':
-                                            echo "<span class=\"sheduled\">- ".__('Scheduled', 'mywords')."</span> ";
+                                            echo '<span class="sheduled">- ' . __('Scheduled', 'mywords') . '</span> ';
                                             break;
                                         case 'pending':
-                                            echo "<span class=\"pending\">- ".__('Pending', 'mywords')."</span> ";
+                                            echo '<span class="pending">- ' . __('Pending', 'mywords') . '</span> ';
                                             break;
                                     } ?>
                                 </strong>
@@ -124,7 +124,7 @@
                                 $count = 1;
                                 $ct = count($post['tags']);
                                 foreach ($post['tags'] as $tag): ?>
-                                    <?php echo $tag['tag']; ?><?php echo $count<$ct ? ',' : ''; ?>
+                                    <?php echo $tag['tag']; ?><?php echo $count < $ct ? ',' : ''; ?>
                                     <?php $count++; endforeach; ?>
                             </td>
                             <td align="center">
@@ -142,8 +142,8 @@
                                         <?php echo $common->icons()->getIcon('svg-rmcommon-cross'); ?>
                                         <span class="sr-only"><?php _e('Delete', 'mywords'); ?></span>
                                     </a>
-                                    <?php if ($post['status']!='publish'): ?>
-                                        <a href="<?php echo MW_URL.'?p='.$post['id']; ?>" title="<?php _e('Preview', 'mywords'); ?>" class="grey">
+                                    <?php if ('publish' != $post['status']): ?>
+                                        <a href="<?php echo MW_URL . '?p=' . $post['id']; ?>" title="<?php _e('Preview', 'mywords'); ?>" class="grey">
                                             <?php echo $common->icons()->getIcon('svg-rmcommon-eye'); ?>
                                             <span class="sr-only"><?php _e('Preview', 'mywords'); ?></span>
                                         </a>
@@ -170,7 +170,7 @@
     </div>
 
 <?php echo $xoopsSecurity->getTokenHTML(); ?>
-<input type="hidden" name="page" value="<?php echo $page; ?>" />
-<input type="hidden" name="keyw" value="<?php echo $keyw; ?>" />
-<input type="hidden" name="limit" value="<?php echo $limit; ?>" />
+<input type="hidden" name="page" value="<?php echo $page; ?>">
+<input type="hidden" name="keyw" value="<?php echo $keyw; ?>">
+<input type="hidden" name="limit" value="<?php echo $limit; ?>">
 </form>

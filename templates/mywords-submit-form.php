@@ -13,7 +13,7 @@
 
             <div class="mw_permacont <?php if (!$edit): ?>mw_permainfo<?php endif; ?>" id="mw-perma-link">
                 <?php if ($edit): ?>
-                    <strong><?php _e('Permalink:', 'mywords'); ?></strong> <?php echo str_replace($post->getVar('shortname'), '<span id="shortname">'.$post->getVar('shortname').'</span>', $post->permalink()); ?>
+                    <strong><?php _e('Permalink:', 'mywords'); ?></strong> <?php echo str_replace($post->getVar('shortname'), '<span id="shortname">' . $post->getVar('shortname') . '</span>', $post->permalink()); ?>
                 <?php else: ?>
                     <?php _e('This post has not been saved. Remember to save it before leave this page.', 'mywords'); ?>
                 <?php endif; ?>
@@ -33,8 +33,8 @@
                             <input type="text" name="trackbacks" id="post-trackbacks" class="form-control" value="<?php echo $edit && $post->getVar('toping') ? implode(' ', $post->getVar('toping')) : ''; ?>">
                             <small class="help-block">(<?php _e('Separate multiple URLs with spaces', 'mywords'); ?>)</small>
                             <?php if ($edit): ?>
-                                <strong><?php _e('Pinged:', 'mywords'); ?></strong><br />
-                                <small><?php $pinged = $post->getVar('pinged'); echo !empty($pinged) ? implode("<br />", $pinged) : ''; ?></small>
+                                <strong><?php _e('Pinged:', 'mywords'); ?></strong><br>
+                                <small><?php $pinged = $post->getVar('pinged'); echo !empty($pinged) ? implode('<br>', $pinged) : ''; ?></small>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -54,14 +54,14 @@
                             </tr>
                             <?php if ($edit || isset($post)): ?>
                                 <?php foreach ($post->get_meta('', true) as $field): ?>
-                                    <tr class="<?php echo tpl_cycle("even,odd"); ?>">
-                                        <td valign="top"><input type="text" name="meta[<?php echo $field->id(); ?>][key]" id="meta-key-<?php echo $field->id(); ?>" value="<?php echo $field->getVar('name'); ?>" class="form-control" />
+                                    <tr class="<?php echo tpl_cycle('even,odd'); ?>">
+                                        <td valign="top"><input type="text" name="meta[<?php echo $field->id(); ?>][key]" id="meta-key-<?php echo $field->id(); ?>" value="<?php echo $field->getVar('name'); ?>" class="form-control">
                                             <a href="#" onclick="remove_meta($(this));"><?php _e('Remove', 'mywords'); ?></a></td>
                                         <td><textarea name="meta[<?php echo $field->id(); ?>][value]" id="meta[<?php echo $field->id(); ?>][value]" class="form-control"><?php echo $field->getVar('value', 'e'); ?></textarea></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
-                        </table><br />
+                        </table><br>
                         <label><strong><?php _e('Add new field:', 'mywords'); ?></strong></label>
                         <table class="table" cellspacing="0">
                             <tr class="head" align="center">
@@ -78,11 +78,11 @@
                                                 <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
                                             <?php endforeach; ?>
                                         </select>
-                                        <input type="text" name="meta_name" id="meta-name" value="" class="form-control" style="display: none; width: 95%;" />
+                                        <input type="text" name="meta_name" id="meta-name" value="" class="form-control" style="display: none; width: 95%;">
                                         <a href="javascript:;" class="mw_show_metaname"><?php _e('Enter New', 'mywords'); ?></a>
                                         <a href="javascript:;" class="mw_hide_metaname" style="display: none;"><?php _e('Cancel', 'mywords'); ?></a>
                                     <?php else: ?>
-                                        <input type="text" name="meta_name" id="meta-name" value="" class="form-control" style="width: 95%;" />
+                                        <input type="text" name="meta_name" id="meta-name" value="" class="form-control" style="width: 95%;">
                                     <?php endif; ?>
                                 </td>
                                 <td valign="top">
@@ -92,7 +92,7 @@
                             </tr>
                             <tr class="odd">
                                 <td colspan="2">
-                                    <input type="button" id="mw-addmeta" class="btn btn-info" value="<?php _e('Add custom field', 'mywords'); ?>" />
+                                    <input type="button" id="mw-addmeta" class="btn btn-info" value="<?php _e('Add custom field', 'mywords'); ?>">
                                 </td>
                             </tr>
                         </table>
@@ -109,10 +109,10 @@
                         </div>
                         <div class="panel-body">
                             <label class="checkbox-inline">
-                                <input type="checkbox" name="comstatus" value="1" checked="checked" /> <?php _e('Enable comments for this post', 'mywords'); ?>
+                                <input type="checkbox" name="comstatus" value="1" checked> <?php _e('Enable comments for this post', 'mywords'); ?>
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" name="pingstatus" value="1" checked="checked" /> <?php _e('Allow trackbacks for this post', 'mywords'); ?>
+                                <input type="checkbox" name="pingstatus" value="1" checked> <?php _e('Allow trackbacks for this post', 'mywords'); ?>
                             </label>
                         </div>
                     </div>
@@ -121,11 +121,11 @@
 
             <?php RMEvents::get()->run_event('mywords.posts.form.center.widgets', isset($post) ? $post : null); ?>
 
-            <input type="hidden" name="XOOPS_TOKEN_REQUEST" id="XOOPS_TOKEN_REQUEST" value="<?php echo $xoopsSecurity->createToken(); ?>" />
-            <input type="hidden" name="op" id="mw-op" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
-            <input type="hidden" name="frontend" id="mw-frontend" value="1" />
+            <input type="hidden" name="XOOPS_TOKEN_REQUEST" id="XOOPS_TOKEN_REQUEST" value="<?php echo $xoopsSecurity->createToken(); ?>">
+            <input type="hidden" name="op" id="mw-op" value="<?php echo $edit ? 'saveedit' : 'save'; ?>">
+            <input type="hidden" name="frontend" id="mw-frontend" value="1">
             <?php if ($edit): ?>
-                <input type="hidden" name="id" id="mw-id" value="<?php echo $post->id(); ?>" />
+                <input type="hidden" name="id" id="mw-id" value="<?php echo $post->id(); ?>">
             <?php endif; ?>
         </form>
 
@@ -134,7 +134,7 @@
     <div class="col-md-4 col-lg-3">
         <!-- Publish -->
         <?php
-        include 'widgets/widget-publish.php';
+        require __DIR__ . '/widgets/widget-publish.php';
         $w = mywords_widget_publish($post, true);
         ?>
         <div class="panel panel-default">
@@ -148,7 +148,7 @@
 
         <!-- Formats -->
         <?php
-        include 'widgets/widget-post-type.php';
+        require __DIR__ . '/widgets/widget-post-type.php';
         $w = mywords_widget_post_type($post);
         ?>
         <div class="panel panel-default">
@@ -162,7 +162,7 @@
 
         <!-- Categories -->
         <?php
-        include 'widgets/widget-categories.php';
+        require __DIR__ . '/widgets/widget-categories.php';
         $w = mywords_widget_categories($post);
         ?>
         <div class="panel panel-default">
@@ -176,7 +176,7 @@
 
         <!-- Add tags -->
         <?php
-        include 'widgets/widget-tags.php';
+        require __DIR__ . '/widgets/widget-tags.php';
         $w = mywords_widget_addtags($post);
         ?>
         <div class="panel panel-default">
@@ -190,7 +190,7 @@
 
         <!-- Add tags -->
         <?php
-        include 'widgets/widget-image.php';
+        require __DIR__ . '/widgets/widget-image.php';
         $w = mywords_widget_image($post);
         ?>
         <div class="panel panel-default">

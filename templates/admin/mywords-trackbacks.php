@@ -22,7 +22,7 @@
             <table class="outer" cellspacing="0">
                 <thead>
                 <tr align="left">
-                    <th width="20" align="center"><input type="checkbox" id="checkall" onclick='$("#form-list-tracks").toggleCheckboxes(":not(#checkall)");' /></th>
+                    <th width="20" align="center"><input type="checkbox" id="checkall" onclick='$("#form-list-tracks").toggleCheckboxes(":not(#checkall)");'></th>
                     <th><?php _e('Title', 'mywords'); ?></th>
                     <th nowrap="nowrap" align="center"><?php _e('Blog name', 'mywords'); ?></th>
                     <th><?php _e('Excerpt', 'mywords'); ?></th>
@@ -32,7 +32,7 @@
                 </thead>
                 <tfoot>
                 <tr align="left">
-                    <th width="20" align="center"><input type="checkbox" id="checkall2" onclick='$("#form-list-tracks").toggleCheckboxes(":not(#checkall2)");' /></th>
+                    <th width="20" align="center"><input type="checkbox" id="checkall2" onclick='$("#form-list-tracks").toggleCheckboxes(":not(#checkall2)");'></th>
                     <th><?php _e('Title', 'mywords'); ?></th>
                     <th align="center"><?php _e('Blog name', 'mywords'); ?></th>
                     <th><?php _e('Excerpt', 'mywords'); ?></th>
@@ -47,9 +47,9 @@
                     </tr>
                 <?php endif; ?>
                 <?php foreach ($trackbacks as $trac): ?>
-                    <tr class="<?php echo tpl_cycle("even,odd"); ?>" valign="top">
+                    <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
                         <?php extract($trac); ?>
-                        <td align="center"><input type="checkbox" name="tbs[]" id="tb-<?php echo $tb->id(); ?>" value="<?php echo $tb->id(); ?>" /></td>
+                        <td align="center"><input type="checkbox" name="tbs[]" id="tb-<?php echo $tb->id(); ?>" value="<?php echo $tb->id(); ?>"></td>
                         <td nowrap="nowrap">
                             <strong><?php echo $tb->getVar('title'); ?></strong>
 			<span class="cu-item-options">
@@ -59,7 +59,7 @@
                         <td align="center" nowrap="nowrap"><a href="<?php echo $tb->getVar('url'); ?>" target="_blank"><?php echo $tb->getVar('blog_name'); ?></a></td>
                         <td><?php echo $tb->getVar('excerpt'); ?></td>
                         <td align="center"><?php echo formatTimestamp($tb->getVar('date'), 'l'); ?></td>
-                        <td align="center"><?php if ($post['title']==''): ?><?php _e('Unknow', 'mywords'); ?><?php else: ?><a href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a><?php endif; ?></td>
+                        <td align="center"><?php if ('' == $post['title']): ?><?php _e('Unknow', 'mywords'); ?><?php else: ?><a href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a><?php endif; ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

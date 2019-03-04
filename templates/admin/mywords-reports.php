@@ -88,8 +88,8 @@
                 <td class="text-center">
                     <?php echo $common->timeFormat()->ago($report->when); ?>
                 </td>
-                <td class="text-center <?php echo $report->status == 'accepted' ? 'text-success' : 'text-grey'; ?>" data-status="<?php echo $report->id_report; ?>">
-                    <?php if ($report->status == 'accepted'): ?>
+                <td class="text-center <?php echo 'accepted' == $report->status ? 'text-success' : 'text-grey'; ?>" data-status="<?php echo $report->id_report; ?>">
+                    <?php if ('accepted' == $report->status): ?>
                         <?php echo $common->icons()->getIcon('svg-rmcommon-ok-circle'); ?>
                     <?php else: ?>
                         <?php echo $common->icons()->getIcon('svg-rmcommon-sand-clock'); ?>
@@ -101,7 +101,7 @@
                             <?php echo $common->icons()->getIcon('svg-rmcommon-eye'); ?>
                             <span class="sr-only"><?php _e('View report', 'mywords'); ?></span>
                         </a>
-                        <?php if ($report->status=='accepted'): ?>
+                        <?php if ('accepted' == $report->status): ?>
                             <a href="#" data-do="status" data-action="waiting" data-id="<?php echo $report->id_report; ?>" class="purple status" title="<?php _e('Mark as not read', 'mywords'); ?>">
                                 <?php echo $common->icons()->getIcon('svg-rmcommon-sand-clock'); ?>
                             </a>

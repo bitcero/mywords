@@ -25,6 +25,5 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 $xoopsTpl->assign('xoops_module_header', $xmh);
-include XOOPS_ROOT_PATH."/footer.php";
+include XOOPS_ROOT_PATH . '/footer.php';

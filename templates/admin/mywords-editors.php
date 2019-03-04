@@ -9,7 +9,7 @@
 
         <div class="form-group">
             <label for="short"><?php _e('Short name', 'mywords'); ?></label>
-            <input type="text" class="form-control" name="short" id="short" value="<?php echo $editor->getVar('shortname'); ?>" />
+            <input type="text" class="form-control" name="short" id="short" value="<?php echo $editor->getVar('shortname'); ?>">
         </div>
 
         <div class="form-group">
@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="new_user"><?php _e('Registered user:', 'mywords'); ?></label>
             <?php
-            $ele = new RMFormUser('', 'new_user', false, array($editor->getVar('uid')));
+            $ele = new RMFormUser('', 'new_user', false, [$editor->getVar('uid')]);
             echo $ele->render();
             ?>
         </div>
@@ -28,16 +28,16 @@
         <div class="form-group">
             <label for="perms"><?php _e('Permissions:', 'mywords'); ?></label>
             <div class="checkbox">
-                <label><input type="checkbox" name="perms[]" value="tags"<?php echo in_array("tags", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Create tags', 'mywords'); ?></label>
+                <label><input type="checkbox" name="perms[]" value="tags"<?php echo in_array('tags', $editor->getVar('privileges'), true) ? ' checked' : ''; ?>> <?php _e('Create tags', 'mywords'); ?></label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" name="perms[]" value="cats"<?php echo in_array("cats", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Create categories', 'mywords'); ?></label>
+                <label><input type="checkbox" name="perms[]" value="cats"<?php echo in_array('cats', $editor->getVar('privileges'), true) ? ' checked' : ''; ?>> <?php _e('Create categories', 'mywords'); ?></label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" name="perms[]" value="tracks"<?php echo in_array("tracks", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Send trackbacks', 'mywords'); ?></label>
+                <label><input type="checkbox" name="perms[]" value="tracks"<?php echo in_array('tracks', $editor->getVar('privileges'), true) ? ' checked' : ''; ?>> <?php _e('Send trackbacks', 'mywords'); ?></label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" name="perms[]" value="comms"<?php echo in_array("comms", $editor->getVar('privileges')) ? ' checked="checked"' : ''; ?> /> <?php _e('Manage discussions', 'mywords'); ?></label>
+                <label><input type="checkbox" name="perms[]" value="comms"<?php echo in_array('comms', $editor->getVar('privileges'), true) ? ' checked' : ''; ?>> <?php _e('Manage discussions', 'mywords'); ?></label>
             </div>
         </div>
 
@@ -46,8 +46,8 @@
             <button type="button" class="btn btn-default btn-lg" onclick="history.go(-1);"><?php _e('Cancel', 'mywords'); ?></button>
         </div>
         <?php echo $xoopsSecurity->getTokenHTML(); ?>
-        <input type="hidden" name="action" value="saveedit" />
-        <input type="hidden" name="id" value="<?php echo $editor->id(); ?>" />
+        <input type="hidden" name="action" value="saveedit">
+        <input type="hidden" name="id" value="<?php echo $editor->id(); ?>">
     </form>
 </div>
 
@@ -88,16 +88,16 @@
                     <div class="form-group">
                         <label for="new-perm"><?php _e('Privilieges:', 'mywords'); ?></label>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="perms[]" value="tags" checked="checked" /> <?php _e('Create tags', 'mywords'); ?></label>
+                            <label><input type="checkbox" name="perms[]" value="tags" checked> <?php _e('Create tags', 'mywords'); ?></label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="perms[]" value="cats" checked="checked" /> <?php _e('Create categories', 'mywords'); ?></label>
+                            <label><input type="checkbox" name="perms[]" value="cats" checked> <?php _e('Create categories', 'mywords'); ?></label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="perms[]" value="tracks" checked="checked" /> <?php _e('Send trackbacks', 'mywords'); ?></label>
+                            <label><input type="checkbox" name="perms[]" value="tracks" checked> <?php _e('Send trackbacks', 'mywords'); ?></label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="perms[]" value="comms" checked="checked" /> <?php _e('Manage discussions', 'mywords'); ?></label>
+                            <label><input type="checkbox" name="perms[]" value="comms" checked> <?php _e('Manage discussions', 'mywords'); ?></label>
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@
                     </div>
 
                     <?php echo $xoopsSecurity->getTokenHTML(); ?>
-                    <input type="hidden" name="action" value="new" />
+                    <input type="hidden" name="action" value="new">
                 </form>
             </div>
         </div>
@@ -136,7 +136,7 @@
                     <table class="table table-hover" cellspacing="0">
                         <thead>
                         <tr>
-                            <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#form-list-editors").toggleCheckboxes(":not(#checkall)");' /></th>
+                            <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#form-list-editors").toggleCheckboxes(":not(#checkall)");'></th>
                             <th><?php _e('Display name', 'mywords'); ?></th>
                             <th class="text-center"><?php _e('User', 'mywords'); ?></th>
                             <th class="text-center"><?php _e('Permissions', 'mywords'); ?></th>
@@ -145,7 +145,7 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#form-list-editors").toggleCheckboxes(":not(#checkall)");' /></th>
+                            <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#form-list-editors").toggleCheckboxes(":not(#checkall)");'></th>
                             <th><?php _e('Display name', 'mywords'); ?></th>
                             <th class="text-center"><?php _e('User', 'mywords'); ?></th>
                             <th class="text-center"><?php _e('Permissions', 'mywords'); ?></th>
@@ -159,10 +159,10 @@
                             </tr>
                         <?php endif; ?>
                         <?php foreach ($tpl->get_var('editors') as $editor): ?>
-                            <tr class="<?php echo tpl_cycle("even,odd"); ?>" valign="top">
-                                <td><input type="checkbox" name="editors[]" id="editor-<?php echo $editor->id(); ?>" value="<?php echo $editor->id(); ?>" /></td>
+                            <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
+                                <td><input type="checkbox" name="editors[]" id="editor-<?php echo $editor->id(); ?>" value="<?php echo $editor->id(); ?>"></td>
                                 <td>
-                                    <strong><?php echo $editor->getVar('name'); ?></strong><?php echo $editor->getVar('active')?'':' ['.__('Inactive', 'mywords').']'; ?>
+                                    <strong><?php echo $editor->getVar('name'); ?></strong><?php echo $editor->getVar('active') ? '' : ' [' . __('Inactive', 'mywords') . ']'; ?>
                                     <span class="mw_options">
                     <a href="editors.php?id=<?php echo $editor->id(); ?>&amp;action=edit&amp;page=<?php echo $page; ?>"><?php _e('Edit', 'mywords'); ?></a> |
                                         <?php if ($editor->getVar('active')): ?>
@@ -180,19 +180,19 @@
 
                                         switch ($perm) {
                                             case 'tags':?>
-                                                <img src="../images/tag16.png" title="<?php _e('Create tags', 'mywords'); ?>" alt="" />
+                                                <img src="../images/tag16.png" title="<?php _e('Create tags', 'mywords'); ?>" alt="">
                                                 <?php
                                                 break;
                                             case 'cats': ?>
-                                                <img src="../images/categos.png" title="<?php _e('Create categories', 'mywords'); ?>" alt="" />
+                                                <img src="../images/categos.png" title="<?php _e('Create categories', 'mywords'); ?>" alt="">
                                                 <?php
                                                 break;
                                             case 'tracks': ?>
-                                                <img src="../images/traks.png" title="<?php _e('Send trackbacks and pings', 'mywords'); ?>" alt="" />
+                                                <img src="../images/traks.png" title="<?php _e('Send trackbacks and pings', 'mywords'); ?>" alt="">
                                                 <?php
                                                 break;
                                             case 'comms': ?>
-                                                <img src="../images/comment.png" title="<?php _e('Enable/disable discussions', 'mywords'); ?>" alt="" />
+                                                <img src="../images/comment.png" title="<?php _e('Enable/disable discussions', 'mywords'); ?>" alt="">
                                                 <?php
                                                 break;
                                         }

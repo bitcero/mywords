@@ -25,8 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-require 'header.php';
+require __DIR__ . '/header.php';
 
 class MyWordsSectionReports
 {
@@ -72,7 +71,7 @@ class MyWordsSectionReports
         }
 
         // Get reports
-        $sql = "SELECT * FROM " . $xoopsDB->prefix('mod_mywords_reports') . " WHERE post = $id ORDER BY `when` DESC";
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('mod_mywords_reports') . " WHERE post = $id ORDER BY `when` DESC";
         $result = $xoopsDB->query($sql);
 
         if ($xoopsDB->getRowsNum($result) <= 0) {
@@ -86,13 +85,13 @@ class MyWordsSectionReports
         $reports = [];
         $report = new MWReport();
 
-        while ($row = $xoopsDB->fetchArray($result)) {
+        while (false !== ($row = $xoopsDB->fetchArray($result))) {
             $report->assignVars($row);
             $values = $report->getValues();
 
             if ($values['user'] > 0) {
                 $user = new XoopsUser($values['user']);
-                if (false == $user->isNew()) {
+                if (false === $user->isNew()) {
                     $values['user'] = (object) [
                         'id' => $report->user,
                         'name' => $user->getVar('name'),
@@ -104,7 +103,7 @@ class MyWordsSectionReports
                         'id' => $report->user,
                         'name' => $report->name,
                         'uname' => $report->name,
-                        'email' => $report->email
+                        'email' => $report->email,
                     ];
                 }
             } else {
@@ -112,7 +111,7 @@ class MyWordsSectionReports
                     'id' => $report->user,
                     'name' => $report->name,
                     'uname' => $report->name,
-                    'email' => $report->email
+                    'email' => $report->email,
                 ];
             }
 
@@ -126,7 +125,7 @@ class MyWordsSectionReports
         $common->template()->add_script('reports.min.js', 'mywords', ['id' => 'reports-js', 'footer' => 1, 'directory' => 'include']);
         $common->template()->add_style('admin.min.css', 'mywords', ['id' => 'mywords-css']);
 
-        include '../include/mw-lang.php';
+        require  dirname(__DIR__) . '/include/mw-lang.php';
 
         $common->breadcrumb()->add_crumb(sprintf(__('Reports for %s', 'mywords'), $post->title));
         $common->template()->assign('xoops_pagetitle', sprintf(__('Reports for %s', 'mywords'), $post->title));
@@ -161,14 +160,14 @@ class MyWordsSectionReports
             $user = new XoopsUser($report->user);
             $common->template()->assign('user', [
                 'id' => $user->getVar('uid'),
-                'name' => $user->getVar('name') == '' ? $user->getVar('uname') : $user->getVar('name'),
-                'email' => $user->getVar('email')
+                'name' => '' == $user->getVar('name') ? $user->getVar('uname') : $user->getVar('name'),
+                'email' => $user->getVar('email'),
             ]);
         } else {
             $common->template()->assign('user', [
                 'id' => 0,
                 'name' => $report->name,
-                'email' => $report->email
+                'email' => $report->email,
             ]);
         }
 
@@ -184,7 +183,7 @@ class MyWordsSectionReports
                 'windowId' => 'mywords-report-details',
                 'width' => 'small',
                 'color' => 'primary',
-                'icon' => 'svg-rmcommon-report'
+                'icon' => 'svg-rmcommon-report',
             ]
         );
     }
@@ -202,10 +201,10 @@ class MyWordsSectionReports
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
 
-        $sql = "UPDATE " . $xoopsDB->prefix("mod_mywords_reports") . " SET status='$status' WHERE id_report IN (" . implode(",", $ids) . ")";
+        $sql = 'UPDATE ' . $xoopsDB->prefix('mod_mywords_reports') . " SET status='$status' WHERE id_report IN (" . implode(',', $ids) . ')';
 
         if ($xoopsDB->queryF($sql)) {
-            $statusText = $status == 'accepted' ? 'accepted' : 'waiting';
+            $statusText = 'accepted' == $status ? 'accepted' : 'waiting';
 
             $common->ajax()->response(
                 sprintf(__('Reports status updated to "%s" successfully', 'mywords'), $statusText),
@@ -213,11 +212,11 @@ class MyWordsSectionReports
                 1,
                 [
                     'notify' => [
-                        'type' => $status == 'accepted' ? 'alert-success' : 'alert-purple',
-                        'icon' => 'svg-rmcommon-ok-circle'
+                        'type' => 'accepted' == $status ? 'alert-success' : 'alert-purple',
+                        'icon' => 'svg-rmcommon-ok-circle',
                     ],
                     'status' => $status,
-                    'ids' => $ids
+                    'ids' => $ids,
                 ]
             );
         } else {
@@ -240,7 +239,7 @@ class MyWordsSectionReports
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
 
-        $sql = "DELETE FROM " . $xoopsDB->prefix("mod_mywords_reports") . " WHERE id_report IN (" . implode(",", $ids) . ")";
+        $sql = 'DELETE FROM ' . $xoopsDB->prefix('mod_mywords_reports') . ' WHERE id_report IN (' . implode(',', $ids) . ')';
 
         if ($xoopsDB->queryF($sql)) {
             $common->ajax()->response(
@@ -250,9 +249,9 @@ class MyWordsSectionReports
                 [
                     'notify' => [
                         'type' => 'alert-success',
-                        'icon' => 'svg-rmcommon-ok-circle'
+                        'icon' => 'svg-rmcommon-ok-circle',
                     ],
-                    'ids' => $ids
+                    'ids' => $ids,
                 ]
             );
         } else {

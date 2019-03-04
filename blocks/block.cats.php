@@ -25,21 +25,20 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwpost.class.php';
-include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwcategory.class.php';
-include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwfunctions.php';
+require_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwpost.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwcategory.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwfunctions.php';
 
 function mywordsBlockCats($options)
 {
     global $xoopsModuleConfig, $xoopsModule;
-    
-    $categos = array();
+
+    $categos = [];
     MWFunctions::categos_list($categos, 0, 0, $options[0]);
-    $block = array();
-    $mc = $xoopsModule && $xoopsModule->getVar('dirname')=='mywords' ? $xoopsModuleConfig : RMSettings::module_settings('mywords');
+    $block = [];
+    $mc = $xoopsModule && 'mywords' == $xoopsModule->getVar('dirname') ? $xoopsModuleConfig : RMSettings::module_settings('mywords');
     foreach ($categos as $k) {
-        $ret = array();
+        $ret = [];
         $cat = new MWCategory();
         $cat->assignVars($k);
         $cat->loadPosts();
@@ -52,9 +51,9 @@ function mywordsBlockCats($options)
         $ret['link'] = $cat->permalink();
         $block['categos'][] = $ret;
     }
-    
+
     RMTemplate::get()->add_style('mwblocks.css', 'mywords');
-    
+
     return $block;
 }
 
@@ -69,11 +68,11 @@ function mywordsBlockCatsEdit($options)
             </label>
             <div class="controls">
                 <label class="radio inline">
-                    <input type="radio" name="options[0]" value="1"'<?php echo $options[0] ? ' checked="checked"' : ''; ?>>
+                    <input type="radio" name="options[0]" value="1"'<?php echo $options[0] ? ' checked' : ''; ?>>
                     <?php _e('Yes', 'mywords'); ?>
                 </label>
                 <label class="radio inline">
-                    <input type="radio" name="options[0]" value="0"'<?php echo $options[0]<=0 ? ' checked="checked"' : ''; ?>>
+                    <input type="radio" name="options[0]" value="0"'<?php echo $options[0] <= 0 ? ' checked' : ''; ?>>
                     <?php _e('No', 'mywords'); ?>
                 </label>
             </div>
@@ -85,11 +84,11 @@ function mywordsBlockCatsEdit($options)
             </label>
             <div class="controls">
                 <label class="radio inline">
-                    <input type="radio" name="options[1]" value="1"'<?php echo $options[1] ? ' checked="checked"' : ''; ?>>
+                    <input type="radio" name="options[1]" value="1"'<?php echo $options[1] ? ' checked' : ''; ?>>
                     <?php _e('Yes', 'mywords'); ?>
                 </label>
                 <label class="radio inline">
-                    <input type="radio" name="options[1]" value="0"'<?php echo $options[1]<=0 ? ' checked="checked"' : ''; ?>>
+                    <input type="radio" name="options[1]" value="0"'<?php echo $options[1] <= 0 ? ' checked' : ''; ?>>
                     <?php _e('No', 'mywords'); ?>
                 </label>
             </div>

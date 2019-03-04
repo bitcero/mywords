@@ -25,7 +25,6 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 $mwSettings = $common->settings()::module_settings('mywords');
 
 if ($mwSettings->reports <= 0) {
@@ -44,7 +43,7 @@ if (!$xoopsUser && $mwSettings->report_anonym <= 0) {
     );
 }
 
-if ($id<=0) {
+if ($id <= 0) {
     $common->uris()::redirect_with_message(
         __('You must provide a valid post ID', 'mywords'),
         MW_URL,
@@ -82,7 +81,7 @@ if ('submit' == $action) {
             );
         }
 
-        if (false == checkEmail($mail)) {
+        if (false === checkEmail($mail)) {
             $common->uris()::redirect_with_message(
                 __('You must provide a valid email!', 'mywords'),
                 $post->permalink(),
@@ -115,7 +114,7 @@ if ('submit' == $action) {
     } else {
         $where = "name = '$name'";
     }
-    $sql = "SELECT COUNT(*) FROM " . $xoopsDB->prefix("mod_mywords_reports") . " WHERE $where AND title = '$title'";
+    $sql = 'SELECT COUNT(*) FROM ' . $xoopsDB->prefix('mod_mywords_reports') . " WHERE $where AND title = '$title'";
 
     list($total) = $xoopsDB->fetchRow($xoopsDB->query($sql));
 
@@ -154,9 +153,9 @@ if ('submit' == $action) {
     exit();
 }
 
-$xoopsOption['template_main'] = 'mywords-report.tpl';
+$GLOBALS['xoopsOption']['template_main'] = 'mywords-report.tpl';
 $xoopsOption['module_subpage'] = 'report';
-include 'header.php';
+require __DIR__ . '/header.php';
 
 $xoopsTpl->assign('xoops_pagetitle', sprintf(__('Report post "%s"', 'mywords'), $post->title));
 $xoopsTpl->assign('reportAnonym', !isset($xoopsUser));
@@ -171,7 +170,7 @@ if ($xoopsModuleConfig['permalinks'] > 1) {
 $xoopsTpl->assign('reportLink', $reportLink);
 
 $xoopsTpl->assign('post', [
-    'id' => $post->id()
+    'id' => $post->id(),
 ]);
 
 // Captcha
@@ -189,4 +188,4 @@ $xoopsTpl->assign('lang', [
     'cancel' => __('Cancel', 'mywords'),
 ]);
 
-require 'footer.php';
+require __DIR__ . '/footer.php';

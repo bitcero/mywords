@@ -25,39 +25,37 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-class MWMeta extends RMObject
+class mwmeta extends RMObject
 {
     public function __construct($id = null)
     {
         $this->db = XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mod_mywords_meta");
+        $this->_dbtable = $this->db->prefix('mod_mywords_meta');
         $this->setNew();
         $this->initVarsFromTable();
-        
-        if ($id==null) {
+
+        if (null === $id) {
             return;
         }
-    
+
         if ($this->loadValues($id)) {
             $this->unsetNew();
+
             return true;
-        } else {
-            return;
         }
     }
-    
+
     public function id()
     {
         return $this->getVar('id_meta');
     }
-    
+
     public function save()
     {
         if ($this->isNew()) {
             return $this->saveToTable();
-        } else {
-            return $this->updateTable();
         }
+
+        return $this->updateTable();
     }
 }

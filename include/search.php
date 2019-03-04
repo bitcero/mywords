@@ -25,53 +25,57 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 if (!defined('XOOPS_ROOT_PATH')) {
-    die("XOOPS root path not defined");
+    die('XOOPS root path not defined');
 }
 
 /**
  * Función para realizar búsquedas
+ * @param mixed $qa
+ * @param mixed $andor
+ * @param mixed $limit
+ * @param mixed $offset
+ * @param mixed $userid
  */
 function mywords_search($qa, $andor, $limit, $offset, $userid)
 {
     global $xoopsUser;
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    
-    include_once XOOPS_ROOT_PATH.'/modules/mywords/class/mwpost.class.php';
-    $util =& RMUtilities::get();
-    $mc =& RMSettings::module_settings('mywords');
-    
-    $sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts");
+
+    require_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwpost.class.php';
+    $util = &RMUtilities::get();
+    $mc = &RMSettings::module_settings('mywords');
+
+    $sql = 'SELECT * FROM ' . $db->prefix('mod_mywords_posts');
     $adds = '';
-    
+
     if (is_array($qa) && $count = count($qa)) {
         $adds = '';
-        for ($i=0;$i<$count;$i++) {
-            $adds .= $adds=='' ? "(title LIKE '%$qa[$i]%' OR content LIKE '%$qa[$i]%')" : " $andor (title LIKE '%$qa[$i]%' OR content LIKE '%$qa[$i]%')";
+        for ($i = 0; $i < $count; $i++) {
+            $adds .= '' == $adds ? "(title LIKE '%$qa[$i]%' OR content LIKE '%$qa[$i]%')" : " $andor (title LIKE '%$qa[$i]%' OR content LIKE '%$qa[$i]%')";
         }
     }
-    
-    $sql .= $adds!='' ? " WHERE ".$adds : '';
-    if ($userid>0) {
-        $sql .= ($adds!='' ? " AND " : " WHERE ")."author='$userid'";
+
+    $sql .= '' != $adds ? ' WHERE ' . $adds : '';
+    if ($userid > 0) {
+        $sql .= ('' != $adds ? ' AND ' : ' WHERE ') . "author='$userid'";
     }
-    $sql .= " ORDER BY pubdate DESC";
+    $sql .= ' ORDER BY pubdate DESC';
 
     $i = 0;
     $result = $db->query($sql, $limit, $offset);
-    $ret = array();
-    while ($row = $db->fetchArray($result)) {
+    $ret = [];
+    while (false !== ($row = $db->fetchArray($result))) {
         $post = new MWPost();
         $post->assignVars($row);
-        $ret[$i]['image'] = "images/post.png";
+        $ret[$i]['image'] = 'images/post.png';
         $ret[$i]['link'] = $post->permalink();
         $ret[$i]['title'] = $post->getVar('title');
         $ret[$i]['time'] = $post->getVar('pubdate');
         $ret[$i]['uid'] = $post->getVar('author');
-        $ret[$i]['desc'] = substr(strip_tags($post->content()), 0, 150);
+        $ret[$i]['desc'] = mb_substr(strip_tags($post->content()), 0, 150);
         $i++;
     }
-    
+
     return $ret;
 }

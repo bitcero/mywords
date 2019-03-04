@@ -25,7 +25,6 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 class MWImporter
 {
     use RMModuleAjax;
@@ -54,6 +53,7 @@ class MWImporter
         }
 
         $cache = json_decode(file_get_contents($file), true);
+
         return $cache;
     }
 
@@ -87,30 +87,30 @@ class MWImporter
         }
 
         // Get categories
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_categories") . ' ORDER BY parentid ASC';
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_categories') . ' ORDER BY parentid ASC';
         $result = $xoopsDB->query($sql);
-        $categories = array();
-        while ($row = $xoopsDB->fetchArray($result)) {
+        $categories = [];
+        while (false !== ($row = $xoopsDB->fetchArray($result))) {
             $categories[] = [
                 'name' => $row['name'],
-                'id' => $row['categoryid']
+                'id' => $row['categoryid'],
             ];
         }
 
         // Get articles
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_items") . ' ORDER BY datesub ASC';
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_items') . ' ORDER BY datesub ASC';
         $result = $xoopsDB->query($sql);
-        $articles = array();
-        while ($row = $xoopsDB->fetchArray($result)) {
+        $articles = [];
+        while (false !== ($row = $xoopsDB->fetchArray($result))) {
             $articles[] = [
                 'title' => $row['title'],
-                'id' => $row['itemid']
+                'id' => $row['itemid'],
             ];
         }
 
         $this->ajax_response(__('Data collected', 'mywords'), 0, 1, [
             'categories' => $categories,
-            'articles' => $articles
+            'articles' => $articles,
         ]);
     }
 
@@ -137,12 +137,12 @@ class MWImporter
                 0,
                 1,
                 [
-                    'result' => 'error'
+                    'result' => 'error',
                 ]
             );
         }
 
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_categories") . " WHERE categoryid = $id";
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_categories') . " WHERE categoryid = $id";
         $result = $xoopsDB->query($sql);
 
         if ($xoopsDB->getRowsNum($result)) {
@@ -152,7 +152,7 @@ class MWImporter
                     0,
                     1,
                     [
-                        'result' => 'error'
+                        'result' => 'error',
                     ]
                 );
             }
@@ -224,12 +224,12 @@ class MWImporter
                 0,
                 1,
                 [
-                    'result' => 'error'
+                    'result' => 'error',
                 ]
             );
         }
 
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_items") . " WHERE itemid = $id";
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_items') . " WHERE itemid = $id";
         $result = $xoopsDB->query($sql);
 
         if ($xoopsDB->getRowsNum($result)) {
@@ -239,7 +239,7 @@ class MWImporter
                     0,
                     1,
                     [
-                        'result' => 'error'
+                        'result' => 'error',
                     ]
                 );
             }
@@ -291,7 +291,6 @@ class MWImporter
                 ['result' => 'error']
             );
         }
-
 
         $this->ajax_response(
             sprintf(__('Article %s imported successfully!', 'mywords'), '<strong>' . $post->title . '</strong>'),

@@ -25,12 +25,14 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 set_time_limit(0);
 /**
  * This function show an error message
+ * @param mixed $msg
+ * @param mixed $token
+ * @param mixed $redirect
  */
-function return_error($msg, $token=true, $redirect='')
+function return_error($msg, $token = true, $redirect = '')
 {
     global $xoopsSecurity;
 
@@ -38,7 +40,7 @@ function return_error($msg, $token=true, $redirect='')
     if ($token) {
         $ret['token'] = $xoopsSecurity->createToken();
     }
-    if ($redirect!='') {
+    if ('' != $redirect) {
         $ret['redirect'] = $redirect;
     }
 
@@ -48,8 +50,8 @@ function return_error($msg, $token=true, $redirect='')
 
 $no_includes = true;
 
-include '../../../mainfile.php';
-include '../header.php';
+require  dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
+require  dirname(__DIR__) . '/header.php';
 
 include XOOPS_ROOT_PATH . '/modules/mywords/class/mwtrackback.php';
 
@@ -77,8 +79,8 @@ if (!isset($xoopsUser) || (!$xoopsUser->isAdmin() && !$mc->submit)) {
 $editor = new MWEditor();
 $editor->from_user($author);
 
-if ($op=='saveedit') {
-    if (!isset($id) || $id<=0) {
+if ('saveedit' == $op) {
+    if (!isset($id) || $id <= 0) {
         return_error(__('You must provide a valid post ID', 'mywords'), 0, 'posts.php');
         die();
     }
@@ -89,11 +91,11 @@ if ($op=='saveedit') {
         die();
     }
 
-    if (!$editor->id()==$post->getVar('author') && !$xoopsUser->isAdmin()) {
+    if (!$editor->id() == $post->getVar('author') && !$xoopsUser->isAdmin()) {
         return_error(__('You are not allowed to do this action!', 'mywords'), false, MW_URL);
     }
 
-    $query = 'op=edit&id='.$id;
+    $query = 'op=edit&id=' . $id;
     $edit = true;
 } else {
     $query = 'op=new';
@@ -106,42 +108,42 @@ if ($op=='saveedit') {
  */
 
 // Verify title
-if ($title=='') {
+if ('' == $title) {
     return_error(__('You must provide a title for this post', 'mywords'), true);
     die();
 }
 
-if (!isset($shortname) || $shortname=='') {
+if (!isset($shortname) || '' == $shortname) {
     $shortname = TextCleaner::getInstance()->sweetstring($title);
 } else {
     $shortname = TextCleaner::getInstance()->sweetstring($shortname);
 }
 
 // Check content
-if ($content=='' && $format != 'image') {
+if ('' == $content && 'image' != $format) {
     return_error(__('Content for this post has not been provided!', 'mywords'), true);
     die();
 }
 
 // Categories
 if (!isset($categories) || empty($categories)) {
-    $categories = array(MWFunctions::get()->default_category_id());
+    $categories = [MWFunctions::get()->default_category_id()];
 }
 
 // Check publish options
-if ($visibility=='password' && $vis_password=='') {
+if ('password' == $visibility && '' == $vis_password) {
     return_error(__('You must provide a password for this post or select another visibility option', 'mywords'), true);
     die();
 }
 
-$time = explode("-", $schedule);
+$time = explode('-', $schedule);
 $schedule = mktime($time[3], $time[4], 0, $time[1], $time[0], $time[2]);
-if ($schedule<=time()) {
+if ($schedule <= time()) {
     $schedule = 0;
 }
 
 $editor = new MWEditor($xoopsUser->uid(), 'user');
-if ($editor ->isNew()) {
+if ($editor->isNew()) {
     $editor->setVar('uid', $xoopsUser->uid());
     $editor->setVar('shortname', $xoopsUser->getVar('uname'));
     $editor->setVar('name', $xoopsUser->getVar('name'));
@@ -174,7 +176,7 @@ $post->setVar('password', $vis_password);
 $post->setVar('author', $editor->id());
 $post->setVar('comstatus', isset($comstatus) ? $comstatus : 0);
 $post->setVar('pingstatus', isset($pingstatus) ? $pingstatus : 0);
-$post->setVar('authorname', $editor->name != '' ? $editor->name : $editor->shortname);
+$post->setVar('authorname', '' != $editor->name ? $editor->name : $editor->shortname);
 $post->setVar('image', $image);
 $post->setVar('format', $format);
 
@@ -191,11 +193,11 @@ if ($post->isNew()) {
     $post->setVar('created', time());
 }
 
-if ($status!='draft') {
-    if ($schedule<=time() && !$edit) {
+if ('draft' != $status) {
+    if ($schedule <= time() && !$edit) {
         $post->setVar('pubdate', time());
-    } elseif ($schedule<=time() && $edit) {
-        $post->setVar('pubdate', $post->getVar('pubdate')==0 ? time() : $post->getVar('pubdate'));
+    } elseif ($schedule <= time() && $edit) {
+        $post->setVar('pubdate', 0 == $post->getVar('pubdate') ? time() : $post->getVar('pubdate'));
     } else {
         $post->setVar('pubdate', 0);
     }
@@ -222,18 +224,18 @@ foreach ($meta as $data) {
 RMEvents::get()->run_event('mywords.saving.post', $post);
 
 // Add trackbacks uris
-$toping = array();
-$pinged = $edit ? $post->getVar('pinged') : array();
-if ($trackbacks!='' && $post->getVar('pingstatus')) {
-    $trackbacks = explode(" ", $trackbacks);
-} elseif ($trackbacks=='' && $post->getVar('pingstatus')) {
+$toping = [];
+$pinged = $edit ? $post->getVar('pinged') : [];
+if ('' != $trackbacks && $post->getVar('pingstatus')) {
+    $trackbacks = explode(' ', $trackbacks);
+} elseif ('' == $trackbacks && $post->getVar('pingstatus')) {
     $tb = new MWTrackback('', '');
     $trackbacks = $tb->auto_discovery($content);
 }
 
 if (!empty($trackbacks)) {
     foreach ($trackbacks as $t) {
-        if (!empty($pinged) && in_array($t, $pinged)) {
+        if (!empty($pinged) && in_array($t, $pinged, true)) {
             continue;
         }
         $toping[] = $t;
@@ -258,16 +260,15 @@ if ($return) {
         $url .= $frontend ? '?edit=' . $post->id() : 'posts.php?op=edit&id=' . $post->id();
     }
 
-    $rtn = array(
-        'message'   => $edit ? __('Post updated successfully', 'mywords') : __('Post saved successfully', 'mywords'),
-        'token'     => $xoopsSecurity->createToken(),
-        'link'      => '<strong>'.__('Permalink:', 'mywords').'</strong> '.$post->permalink(),
-        'post'      => $post->id(),
-        'url'       => $url
-    );
+    $rtn = [
+        'message' => $edit ? __('Post updated successfully', 'mywords') : __('Post saved successfully', 'mywords'),
+        'token' => $xoopsSecurity->createToken(),
+        'link' => '<strong>' . __('Permalink:', 'mywords') . '</strong> ' . $post->permalink(),
+        'post' => $post->id(),
+        'url' => $url,
+    ];
     echo json_encode($rtn);
     die();
-} else {
-    return_error(__('Errors ocurred while trying to save this post.', 'mywords').'<br />'.$post->errors(), true);
-    die();
 }
+    return_error(__('Errors ocurred while trying to save this post.', 'mywords') . '<br>' . $post->errors(), true);
+    die();

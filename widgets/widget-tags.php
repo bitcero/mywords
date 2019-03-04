@@ -24,17 +24,18 @@
  * @package      mywords
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
+ * @param null|mixed $post
  */
 
 /**
-* Widget that show tags selection in a post form
-*/
+ * Widget that show tags selection in a post form
+ */
 function mywords_widget_addtags($post = null)
 {
     global $xoopsModuleConfig, $xoopsUser, $allowed_tags;
-    
+
     $widget['title'] = __('Add Tags', 'admin_mywords');
-    RMTemplate::get()->add_script(XOOPS_URL.'/modules/mywords/include/js/scripts.php?file=tags.js');
+    RMTemplate::get()->add_script(XOOPS_URL . '/modules/mywords/include/js/scripts.php?file=tags.js');
     $widget['icon'] = '';
 
     $edit = false;
@@ -45,7 +46,7 @@ function mywords_widget_addtags($post = null)
             $edit = true;
         }
     }
-    
+
     ob_start(); ?>
 <div class="rmc_widget_content_reduced">
 <form id="mw-post-tags-form">
@@ -60,14 +61,14 @@ function mywords_widget_addtags($post = null)
     <span class="help-block"><em><?php _e('Separate multiple tags with commas', 'admin_mywords'); ?></em></span>
 </div>
 <?php endif; ?>
-<?php $tags = $edit ? $post->tags() : array(); ?>
+<?php $tags = $edit ? $post->tags() : []; ?>
 <div id="tags-container">
     <span class="tip_legends" style="<?php echo empty($tags) ? 'display: none;' : ''; ?>">
         <?php _e('Used Tags', 'admin_mywords'); ?>
     </span>
     <?php
     foreach ($tags as $tag): ?>
-    <label><input type='checkbox' name='tags[]' checked='checked' value='<?php echo $tag['tag']; ?>' /><?php echo $tag['tag']; ?></label>
+    <label><input type='checkbox' name='tags[]' checked value='<?php echo $tag['tag']; ?>'><?php echo $tag['tag']; ?></label>
     <?php
     endforeach;
     unset($tags); ?>
@@ -85,5 +86,6 @@ function mywords_widget_addtags($post = null)
 </div>
 <?php
     $widget['content'] = ob_get_clean();
+
     return $widget;
 }

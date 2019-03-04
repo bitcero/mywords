@@ -50,7 +50,7 @@
                         <td align="right" width="20"><a href="<?php echo RMCURL; ?>/tags.php"><span><?php echo $numtags; ?></span></a></td>
                         <td><a href="<?php echo XOOPS_URL; ?>/modules/mywords/admin/tags.php"><?php _e('Tags', 'mywords'); ?></a></td>
                     </tr>
-                </table><br />
+                </table><br>
             </div>
             <div class="box-footer">
                 <?php _e('Current version:', 'mywords'); ?> <strong><?php echo RMModules::format_module_version($xoopsModule->getInfo('rmversion')); ?></strong>
@@ -71,7 +71,7 @@
             'icon' => 'svg-rmcommon-comments',
             'counter' => $numcoms,
             'color' => 'orange',
-            'footer' => __('Recevied Comments', 'dtransport')
+            'footer' => __('Recevied Comments', 'dtransport'),
         ]);
         echo $counter->getHtml();
         ?>
@@ -86,8 +86,8 @@
             <?php foreach ($drafts as $post): ?>
                 <div class="box-content mw_tools">
                     <a href="posts.php?op=edit&amp;id=<?php echo $post->id(); ?>" class="item">
-                        <?php echo $post->getVar('title'); ?><br />
-                        <span><?php echo substr(strip_tags($post->content(true)), 0, 150).'...'; ?></span>
+                        <?php echo $post->getVar('title'); ?><br>
+                        <span><?php echo mb_substr(strip_tags($post->content(true)), 0, 150) . '...'; ?></span>
                     </a>
 
                 </div>
@@ -109,7 +109,7 @@
             'icon' => 'svg-rmcommon-sand-clock',
             'counter' => $numpending,
             'color' => 'pink',
-            'footer' => __('Posts waiting for review', 'dtransport')
+            'footer' => __('Posts waiting for review', 'dtransport'),
         ]);
         $counter->display();
         ?>
@@ -127,8 +127,8 @@
             <?php foreach ($pendings as $post): ?>
                 <div class="box-content">
                     <a href="posts.php?op=edit&amp;id=<?php echo $post->id(); ?>" class="item">
-                        <?php echo $post->getVar('title'); ?><br />
-                        <span><?php echo substr(strip_tags($post->content(true)), 0, 150).'...'; ?></span>
+                        <?php echo $post->getVar('title'); ?><br>
+                        <span><?php echo mb_substr(strip_tags($post->content(true)), 0, 150) . '...'; ?></span>
                     </a>
 
                 </div>
@@ -138,11 +138,11 @@
         <!-- / End Pending of Review -->
     </div>
 
-    <?php if (isset($htResult) && $htResult!==true): ?>
+    <?php if (isset($htResult) && true !== $htResult): ?>
     <div class="size-1" data-dashboard="item">
             <div class="alert alert-block">
                 <h4><?php _e('Important!', 'mywords'); ?></h4>
-                <p><?php _e('MyWords tried to write your htaccess file in order to enable friendly urls but has been impossible. Please copy and paste next code into your htaccess file.', 'mywords'); ?></p><br />
+                <p><?php _e('MyWords tried to write your htaccess file in order to enable friendly urls but has been impossible. Please copy and paste next code into your htaccess file.', 'mywords'); ?></p><br>
                 <pre><?php echo $htResult; ?></pre>
             </div>
     </div>
@@ -161,7 +161,7 @@
             'mainButton' => [
                 'caption' => __('Website', 'mywords'),
                 'link' => 'https://www.eduardocortes.mx',
-                'icon' => 'svg-rmcommon-user'
+                'icon' => 'svg-rmcommon-user',
             ],
             'color' => 'blue',
             'highlight' => 'bottom',
@@ -169,24 +169,24 @@
             'social' => [
                 [
                     'icon' => 'svg-rmcommon-world',
-                    'link' => 'https://www.eduardocortes.mx/blog/'
+                    'link' => 'https://www.eduardocortes.mx/blog/',
                 ],
                 [
                     'icon' => 'svg-rmcommon-twitter',
-                    'link' => 'https://www.twitter.com/bitcero'
+                    'link' => 'https://www.twitter.com/bitcero',
                 ],
                 [
                     'icon' => 'svg-rmcommon-facebook',
-                    'link' => 'https://www.facebook.com/bitcero'
+                    'link' => 'https://www.facebook.com/bitcero',
                 ],
                 [
                     'icon' => 'svg-rmcommon-instagram',
-                    'link' => 'https://www.instagram.com/bitcero'
+                    'link' => 'https://www.instagram.com/bitcero',
                 ],
                 [
                     'icon' => 'svg-rmcommon-github',
-                    'link' => 'https://www.github.com/bitcero'
-                ]
+                    'link' => 'https://www.github.com/bitcero',
+                ],
             ],
         ]);
         $user->display();

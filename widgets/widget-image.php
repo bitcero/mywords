@@ -24,6 +24,7 @@
  * @package      mywords
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
+ * @param null|mixed $post
  */
 
 /**
@@ -32,10 +33,10 @@
 function mywords_widget_image($post = null)
 {
     global $xoopsSecurity, $xoopsModuleConfig, $xoopsUser, $rm_config;
-    
-    $type   = RMHttpRequest::request('type', 'string', '');
 
-    $widget = array();
+    $type = RMHttpRequest::request('type', 'string', '');
+
+    $widget = [];
     $widget['title'] = __('Default Image', 'mywords');
     $util = new RMUtilities();
 
@@ -50,7 +51,8 @@ function mywords_widget_image($post = null)
     }
 
     $widget['content'] = '<form name="frmDefimage" id="frm-defimage" method="post">';
-    $widget['content'] .= $util->image_manager('image', 'image', $params, array('accept' => 'thumbnail', 'multiple' => 'no'));
+    $widget['content'] .= $util->image_manager('image', 'image', $params, ['accept' => 'thumbnail', 'multiple' => 'no']);
     $widget['content'] .= '</form>';
+
     return $widget;
 }

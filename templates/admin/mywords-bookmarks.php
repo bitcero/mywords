@@ -23,11 +23,11 @@
             <label for="edit-icon"><?php _e('Icon:', 'mywords'); ?></label>
             <div class="icons_sel" id="edit-icon">
                 <?php foreach ($icons as $id => $icon): ?>
-                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['name']; ?>" id="icon-<?php echo $id; ?>" title="<?php echo $icon['name']; ?>"<?php echo $book->getVar('icon')==$icon['name']?' class="selected"' : ''; ?> />
+                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['name']; ?>" id="icon-<?php echo $id; ?>" title="<?php echo $icon['name']; ?>"<?php echo $book->getVar('icon') == $icon['name'] ? ' class="selected"' : ''; ?>>
                 <?php endforeach; ?>
-                <input type="hidden" name="icon" id="new-icon-h" value="<?php echo $book->getVAr('icon'); ?>" />
+                <input type="hidden" name="icon" id="new-icon-h" value="<?php echo $book->getVAr('icon'); ?>">
             </div>
-            <span class="help-block"><?php echo sprintf(__('You can create new icons by uploading files to %s folder.', 'mywords'), '<code>'.XOOPS_ROOT_PATH.'/modules/mywords/images</code>'); ?>
+            <span class="help-block"><?php echo sprintf(__('You can create new icons by uploading files to %s folder.', 'mywords'), '<code>' . XOOPS_ROOT_PATH . '/modules/mywords/images</code>'); ?>
         </div>
 
 		<div class="form-group">
@@ -35,12 +35,12 @@
             <button type="button" class="btn btn-default btn-lg" onclick="history.go(-1);"><?php _e('Cancel', 'mywords'); ?></button>
         </div>
         <?php echo $xoopsSecurity->getTokenHTML(); ?>
-        <input type="hidden" name="action" value="saveedit" />
-        <input type="hidden" name="id" value="<?php echo $book->id(); ?>" />
+        <input type="hidden" name="action" value="saveedit">
+        <input type="hidden" name="id" value="<?php echo $book->id(); ?>">
 	</form>
 	</div>
 
-<?php else: ?>
+<?php else : ?>
 
 	<div class="alert alert-info fade in">
         <span class="close" data-dismiss="alert">&times;</span>
@@ -76,10 +76,10 @@
                             <label for="new-icon"><?php _e('Icon:', 'mywords'); ?></label>
                             <div class="icons_sel" id="new-icon">
                                 <?php foreach ($icons as $id => $icon): ?>
-                                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['name']; ?>" id="icon-<?php echo $id; ?>" title="<?php echo $icon['name']; ?>" />
+                                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['name']; ?>" id="icon-<?php echo $id; ?>" title="<?php echo $icon['name']; ?>">
                                 <?php endforeach; ?>
-                                <input type="hidden" name="icon" id="new-icon-h" value="" />
-                                <small class="help-block"><?php echo sprintf(__('You can create new icons by uploading files to %s folder.', 'mywords'), XOOPS_ROOT_PATH.'/modules/mywords/images'); ?></small>
+                                <input type="hidden" name="icon" id="new-icon-h" value="">
+                                <small class="help-block"><?php echo sprintf(__('You can create new icons by uploading files to %s folder.', 'mywords'), XOOPS_ROOT_PATH . '/modules/mywords/images'); ?></small>
                             </div>
                         </div>
 
@@ -88,7 +88,7 @@
                         </div>
 
                         <?php echo $xoopsSecurity->getTokenHTML(); ?>
-                        <input type="hidden" name="action" value="new" />
+                        <input type="hidden" name="action" value="new">
                     </form>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                         <table class="table table-hover" cellspacing="0">
                             <thead>
                             <tr>
-                                <th width="20" align="center"><input type="checkbox" id="checkall" onclick='$("#form-list-book").toggleCheckboxes(":not(#checkall)");' /></th>
+                                <th width="20" align="center"><input type="checkbox" id="checkall" onclick='$("#form-list-book").toggleCheckboxes(":not(#checkall)");'></th>
                                 <th>&nbsp;</th>
                                 <th align="left"><?php _e('Title', 'mywords'); ?></th>
                                 <th align="left"><?php _e('Description', 'mywords'); ?></th>
@@ -123,7 +123,7 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th width="20" align="center"><input type="checkbox" id="checkall" onclick='$("#form-list-book").toggleCheckboxes(":not(#checkall)");' /></th>
+                                <th width="20" align="center"><input type="checkbox" id="checkall" onclick='$("#form-list-book").toggleCheckboxes(":not(#checkall)");'></th>
                                 <th>&nbsp;</th>
                                 <th align="left"><?php _e('Title', 'mywords'); ?></th>
                                 <th align="left"><?php _e('Description', 'mywords'); ?></th>
@@ -131,18 +131,18 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            <?php if (count($bookmarks)<=0): ?>
+                            <?php if (count($bookmarks) <= 0): ?>
                                 <tr class="even">
                                     <td colspan="5"><?php _e('There are not social sites registered yet!', 'mywords'); ?></td>
                                 </tr>
                             <?php endif; ?>
                             <?php foreach ($bookmarks as $book): ?>
-                                <tr class="<?php echo tpl_cycle("even,odd"); ?>" valign="top">
-                                    <td align="center"><input type="checkbox" name="books[]" id="book-<?php echo $book['id']; ?>" value="<?php echo $book['id']; ?>" /></td>
-                                    <td align="center"><img src="../images/icons/<?php echo $book['icon']; ?>" alt="<?php echo $book['icon']; ?>" title="<?php echo $book['icon']; ?>" /></td>
+                                <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
+                                    <td align="center"><input type="checkbox" name="books[]" id="book-<?php echo $book['id']; ?>" value="<?php echo $book['id']; ?>"></td>
+                                    <td align="center"><img src="../images/icons/<?php echo $book['icon']; ?>" alt="<?php echo $book['icon']; ?>" title="<?php echo $book['icon']; ?>"></td>
                                     <td>
                                         <strong><?php echo $book['name']; ?></strong>
-                                        <?php echo $book['active']?'':'['.__('Inactive', 'mywords').']'; ?>
+                                        <?php echo $book['active'] ? '' : '[' . __('Inactive', 'mywords') . ']'; ?>
                                         <span class="mw_options">
                             <a href="bookmarks.php?id=<?php echo $book['id']; ?>&amp;action=edit"><?php _e('Edit', 'mywords'); ?></a> |
                                             <?php if ($book['active']): ?>

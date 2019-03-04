@@ -25,8 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-require '../../mainfile.php';
+require dirname(__DIR__) . '/../mainfile.php';
 
 global $xoopsUser, $xoopsOption, $xoopsModuleConfig, $xoopsConfig, $rmTpl, $xoopsSecurity;
 
@@ -56,7 +55,7 @@ $edit = isset($edit) ? $edit : 0;
 
 if ($edit > 0) {
     $id = $edit;
-    if ($id<=0) {
+    if ($id <= 0) {
         redirect_header(MWFunctions::get_url(), __('Please, specify a valid post ID', 'mywords'), 1);
         die();
     }
@@ -77,24 +76,24 @@ if ($edit > 0) {
 
 // Read privileges
 $perms = @$author->getVar('privileges');
-$perms = is_array($perms) ? $perms : array();
-$allowed_tracks = in_array("tracks", $perms) || $xoopsUser->isAdmin() ? true : false;
-$allowed_tags = in_array("tags", $perms) || $xoopsUser->isAdmin() ? true : false;
-$allowed_cats = in_array("cats", $perms) || $xoopsUser->isAdmin() ? true : false;
-$allowed_comms = in_array("comms", $perms) || $xoopsUser->isAdmin() ? true : false;
+$perms = is_array($perms) ? $perms : [];
+$allowed_tracks = in_array('tracks', $perms, true) || $xoopsUser->isAdmin() ? true : false;
+$allowed_tags = in_array('tags', $perms, true) || $xoopsUser->isAdmin() ? true : false;
+$allowed_cats = in_array('cats', $perms, true) || $xoopsUser->isAdmin() ? true : false;
+$allowed_comms = in_array('comms', $perms, true) || $xoopsUser->isAdmin() ? true : false;
 
 $xoopsOption['module_subpage'] = 'submit';
-include 'header.php';
+require __DIR__ . '/header.php';
 
 $form = new RMForm('', '', '');
-$editor = new RMFormEditor('', 'content', '100%', '300px', $edit ? $post->getVar('content', $rmc_config['editor_type']=='tiny' ? 's' : 'e') : '');
+$editor = new RMFormEditor('', 'content', '100%', '300px', $edit ? $post->getVar('content', 'tiny' == $rmc_config['editor_type'] ? 's' : 'e') : '');
 $editor->setExtra('required');
 $meta_names = MWFunctions::get()->get_metas();
 
 RMTemplate::get()->add_style('submit.css', 'mywords');
-RMTemplate::get()->add_script('scripts.php?file=posts.js', 'mywords', array('directory' => 'include'));
-RMTemplate::get()->add_script('jquery.validate.min.js', 'rmcommon', array('footer' => 1));
+RMTemplate::get()->add_script('scripts.php?file=posts.js', 'mywords', ['directory' => 'include']);
+RMTemplate::get()->add_script('jquery.validate.min.js', 'rmcommon', ['footer' => 1]);
 
 include RMTemplate::get()->get_template('mywords-submit-form.php', 'module', 'mywords');
 
-include 'footer.php';
+require __DIR__ . '/footer.php';

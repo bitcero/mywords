@@ -1,4 +1,4 @@
-<?php RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.validate.min.js'); ?>
+<?php RMTemplate::get()->add_script(RMCURL . '/include/js/jquery.validate.min.js'); ?>
 <h1 class="cu-section-title"><?php _e('Categories', 'mywords'); ?></h1>
 <div class="row">
 
@@ -24,9 +24,9 @@
                     <div class="form-group">
                         <label for="parent"><?php _e('Category Parent', 'mywords'); ?></label>
                         <select name="parent" id="parent" class="form-control">
-                            <option value=""<?php if ($parent==''): ?> selected="selected"<?php endif; ?>><?php _e('None', 'mywords'); ?></option>
+                            <option value=""<?php if ('' == $parent): ?> selected="selected"<?php endif; ?>><?php _e('None', 'mywords'); ?></option>
                             <?php foreach ($categories as $cat): ?>
-                                <option value="<?php echo $cat['id_cat']; ?>"<?php echo $parent==$cat['id_cat'] ? 'selected="selected"' : ''; ?>><?php echo preg_replace('!^!m', str_repeat("&#8212;", $cat['indent']), ' '.$cat['name']); ?></option>
+                                <option value="<?php echo $cat['id_cat']; ?>"<?php echo $parent == $cat['id_cat'] ? 'selected="selected"' : ''; ?>><?php echo preg_replace('!^!m', str_repeat('&#8212;', $cat['indent']), ' ' . $cat['name']); ?></option>
                             <?php endforeach; ?>
                         </select>
                         <span class="help-block"><em><?php _e('Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have children categories for Bebop and Big Band. Totally optional.', 'mywords'); ?></em></span>
@@ -45,7 +45,7 @@
                         <button type="submit" class="btn btn-primary"><?php _e('Add Category', 'mywords'); ?></button>
                         <a href="http://www.xoopsmexico.net/docs/bitcero/mywords/categorias/#add-categories" class="btn btn-info" data-action="help"><span class="fa fa-question-circle"></span></a>
                     </p>
-                    <input type="hidden" name="op" id="op" value="save" />
+                    <input type="hidden" name="op" id="op" value="save">
                     <?php echo $xoopsSecurity->getTokenHTML(); ?>
                 </form>
             </div>
@@ -80,7 +80,7 @@
                     <table class="table table-hover" cellspacing="0">
                         <thead>
                         <tr align="center">
-                            <th scope="col" width="20"><input type="checkbox" name="checkall" id="checkall" onclick='$("#tblCats").toggleCheckboxes(":not(#checkall)");' /></th>
+                            <th scope="col" width="20"><input type="checkbox" name="checkall" id="checkall" onclick='$("#tblCats").toggleCheckboxes(":not(#checkall)");'></th>
                             <th><?php _e('Name', 'mywords'); ?></th>
                             <th><?php _e('Description', 'mywords'); ?></th>
                             <th><?php _e('Slug', 'mywords'); ?></th>
@@ -89,7 +89,7 @@
                         </thead>
                         <tfoot>
                         <tr align="center">
-                            <th scope="col"><input type="checkbox" name="checkall2" id="checkall2" onclick='$("#tblCats").toggleCheckboxes(":not(#checkall2)");' /></th>
+                            <th scope="col"><input type="checkbox" name="checkall2" id="checkall2" onclick='$("#tblCats").toggleCheckboxes(":not(#checkall2)");'></th>
                             <th><?php _e('Name', 'mywords'); ?></th>
                             <th><?php _e('Description', 'mywords'); ?></th>
                             <th><?php _e('Slug', 'mywords'); ?></th>
@@ -102,17 +102,17 @@
                             </tr>
                         <?php endif; ?>
                         <?php foreach ($categories as $cat): ?>
-                            <tr id="item-<?php echo $cat['id_cat']; ?>" class="<?php echo tpl_cycle("even,odd"); ?> iedit"<?php if ($new==$cat['id_cat']): ?> id="thenew"<?php endif; ?>>
-                                <td valign="top"><?php if ($cat['id_cat']): ?><input type="checkbox" name="cats[]" id="cat-<?php echo $cat['id_cat']; ?>" value="<?php echo $cat['id_cat'] ?>" /><?php endif; ?></td>
+                            <tr id="item-<?php echo $cat['id_cat']; ?>" class="<?php echo tpl_cycle('even,odd'); ?> iedit"<?php if ($new == $cat['id_cat']): ?> id="thenew"<?php endif; ?>>
+                                <td valign="top"><?php if ($cat['id_cat']): ?><input type="checkbox" name="cats[]" id="cat-<?php echo $cat['id_cat']; ?>" value="<?php echo $cat['id_cat'] ?>"><?php endif; ?></td>
                                 <td nowrap="nowrap">
-                                    <strong><a href="categories.php?op=edit&amp;id=<?php echo $cat['id_cat']?>"><?php echo str_repeat("&#8212;", $cat['indent']).' '.$cat['name']; ?></a></strong>
+                                    <strong><a href="categories.php?op=edit&amp;id=<?php echo $cat['id_cat']?>"><?php echo str_repeat('&#8212;', $cat['indent']) . ' ' . $cat['name']; ?></a></strong>
                             <span class="mw_options">
                             <a href="categories.php?op=edit&amp;id=<?php echo $cat['id_cat']?>"><?php _e('Edit', 'mywords'); ?></a>
-                                <?php if ($cat['id_cat']!=1): ?> |
+                                <?php if (1 != $cat['id_cat']): ?> |
                                     <a href="javascript:;" onclick="return cat_del_confirm('<?php echo $cat['name']; ?>',<?php echo $cat['id_cat']; ?>);"><?php _e('Delete', 'mywords'); ?></a><?php endif; ?>
                             </span>
                                 </td>
-                                <td valign="top" class="mw_cat_description"><?php if ($cat['description']!=''): ?><?php echo $cat['description']; ?><?php else: ?>&nbsp;<?php endif; ?></td>
+                                <td valign="top" class="mw_cat_description"><?php if ('' != $cat['description']): ?><?php echo $cat['description']; ?><?php else: ?>&nbsp;<?php endif; ?></td>
                                 <td align="center" valign="top"><?php echo $cat['shortname']?></td>
                                 <td align="center" valign="top"><?php echo $cat['posts']; ?></td>
                             </tr>

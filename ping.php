@@ -27,10 +27,9 @@
  */
 
 /**
-* This file execute the pings for a given post
-*/
-
-require '../../mainfile.php';
+ * This file execute the pings for a given post
+ */
+require dirname(__DIR__) . '/../mainfile.php';
 
 global $xoopsLogger;
 $xoopsLogger->renderingEnabled = false;
@@ -39,7 +38,7 @@ $xoopsLogger->activated = false;
 
 $id = rmc_server_var($_GET, 'post', 0);
 
-if ($id<=0) {
+if ($id <= 0) {
     die();
 }
 
@@ -61,11 +60,11 @@ if (empty($tracks)) {
 
 $pinged = $post->getVar('pinged');
 $toping = $post->getVar('toping');
-$tp = array();
+$tp = [];
 
 $tback = new MWTrackback($xoopsModuleConfig['blogname'], $editor->isNew() ? $user->getVar('uname') : $editor->getVar('name'));
 foreach ($tracks as $t) {
-    if (!empty($pinged) && in_array($t, $pinged)) {
+    if (!empty($pinged) && in_array($t, $pinged, true)) {
         continue;
     }
     $ret = $tback->ping($t, $post->permalink(), $post->getVar('title'), TextCleaner::getInstance()->truncate($post->content(true), 240));

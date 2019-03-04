@@ -19,9 +19,9 @@
             <button type="button" class="btn btn-default" onclick="window.location.href='tags.php';"><?php _e('Cancel', 'mywords'); ?></button>
         </div>
 
-		<input type="hidden" name="XOOPS_TOKEN_REQUEST" value="<?php echo $xoopsSecurity->createToken(); ?>" />
-		<input type="hidden" name="action" value="saveedit" />
-		<input type="hidden" name="id" value="<?php echo $tag->id(); ?>" />
+		<input type="hidden" name="XOOPS_TOKEN_REQUEST" value="<?php echo $xoopsSecurity->createToken(); ?>">
+		<input type="hidden" name="action" value="saveedit">
+		<input type="hidden" name="id" value="<?php echo $tag->id(); ?>">
 	</form>
 	</div>
 	
@@ -36,12 +36,12 @@
             <form name="formTag" id="form-tags" method="post" action="tags.php">
                 <div class="form-group">
                     <label for="new-name"><?php _e('Tag name', 'mywords'); ?></label>
-                    <input type="text" name="name" id="new-name" class="form-control" />
+                    <input type="text" name="name" id="new-name" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="new-short"><?php _e('Short name', 'mywords'); ?></label>
-                    <input type="text" name="short" id="new-short" class="form-control" />
+                    <input type="text" name="short" id="new-short" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -51,16 +51,16 @@
                     </a>
                 </div>
 
-                <input type="hidden" name="XOOPS_TOKEN_REQUEST" value="<?php echo $xoopsSecurity->createToken(); ?>" />
-                <input type="hidden" name="action" value="new" />
-                <input type="hidden" name="page" value="<?php echo $page; ?>" />
+                <input type="hidden" name="XOOPS_TOKEN_REQUEST" value="<?php echo $xoopsSecurity->createToken(); ?>">
+                <input type="hidden" name="action" value="new">
+                <input type="hidden" name="page" value="<?php echo $page; ?>">
             </form>
 
             <h4><?php _e('More used tags', 'mywords'); ?></h4>
             <div class="more_used">
-                <?php $ratio = $f = 28/$size; ?>
+                <?php $ratio = $f = 28 / $size; ?>
                 <?php foreach ($mtags as $tag): ?>
-                    <a href="tags.php?action=edit&amp;id=<?php echo $tag['id_tag']; ?>&amp;page=<?php echo $page; ?>" title="<?php echo sprintf(__('%u Posts', 'mywords'), $tag['posts']); ?>" style="font-size: <?php echo $f*$tag['posts']<11 ? 11 : floor($f*$tag['posts']); ?>px"><?php echo $tag['tag']; ?></a>&nbsp;
+                    <a href="tags.php?action=edit&amp;id=<?php echo $tag['id_tag']; ?>&amp;page=<?php echo $page; ?>" title="<?php echo sprintf(__('%u Posts', 'mywords'), $tag['posts']); ?>" style="font-size: <?php echo $f * $tag['posts'] < 11 ? 11 : floor($f * $tag['posts']); ?>px"><?php echo $tag['tag']; ?></a>&nbsp;
                 <?php endforeach; ?>
             </div>
         </div>
@@ -94,7 +94,7 @@
                 <table class="table table-bordered" cellspacing="0">
                     <thead>
                     <tr>
-                        <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#form-list-tags").toggleCheckboxes(":not(#checkall)");' /></th>
+                        <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#form-list-tags").toggleCheckboxes(":not(#checkall)");'></th>
                         <th align="left"><?php _e('Name', 'mywords'); ?></th>
                         <th class="text-center"><?php _e('Short name', 'mywords'); ?></th>
                         <th class="text-center"><?php _e('Posts', 'mywords'); ?></th>
@@ -107,8 +107,8 @@
                         </tr>
                     <?php endif; ?>
                     <?php foreach ($tags as $tag): ?>
-                        <tr class="<?php echo tpl_cycle("even,odd"); ?>" valign="top">
-                            <td align="center"><input type="checkbox" name="tags[<?php echo $tag['id_tag']; ?>]" id="tags-<?php echo $tag['id_tag']; ?>" value="<?php echo $tag['id_tag']; ?>" /></td>
+                        <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
+                            <td align="center"><input type="checkbox" name="tags[<?php echo $tag['id_tag']; ?>]" id="tags-<?php echo $tag['id_tag']; ?>" value="<?php echo $tag['id_tag']; ?>"></td>
                             <td>
                                 <strong><a href="tags.php?action=edit&amp;id=<?php echo $tag['id_tag']; ?>&amp;page=<?php echo $page; ?>"><?php echo $tag['tag']; ?></a></strong>
 				<span class="cu-item-options">
@@ -142,8 +142,8 @@
         </div>
 
 	</div>
-	<input type="hidden" name="XOOPS_TOKEN_REQUEST" id="xtoken" value="<?php echo $xoopsSecurity->createToken(); ?>" />
-	<input type="hidden" name="page" value="<?php echo $page; ?>" />
+	<input type="hidden" name="XOOPS_TOKEN_REQUEST" id="xtoken" value="<?php echo $xoopsSecurity->createToken(); ?>">
+	<input type="hidden" name="page" value="<?php echo $page; ?>">
 	</form>
 </div>
 </div>

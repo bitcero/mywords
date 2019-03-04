@@ -25,7 +25,7 @@
  * @param string $author
  * @param string $encoding
  */
-class MWTrackback
+class mwtrackback
 {
     public $blog_name = ''; // Default blog name used throughout the class (ie. BLOGish)
     public $author = ''; // Default author name used throughout the class (ie. Ran Aroussi)
@@ -35,6 +35,7 @@ class MWTrackback
     public $url = ''; // Retreives and holds $_POST['url'] (if not empty)
     public $title = ''; // Retreives and holds $_POST['title'] (if not empty)
     public $excerpt = ''; // Retreives and holds $_POST['expert'] (if not empty)
+
     /**
      * Class Constructure
      *
@@ -43,12 +44,12 @@ class MWTrackback
      * @param string $encoding
      * @return
      */
-    public function __construct($blog_name, $author, $encoding = "UTF-8")
+    public function __construct($blog_name, $author, $encoding = 'UTF-8')
     {
         $this->blog_name = $blog_name;
         $this->author = $author;
         $this->encoding = $encoding;
-        
+
         // Gather $_POST information
         if (isset($_GET['id'])) {
             $this->get_id = $_GET['id'];
@@ -85,15 +86,15 @@ class MWTrackback
      * @param string $url
      * @param string $title
      * @param string $excerpt
-     * @return boolean
+     * @return bool
      */
-    public function ping($tb, $url, $title = "", $excerpt = "")
+    public function ping($tb, $url, $title = '', $excerpt = '')
     {
-        $response = "";
-        $reason = "";
+        $response = '';
+        $reason = '';
         // Set default values
         if (empty($title)) {
-            $title = "Trackbacking your entry...";
+            $title = 'Trackbacking your entry...';
         }
         if (empty($excerpt)) {
             $excerpt = "I found your entry interesting do I've added a Trackback to it on my weblog :)";
@@ -101,32 +102,32 @@ class MWTrackback
         // Parse the target
         $target = parse_url($tb);
 
-        if ((isset($target["query"])) && ($target["query"] != "")) {
-            $target["query"] = "?" . $target["query"];
+        if ((isset($target['query'])) && ('' != $target['query'])) {
+            $target['query'] = '?' . $target['query'];
         } else {
-            $target["query"] = "";
+            $target['query'] = '';
         }
 
-        if ((isset($target["port"]) && !is_numeric($target["port"])) || (!isset($target["port"]))) {
-            $target["port"] = 80;
+        if ((isset($target['port']) && !is_numeric($target['port'])) || (!isset($target['port']))) {
+            $target['port'] = 80;
         }
         // Open the socket
-        $tb_sock = fsockopen($target["host"], $target["port"]);
+        $tb_sock = fsockopen($target['host'], $target['port']);
         // Something didn't work out, return
         if (!is_resource($tb_sock)) {
             return '$trackback->ping: can\'t connect to: ' . $tb . '.';
             exit;
         }
         // Put together the things we want to send
-        $tb_send = "url=" . rawurlencode($url) . "&title=" . rawurlencode($title) . "&blog_name=" . rawurlencode($this->blog_name) . "&excerpt=" . rawurlencode($excerpt);
+        $tb_send = 'url=' . rawurlencode($url) . '&title=' . rawurlencode($title) . '&blog_name=' . rawurlencode($this->blog_name) . '&excerpt=' . rawurlencode($excerpt);
 
         // Send the trackback
-        fputs($tb_sock, "POST " . $target["path"] . $target["query"] . " HTTP/1.1\r\n");
-        fputs($tb_sock, "Host: " . $target["host"] . "\r\n");
-        fputs($tb_sock, "Content-type: application/x-www-form-urlencoded\r\n");
-        fputs($tb_sock, "Content-length: " . strlen($tb_send) . "\r\n");
-        fputs($tb_sock, "Connection: close\r\n\r\n");
-        fputs($tb_sock, $tb_send);
+        fwrite($tb_sock, 'POST ' . $target['path'] . $target['query'] . " HTTP/1.1\r\n");
+        fwrite($tb_sock, 'Host: ' . $target['host'] . "\r\n");
+        fwrite($tb_sock, "Content-type: application/x-www-form-urlencoded\r\n");
+        fwrite($tb_sock, 'Content-length: ' . mb_strlen($tb_send) . "\r\n");
+        fwrite($tb_sock, "Connection: close\r\n\r\n");
+        fwrite($tb_sock, $tb_send);
         // Gather result
         while (!feof($tb_sock)) {
             $response .= fgets($tb_sock, 128);
@@ -135,7 +136,7 @@ class MWTrackback
         // Close socket
         fclose($tb_sock);
         // Did the trackback ping work
-        strpos($response, '<error>0</error>') ? $return = true : $return = false;
+        mb_strpos($response, '<error>0</error>') ? $return = true : $return = false;
         // send result
         return $return;
     }
@@ -170,15 +171,15 @@ class MWTrackback
      * }
      * ?></code>
      *
-     * @param boolean $success
+     * @param bool $success
      * @param string $err_response
-     * @return boolean
+     * @return bool
      */
-    public function recieve($success = false, $err_response = "")
+    public function recieve($success = false, $err_response = '')
     {
         // Default error response in case of problems...
         if (!$success && empty($err_response)) {
-            $err_response = "An error occured while tring to log your trackback...";
+            $err_response = 'An error occured while tring to log your trackback...';
         }
         // Start response to trackbacker...
         $return = '<?xml version="1.0" encoding="' . $this->encoding . '"?>' . "\n";
@@ -190,10 +191,10 @@ class MWTrackback
         } else {
             // Something went wrong...
             $return .= "	<error>1</error> \n";
-            $return .= "	<message>" . $this->xml_safe($err_response) . "</message>\n";
+            $return .= '	<message>' . $this->xml_safe($err_response) . "</message>\n";
         }
         // End response to trackbacker...
-        $return .= "</response>";
+        $return .= '</response>';
 
         return $return;
     }
@@ -225,14 +226,14 @@ class MWTrackback
      * }
      * ?></code>
      *
-     * @param boolean $success
+     * @param bool $success
      * @param string $response
      * @return string XML response to the caller
      */
-    public function fetch($success = false, $response = "")
+    public function fetch($success = false, $response = '')
     {
         if (!$success && empty($response)) {
-            $response = "An error occured while tring to retreive trackback information...";
+            $response = 'An error occured while tring to retreive trackback information...';
         }
         // Start response to caller
         $return = '<?xml version="1.0" encoding="' . $this->encoding . '"?>' . "\n";
@@ -244,23 +245,23 @@ class MWTrackback
             $return .= "	<error>0</error> \n";
             $return .= "	<rss version=\"0.91\"> \n";
             $return .= "	<channel> \n";
-            $return .= "	  <title>" . $this->xml_safe($response['title']) . "</title> \n";
-            $return .= "	  <link>" . $this->xml_safe($response['trackback']) . "</link> \n";
-            $return .= "	  <description>" . $this->xml_safe($response['expert']) . "</description> \n";
+            $return .= '	  <title>' . $this->xml_safe($response['title']) . "</title> \n";
+            $return .= '	  <link>' . $this->xml_safe($response['trackback']) . "</link> \n";
+            $return .= '	  <description>' . $this->xml_safe($response['expert']) . "</description> \n";
             $return .= "	  <item> \n";
-            $return .= "		<title>" . $this->xml_safe($response['title']) . "</title> \n";
-            $return .= "		<link>" . $this->xml_safe($response['permalink']) . "</link> \n";
-            $return .= "		<description>" . $this->xml_safe($response['expert']) . "</description> \n";
+            $return .= '		<title>' . $this->xml_safe($response['title']) . "</title> \n";
+            $return .= '		<link>' . $this->xml_safe($response['permalink']) . "</link> \n";
+            $return .= '		<description>' . $this->xml_safe($response['expert']) . "</description> \n";
             $return .= "	  </item> \n";
             $return .= "	</channel> \n";
             $return .= "	</rss> \n";
         } else {
             // Something went wrong - provide reason from $response (string)...
             $return .= "	<error>1</error> \n";
-            $return .= "	<message>" . $this->xml_safe($response) . "</message>\n";
+            $return .= '	<message>' . $this->xml_safe($response) . "</message>\n";
         }
         // End response to trackbacker
-        $return .= "</response>";
+        $return .= '</response>';
 
         return $return;
     }
@@ -286,7 +287,7 @@ class MWTrackback
      * @param string $author
      * @return string
      */
-    public function rdf_autodiscover($RFC822_date, $title, $expert, $permalink, $trackback, $author = "")
+    public function rdf_autodiscover($RFC822_date, $title, $expert, $permalink, $trackback, $author = '')
     {
         if (!$author) {
             $author = $this->author;
@@ -297,14 +298,14 @@ class MWTrackback
         $return .= "	xmlns:dc=\"http://purl.org/dc/elements/1.1/\" \n";
         $return .= "	xmlns:trackback=\"http://madskills.com/public/xml/rss/module/trackback/\"> \n";
         $return .= "<rdf:Description \n";
-        $return .= "	rdf:about=\"" . $this->xml_safe($permalink) . "\" \n";
-        $return .= "	dc:identifier=\"" . $this->xml_safe($permalink) . "\" \n";
-        $return .= "	trackback:ping=\"" . $this->xml_safe($trackback) . "\" \n";
-        $return .= "	dc:title=\"" . $this->xml_safe($title) . "\" \n";
+        $return .= '	rdf:about="' . $this->xml_safe($permalink) . "\" \n";
+        $return .= '	dc:identifier="' . $this->xml_safe($permalink) . "\" \n";
+        $return .= '	trackback:ping="' . $this->xml_safe($trackback) . "\" \n";
+        $return .= '	dc:title="' . $this->xml_safe($title) . "\" \n";
         $return .= "	dc:subject=\"TrackBack\" \n";
-        $return .= "	dc:description=\"" . $this->xml_safe($this->cut_short($expert)) . "\" \n";
-        $return .= "	dc:creator=\"" . $this->xml_safe($author) . "\" \n";
-        $return .= "	dc:date=\"" . $RFC822_date . "\" /> \n";
+        $return .= '	dc:description="' . $this->xml_safe($this->cut_short($expert)) . "\" \n";
+        $return .= '	dc:creator="' . $this->xml_safe($author) . "\" \n";
+        $return .= '	dc:date="' . $RFC822_date . "\"> \n";
         $return .= "</rdf:RDF> \n";
         $return .= "-->  \n";
 
@@ -345,18 +346,18 @@ class MWTrackback
         // Get a list of UNIQUE links from text...
         // ---------------------------------------
         // RegExp to look for (0=>link, 4=>host in 'replace')
-        $reg_exp = "/(http)+(s)?:(\\/\\/)((\\w|\\.)+)(\\/)?(\\S+)?/i";
+        $reg_exp = '/(http)+(s)?:(\\/\\/)((\\w|\\.)+)(\\/)?(\\S+)?/i';
         // Make sure each link ends with [sapce]
-        $text = preg_replace("www.", "http://www.", $text);
-        $text = preg_replace("http://http://", "http://", $text);
-        $text = preg_replace("\"", " \"", $text);
+        $text = preg_replace('www.', 'http://www.', $text);
+        $text = preg_replace('http://http://', 'http://', $text);
+        $text = preg_replace('"', ' "', $text);
         $text = preg_replace("'", " '", $text);
-        $text = preg_replace(">", " >", $text);
+        $text = preg_replace('>', ' >', $text);
         // Create an array with unique links
-        $uri_array = array();
-        if (preg_match_all($reg_exp, strip_tags($text, "<a>"), $array, PREG_PATTERN_ORDER)) {
+        $uri_array = [];
+        if (preg_match_all($reg_exp, strip_tags($text, '<a>'), $array, PREG_PATTERN_ORDER)) {
             foreach ($array[0] as $key => $link) {
-                foreach ((array(",", ".", ":", ";")) as $t_key => $t_value) {
+                foreach (([',', '.', ':', ';']) as $t_key => $t_value) {
                     $link = trim($link, $t_value);
                 }
                 $uri_array[] = ($link);
@@ -366,9 +367,9 @@ class MWTrackback
         // Get the trackback URIs from those links...
         // ------------------------------------------
         // Loop through the URIs array and extract RDF segments
-        $rdf_array = array(); // <- holds list of RDF segments
+        $rdf_array = []; // <- holds list of RDF segments
         foreach ($uri_array as $key => $link) {
-            if ($link_content = implode("", @file($link))) {
+            if ($link_content = implode('', @file($link))) {
                 preg_match_all('/(<rdf:RDF.*?<\/rdf:RDF>)/sm', $link_content, $link_rdf, PREG_SET_ORDER);
                 for ($i = 0; $i < count($link_rdf); $i++) {
                     if (preg_match('|dc:identifier="' . preg_quote($link) . '"|ms', $link_rdf[$i][1])) {
@@ -378,7 +379,7 @@ class MWTrackback
             }
         }
         // Loop through the RDFs array and extract trackback URIs
-        $tb_array = array(); // <- holds list of trackback URIs
+        $tb_array = []; // <- holds list of trackback URIs
         if (!empty($rdf_array)) {
             for ($i = 0; $i < count($rdf_array); $i++) {
                 if (preg_match('/trackback:ping="([^"]+)"/', $rdf_array[$i], $array)) {
@@ -392,6 +393,7 @@ class MWTrackback
 
     /**
      * Other Useful functions used in this class
+     * @param mixed $datetime
      */
 
     /**
@@ -403,14 +405,15 @@ class MWTrackback
     public function RFC822_from_datetime($datetime)
     {
         $timestamp = mktime(
-            substr($datetime, 8, 2),
-            substr($datetime, 10, 2),
-            substr($datetime, 12, 2),
-            substr($datetime, 4, 2),
-            substr($datetime, 6, 2),
-            substr($datetime, 0, 4)
+            mb_substr($datetime, 8, 2),
+            mb_substr($datetime, 10, 2),
+            mb_substr($datetime, 12, 2),
+            mb_substr($datetime, 4, 2),
+            mb_substr($datetime, 6, 2),
+            mb_substr($datetime, 0, 4)
             );
-        return date("r", $timestamp);
+
+        return date('r', $timestamp);
     }
 
     /**
@@ -428,13 +431,13 @@ class MWTrackback
      * Cuts a string short (with "...") accroding to $max_length...
      *
      * @param string $string
-     * @param integer $max_length
+     * @param int $max_length
      * @return string
      */
     public function cut_short($string, $max_length = 255)
     {
-        if (strlen($string) > $max_length) {
-            $string = substr($string, 0, $max_length) . '...';
+        if (mb_strlen($string) > $max_length) {
+            $string = mb_substr($string, 0, $max_length) . '...';
         }
 
         return $string;

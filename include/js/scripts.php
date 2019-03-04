@@ -9,23 +9,22 @@
 // --------------------------------------------------------------
 
 /**
-* This file allows to mywords to load js files when language is needed in this files
-*/
-
+ * This file allows to mywords to load js files when language is needed in this files
+ */
 $wfile = isset($_GET['file']) ? $_GET['file'] : '';
-if ($wfile=='') {
+if ('' == $wfile) {
     exit();
 }
 
-$path = dirname(__FILE__);
-if (!file_exists($path.'/'.$wfile)) {
+$path = __DIR__;
+if (!file_exists($path . '/' . $wfile)) {
     exit();
 }
 
-$path .= '/'.$wfile;
+$path .= '/' . $wfile;
 
-include_once '../../../../mainfile.php';
-include_once '../../../rmcommon/loader.php';
+require_once dirname(__DIR__) . '/../../../mainfile.php';
+require_once dirname(__DIR__) . '/../../rmcommon/loader.php';
 
 global $xoopsLogger;
 $xoopsLogger->renderingEnabled = false;
@@ -34,9 +33,7 @@ $xoopsLogger->activated = false;
 
 header('Content-Type: application/javascript');
 switch ($wfile) {
-    
     default:
         include $path;
         break;
-    
 }
