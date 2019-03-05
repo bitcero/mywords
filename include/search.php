@@ -43,8 +43,8 @@ function mywords_search($qa, $andor, $limit, $offset, $userid)
     $db = XoopsDatabaseFactory::getDatabaseConnection();
 
     require_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwpost.class.php';
-    $util = &RMUtilities::get();
-    $mc = &RMSettings::module_settings('mywords');
+    $util = RMUtilities::get();
+    $mc = RMSettings::module_settings('mywords');
 
     $sql = 'SELECT * FROM ' . $db->prefix('mod_mywords_posts');
     $adds = '';
