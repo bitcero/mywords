@@ -77,10 +77,10 @@ if ($edit > 0) {
 // Read privileges
 $perms = @$author->getVar('privileges');
 $perms = is_array($perms) ? $perms : [];
-$allowed_tracks = in_array('tracks', $perms, true) || $xoopsUser->isAdmin() ? true : false;
-$allowed_tags = in_array('tags', $perms, true) || $xoopsUser->isAdmin() ? true : false;
-$allowed_cats = in_array('cats', $perms, true) || $xoopsUser->isAdmin() ? true : false;
-$allowed_comms = in_array('comms', $perms, true) || $xoopsUser->isAdmin() ? true : false;
+$allowed_tracks = (in_array('tracks', $perms, true) || $xoopsUser->isAdmin());
+$allowed_tags = (in_array('tags', $perms, true) || $xoopsUser->isAdmin());
+$allowed_cats = (in_array('cats', $perms, true) || $xoopsUser->isAdmin());
+$allowed_comms = (in_array('comms', $perms, true) || $xoopsUser->isAdmin());
 
 $xoopsOption['module_subpage'] = 'submit';
 require __DIR__ . '/header.php';
