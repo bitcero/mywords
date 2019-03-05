@@ -28,7 +28,7 @@
 
 <!-- Start Comments -->
 <a name="comments"></a>
-<{include file="db:rmc-comments-display.html"}>
+<{include file="db:rmc-comments-display.tpl"}>
 <!-- /End comments -->
 <{/if}>
 <{$comments_form}>
