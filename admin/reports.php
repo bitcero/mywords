@@ -36,7 +36,7 @@ class MyWordsSectionReports
         $common->location = 'posts';
     }
 
-    public function default()
+    public function getDefault()
     {
         global $common, $xoopsDB;
 
@@ -286,6 +286,6 @@ switch ($action) {
         $mywordsSection->delete();
         break;
     default:
-        $mywordsSection->default();
+        $mywordsSection->getDefault();
         break;
 }
