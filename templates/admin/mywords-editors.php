@@ -54,8 +54,8 @@
 <?php else: ?>
 
 <div class="help-block">
-	<?php _e('Editors are people that can send and publish content without admin approval. You can create new editors and assign individuals permissions for them.', 'mywords'); ?>
-	<em><?php _e('All webmasters are allowed as editors with all privileges.', 'mywords'); ?></em>
+    <?php _e('Editors are people that can send and publish content without admin approval. You can create new editors and assign individuals permissions for them.', 'mywords'); ?>
+    <em><?php _e('All webmasters are allowed as editors with all privileges.', 'mywords'); ?></em>
 </div>
 
 <div class="row">
@@ -166,7 +166,7 @@
                                     <span class="mw_options">
                     <a href="editors.php?id=<?php echo $editor->id(); ?>&amp;action=edit&amp;page=<?php echo $page; ?>"><?php _e('Edit', 'mywords'); ?></a> |
                                         <?php if ($editor->getVar('active')): ?>
-                                            <a href="javascript:;" onclick="goto_activate(<?php echo $editor->id(); ?>,<?php echo $page; ?>,false);"><?php _e('Desactivar', 'mywords'); ?></a> |
+                                            <a href="javascript:;" onclick="goto_activate(<?php echo $editor->id(); ?>,<?php echo $page; ?>,false);"><?php _e('Deactivate', 'mywords'); ?></a> |
                                         <?php else: ?>
                                             <a href="javascript:;" onclick="goto_activate(<?php echo $editor->id(); ?>,<?php echo $page; ?>,true);"><?php _e('Activar', 'mywords'); ?></a> |
                                         <?php endif; ?>

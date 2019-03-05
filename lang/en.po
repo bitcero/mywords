@@ -1211,12 +1211,12 @@ msgstr ""
 
 #: templates/admin/mywords-bookmarks.php:149
 #: templates/admin/mywords-editors.php:169
-msgid "Desactivar"
+msgid "Deactivate"
 msgstr ""
 
 #: templates/admin/mywords-bookmarks.php:151
 #: templates/admin/mywords-editors.php:171
-msgid "Activar"
+msgid "Activate"
 msgstr ""
 
 #: templates/admin/mywords-categories.php:10
