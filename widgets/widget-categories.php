@@ -29,6 +29,8 @@
 
 /**
  * Categories widget
+ * @param null $post
+ * @return mixed
  */
 function mywords_widget_categories($post = null)
 {
@@ -66,16 +68,16 @@ $categories = [];
 <div class="w_catnew_container">
     <a href="javascript:;" id="a-show-new"><strong><?php _e('+ Add Categories', 'admin_mywords'); ?></strong></a>
     <div id="w-catnew-form">
-    	<label class="error" style="display: none;" for="w-name"><?php _e('Please provide a name', 'admin_mywords'); ?></label>
-    	<input type="text" name="name" id="w-name" value="" class="form-control" required>
-    	<select name="parent" id="w-parent" class="form-control">
-    		<option value="0"><?php _e('Parent category', 'admin_mywords'); ?></option>
-    		<?php foreach ($categories as $catego): ?>
-    		<option value="<?php _e($catego['id_cat']); ?>"><?php _e($catego['name']); ?></option>
-    		<?php endforeach; ?>
-    	</select>
-    	<button type="button" id="create-new-cat" class="btn btn-warning"><?php _e('Add', 'admin_mywords'); ?></button>
-    	<a href="#" class="btn btn-link"><?php _e('Cancel', 'admin_mywords'); ?></a>
+        <label class="error" style="display: none;" for="w-name"><?php _e('Please provide a name', 'admin_mywords'); ?></label>
+        <input type="text" name="name" id="w-name" value="" class="form-control" required>
+        <select name="parent" id="w-parent" class="form-control">
+            <option value="0"><?php _e('Parent category', 'admin_mywords'); ?></option>
+            <?php foreach ($categories as $catego): ?>
+            <option value="<?php _e($catego['id_cat']); ?>"><?php _e($catego['name']); ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button type="button" id="create-new-cat" class="btn btn-warning"><?php _e('Add', 'admin_mywords'); ?></button>
+        <a href="#" class="btn btn-link"><?php _e('Cancel', 'admin_mywords'); ?></a>
     </div>
 </div>
 <?php endif; ?>

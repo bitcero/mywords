@@ -66,8 +66,6 @@ class MWPost extends RMObject
      * Se puede establecer el id del post o bien la fecha y
      * título amigable del post.
      * @param int $id Identificador numérico del post
-     * @param date $date Fecha del post
-     * @param string $titulo Titulo amigable del post
      */
     public function __construct($id = null)
     {
@@ -115,8 +113,6 @@ class MWPost extends RMObject
     /**
      * Get content for current post according to given options
      *
-     * @param bool Indicates if only text before <!--more--> tag is returned
-     * @param bool Indicates wich page will be returned. If there are only a page then return all
      * @param mixed $advance
      * @param mixed $page
      * @return string
@@ -197,9 +193,8 @@ class MWPost extends RMObject
 
     /**
      * Obtiene las catgorías a las que pertenece el artículo
-     * @param string Indicates the returned data (ids, data, objects)
      * @param mixed $w
-     * @return string, array
+     * @return array , array
      */
     public function get_categos($w = 'ids')
     {
@@ -245,8 +240,6 @@ class MWPost extends RMObject
      * Assign this post to a new category.
      * If Replace parameter is true, delete previos categories assignments and replace
      * with new given cats
-     * @param int|array Category ID or array with categories ID
-     * @param bool Replace or add
      * @param mixed $cat
      * @param mixed $replace
      */
@@ -275,12 +268,10 @@ class MWPost extends RMObject
     /**
      * Devuelve los nombres de las categorías a las que pertenece
      * el post actual
-     * @param bool $asList Detemina si se muestra en forma de lista o de array
+     * @param bool   $asList    Detemina si se muestra en forma de lista o de array
      * @param string $delimiter Delimitador para la lista
-     * @param bool Get names with links. Only works when $asList equal true
-     * @param string Section for link. It can be front or admin. Only works when $asList equal true
-     * @param mixed $links
-     * @param mixed $section
+     * @param mixed  $links
+     * @param mixed  $section
      * @return string or array
      */
     public function get_categories_names($asList = true, $delimiter = ',', $links = true, $section = 'front')
@@ -312,7 +303,6 @@ class MWPost extends RMObject
 
     /**
      * Add Tags
-     * @param array|string Tags to add
      * @param mixed $tags
      */
     public function add_tags($tags)
@@ -402,7 +392,6 @@ class MWPost extends RMObject
     /**
      * Get metas from post.
      * If a meta name has not been provided then return all metas
-     * @param string Meta name
      * @param mixed $name
      * @param mixed $object
      * @return string|array
@@ -443,11 +432,9 @@ class MWPost extends RMObject
 
     /**
      * Add or modify a field
-     * @param string Meta name
-     * @param mixed Meta value
      * @param mixed $name
      * @param mixed $value
-     * @return none
+     * @return void
      */
     public function add_meta($name, $value)
     {
@@ -468,7 +455,6 @@ class MWPost extends RMObject
 
     /**
      * Determines if current or given user can read this post
-     * @param int $id User ID
      * @param null|mixed $uid
      * @return bool
      */

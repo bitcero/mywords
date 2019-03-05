@@ -29,6 +29,8 @@
 
 /**
  * Provides a widget to specify the default image for posts
+ * @param null $post
+ * @return array
  */
 function mywords_widget_post_type($post = null)
 {

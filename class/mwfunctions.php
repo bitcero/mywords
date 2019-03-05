@@ -103,7 +103,7 @@ class mwfunctions
 
     /**
      * Check if a category exists already
-     * @param object MWCategory object
+     * @param \MWCategory $cat
      * @return bool
      */
     public function category_exists(MWCategory $cat)
@@ -127,7 +127,7 @@ class mwfunctions
 
     /**
      * Check if given post already exists
-     * @param object MWPost object
+     * @param \MWPost $post
      * @return bool
      */
     public function post_exists(MWPost &$post)
@@ -172,10 +172,6 @@ class mwfunctions
 
     /**
      * Get the tags list based on given parameters
-     * @param string SQL Select
-     * @param string SQL Where
-     * @param string SQL Order
-     * @param string SQL Limit
      * @param mixed $select
      * @param mixed $where
      * @param mixed $order
@@ -198,8 +194,6 @@ class mwfunctions
 
     /**
      * Get the font size for tags names based on their popularity
-     * @param int Number of posts for this tag
-     * @param int Max font size for tag name. This value is expressend in 'ems' (2em)
      * @param mixed $posts
      * @param mixed $max_size
      * @return float Size of tag expressed as em value
@@ -246,7 +240,6 @@ class mwfunctions
 
     /**
      * Get author name
-     * @param int Author (XoopsUser) ID
      * @param mixed $uid
      * @return string
      */
@@ -272,7 +265,6 @@ class mwfunctions
 
     /**
      * Add tags to database
-     * @param string|array Tags names
      * @param mixed $tags
      * @return array Tags saved ID
      */
@@ -432,12 +424,6 @@ class mwfunctions
     /**
      * Get posts by tag
      *
-     * @param array|int Tag id
-     * @param int Start
-     * @param int Max results
-     * @param string Column to sort
-     * @param string Sort direction ASC or DESC, etc
-     * @param string Posts status, published, draft, etc.
      * @param mixed $tags
      * @param mixed $start
      * @param mixed $limit

@@ -30,6 +30,8 @@
 
 /**
  * Publish widget
+ * @param null $post
+ * @param bool $frontend
  * @return array
  */
 function mywords_widget_publish($post = null, $frontend = false)
@@ -76,15 +78,15 @@ function mywords_widget_publish($post = null, $frontend = false)
 <!-- Opciones de Publicación -->
 <div class="publish_options">
 <?php _e('Status:', 'mywords'); ?> <strong id="publish-status-legend"><?php _e($status, 'mywords'); ?></strong> &nbsp; <a href="javascript:;" id="edit-publish"><?php _e('Edit', 'mywords'); ?></a>
-	<div id="publish-options" style="display: none;">
-		<select name="status" id="status">
+    <div id="publish-options" style="display: none;">
+        <select name="status" id="status">
             <option value="publish"<?php echo $edit && 'publish' == $post->getVar('status') ? 'selected="selected"' : ($edit ? '' : 'selected="selected"'); ?>><?php _e('Published', 'mywords') ?></option>
-			<option value="draft"<?php echo $edit && 'draft' == $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Draft', 'mywords') ?></option>
-			<option value="pending"<?php echo $edit && 'pending' == $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Pending Review', 'mywords') ?></option>
-		</select>
-		<input type="button" name="publish-ok" id="publish-ok" class="button" value="<?php _e('Apply', 'mywords') ?>"><br>
-		<a href="javascript:;" onclick="$('#publish-options').slideUp('slow'); $('#edit-publish').show();"><?php _e('Cancel', 'mywords') ?></a>
-	</div>
+            <option value="draft"<?php echo $edit && 'draft' == $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Draft', 'mywords') ?></option>
+            <option value="pending"<?php echo $edit && 'pending' == $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Pending Review', 'mywords') ?></option>
+        </select>
+        <input type="button" name="publish-ok" id="publish-ok" class="button" value="<?php _e('Apply', 'mywords') ?>"><br>
+        <a href="javascript:;" onclick="$('#publish-options').slideUp('slow'); $('#edit-publish').show();"><?php _e('Cancel', 'mywords') ?></a>
+    </div>
 </div>
 <!-- //Opciones de Publicación -->
 <!-- Visibilidad -->

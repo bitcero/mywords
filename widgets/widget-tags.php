@@ -29,6 +29,8 @@
 
 /**
  * Widget that show tags selection in a post form
+ * @param null $post
+ * @return mixed
  */
 function mywords_widget_addtags($post = null)
 {

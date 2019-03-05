@@ -42,7 +42,6 @@ class mwtrackback
      * @param string $blog_name
      * @param string $author
      * @param string $encoding
-     * @return
      */
     public function __construct($blog_name, $author, $encoding = 'UTF-8')
     {
@@ -76,9 +75,9 @@ class mwtrackback
      * include('trackback_cls.php');
      * $trackback = new Trackback('BLOGish', 'Ran Aroussi', 'UTF-8');
      * if ($trackback->ping('http://tracked-blog.com', 'http://your-url.com', 'Your entry title')) {
-     * 	echo "Trackback sent successfully...";
+     *  echo "Trackback sent successfully...";
      * } else {
-     * 	echo "Error sending trackback....";
+     *  echo "Error sending trackback....";
      * }
      * ?></code>
      *
@@ -163,11 +162,11 @@ class mwtrackback
      * // Do whatever to log the trackback (save in DB, flatfile, etc...)
      * //
      * if (TRACKBACK_LOGGED_SUCCESSFULLY) {
-     * 	// Logged successfully...
-     * 	echo $trackback->recieve(true);
+     *  // Logged successfully...
+     *  echo $trackback->recieve(true);
      * } else {
-     * 	// Something went wrong...
-     * 	echo $trackback->recieve(false, 'Explain why you return error');
+     *  // Something went wrong...
+     *  echo $trackback->recieve(false, 'Explain why you return error');
      * }
      * ?></code>
      *
@@ -187,11 +186,11 @@ class mwtrackback
         // Send back response...
         if ($success) {
             // Trackback received successfully...
-            $return .= "	<error>0</error> \n";
+            $return .= "    <error>0</error> \n";
         } else {
             // Something went wrong...
-            $return .= "	<error>1</error> \n";
-            $return .= '	<message>' . $this->xml_safe($err_response) . "</message>\n";
+            $return .= "    <error>1</error> \n";
+            $return .= '    <message>' . $this->xml_safe($err_response) . "</message>\n";
         }
         // End response to trackbacker...
         $return .= '</response>';
@@ -213,16 +212,16 @@ class mwtrackback
      * // 4
      * Do whatever to get trackback information by ID (search db, etc...)
      * if (GOT_TRACKBACK_INFO) {
-     * 	// Successful - pass trackback info as array()...
-     * 	$tb_info = array('title' => string TRACKBACK_TITLE,
-     * 			'expert'	=> string TRACKBACK_EXPERT,
-     * 			'permalink' => string PERMALINK_URL,
-     * 			'trackback' => string TRACKBACK_URL
-     * 		);
-     * 	echo $trackback->fetch(true, $tb_info);
+     *  // Successful - pass trackback info as array()...
+     *  $tb_info = array('title' => string TRACKBACK_TITLE,
+     *          'expert'    => string TRACKBACK_EXPERT,
+     *          'permalink' => string PERMALINK_URL,
+     *          'trackback' => string TRACKBACK_URL
+     *      );
+     *  echo $trackback->fetch(true, $tb_info);
      * } else {
-     * 	// Something went wrong - tell my why...
-     * 	echo $trackback->fetch(false, string RESPONSE);
+     *  // Something went wrong - tell my why...
+     *  echo $trackback->fetch(false, string RESPONSE);
      * }
      * ?></code>
      *
@@ -242,23 +241,23 @@ class mwtrackback
         if ($success) {
             // Trackback retreived successfully...
             // Sending back an RSS (0.91) - trackback information from $response (array)...
-            $return .= "	<error>0</error> \n";
-            $return .= "	<rss version=\"0.91\"> \n";
-            $return .= "	<channel> \n";
-            $return .= '	  <title>' . $this->xml_safe($response['title']) . "</title> \n";
-            $return .= '	  <link>' . $this->xml_safe($response['trackback']) . "</link> \n";
-            $return .= '	  <description>' . $this->xml_safe($response['expert']) . "</description> \n";
-            $return .= "	  <item> \n";
-            $return .= '		<title>' . $this->xml_safe($response['title']) . "</title> \n";
-            $return .= '		<link>' . $this->xml_safe($response['permalink']) . "</link> \n";
-            $return .= '		<description>' . $this->xml_safe($response['expert']) . "</description> \n";
-            $return .= "	  </item> \n";
-            $return .= "	</channel> \n";
-            $return .= "	</rss> \n";
+            $return .= "    <error>0</error> \n";
+            $return .= "    <rss version=\"0.91\"> \n";
+            $return .= "    <channel> \n";
+            $return .= '      <title>' . $this->xml_safe($response['title']) . "</title> \n";
+            $return .= '      <link>' . $this->xml_safe($response['trackback']) . "</link> \n";
+            $return .= '      <description>' . $this->xml_safe($response['expert']) . "</description> \n";
+            $return .= "      <item> \n";
+            $return .= '        <title>' . $this->xml_safe($response['title']) . "</title> \n";
+            $return .= '        <link>' . $this->xml_safe($response['permalink']) . "</link> \n";
+            $return .= '        <description>' . $this->xml_safe($response['expert']) . "</description> \n";
+            $return .= "      </item> \n";
+            $return .= "    </channel> \n";
+            $return .= "    </rss> \n";
         } else {
             // Something went wrong - provide reason from $response (string)...
-            $return .= "	<error>1</error> \n";
-            $return .= '	<message>' . $this->xml_safe($response) . "</message>\n";
+            $return .= "    <error>1</error> \n";
+            $return .= '    <message>' . $this->xml_safe($response) . "</message>\n";
         }
         // End response to trackbacker
         $return .= '</response>';
@@ -295,17 +294,17 @@ class mwtrackback
 
         $return = "<!-- \n";
         $return .= "<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" \n";
-        $return .= "	xmlns:dc=\"http://purl.org/dc/elements/1.1/\" \n";
-        $return .= "	xmlns:trackback=\"http://madskills.com/public/xml/rss/module/trackback/\"> \n";
+        $return .= "    xmlns:dc=\"http://purl.org/dc/elements/1.1/\" \n";
+        $return .= "    xmlns:trackback=\"http://madskills.com/public/xml/rss/module/trackback/\"> \n";
         $return .= "<rdf:Description \n";
-        $return .= '	rdf:about="' . $this->xml_safe($permalink) . "\" \n";
-        $return .= '	dc:identifier="' . $this->xml_safe($permalink) . "\" \n";
-        $return .= '	trackback:ping="' . $this->xml_safe($trackback) . "\" \n";
-        $return .= '	dc:title="' . $this->xml_safe($title) . "\" \n";
-        $return .= "	dc:subject=\"TrackBack\" \n";
-        $return .= '	dc:description="' . $this->xml_safe($this->cut_short($expert)) . "\" \n";
-        $return .= '	dc:creator="' . $this->xml_safe($author) . "\" \n";
-        $return .= '	dc:date="' . $RFC822_date . "\"> \n";
+        $return .= '    rdf:about="' . $this->xml_safe($permalink) . "\" \n";
+        $return .= '    dc:identifier="' . $this->xml_safe($permalink) . "\" \n";
+        $return .= '    trackback:ping="' . $this->xml_safe($trackback) . "\" \n";
+        $return .= '    dc:title="' . $this->xml_safe($title) . "\" \n";
+        $return .= "    dc:subject=\"TrackBack\" \n";
+        $return .= '    dc:description="' . $this->xml_safe($this->cut_short($expert)) . "\" \n";
+        $return .= '    dc:creator="' . $this->xml_safe($author) . "\" \n";
+        $return .= '    dc:date="' . $RFC822_date . "\"> \n";
         $return .= "</rdf:RDF> \n";
         $return .= "-->  \n";
 
@@ -321,20 +320,20 @@ class mwtrackback
      * $trackback = new Trackback('BLOGish', 'Ran Aroussi', 'UTF-8');
      *
      * if ($tb_array = $trackback->auto_discovery(string TEXT)) {
-     * 	// Found trackbacks in TEXT. Looping...
-     * 	foreach($tb_array as $tb_key => $tb_url) {
-     * 	// Attempt to ping each one...
-     * 		if ($trackback->ping($tb_url, string URL, [string TITLE], [string EXPERT])) {
-     * 			// Successful ping...
-     * 			echo "Trackback sent to <i>$tb_url</i>...\n";
-     * 		} else {
-     * 			// Error pinging...
-     * 			echo "Trackback to <i>$tb_url</i> failed....\n";
-     * 		}
-     * 	}
+     *  // Found trackbacks in TEXT. Looping...
+     *  foreach($tb_array as $tb_key => $tb_url) {
+     *  // Attempt to ping each one...
+     *      if ($trackback->ping($tb_url, string URL, [string TITLE], [string EXPERT])) {
+     *          // Successful ping...
+     *          echo "Trackback sent to <i>$tb_url</i>...\n";
+     *      } else {
+     *          // Error pinging...
+     *          echo "Trackback to <i>$tb_url</i> failed....\n";
+     *      }
+     *  }
      * } else {
-     * 	// No trackbacks in TEXT...
-     * 	echo "No trackbacks were auto-discover...\n"
+     *  // No trackbacks in TEXT...
+     *  echo "No trackbacks were auto-discover...\n"
      * }
      * ?></code>
      *
