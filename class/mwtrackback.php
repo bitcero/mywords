@@ -370,7 +370,7 @@ class mwtrackback
         foreach ($uri_array as $key => $link) {
             if ($link_content = implode('', @file($link))) {
                 preg_match_all('/(<rdf:RDF.*?<\/rdf:RDF>)/sm', $link_content, $link_rdf, PREG_SET_ORDER);
-                for ($i = 0; $i < count($link_rdf); $i++) {
+                for ($i = 0, $iMax = count($link_rdf); $i < $iMax; $i++) {
                     if (preg_match('|dc:identifier="' . preg_quote($link) . '"|ms', $link_rdf[$i][1])) {
                         $rdf_array[] = trim($link_rdf[$i][1]);
                     }
@@ -380,7 +380,7 @@ class mwtrackback
         // Loop through the RDFs array and extract trackback URIs
         $tb_array = []; // <- holds list of trackback URIs
         if (!empty($rdf_array)) {
-            for ($i = 0; $i < count($rdf_array); $i++) {
+            for ($i = 0, $iMax = count($rdf_array); $i < $iMax; $i++) {
                 if (preg_match('/trackback:ping="([^"]+)"/', $rdf_array[$i], $array)) {
                     $tb_array[] = trim($array[1]);
                 }
