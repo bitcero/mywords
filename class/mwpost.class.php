@@ -113,8 +113,8 @@ class MWPost extends RMObject
     /**
      * Get content for current post according to given options
      *
-     * @param mixed $advance
-     * @param mixed $page
+     * @param bool $advance Indicates if only text before <!--more--> tag is returned
+     * @param mixed $page Indicates wich page will be returned. If there are only a page then return all
      * @return string
      */
     public function content($advance = true, $page = 0)
@@ -193,8 +193,8 @@ class MWPost extends RMObject
 
     /**
      * Obtiene las catgorías a las que pertenece el artículo
-     * @param mixed $w
-     * @return array , array
+     * @param string $w Indicates the returned data (ids, data, objects)
+     * @return string|array
      */
     public function get_categos($w = 'ids')
     {
@@ -240,8 +240,8 @@ class MWPost extends RMObject
      * Assign this post to a new category.
      * If Replace parameter is true, delete previos categories assignments and replace
      * with new given cats
-     * @param mixed $cat
-     * @param mixed $replace
+     * @param int|array $cat Category ID or array with categories ID 
+     * @param bool $replace Replace or add
      */
     public function add_categories($cat, $replace = false)
     {
@@ -270,9 +270,9 @@ class MWPost extends RMObject
      * el post actual
      * @param bool   $asList    Detemina si se muestra en forma de lista o de array
      * @param string $delimiter Delimitador para la lista
-     * @param mixed  $links
-     * @param mixed  $section
-     * @return string or array
+     * @param bool  $links Get names with links. Only works when $asList equal true
+     * @param string  $section Section for link. It can be front or admin. Only works when $asList equal true
+     * @return string|array
      */
     public function get_categories_names($asList = true, $delimiter = ',', $links = true, $section = 'front')
     {
@@ -303,7 +303,7 @@ class MWPost extends RMObject
 
     /**
      * Add Tags
-     * @param mixed $tags
+     * @param array|string $tags Tags to add
      */
     public function add_tags($tags)
     {
@@ -392,7 +392,7 @@ class MWPost extends RMObject
     /**
      * Get metas from post.
      * If a meta name has not been provided then return all metas
-     * @param mixed $name
+     * @param string $name  Meta name
      * @param mixed $object
      * @return string|array
      */
@@ -432,8 +432,8 @@ class MWPost extends RMObject
 
     /**
      * Add or modify a field
-     * @param mixed $name
-     * @param mixed $value
+     * @param string $name Meta name 
+     * @param mixed $value  Meta value
      * @return void
      */
     public function add_meta($name, $value)
@@ -455,7 +455,7 @@ class MWPost extends RMObject
 
     /**
      * Determines if current or given user can read this post
-     * @param null|mixed $uid
+     * @param null|int $uid User ID
      * @return bool
      */
     public function user_allowed($uid = null)

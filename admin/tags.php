@@ -91,7 +91,7 @@ function show_tags()
 
 /**
  * Save a new tag or update an existing tag
- * @param mixed $edit
+ * @param bool $edit Save or edit
  */
 function save_tag($edit = false)
 {

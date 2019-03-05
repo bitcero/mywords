@@ -172,10 +172,10 @@ class mwfunctions
 
     /**
      * Get the tags list based on given parameters
-     * @param mixed $select
-     * @param mixed $where
-     * @param mixed $order
-     * @param mixed $limit
+     * @param string $select SQLSelect
+     * @param string $where SQL Where
+     * @param string $order SQL Order
+     * @param string $limit SQL Limit
      * @return array
      */
     public static function get_tags($select = '*', $where = '', $order = '', $limit = '')
@@ -194,8 +194,8 @@ class mwfunctions
 
     /**
      * Get the font size for tags names based on their popularity
-     * @param mixed $posts
-     * @param mixed $max_size
+     * @param int $posts Number of posts for this tag
+     * @param int $max_size Max font size for tag name. This value is expressend in 'ems' (2em)
      * @return float Size of tag expressed as em value
      */
     public function tag_font_size($posts, $max_size = 3)
@@ -240,7 +240,7 @@ class mwfunctions
 
     /**
      * Get author name
-     * @param mixed $uid
+     * @param int $uid Author (XoopsUser) ID
      * @return string
      */
     public function author_name($uid)
@@ -265,7 +265,7 @@ class mwfunctions
 
     /**
      * Add tags to database
-     * @param mixed $tags
+     * @param string|array $tags Tags names
      * @return array Tags saved ID
      */
     public function add_tags($tags)
@@ -424,12 +424,12 @@ class mwfunctions
     /**
      * Get posts by tag
      *
-     * @param mixed $tags
-     * @param mixed $start
-     * @param mixed $limit
-     * @param mixed $orderby
-     * @param mixed $order
-     * @param mixed $status
+     * @param array|int $tags Tag id
+     * @param int $start Start
+     * @param int $limit Max results
+     * @param string $orderby Column to sort
+     * @param string $order Sort direction ASC or DESC, etc
+     * @param string $status Posts status, published, draft, etc.
      * @param mixed $exclude
      * @return array
      */
