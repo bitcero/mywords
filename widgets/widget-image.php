@@ -42,7 +42,7 @@ function mywords_widget_image($post = null)
     $widget['title'] = __('Default Image', 'mywords');
     $util = new RMUtilities();
 
-    if (isset($post) && is_a($post, 'MWPost')) {
+    if (isset($post) && $post instanceof \MWPost) {
         if ($post->isNew()) {
             $params = '';
         } else {

@@ -50,7 +50,7 @@ function mywords_widget_publish($post = null, $frontend = false)
     $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
     $edit = false;
 
-    if (isset($post) && is_a($post, 'MWPost') && !$post->isNew()) {
+    if (isset($post) && $post instanceof \MWPost && !$post->isNew()) {
         $edit = true;
         switch ($post->getVar('status')) {
             case 'draft':

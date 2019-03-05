@@ -41,7 +41,7 @@ function mywords_widget_addtags($post = null)
     $widget['icon'] = '';
 
     $edit = false;
-    if (isset($post) && is_a($post, 'MWPost')) {
+    if (isset($post) && $post instanceof \MWPost) {
         if ($post->isNew()) {
             unset($post);
         } else {
