@@ -91,7 +91,7 @@ if ('saveedit' === $op) {
         die();
     }
 
-    if (!$editor->id() == $post->getVar('author') && !$xoopsUser->isAdmin()) {
+    if (!$xoopsUser->isAdmin() && !$editor->id() == $post->getVar('author')) {
         return_error(__('You are not allowed to do this action!', 'mywords'), false, MW_URL);
     }
 
@@ -194,9 +194,9 @@ if ($post->isNew()) {
 }
 
 if ('draft' !== $status) {
-    if ($schedule <= time() && !$edit) {
+    if (!$edit && $schedule <= time()) {
         $post->setVar('pubdate', time());
-    } elseif ($schedule <= time() && $edit) {
+    } elseif ($edit && $schedule <= time()) {
         $post->setVar('pubdate', 0 == $post->getVar('pubdate') ? time() : $post->getVar('pubdate'));
     } else {
         $post->setVar('pubdate', 0);

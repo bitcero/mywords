@@ -64,7 +64,7 @@ $categories = [];
 <?php
     } ?>
 </div>
-<?php if ($xoopsUser->isAdmin() || $allowed_cats): ?>
+<?php if ($allowed_cats || $xoopsUser->isAdmin()): ?>
 <div class="w_catnew_container">
     <a href="javascript:;" id="a-show-new"><strong><?php _e('+ Add Categories', 'admin_mywords'); ?></strong></a>
     <div id="w-catnew-form">

@@ -44,7 +44,7 @@ if (!$xoopsUser) {
 
 // Check if user is a editor
 $author = new MWEditor();
-if (!$author->from_user($xoopsUser->uid()) && !$xoopsUser->isAdmin()) {
+if (!$xoopsUser->isAdmin() && !$author->from_user($xoopsUser->uid())) {
     redirect_header(MWFunctions::get_url(), 1, __('You are not allowed to do this action!', 'mywords'));
     die();
 }
@@ -66,7 +66,7 @@ if ($edit > 0) {
     }
 
     // Check if user is the admin or a editor of this this post
-    if ($author->id() != $post->getVar('author') && !$xoopsUser->isAdmin()) {
+    if (!$xoopsUser->isAdmin() && $author->id() != $post->getVar('author')) {
         redirect_header($post->permalink(), 1, __('You are not allowed to do this action!', 'mywords'));
         die();
     }

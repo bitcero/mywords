@@ -52,7 +52,7 @@ function mywords_widget_addtags($post = null)
     ob_start(); ?>
 <div class="rmc_widget_content_reduced">
 <form id="mw-post-tags-form">
-<?php if ($xoopsUser->isAdmin() || $allowed_tags): ?>
+<?php if ($allowed_tags || $xoopsUser->isAdmin()): ?>
 <div class="tags_box">
     <div class="input-group">
         <input type="text" name="tagsm" id="tags-m" class="form-control">
