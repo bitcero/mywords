@@ -50,7 +50,7 @@ class MWEditor extends RMObject
         $this->initVarsFromTable();
         $this->setVarType('privileges', XOBJ_DTYPE_ARRAY);
 
-        $id = intval($id);
+        $id = (int)$id;
 
         if (null === $id || $id <= 0) {
             return;

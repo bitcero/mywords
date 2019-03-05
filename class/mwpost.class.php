@@ -288,7 +288,7 @@ class MWPost extends RMObject
                 if ($links) {
                     $category = new MWCategory();
                     $category->assignVars($cat);
-                    $rtn .= '' == $rtn ? '' : "$delimiter";
+                    $rtn .= '' == $rtn ? '' : (string)$delimiter;
                     $rtn .= '<a href="' . ('front' == $section ? $category->permalink() : 'posts.php?cat=' . $cat['id_cat']) . '">' . $cat['name'] . '</a>';
                 } else {
                     $rtn .= '' == $rtn ? $cat['name'] : "$delimiter $cat[name]";
