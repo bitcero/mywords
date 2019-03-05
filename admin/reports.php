@@ -40,7 +40,7 @@ class MyWordsSectionReports
     {
         global $common, $xoopsDB;
 
-        $common->uris()::redirect_with_message(
+        $common->uris()->redirect_with_message(
             __('Reports must be accessed directly from posts management', 'mywords'),
             'posts.php',
             RMMSG_WARN
@@ -51,10 +51,10 @@ class MyWordsSectionReports
     {
         global $common, $xoopsDB;
 
-        $id = $common->httpRequest()::get('id', 'integer', 0);
+        $id = $common->httpRequest()->get('id', 'integer', 0);
 
         if ($id <= 0) {
-            $common->uris()::redirect_with_message(
+            $common->uris()->redirect_with_message(
                 __('You must provide a valid post ID to view its reports', 'mywords'),
                 'posts.php',
                 RMMSG_ERROR
@@ -63,7 +63,7 @@ class MyWordsSectionReports
 
         $post = new MWPost($id);
         if ($post->isNew()) {
-            $common->uris()::redirect_with_message(
+            $common->uris()->redirect_with_message(
                 __('You must specify an existing post before to see reports', 'mywords'),
                 'posts.php',
                 RMMSG_ERROR
@@ -75,7 +75,7 @@ class MyWordsSectionReports
         $result = $xoopsDB->query($sql);
 
         if ($xoopsDB->getRowsNum($result) <= 0) {
-            $common->uris()::redirect_with_message(
+            $common->uris()->redirect_with_message(
                 __('Specified post does not have any report', 'mywords'),
                 'posts.php',
                 RMMSG_ERROR
@@ -145,7 +145,7 @@ class MyWordsSectionReports
 
         $common->checkToken();
 
-        $id = $common->httpRequest()::post('id', 'integer', 0);
+        $id = $common->httpRequest()->post('id', 'integer', 0);
         if ($id <= 0) {
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
@@ -196,7 +196,7 @@ class MyWordsSectionReports
 
         $common->checkToken();
 
-        $ids = $common->httpRequest()::post('ids', 'array', []);
+        $ids = $common->httpRequest()->post('ids', 'array', []);
         if (empty($ids)) {
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
@@ -234,7 +234,7 @@ class MyWordsSectionReports
 
         $common->checkToken();
 
-        $ids = $common->httpRequest()::post('ids', 'array', []);
+        $ids = $common->httpRequest()->post('ids', 'array', []);
         if (empty($ids)) {
             $common->ajax()->notifyError(__('You must provide a valid report ID', 'mywords'));
         }
@@ -267,7 +267,7 @@ $mywordsSection = new MyWordsSectionReports();
 /**
  * Receive 'action' parameter and take action
  */
-$action = $common->httpRequest()::request('action', 'string');
+$action = $common->httpRequest()->request('action', 'string');
 
 switch ($action) {
     case 'view':

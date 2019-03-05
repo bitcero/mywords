@@ -105,7 +105,7 @@ if (isset($vars['date'])) {
     die();
 }
 
-$report = $common->httpRequest()::request('report', 'integer', 0);
+$report = $common->httpRequest()->request('report', 'integer', 0);
 if ($report > 0) {
     require __DIR__ . '/report.php';
     die();
