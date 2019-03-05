@@ -25,7 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-require('header.php');
+require __DIR__ . '/header.php';
 $common->location = 'categories';
 
 RMTemplate::get()->add_help(
@@ -90,21 +90,21 @@ function showCategos()
 
     RMTemplate::get()->add_head(
         '<script type="text/javascript">
-			function cat_del_confirm(cat, id){
-	  
-			  var string = "' . __('Do you really want to delete \"%s\"', 'mywords') . '";
-	 				string = string.replace("%s", cat);
-	 				var ret = confirm(string);
-	 				
-	 				if (ret){
-	 					$("#tblCats input[type=checkbox]").removeAttr("checked");
-	 					$("#cat-"+id).attr("checked","checked");
-	 					$("#cat-op").val("delete");
-	 					$("#tblCats").submit();
-					}
-			  
-		  }
-	  </script>'
+            function cat_del_confirm(cat, id){
+
+              var string = "' . __('Do you really want to delete \"%s\"', 'mywords') . '";
+                    string = string.replace("%s", cat);
+                    var ret = confirm(string);
+
+                    if (ret){
+                        $("#tblCats input[type=checkbox]").removeAttr("checked");
+                        $("#cat-"+id).attr("checked","checked");
+                        $("#cat-op").val("delete");
+                        $("#tblCats").submit();
+                    }
+
+          }
+      </script>'
     );
 
     RMBreadCrumb::get()->add_crumb(__('Categories', 'mywords'));

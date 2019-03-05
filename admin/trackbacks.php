@@ -25,7 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-require('header.php');
+require __DIR__ . '/header.php';
 $common->location = 'trackbacks';
 
 RMTemplate::get()->assign('xoops_pagetitle', __('Trackbacks management', 'mw_categories'));

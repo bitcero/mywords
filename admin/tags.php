@@ -25,7 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-require('header.php');
+require __DIR__ . '/header.php';
 $common->location = 'tags';
 
 RMTemplate::get()->add_help(

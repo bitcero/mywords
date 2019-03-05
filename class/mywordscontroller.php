@@ -75,8 +75,8 @@ class mywordscontroller implements iCommentsController
             return $posts[$post]->getVar('title');
         }
 
-        include_once(XOOPS_ROOT_PATH . '/modules/mywords/class/mwpost.class.php');
-        include_once(XOOPS_ROOT_PATH . '/modules/mywords/class/mwfunctions.php');
+        include_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwpost.class.php';
+        include_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwfunctions.php';
         $item = new MWPost($post);
         if ($item->isNew()) {
             return __('Not found', 'mywords');
@@ -103,8 +103,8 @@ class mywordscontroller implements iCommentsController
             return $ret;
         }
 
-        include_once(XOOPS_ROOT_PATH . '/modules/mywords/class/mwpost.class.php');
-        include_once(XOOPS_ROOT_PATH . '/modules/mywords/class/mwfunctions.php');
+        include_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwpost.class.php';
+        include_once XOOPS_ROOT_PATH . '/modules/mywords/class/mwfunctions.php';
         $item = new MWPost($post);
         if ($item->isNew()) {
             return '';

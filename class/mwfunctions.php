@@ -130,7 +130,7 @@ class mwfunctions
      * @param \MWPost $post
      * @return bool
      */
-    public function post_exists(MWPost &$post)
+    public function post_exists(MWPost $post)
     {
         if ('' == $post->getVar('title', 'n')) {
             return false;

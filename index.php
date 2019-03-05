@@ -25,7 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-include('../../mainfile.php');
+include dirname(dirname(__DIR__)) . '/mainfile.php';
 
 $path = parse_url(str_replace(XOOPS_URL, '', RMUris::current_url()));
 //$request = str_replace(XOOPS_URL, '', RMUris::current_url());
