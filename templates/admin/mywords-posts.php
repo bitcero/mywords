@@ -14,15 +14,15 @@
             </div>
         </div>
         <div class="col-md-8 col-lg-8">
-            
+
             <ul class="nav nav-pills">
                 <li><a href="posts.php?op=new"><?php _e('Add New', 'mywords'); ?></a></li>
                 <li<?php echo '' == $status ? ' class="active"' : ''; ?>><a href="posts.php?limit=<?php echo $limit ?>"><?php _e('Show all', 'mywords'); ?> <strong>(<?php echo($pub_count + $draft_count + $pending_count); ?>)</strong></a></li>
-                <li<?php echo 'publish' == $status ? ' class="active"' : ''; ?>><a href="posts.php?status=publish&amp;limit=<?php echo $limit ?>"><?php _e('Published', 'admin_mywords'); ?> <strong>(<?php echo $pub_count; ?>)</strong></a></li>
-                <li<?php echo 'draft' == $status ? ' class="active"' : ''; ?>><a href="posts.php?status=draft&amp;limit=<?php echo $limit ?>"><?php _e('Drafts', 'admin_mywords'); ?> <strong>(<?php echo $draft_count; ?>)</strong></a></li>
-                <li<?php echo 'pending' == $status ? ' class="active"' : ''; ?>><a href="posts.php?status=pending&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
+                <li<?php echo 'publish' === $status ? ' class="active"' : ''; ?>><a href="posts.php?status=publish&amp;limit=<?php echo $limit ?>"><?php _e('Published', 'admin_mywords'); ?> <strong>(<?php echo $pub_count; ?>)</strong></a></li>
+                <li<?php echo 'draft' === $status ? ' class="active"' : ''; ?>><a href="posts.php?status=draft&amp;limit=<?php echo $limit ?>"><?php _e('Drafts', 'admin_mywords'); ?> <strong>(<?php echo $draft_count; ?>)</strong></a></li>
+                <li<?php echo 'pending' === $status ? ' class="active"' : ''; ?>><a href="posts.php?status=pending&amp;limit=<?php echo $limit ?>"><?php _e('Pending of Review', 'admin_mywords'); ?> <strong>(<?php echo $pending_count; ?>)</strong></a></li>
             </ul>
-            
+
         </div>
     </div>
 </form>
@@ -134,15 +134,15 @@
                             <td align="center"><?php echo $post['date']; ?></td>
                             <td style="white-space: nowrap;">
                                 <div class="cu-options">
-    		                        <a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>" title="<?php _e('Edit', 'mywords'); ?>" class="warning">
+                                    <a href="posts.php?op=edit&amp;id=<?php echo $post['id']; ?>" title="<?php _e('Edit', 'mywords'); ?>" class="warning">
                                         <?php echo $common->icons()->getIcon('svg-rmcommon-pencil'); ?>
                                         <span class="sr-only"><?php _e('Edit', 'mywords'); ?></span>
                                     </a>
-    		                        <a href="#" class="danger" onclick="return post_del_confirm('<?php echo $post['title']; ?>', <?php echo $post['id']; ?>);" title="<?php _e('Delete', 'mywords'); ?>">
+                                    <a href="#" class="danger" onclick="return post_del_confirm('<?php echo $post['title']; ?>', <?php echo $post['id']; ?>);" title="<?php _e('Delete', 'mywords'); ?>">
                                         <?php echo $common->icons()->getIcon('svg-rmcommon-cross'); ?>
                                         <span class="sr-only"><?php _e('Delete', 'mywords'); ?></span>
                                     </a>
-                                    <?php if ('publish' != $post['status']): ?>
+                                    <?php if ('publish' !== $post['status']): ?>
                                         <a href="<?php echo MW_URL . '?p=' . $post['id']; ?>" title="<?php _e('Preview', 'mywords'); ?>" class="grey">
                                             <?php echo $common->icons()->getIcon('svg-rmcommon-eye'); ?>
                                             <span class="sr-only"><?php _e('Preview', 'mywords'); ?></span>
@@ -159,7 +159,7 @@
                                             <span class="sr-only"><?php _e('View Reports', 'mywords'); ?></span>
                                         </a>
                                     <?php endif; ?>
-    	                        </div>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>

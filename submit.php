@@ -86,7 +86,7 @@ $xoopsOption['module_subpage'] = 'submit';
 require __DIR__ . '/header.php';
 
 $form = new RMForm('', '', '');
-$editor = new RMFormEditor('', 'content', '100%', '300px', $edit ? $post->getVar('content', 'tiny' == $rmc_config['editor_type'] ? 's' : 'e') : '');
+$editor = new RMFormEditor('', 'content', '100%', '300px', $edit ? $post->getVar('content', 'tiny' === $rmc_config['editor_type'] ? 's' : 'e') : '');
 $editor->setExtra('required');
 $meta_names = MWFunctions::get()->get_metas();
 

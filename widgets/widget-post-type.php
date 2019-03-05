@@ -44,49 +44,49 @@ function mywords_widget_post_type($post = null)
         <div class="form-group mywords-post-types">
             <div class="radio">
                 <label>
-                    <input type="radio" value="post" name="format"<?php echo !isset($post) || 'post' == $post->getVar('format') ? ' checked' : ''; ?>>
+                    <input type="radio" value="post" name="format"<?php echo !isset($post) || 'post' === $post->getVar('format') ? ' checked' : ''; ?>>
                     <span class="fa fa-thumb-tack"></span>
                     <?php _e('Standard', 'mywords'); ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" value="video" name="format"<?php echo isset($post) && 'video' == $post->getVar('format') ? ' checked' : ''; ?>>
+                    <input type="radio" value="video" name="format"<?php echo isset($post) && 'video' === $post->getVar('format') ? ' checked' : ''; ?>>
                     <span class="fa fa-video-camera"></span>
                     <?php _e('Video', 'mywords'); ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" value="gallery" name="format"<?php echo isset($post) && 'gallery' == $post->getVar('format') ? ' checked' : ''; ?>>
+                    <input type="radio" value="gallery" name="format"<?php echo isset($post) && 'gallery' === $post->getVar('format') ? ' checked' : ''; ?>>
                     <span class="fa fa-camera"></span>
                     <?php _e('Gallery', 'mywords'); ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" value="quote" name="format"<?php echo isset($post) && 'quote' == $post->getVar('format') ? ' checked' : ''; ?>>
+                    <input type="radio" value="quote" name="format"<?php echo isset($post) && 'quote' === $post->getVar('format') ? ' checked' : ''; ?>>
                     <span class="fa fa-quote-left"></span>
                     <?php _e('Quote', 'mywords'); ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" value="mini" name="format"<?php echo isset($post) && 'mini' == $post->getVar('format') ? ' checked' : ''; ?>>
+                    <input type="radio" value="mini" name="format"<?php echo isset($post) && 'mini' === $post->getVar('format') ? ' checked' : ''; ?>>
                     <span class="fa fa-file-text-o"></span>
                     <?php _e('Mini post', 'mywords'); ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" value="image" name="format"<?php echo isset($post) && 'image' == $post->getVar('format') ? ' checked' : ''; ?>>
+                    <input type="radio" value="image" name="format"<?php echo isset($post) && 'image' === $post->getVar('format') ? ' checked' : ''; ?>>
                     <span class="fa fa-picture-o"></span>
                     <?php _e('Image', 'mywords'); ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" value="link" name="format"<?php echo isset($post) && 'link' == $post->getVar('format') ? ' checked' : ''; ?>>
+                    <input type="radio" value="link" name="format"<?php echo isset($post) && 'link' === $post->getVar('format') ? ' checked' : ''; ?>>
                     <span class="fa fa-link"></span>
                     <?php _e('Link', 'mywords'); ?>
                 </label>

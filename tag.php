@@ -40,7 +40,7 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 0;
 if ($page <= 0) {
     $path = explode('/', $request);
     $srh = array_search('page', $path, true);
-    if (isset($path[$srh]) && 'page' == $path[$srh]) {
+    if (isset($path[$srh]) && 'page' === $path[$srh]) {
         if (!isset($path[$srh])) {
             $page = 0;
         } else {
@@ -58,10 +58,10 @@ $limit = $mc['posts_limit'];
 $table_tags = $db->prefix('mod_mywords_tagspost');
 $table_posts = $db->prefix('mod_mywords_posts');
 
-$sql = "SELECT COUNT(*) FROM $table_posts as a, $table_tags as b WHERE b.tag='" . $tag->id() . "' AND 
-        a.id_post=b.post AND status='publish' AND 
-		((visibility='public' OR visibility='password') OR (visibility='private' AND
-		author=" . ($xoopsUser ? $xoopsUser->uid() : -1) . '))';
+$sql = "SELECT COUNT(*) FROM $table_posts as a, $table_tags as b WHERE b.tag='" . $tag->id() . "' AND
+        a.id_post=b.post AND status='publish' AND
+        ((visibility='public' OR visibility='password') OR (visibility='private' AND
+        author=" . ($xoopsUser ? $xoopsUser->uid() : -1) . '))';
 list($num) = $db->fetchRow($db->query($sql));
 
 if ($page > 0) {
@@ -89,9 +89,9 @@ $xoopsTpl->assign('pactual', $pactual);
 $xoopsTpl->assign('lang_taggedtitle', sprintf(__('Posts tagged as "%s"', 'mywords'), $tag->getVar('tag')));
 
 $sql = "SELECT a.* FROM $table_posts as a, $table_tags as b WHERE b.tag='" . $tag->id() . "' AND
-        a.id_post=b.post AND status='publish' AND 
-		((visibility='public' OR visibility='password') OR (visibility='private' AND
-		author=" . ($xoopsUser ? $xoopsUser->uid() : -1) . ")) ORDER BY pubdate DESC LIMIT $start,$limit";
+        a.id_post=b.post AND status='publish' AND
+        ((visibility='public' OR visibility='password') OR (visibility='private' AND
+        author=" . ($xoopsUser ? $xoopsUser->uid() : -1) . ")) ORDER BY pubdate DESC LIMIT $start,$limit";
 $result = $db->query($sql);
 require __DIR__ . '/post_data.php';
 

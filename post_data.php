@@ -71,7 +71,7 @@ while (false !== ($row = $db->fetchArray($result))) {
     # Información de Publicación
     $published = sprintf(__('%s by %s', 'mywords'), MWFunctions::format_time($post->getVar('pubdate'), 'string'), '<a href="' . $alink . '">' . (isset($editor) ? $editor->name : __('Anonymous', 'mywords')) . '</a>');
     # Texto de continuar leyendo
-    if ('password' == $post->getVar('visibility')) {
+    if ('password' === $post->getVar('visibility')) {
         $text = isset($_SESSION['password-' . $post->id()]) && $_SESSION['password-' . $post->id()] == $post->getVar('password') ? $post->content(true) : MWFunctions::show_password($post);
     } else {
         $text = $post->content(true);
@@ -115,7 +115,7 @@ while (false !== ($row = $db->fetchArray($result))) {
         'meta' => $post->get_meta('', false),
         'image' => $post->image(),
         'video' => $post->video,
-        'player' => 'video' == $post->format ? $post->video_player() : '',
+        'player' => 'video' === $post->format ? $post->video_player() : '',
     ]);
 }
 $xoopsTpl->assign('lang_editpost', __('Edit Post', 'mywords'));

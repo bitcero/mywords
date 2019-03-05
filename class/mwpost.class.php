@@ -160,7 +160,6 @@ class MWPost extends RMObject
     public function hasmore_text()
     {
         $text = explode('<!--more-->', $this->getVar('content'));
-
         return count($text) > 1;
     }
 
@@ -217,9 +216,9 @@ class MWPost extends RMObject
             }
         }
 
-        if ('ids' == $w) {
+        if ('ids' === $w) {
             return $this->categos;
-        } elseif ('data' == $w) {
+        } elseif ('data' === $w) {
             return $this->lcats;
         }
 
@@ -289,7 +288,7 @@ class MWPost extends RMObject
                     $category = new MWCategory();
                     $category->assignVars($cat);
                     $rtn .= '' == $rtn ? '' : (string)$delimiter;
-                    $rtn .= '<a href="' . ('front' == $section ? $category->permalink() : 'posts.php?cat=' . $cat['id_cat']) . '">' . $cat['name'] . '</a>';
+                    $rtn .= '<a href="' . ('front' === $section ? $category->permalink() : 'posts.php?cat=' . $cat['id_cat']) . '">' . $cat['name'] . '</a>';
                 } else {
                     $rtn .= '' == $rtn ? $cat['name'] : "$delimiter $cat[name]";
                 }
@@ -474,14 +473,14 @@ class MWPost extends RMObject
             return true;
         }
 
-        if ('publish' != $this->getVar('status')) {
+        if ('publish' !== $this->getVar('status')) {
             return false;
         }
-        if ('public' == $this->getVar('visibility')) {
+        if ('public' === $this->getVar('visibility')) {
             return true;
         }
 
-        if ('password' == $this->getVar('visibility')) {
+        if ('password' === $this->getVar('visibility')) {
             $pass = rmc_server_var($_POST, 'password', '');
             $pass = '' == $pass && isset($_SESSION['password-' . $this->id()]) ? $_SESSION['password-' . $this->id()] : $pass;
 
@@ -545,7 +544,7 @@ class MWPost extends RMObject
      */
     public function video_player()
     {
-        if ('video' != $this->format) {
+        if ('video' !== $this->format) {
             return null;
         }
 

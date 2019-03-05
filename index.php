@@ -33,7 +33,7 @@ $request = rtrim($path['path'], '/') . (isset($path['query']) ? '/' . $path['que
 $request .= '' != isset($path['anchor']) ? '#' . $path['anchor'] : '';
 $request = str_replace('/modules/mywords/', '', $request);
 
-if ($xoopsModuleConfig['permalinks'] > 1 && '/' != $xoopsModuleConfig['basepath'] && 'index.php' != $request) {
+if ($xoopsModuleConfig['permalinks'] > 1 && '/' !== $xoopsModuleConfig['basepath'] && 'index.php' !== $request) {
     $request = str_replace(rtrim($xoopsModuleConfig['basepath'], '/') . '/', '', rtrim($request, '/') . '/');
 }
 
@@ -43,13 +43,13 @@ if (0 === mb_strpos($request, '?')) {
     $request = mb_substr($request, 1);
     $yesquery = true;
 }
-if ('' == $request || 'index.php' == $request) {
+if ('' == $request || 'index.php' === $request) {
     require __DIR__ . '/home.php';
     die();
 }
 
 $params = explode('/', $request);
-if ('page' == $params[0]) {
+if ('page' === $params[0]) {
     require __DIR__ . '/home.php';
     die();
 }
@@ -120,7 +120,7 @@ if (is_numeric($vars[0]) && is_numeric($vars[1]) && is_numeric($vars[2])) {
     $time = mktime(0, 0, 0, $vars[1], $vars[0], $vars[2]);
 
     // Check if query is for a date range
-    if (!isset($vars[3]) || 'page' == $vars[3] || '' == $vars[3]) {
+    if (!isset($vars[3]) || 'page' === $vars[3] || '' == $vars[3]) {
         $time2 = mktime(23, 59, 59, $vars[1], $vars[0], $vars[2]);
         require __DIR__ . '/date.php';
         die();
@@ -137,7 +137,7 @@ if (is_numeric($vars[0]) && is_numeric($vars[1]) && is_numeric($vars[2])) {
  * Si el primer valor es igual a post entonces se trata de una
  * artículo solicitado numéricamente
  */
-if ('post' == $vars[0]) {
+if ('post' === $vars[0]) {
     $post = $vars[1];
     require __DIR__ . '/post.php';
     die();
@@ -146,7 +146,7 @@ if ('post' == $vars[0]) {
  * Si el primer valor es category entonces se realiza la búsqueda por
  * categoría
  */
-if ('category' == $vars[0]) {
+if ('category' === $vars[0]) {
     $categotype = 1;
     require __DIR__ . '/categories.php';
     die();
@@ -155,19 +155,19 @@ if ('category' == $vars[0]) {
  * Si el primer valor es "author" entonce se
  * realiza la búsqueda por nombre de autor
  */
-if ('author' == $vars[0]) {
+if ('author' === $vars[0]) {
     $editor = $vars[1];
     require __DIR__ . '/author.php';
     die();
 }
 
-if ('tag' == $vars[0]) {
+if ('tag' === $vars[0]) {
     $tag = $vars[1];
     require __DIR__ . '/tag.php';
     die();
 }
 
-if ('trackback' == $vars[0]) {
+if ('trackback' === $vars[0]) {
     $id = $vars[1];
     require __DIR__ . '/trackbacks.php';
     die();
@@ -178,18 +178,18 @@ if ('trackback' == $vars[0]) {
  * entonces se muestra el formulario
  * para enviar un artículo
  */
-if ('submit' == $vars[0]) {
+if ('submit' === $vars[0]) {
     require __DIR__ . '/submit.php';
     die();
 }
 
-if ('edit' == $vars[0]) {
+if ('edit' === $vars[0]) {
     $edit = $vars[1];
     require __DIR__ . '/submit.php';
     die();
 }
 
-if ('report' == $vars[0]) {
+if ('report' === $vars[0]) {
     $id = $vars[1];
     require __DIR__ . '/report.php';
     die();

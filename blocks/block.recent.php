@@ -66,9 +66,9 @@ function mywordsBlockRecent($options)
             $ret['date'] = formatTimestamp($post->getVar('pubdate'), 'c');
         }
         // Show reads
-        if ('popular' == $options[1]) {
+        if ('popular' === $options[1]) {
             $ret['hits'] = sprintf(__('%u Reads', 'mywords'), $post->getVar('reads'));
-        } elseif ('comm' == $options[1]) {
+        } elseif ('comm' === $options[1]) {
             $ret['comments'] = sprintf(__('%u Comments', 'mywords'), $post->getVar('comments'));
         }
         $ret['time'] = $post->getVar('pubdate');
@@ -105,15 +105,15 @@ function mywordsBlockRecentEdit($options)
             <label class="control-label"><strong><?php _e('Block type:', 'mywords'); ?></strong></label>
             <div class="controls">
                 <label class="radio">
-                    <input type="radio" name="options[1]"<?php echo !isset($options[1]) || 'recent' == $options[1] ? ' checked' : ''; ?> value="recent">
+                    <input type="radio" name="options[1]"<?php echo !isset($options[1]) || 'recent' === $options[1] ? ' checked' : ''; ?> value="recent">
                     <?php _e('Recent Posts', 'mywords'); ?>
                 </label>
                 <label class="radio">
-                    <input type="radio" name="options[1]"<?php echo !isset($options[1]) || 'popular' == $options[1] ? ' checked' : ''; ?> value="popular">
+                    <input type="radio" name="options[1]"<?php echo !isset($options[1]) || 'popular' === $options[1] ? ' checked' : ''; ?> value="popular">
                     <?php _e('Popular Posts', 'mywords'); ?>
                 </label>
                 <label class="radio">
-                    <input type="radio" name="options[1]"<?php echo !isset($options[1]) || 'comm' == $options[1] ? ' checked' : ''; ?> value="comm">
+                    <input type="radio" name="options[1]"<?php echo !isset($options[1]) || 'comm' === $options[1] ? ' checked' : ''; ?> value="comm">
                     <?php _e('Most Commented', 'mywords'); ?>
                 </label>
             </div>

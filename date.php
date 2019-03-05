@@ -43,7 +43,7 @@ $page = rmc_server_var($_GET, 'page', 0);
 if ($page <= 0) {
     $path = explode('/', $request);
     $srh = array_search('page', $path, true);
-    if (isset($path[$srh]) && 'page' == $path[$srh]) {
+    if (isset($path[$srh]) && 'page' === $path[$srh]) {
         if (!isset($path[$srh])) {
             $page = 0;
         } else {

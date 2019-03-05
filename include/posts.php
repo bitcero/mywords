@@ -79,7 +79,7 @@ if (!isset($xoopsUser) || (!$xoopsUser->isAdmin() && !$mc->submit)) {
 $editor = new MWEditor();
 $editor->from_user($author);
 
-if ('saveedit' == $op) {
+if ('saveedit' === $op) {
     if (!isset($id) || $id <= 0) {
         return_error(__('You must provide a valid post ID', 'mywords'), 0, 'posts.php');
         die();
@@ -120,7 +120,7 @@ if (!isset($shortname) || '' == $shortname) {
 }
 
 // Check content
-if ('' == $content && 'image' != $format) {
+if ('' == $content && 'image' !== $format) {
     return_error(__('Content for this post has not been provided!', 'mywords'), true);
     die();
 }
@@ -131,7 +131,7 @@ if (!isset($categories) || empty($categories)) {
 }
 
 // Check publish options
-if ('password' == $visibility && '' == $vis_password) {
+if ('password' === $visibility && '' == $vis_password) {
     return_error(__('You must provide a password for this post or select another visibility option', 'mywords'), true);
     die();
 }
@@ -193,7 +193,7 @@ if ($post->isNew()) {
     $post->setVar('created', time());
 }
 
-if ('draft' != $status) {
+if ('draft' !== $status) {
     if ($schedule <= time() && !$edit) {
         $post->setVar('pubdate', time());
     } elseif ($schedule <= time() && $edit) {

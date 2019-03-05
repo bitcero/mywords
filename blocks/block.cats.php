@@ -36,7 +36,7 @@ function mywordsBlockCats($options)
     $categos = [];
     MWFunctions::categos_list($categos, 0, 0, $options[0]);
     $block = [];
-    $mc = $xoopsModule && 'mywords' == $xoopsModule->getVar('dirname') ? $xoopsModuleConfig : RMSettings::module_settings('mywords');
+    $mc = $xoopsModule && 'mywords' === $xoopsModule->getVar('dirname') ? $xoopsModuleConfig : RMSettings::module_settings('mywords');
     foreach ($categos as $k) {
         $ret = [];
         $cat = new MWCategory();

@@ -56,7 +56,7 @@ class MWEditor extends RMObject
             return;
         }
 
-        if ('user' == $from) {
+        if ('user' === $from) {
             $this->primary = 'uid';
         }
 

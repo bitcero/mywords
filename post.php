@@ -82,7 +82,7 @@ $xoopsTpl->assign('xoops_pagetitle', '' != $post->getVar('customtitle') ? $post-
 if ($page <= 0) {
     $path = explode('/', $request);
     $srh = array_search('page', $path, true);
-    if (isset($path[$srh]) && 'page' == $path[$srh]) {
+    if (isset($path[$srh]) && 'page' === $path[$srh]) {
         if (!isset($path[$srh])) {
             $page = 1;
         } else {

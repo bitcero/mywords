@@ -49,7 +49,7 @@ if ($post->isNew()) {
  */
 $action = $common->httpRequest()->post('action', 'string', '');
 
-if ('submit' == $action) {
+if ('submit' === $action) {
     $name    = $common->httpRequest()->post('name', 'string', '');
     $email   = $common->httpRequest()->post('email', 'string', '');
     $title   = $common->httpRequest()->post('title', 'string', '');

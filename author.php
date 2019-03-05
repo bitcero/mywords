@@ -59,7 +59,7 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 0;
 if ($page <= 0) {
     $path = explode('/', $request);
     $srh = array_search('page', $path, true);
-    if (isset($path[$srh]) && 'page' == $path[$srh]) {
+    if (isset($path[$srh]) && 'page' === $path[$srh]) {
         if (!isset($path[$srh])) {
             $page = 0;
         } else {
@@ -75,8 +75,8 @@ $request = mb_substr($request, 0, mb_strpos($request, 'page') > 0 ? mb_strpos($r
  */
 $limit = $mc['posts_limit'];
 $sql = 'SELECT COUNT(*) FROM ' . $db->prefix('mod_mywords_posts') . " WHERE author='" . $ed->uid . "' AND status='publish' AND
-		((visibility='public' OR visibility='password') OR (visibility='private' AND
-		author=" . $ed->uid . '))';
+        ((visibility='public' OR visibility='password') OR (visibility='private' AND
+        author=" . $ed->uid . '))';
 list($num) = $db->fetchRow($db->query($sql));
 
 if ($page > 0) {
@@ -104,8 +104,8 @@ $xoopsTpl->assign('pactual', $pactual);
 $xoopsTpl->assign('lang_fromauthor', sprintf(__('Posts by "%s"', 'mywords'), $ed->getVar('name')));
 
 $sql = 'SELECT * FROM ' . $db->prefix('mod_mywords_posts') . " WHERE author='" . $ed->uid . "' AND status='publish' AND
-		((visibility='public' OR visibility='password') OR (visibility='private' AND
-		author=" . $ed->uid . ")) ORDER BY pubdate DESC LIMIT $start,$limit";
+        ((visibility='public' OR visibility='password') OR (visibility='private' AND
+        author=" . $ed->uid . ")) ORDER BY pubdate DESC LIMIT $start,$limit";
 $result = $db->query($sql);
 require __DIR__ . '/post_data.php';
 

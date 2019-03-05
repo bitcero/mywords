@@ -229,7 +229,7 @@ function newForm($edit = 0)
     //TinyEditor::getInstance()->add_config('theme_advanced_buttons1', 'bold,italic,strikethrough,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,|,link,unlink,|,spellchecker,fullscreen,|,exm_more,exm_adv', true);
     //TinyEditor::getInstance()->add_config('theme_advanced_buttons2','formatselect,underline,justifyfull,forecolor,|,pastetext,pasteword,removeformat,|,media,charmap,|,outdent,indent,|,undo,redo,|,exm_img,exm_icons,exm_page', true);
     //echo $post->getVar('content'); die();
-    $editor = new RMFormEditor('', 'content', '100%', '350px', $edit ? $post->getVar('content', 'tiny' == $cuSettings->editor_type ? 's' : 'e') : '');
+    $editor = new RMFormEditor('', 'content', '100%', '350px', $edit ? $post->getVar('content', 'tiny' === $cuSettings->editor_type ? 's' : 'e') : '');
 
     // Get current metas
     $meta_names = MWFunctions::get()->get_metas();

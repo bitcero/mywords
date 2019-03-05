@@ -446,7 +446,7 @@ class mwfunctions
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
         $sql = 'SELECT a.* FROM ' . $db->prefix('mod_mywords_posts') . ' as a, ' . $db->prefix('mod_mywords_tagspost') . ' as b WHERE
-                b.tag IN (' . implode(',', $tags) . ") AND a.id_post=b.post AND a.status='$status' AND a.id_post != $exclude GROUP BY a.id_post ORDER BY " . ('RAND()' != $orderby ? "a.$orderby" : $orderby) . " $order LIMIT $start,$limit";
+                b.tag IN (' . implode(',', $tags) . ") AND a.id_post=b.post AND a.status='$status' AND a.id_post != $exclude GROUP BY a.id_post ORDER BY " . ('RAND()' !== $orderby ? "a.$orderby" : $orderby) . " $order LIMIT $start,$limit";
 
         $result = $db->query($sql);
         $ret = [];

@@ -66,7 +66,7 @@ function mywords_widget_publish($post = null, $frontend = false)
                 $status = __('Scheduled', 'mywords');
                 break;
         }
-        $visibility = 'public' == $post->getVar('visibility') ? 'Public' : ('password' == $post->getVar('visibility') ? 'Password Protected' : 'Private');
+        $visibility = 'public' === $post->getVar('visibility') ? 'Public' : ('password' === $post->getVar('visibility') ? 'Password Protected' : 'Private');
     } else {
         $status = 'Published';
         $visibility = 'Public';
@@ -80,9 +80,9 @@ function mywords_widget_publish($post = null, $frontend = false)
 <?php _e('Status:', 'mywords'); ?> <strong id="publish-status-legend"><?php _e($status, 'mywords'); ?></strong> &nbsp; <a href="javascript:;" id="edit-publish"><?php _e('Edit', 'mywords'); ?></a>
     <div id="publish-options" style="display: none;">
         <select name="status" id="status">
-            <option value="publish"<?php echo $edit && 'publish' == $post->getVar('status') ? 'selected="selected"' : ($edit ? '' : 'selected="selected"'); ?>><?php _e('Published', 'mywords') ?></option>
-            <option value="draft"<?php echo $edit && 'draft' == $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Draft', 'mywords') ?></option>
-            <option value="pending"<?php echo $edit && 'pending' == $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Pending Review', 'mywords') ?></option>
+            <option value="publish"<?php echo $edit && 'publish' === $post->getVar('status') ? 'selected="selected"' : ($edit ? '' : 'selected="selected"'); ?>><?php _e('Published', 'mywords') ?></option>
+            <option value="draft"<?php echo $edit && 'draft' === $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Draft', 'mywords') ?></option>
+            <option value="pending"<?php echo $edit && 'pending' === $post->getVar('status') ? 'selected="selected"' : ''?>><?php _e('Pending Review', 'mywords') ?></option>
         </select>
         <input type="button" name="publish-ok" id="publish-ok" class="button" value="<?php _e('Apply', 'mywords') ?>"><br>
         <a href="javascript:;" onclick="$('#publish-options').slideUp('slow'); $('#edit-publish').show();"><?php _e('Cancel', 'mywords') ?></a>
@@ -99,15 +99,15 @@ function mywords_widget_publish($post = null, $frontend = false)
         $visibility = $post->getVar('visibility');
     } ?>
     <div id="visibility-options">
-        <input type="radio" name="visibility" value="public" id="visibility-public"<?php echo 'public' == $visibility ? ' checked' : ''; ?>> <label for="visibility-public"><?php _e('Public', 'mywords'); ?></label><br>
-        <input type="radio" name="visibility" value="password" id="visibility-password"<?php echo 'password' == $visibility ? ' checked' : ''; ?>> <label for="visibility-password"><?php _e('Password protected', 'mywords'); ?></label><br>
-        <span id="vis-password-text" style="<?php _e('password' == $visibility ? '' : 'display: none') ?>">
+        <input type="radio" name="visibility" value="public" id="visibility-public"<?php echo 'public' === $visibility ? ' checked' : ''; ?>> <label for="visibility-public"><?php _e('Public', 'mywords'); ?></label><br>
+        <input type="radio" name="visibility" value="password" id="visibility-password"<?php echo 'password' === $visibility ? ' checked' : ''; ?>> <label for="visibility-password"><?php _e('Password protected', 'mywords'); ?></label><br>
+        <span id="vis-password-text" style="<?php _e('password' === $visibility ? '' : 'display: none') ?>">
             <label>
             <?php _e('Password:', 'mywords') ?>
             <input type="text" name="vis_password" id="vis-password" value="<?php echo $edit ? $post->getVar('password') : ''; ?>" class="options_input">
             </label>
         <br></span>
-        <input type="radio" name="visibility" value="private" id="visibility-private"<?php echo 'private' == $visibility ? ' checked' : ''; ?>> <label for="visibility-private"><?php _e('Private', 'mywords') ?></label><br><br>
+        <input type="radio" name="visibility" value="private" id="visibility-private"<?php echo 'private' === $visibility ? ' checked' : ''; ?>> <label for="visibility-private"><?php _e('Private', 'mywords') ?></label><br><br>
         <input type="button" name="vis-button" id="vis-button" value="<?php _e('Apply', 'mywords') ?>" class="button">
         <a href="javascript:;" id="vis-cancel"><?php _e('Cancel', 'mywords') ?></a>
     </div>

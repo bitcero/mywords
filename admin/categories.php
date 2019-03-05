@@ -206,7 +206,7 @@ function saveCatego($edit = 0)
     $query = '';
     foreach ($_POST as $k => $v) {
         $$k = $v;
-        if ('op' == $k || 'XOOPS_TOKEN_REQUEST' == $k) {
+        if ('op' === $k || 'XOOPS_TOKEN_REQUEST' === $k) {
             continue;
         }
         $query .= '' == $query ? "$k=" . urlencode($v) : '&' . $k . '=' . urlencode($v);

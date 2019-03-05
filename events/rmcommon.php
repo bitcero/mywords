@@ -31,14 +31,14 @@ class MywordsRmcommonPreload
     {
         global $xoopsModule;
 
-        if (!isset($xoopsModule) || ('system' != $xoopsModule->getVar('dirname') && 'mywords' != $xoopsModule->getVar('dirname'))) {
+        if (!isset($xoopsModule) || ('system' !== $xoopsModule->getVar('dirname') && 'mywords' !== $xoopsModule->getVar('dirname'))) {
             return $widgets;
         }
 
         // Check edition
         $id = RMHttpRequest::request('id', 'integer', 0);
         $op = RMHttpRequest::request('op', 'string', '');
-        $edit = 'edit' == $op ? 1 : 0;
+        $edit = 'edit' === $op ? 1 : 0;
         $post = null;
 
         if ($edit) {
@@ -50,7 +50,7 @@ class MywordsRmcommonPreload
             $post = new MWPost($id);
         }
 
-        if (defined('RMCSUBLOCATION') && RMCSUBLOCATION == 'new_post') {
+        if (defined('RMCSUBLOCATION') && RMCSUBLOCATION === 'new_post') {
             require_once dirname(__DIR__) . '/widgets/widget-publish.php';
             $widgets[] = mywords_widget_publish($post);
 

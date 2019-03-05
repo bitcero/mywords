@@ -204,7 +204,7 @@ class MyWordsSectionReports
         $sql = 'UPDATE ' . $xoopsDB->prefix('mod_mywords_reports') . " SET status='$status' WHERE id_report IN (" . implode(',', $ids) . ')';
 
         if ($xoopsDB->queryF($sql)) {
-            $statusText = 'accepted' == $status ? 'accepted' : 'waiting';
+            $statusText = 'accepted' === $status ? 'accepted' : 'waiting';
 
             $common->ajax()->response(
                 sprintf(__('Reports status updated to "%s" successfully', 'mywords'), $statusText),
@@ -212,7 +212,7 @@ class MyWordsSectionReports
                 1,
                 [
                     'notify' => [
-                        'type' => 'accepted' == $status ? 'alert-success' : 'alert-purple',
+                        'type' => 'accepted' === $status ? 'alert-success' : 'alert-purple',
                         'icon' => 'svg-rmcommon-ok-circle',
                     ],
                     'status' => $status,
