@@ -31,7 +31,7 @@
  * will be uses by Common Utilities to do some actions
  * like update comments
  */
-class mywordscontroller implements iCommentsController
+class MywordsController implements iCommentsController
 {
     public function increment_comments_number($comment)
     {
