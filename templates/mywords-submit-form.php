@@ -134,7 +134,7 @@
     <div class="col-md-4 col-lg-3">
         <!-- Publish -->
         <?php
-        require __DIR__ . '/widgets/widget-publish.php';
+        require dirname(__DIR__) . '/widgets/widget-publish.php';
         $w = mywords_widget_publish($post, true);
         ?>
         <div class="panel panel-default">
@@ -148,7 +148,7 @@
 
         <!-- Formats -->
         <?php
-        require __DIR__ . '/widgets/widget-post-type.php';
+        require dirname(__DIR__) . '/widgets/widget-post-type.php';
         $w = mywords_widget_post_type($post);
         ?>
         <div class="panel panel-default">
@@ -162,7 +162,7 @@
 
         <!-- Categories -->
         <?php
-        require __DIR__ . '/widgets/widget-categories.php';
+        require dirname(__DIR__) . '/widgets/widget-categories.php';
         $w = mywords_widget_categories($post);
         ?>
         <div class="panel panel-default">
@@ -176,7 +176,7 @@
 
         <!-- Add tags -->
         <?php
-        require __DIR__ . '/widgets/widget-tags.php';
+        require dirname(__DIR__) . '/widgets/widget-tags.php';
         $w = mywords_widget_addtags($post);
         ?>
         <div class="panel panel-default">
@@ -190,7 +190,7 @@
 
         <!-- Add tags -->
         <?php
-        require __DIR__ . '/widgets/widget-image.php';
+        require dirname(__DIR__) . '/widgets/widget-image.php';
         $w = mywords_widget_image($post);
         ?>
         <div class="panel panel-default">
