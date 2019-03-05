@@ -25,6 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  * @param mixed $mod
+ * @return bool
  */
 function xoops_module_pre_install_mywords(&$mod)
 {

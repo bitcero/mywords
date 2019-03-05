@@ -110,7 +110,7 @@ class mwfunctions
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = 'SELECT COUNT(*) FROM ' . $db->prefix('mod_mywords_categories') . " WHERE name='" . $cat->getVar('name', 'n') . "' OR
-				shortname='" . $cat->getVar('shortname', 'n') . "'";
+                shortname='" . $cat->getVar('shortname', 'n') . "'";
 
         if (!$cat->isNew()) {
             $sql .= ' AND id_cat != ' . $cat->id();
@@ -155,7 +155,7 @@ class mwfunctions
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = 'SELECT COUNT(*) FROM ' . $db->prefix('mod_mywords_posts') . " WHERE (pubdate>=$bdate AND pubdate<=$tdate) AND
-        		(title='" . $post->getVar('title', 'n') . "' OR shortname='" . $post->getVar('shortname', 'n') . "')";
+                (title='" . $post->getVar('title', 'n') . "' OR shortname='" . $post->getVar('shortname', 'n') . "')";
 
         if (!$post->isNew()) {
             $sql .= ' AND id_post<>' . $post->id();
@@ -326,6 +326,7 @@ class mwfunctions
     /**
      * Get correct base url for links
      * @param mixed $track
+     * @return string
      */
     public static function get_url($track = false)
     {
@@ -401,6 +402,7 @@ class mwfunctions
      * @param mixed $orderby
      * @param mixed $order
      * @param mixed $status
+     * @return array
      */
     public static function get_posts_by_cat($cat, $start = 0, $limit = 1, $orderby = 'pubdate', $order = 'DESC', $status = 'publish')
     {
@@ -410,10 +412,10 @@ class mwfunctions
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         if ($cat > 0) {
             $sql = 'SELECT a.* FROM ' . $db->prefix('mod_mywords_posts') . ' as a, ' . $db->prefix('mod_mywords_catpost') . " as b WHERE
-				b.cat='$cat' AND a.id_post=b.post AND a.status='$status' ORDER BY a.$orderby $order LIMIT $start,$limit";
+                b.cat='$cat' AND a.id_post=b.post AND a.status='$status' ORDER BY a.$orderby $order LIMIT $start,$limit";
         } else {
             $sql = 'SELECT a.* FROM ' . $db->prefix('mod_mywords_posts') . " as a WHERE
-				a.status='$status' ORDER BY a.$orderby $order LIMIT $start,$limit";
+                a.status='$status' ORDER BY a.$orderby $order LIMIT $start,$limit";
         }
 
         $result = $db->query($sql);
@@ -458,7 +460,7 @@ class mwfunctions
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
         $sql = 'SELECT a.* FROM ' . $db->prefix('mod_mywords_posts') . ' as a, ' . $db->prefix('mod_mywords_tagspost') . ' as b WHERE
-				b.tag IN (' . implode(',', $tags) . ") AND a.id_post=b.post AND a.status='$status' AND a.id_post != $exclude GROUP BY a.id_post ORDER BY " . ('RAND()' != $orderby ? "a.$orderby" : $orderby) . " $order LIMIT $start,$limit";
+                b.tag IN (' . implode(',', $tags) . ") AND a.id_post=b.post AND a.status='$status' AND a.id_post != $exclude GROUP BY a.id_post ORDER BY " . ('RAND()' != $orderby ? "a.$orderby" : $orderby) . " $order LIMIT $start,$limit";
 
         $result = $db->query($sql);
         $ret = [];
@@ -512,6 +514,7 @@ class mwfunctions
     /**
      * Verify if a user is a registered editor
      * @param mixed $uid
+     * @return bool
      */
     public function is_editor($uid = 0)
     {

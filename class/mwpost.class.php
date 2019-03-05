@@ -348,6 +348,7 @@ class MWPost extends RMObject
      * return array
      * @todo Enable objects return
      * @param mixed $objects
+     * @return array
      */
     public function tags($objects = false)
     {
@@ -582,6 +583,7 @@ class MWPost extends RMObject
     /**
      * Actualizamos los valores en la base de datos
      * @param mixed $ping
+     * @return bool
      */
     public function update($ping = false)
     {

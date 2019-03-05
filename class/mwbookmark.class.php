@@ -65,6 +65,7 @@ class MWBookmark extends RMObject
      * @param mixed $title
      * @param mixed $url
      * @param mixed $desc
+     * @return mixed
      */
     public function link($title, $url, $desc = '')
     {

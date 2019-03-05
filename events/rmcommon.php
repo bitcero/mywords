@@ -113,6 +113,7 @@ class MywordsRmcommonPreload
     /**
      * Return the feed options to show in RSS Center
      * @param mixed $feeds
+     * @return array|mixed
      */
     public static function eventRmcommonGetFeedsList($feeds)
     {
@@ -155,7 +156,7 @@ class MywordsRmcommonPreload
         $options[] = [
             'title' => __('Posts by category', 'mywords'),
             'description' => __('Select a category to see the posts published recently.', 'mywords') . ' <a href="javascript:;" onclick="$(\'#categories-feed\').slideToggle(\'slow\');">Show Categories</a>
-						    <div id="categories-feed" style="padding: 10px; display: none;">' . $table . '</div>',
+                            <div id="categories-feed" style="padding: 10px; display: none;">' . $table . '</div>',
         ];
 
         unset($categories);
@@ -176,7 +177,7 @@ class MywordsRmcommonPreload
         $options[] = [
             'title' => __('Show posts by tag', 'mywords'),
             'description' => __('Select a tag to see the posts published recently.', 'mywords') . ' <a href="javascript:;" onclick="$(\'#tags-feed\').slideToggle(\'slow\');">Show Tags</a>
-						    <div id="tags-feed" style="padding: 10px; display: none;">' . $table . '</div>',
+                            <div id="tags-feed" style="padding: 10px; display: none;">' . $table . '</div>',
         ];
 
         unset($tags);
@@ -205,7 +206,7 @@ class MywordsRmcommonPreload
         $options[] = [
             'title' => __('Show posts by author', 'mywords'),
             'description' => __('Select an author to see the posts published recently.', 'mywords') . ' <a href="javascript:;" onclick="$(\'#editor-feed\').slideToggle(\'slow\');">Show Authors</a>
-						    <div id="editor-feed" style="padding: 10px; display: none;">' . $table . '</div>',
+                            <div id="editor-feed" style="padding: 10px; display: none;">' . $table . '</div>',
         ];
 
         unset($editors);
