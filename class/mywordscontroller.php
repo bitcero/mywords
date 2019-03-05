@@ -37,7 +37,7 @@ class mywordscontroller implements iCommentsController
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
-        parse_str($params);
+        $output = parse_str($params, $output);
 
         if (!isset($post) || $post <= 0) {
             return;
@@ -51,7 +51,7 @@ class mywordscontroller implements iCommentsController
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
-        parse_str($params);
+        $output = parse_str($params, $output);
 
         if (!isset($post) || $post <= 0) {
             return;
