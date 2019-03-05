@@ -113,8 +113,8 @@ function showPosts($aprovado = -1)
         $posts[] = [
             'id' => $post->id(),
             'title' => $post->getVar('title'),
-            'date' => $post->getVar('pubdate') > 0 ? formatTimeStamp($post->getVar('pubdate')) : '<em>' . __('Not published', 'mywords') . '</em>',
-            'created' => formatTimeStamp($post->getVar('created')),
+            'date' => $post->getVar('pubdate') > 0 ? formatTimestamp($post->getVar('pubdate')) : '<em>' . __('Not published', 'mywords') . '</em>',
+            'created' => formatTimestamp($post->getVar('created')),
             'comments' => $post->getVar('comments'),
             'uid' => $post->getVar('author'),
             'uname' => $post->getVar('authorname'),
@@ -140,19 +140,19 @@ function showPosts($aprovado = -1)
     // Confirm message
     RMTemplate::get()->add_head(
         '<script type="text/javascript">
-	 	function post_del_confirm(post, id){
-	 		var string = "' . __('Do you really want to delete \"%s\"', 'mywords') . '";
-	 		string = string.replace("%s", post);
-	 		var ret = confirm(string);
-	 		
-	 		if (ret){
-	 			$("#form-posts input[type=checkbox]").removeAttr("checked");
-	 			$("#post-"+id).attr("checked","checked");
-	 			$("#posts-op").val("delete");
-	 			$("#form-posts").submit();
-	 		}
-	 	}
-	 </script>'
+        function post_del_confirm(post, id){
+            var string = "' . __('Do you really want to delete \"%s\"', 'mywords') . '";
+            string = string.replace("%s", post);
+            var ret = confirm(string);
+
+            if (ret){
+                $("#form-posts input[type=checkbox]").removeAttr("checked");
+                $("#post-"+id).attr("checked","checked");
+                $("#posts-op").val("delete");
+                $("#form-posts").submit();
+            }
+        }
+     </script>'
     );
 
     RMTemplate::get()->add_script(RMCURL . '/include/js/jquery.checkboxes.js');
