@@ -39,7 +39,7 @@ if ($xoopsModuleConfig['permalinks'] > 1 && '/' != $xoopsModuleConfig['basepath'
 
 $yesquery = false;
 
-if ('?' == mb_substr($request, 0, 1)) {
+if (0 === mb_strpos($request, '?')) {
     $request = mb_substr($request, 1);
     $yesquery = true;
 }
@@ -201,7 +201,7 @@ if ($yesquery || '' == $vars[0]) {
 }
 
 header('HTTP/1.0 404 Not Found');
-if ('cgi' == mb_substr(php_sapi_name(), 0, 3)) {
+if (0 === mb_strpos(php_sapi_name(), 'cgi')) {
     header('Status: 404 Not Found', true);
 } else {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
