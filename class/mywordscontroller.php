@@ -66,7 +66,7 @@ class mywordscontroller implements iCommentsController
         static $posts;
 
         $params = urldecode($params);
-        parse_str($params);
+        $output = parse_str($params, $output);
         if (!isset($post) || $post <= 0) {
             return __('Not found', 'mywords');
         }
@@ -92,7 +92,7 @@ class mywordscontroller implements iCommentsController
         static $posts;
 
         $params = urldecode($params);
-        parse_str($params);
+        $output = parse_str($params, $output);
         if (!isset($post) || $post <= 0) {
             return '';
         }
