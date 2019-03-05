@@ -368,7 +368,7 @@ class mwtrackback
         // Loop through the URIs array and extract RDF segments
         $rdf_array = []; // <- holds list of RDF segments
         foreach ($uri_array as $key => $link) {
-            if ($link_content = implode('', @file($link))) {
+            if ($link_content = file_get_contents($link)) {
                 preg_match_all('/(<rdf:RDF.*?<\/rdf:RDF>)/sm', $link_content, $link_rdf, PREG_SET_ORDER);
                 for ($i = 0, $iMax = count($link_rdf); $i < $iMax; $i++) {
                     if (preg_match('|dc:identifier="' . preg_quote($link) . '"|ms', $link_rdf[$i][1])) {
