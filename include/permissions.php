@@ -25,17 +25,14 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-$mywords_permissions = array(
-
+$mywords_permissions = [
     /**
      * Submission privileges
      */
-    'submit' => array(
+    'submit' => [
         'caption' => __('Submit Posts', 'mywords'),
-        'default' => 'allow'
-    )
-
-);
+        'default' => 'allow',
+    ],
+];
 
 return $mywords_permissions;

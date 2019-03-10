@@ -25,7 +25,6 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 ob_start();
 ?>
 var mwLang = {

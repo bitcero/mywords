@@ -16,9 +16,9 @@
     <section class="mwtext">
         <{if $enable_images}>
             <{if $full_post}>
-                <img src="<{$post.image}>" alt="<{$post.title}>" class="img-responsive" />
+                <img src="<{$post.image}>" alt="<{$post.title}>" class="img-responsive">
             <{else}>
-                <a href="<{$post.link}>" title="<{$post.title}>"><img src="<{$post.image}>" alt="<{$post.title}>" class="img-responsive" /></a>
+                <a href="<{$post.link}>" title="<{$post.title}>"><img src="<{$post.image}>" alt="<{$post.title}>" class="img-responsive"></a>
             <{/if}>
         <{/if}>
         <{if $post.text!=''}><{$post.text}><{/if}>
@@ -44,7 +44,7 @@
         <span class="mwbooks">
         <{if ($post.bookmarks) }>
             <{foreach item=bm from=$post.bookmarks key=i}>
-                <a href="javascript:;" onclick="mwOpenWindow('<{$bm.link}>','bookmark',600,400);" title="<{$bm.alt}>"><img src="<{$xoops_url}>/modules/mywords/images/icons/<{$bm.icon}>" alt="<{$bm.alt}>" /></a>
+                <a href="javascript:;" onclick="mwOpenWindow('<{$bm.link}>','bookmark',600,400);" title="<{$bm.alt}>"><img src="<{$xoops_url}>/modules/mywords/images/icons/<{$bm.icon}>" alt="<{$bm.alt}>"></a>
             <{/foreach}>
         <{/if}>
         </span>

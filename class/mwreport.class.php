@@ -25,19 +25,20 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 class MWReport extends RMObject
 {
     public function __construct($id = null)
     {
         $this->db = XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mod_mywords_reports");
+        $this->_dbtable = $this->db->prefix('mod_mywords_reports');
         $this->setNew();
         $this->initVarsFromTable();
 
-        if ($id==null) return;
+        if (null === $id) {
+            return;
+        }
 
-        if ($this->loadValues($id)){
+        if ($this->loadValues($id)) {
             $this->unsetNew();
         }
     }

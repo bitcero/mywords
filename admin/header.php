@@ -25,27 +25,26 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
+$xpath = str_replace('\\', '/', __DIR__);
+$xpath = str_replace('/modules/mywords/admin', '', $xpath);
 
-$xpath = str_replace("\\", "/", dirname(__FILE__));
-$xpath = str_replace("/modules/mywords/admin", "", $xpath);
-
-require $xpath.'/include/cp_header.php';
+require $xpath . '/include/cp_header.php';
 //require $xpath.'/modules/rmcommon/admin_loader.php';
 
 $tpl = $GLOBALS['rmTpl'];
 
 load_mod_locale('mywords', '');
 
-$db =& $xoopsDB;
+$db = &$xoopsDB;
 
-define('MW_PATH',XOOPS_ROOT_PATH.'/modules/mywords');
+define('MW_PATH', XOOPS_ROOT_PATH . '/modules/mywords');
 define('MW_URL', MWFunctions::get_url());
 
 # Asignamos las variables básicas a SMARTY
-$tpl->assign('MW_URL',MW_URL);
-$tpl->assign('MW_PATH',MW_PATH);
+$tpl->assign('MW_URL', MW_URL);
+$tpl->assign('MW_PATH', MW_PATH);
 
-$mc =& $xoopsModuleConfig;
+$mc = &$xoopsModuleConfig;
 
 // Activate scheduled posts
 MWFunctions::go_scheduled();

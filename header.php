@@ -25,8 +25,7 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-include XOOPS_ROOT_PATH."/header.php";
+include XOOPS_ROOT_PATH . '/header.php';
 
 load_mod_locale('mywords','');
 
@@ -37,23 +36,24 @@ $myts = MyTextSanitizer::getInstance();
 define('MW_PATH',XOOPS_ROOT_PATH.'/modules/mywords');
 define('MW_URL',MWFunctions::get_url());
 
-if ( isset( $no_includes ) && $no_includes )
+if (isset($no_includes) && $no_includes) {
     return;
+}
 
 $xoopsTpl->assign('mw_url', MW_URL);
 
 $xmh = '';
 if ($mc['use_css']){
-	RMTemplate::get()->add_style('mywords.min.css', 'mywords');
+    RMTemplate::get()->add_style('mywords.min.css', 'mywords');
 }
 
 // Redes Sociales
-$sql = "SELECT * FROM ".$db->prefix("mod_mywords_bookmarks")." WHERE `active`='1'";
+$sql = 'SELECT * FROM ' . $db->prefix('mod_mywords_bookmarks') . " WHERE `active`='1'";
 $result = $db->query($sql);
 
-$socials = array();
+$socials = [];
 $i = 0;
-while ($row = $db->fetchArray($result)){
+while (false !== ($row = $db->fetchArray($result))) {
     $socials[$i] = new MWBookmark();
     $socials[$i]->assignVars($row);
     $i++;
@@ -65,4 +65,4 @@ $tpl = $rmTpl;
 // Update scheduled posts
 MWFunctions::go_scheduled();
 
-$rmTpl->add_Script('main.min.js', 'mywords', array('directory' => 'include', 'footer' => 1));
+$rmTpl->add_Script('main.min.js', 'mywords', ['directory' => 'include', 'footer' => 1]);

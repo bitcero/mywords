@@ -25,40 +25,45 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-$xoopsOption['template_main'] = 'mywords-index.tpl';
+$GLOBALS['xoopsOption']['template_main'] = 'mywords-index.tpl';
 $xoopsOption['module_subpage'] = 'index';
-include 'header.php';
+require __DIR__ . '/header.php';
 
 /**
  * Paginación de Resultados
  */
-$sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_mywords_posts")." WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1)."))";
+$sql = 'SELECT COUNT(*) FROM ' . $db->prefix('mod_mywords_posts') . " WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=" . ($xoopsUser ? $xoopsUser->uid() : -1) . '))';
 list($num) = $db->fetchRow($db->query($sql));
 
 $page = rmc_server_var($_GET, 'page', 0);
 
-if ($page<=0){
-	$path = explode("/", $request);
-	$srh = array_search('page', $path);
-	if (isset($path[$srh]) && $path[$srh]=='page')	if (!isset($path[$srh])){ $page = 0; } else { $page = $path[$srh +1]; }
+if ($page <= 0) {
+    $path = explode('/', $request);
+    $srh = array_search('page', $path, true);
+    if (isset($path[$srh]) && 'page' === $path[$srh]) {
+        if (!isset($path[$srh])) {
+            $page = 0;
+        } else {
+            $page = $path[$srh + 1];
+        }
+    }
 }
 
 $limit = $xoopsModuleConfig['posts_limit'];
 $tpages = ceil($num / $limit);
 $page = $page > $tpages ? $tpages : $page;
-$p = $page>0 ? $page-1 : $page;
-$start = $num<=0 ? 0 : $p * $limit;
+$p = $page > 0 ? $page - 1 : $page;
+$start = $num <= 0 ? 0 : $p * $limit;
 
 $nav = new RMPageNav($num, $limit, $page, 5);
-$nav->target_url(MW_URL.($mc['permalinks']>1 ? 'page/{PAGE_NUM}/' : '?page={PAGE_NUM}'));
+$nav->target_url(MW_URL . ($mc['permalinks'] > 1 ? 'page/{PAGE_NUM}/' : '?page={PAGE_NUM}'));
 $xoopsTpl->assign('pagenav', $nav->render(false));
 
-$sql = "SELECT * FROM ".$db->prefix("mod_mywords_posts")." WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=".($xoopsUser ? $xoopsUser->uid() : -1).")) ORDER BY pubdate DESC LIMIT $start,$limit";
+$sql = 'SELECT * FROM ' . $db->prefix('mod_mywords_posts') . " WHERE status='publish' AND ((visibility='public' OR visibility='password') OR (visibility='private' AND author=" . ($xoopsUser ? $xoopsUser->uid() : -1) . ")) ORDER BY pubdate DESC LIMIT $start,$limit";
 $result = $db->query($sql);
 
-include 'post_data.php';
+require __DIR__ . '/post_data.php';
 
-$xoopsTpl->assign('xoops_pagetitle', __('Recent Posts','mywords'));
+$xoopsTpl->assign('xoops_pagetitle', __('Recent Posts', 'mywords'));
 
-include 'footer.php';
+require __DIR__ . '/footer.php';

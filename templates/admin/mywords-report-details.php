@@ -8,7 +8,7 @@
             <tr>
                 <td><?php _e('Sent by:', 'mywords'); ?></td>
                 <td>
-                    <?php if($report->user > 0): ?>
+                    <?php if ($report->user > 0): ?>
                         <a target="_blank" href="<?php echo XOOPS_URL; ?>/userinfo.php?uid=<?php echo $report->user; ?>"><?php echo $user['name']; ?></a>
                         <em>(<?php echo $user['email']; ?>)</em>
                     <?php else: ?>

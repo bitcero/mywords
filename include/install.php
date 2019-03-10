@@ -24,29 +24,30 @@
  * @package      mywords
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
+ * @param mixed $mod
+ * @return bool
  */
-
-function xoops_module_pre_install_mywords(&$mod){
-    
+function xoops_module_pre_install_mywords(&$mod)
+{
     xoops_setActiveModules();
-    
+
     $mods = xoops_getActiveModules();
-    
-    if(!in_array("rmcommon", $mods)){
-        $mod->setErrors('MyWords could not be instaled if <a href="http://rmcommon.com/" target="_blank">Common Utilities</a> has not be installed previously!<br />Please install <a href="http://rmcommon.com/" target="_blank">Common Utilities</a>.');
+
+    if (!in_array('rmcommon', $mods, true)) {
+        $mod->setErrors('MyWords could not be instaled if <a href="http://rmcommon.com/" target="_blank">Common Utilities</a> has not be installed previously!<br>Please install <a href="http://rmcommon.com/" target="_blank">Common Utilities</a>.');
+
         return false;
     }
-    
+
     return true;
-    
 }
 
-function xoops_module_update_mywords($mod, $pre){
-
+function xoops_module_update_mywords($mod, $pre)
+{
     global $xoopsDB;
 
     // Update table names and engine
-    $sql = "CREATE TABLE `" . $xoopsDB->prefix("mod_mywords_reports") . "` (
+    $sql = 'CREATE TABLE `' . $xoopsDB->prefix('mod_mywords_reports') . "` (
     `id_report` int(11) NOT NULL,
   `post` int(11) NOT NULL,
   `user` int(11) NOT NULL,
@@ -60,15 +61,13 @@ function xoops_module_update_mywords($mod, $pre){
 
     $xoopsDB->queryF($sql);
 
-    $xoopsDB->queryF("ALTER TABLE `" . $xoopsDB->prefix("mod_mywords_reports") . "`
+    $xoopsDB->queryF('ALTER TABLE `' . $xoopsDB->prefix('mod_mywords_reports') . '`
   ADD UNIQUE KEY `id_report` (`id_report`),
   ADD KEY `post` (`post`),
-  ADD KEY `user` (`user`);");
+  ADD KEY `user` (`user`);');
 
-
-    $xoopsDB->queryF("ALTER TABLE `" . $xoopsDB->prefix("mod_mywords_reports") . "`
-  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT;");
+    $xoopsDB->queryF('ALTER TABLE `' . $xoopsDB->prefix('mod_mywords_reports') . '`
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT;');
 
     return true;
-    
 }

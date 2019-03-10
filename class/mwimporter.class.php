@@ -25,7 +25,6 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 class MWImporter
 {
     use RMModuleAjax;
@@ -35,7 +34,6 @@ class MWImporter
      */
     public function panel()
     {
-
         require XOOPS_ROOT_PATH . '/modules/mywords/include/mw-lang.php';
 
         RMTemplate::getInstance()->add_style('importer.min.css', 'mywords', ['id' => 'importer-css']);
@@ -44,31 +42,34 @@ class MWImporter
         RMTemplate::getInstance()->header();
         RMTemplate::getInstance()->display('admin/mywords-importer.php');
         RMTemplate::getInstance()->footer();
-
     }
 
-    private function loadCache(){
+    private function loadCache()
+    {
         $file = XOOPS_CACHE_PATH . '/mwimporter.json';
 
-        if(!file_exists($file)){
+        if (!file_exists($file)) {
             return [];
         }
 
         $cache = json_decode(file_get_contents($file), true);
+
         return $cache;
     }
 
-    private function writeCache($cache){
+    private function writeCache($cache)
+    {
         $file = XOOPS_CACHE_PATH . '/mwimporter.json';
 
         return file_put_contents($file, json_encode($cache));
     }
 
-    public function close(){
+    public function close()
+    {
         $this->prepare_ajax_response();
         $file = XOOPS_CACHE_PATH . '/mwimporter.json';
         @unlink($file);
-        $this->ajax_response('Done',0, 1);
+        $this->ajax_response('Done', 0, 1);
     }
 
     /**
@@ -86,30 +87,30 @@ class MWImporter
         }
 
         // Get categories
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_categories") . ' ORDER BY parentid ASC';
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_categories') . ' ORDER BY parentid ASC';
         $result = $xoopsDB->query($sql);
-        $categories = array();
-        while ($row = $xoopsDB->fetchArray($result)) {
+        $categories = [];
+        while (false !== ($row = $xoopsDB->fetchArray($result))) {
             $categories[] = [
                 'name' => $row['name'],
-                'id' => $row['categoryid']
+                'id' => $row['categoryid'],
             ];
         }
 
         // Get articles
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_items") . ' ORDER BY datesub ASC';
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_items') . ' ORDER BY datesub ASC';
         $result = $xoopsDB->query($sql);
-        $articles = array();
-        while ($row = $xoopsDB->fetchArray($result)) {
+        $articles = [];
+        while (false !== ($row = $xoopsDB->fetchArray($result))) {
             $articles[] = [
                 'title' => $row['title'],
-                'id' => $row['itemid']
+                'id' => $row['itemid'],
             ];
         }
 
         $this->ajax_response(__('Data collected', 'mywords'), 0, 1, [
             'categories' => $categories,
-            'articles' => $articles
+            'articles' => $articles,
         ]);
     }
 
@@ -132,20 +133,26 @@ class MWImporter
 
         if ($id <= 0) {
             $this->ajax_response(
-                sprintf(__('Category ID %u is not valid!', 'mywords'), $id), 0, 1, [
-                    'result' => 'error'
+                sprintf(__('Category ID %u is not valid!', 'mywords'), $id),
+                0,
+                1,
+                [
+                    'result' => 'error',
                 ]
             );
         }
 
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_categories") . " WHERE categoryid = $id";
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_categories') . " WHERE categoryid = $id";
         $result = $xoopsDB->query($sql);
 
-        if($xoopsDB->getRowsNum($result)){
+        if ($xoopsDB->getRowsNum($result)) {
             if ($id <= 0) {
                 $this->ajax_response(
-                    sprintf(__('Category with ID %u was not found!', 'mywords'), $id), 0, 1, [
-                        'result' => 'error'
+                    sprintf(__('Category with ID %u was not found!', 'mywords'), $id),
+                    0,
+                    1,
+                    [
+                        'result' => 'error',
                     ]
                 );
             }
@@ -160,39 +167,45 @@ class MWImporter
         $category->setVar('shortname', TextCleaner::getInstance()->sweetstring($row['name']));
 
         // Search for parent
-        if (isset($cache['categories'][$row['parentid']])){
+        if (isset($cache['categories'][$row['parentid']])) {
             $category->setVar('parent', $cache['categories'][$row['parentid']]);
         }
 
         unset($row);
 
-        if($functions->category_exists($category)){
+        if ($functions->category_exists($category)) {
             $this->ajax_response(
-                sprintf(__('Category %s already exists', 'mywords'), $category->name), 0, 1,
+                sprintf(__('Category %s already exists', 'mywords'), $category->name),
+                0,
+                1,
                 ['result' => 'success']
             );
         }
 
-        if(!$category->save()){
+        if (!$category->save()) {
             $this->ajax_response(
                 sprintf(__('Category %s could not be saved!', 'mywords'), $category->name),
-                0, 1, ['result' => 'error']
+                0,
+                1,
+                ['result' => 'error']
             );
         }
 
         $cache['categories'][$id] = $category->id();
         $this->writeCache($cache);
         $this->ajax_response(
-            sprintf(__('Category %s imported successfully!', 'mywords'), '<strong>' . $category->name . '</strong>'), 0, 1,
+            sprintf(__('Category %s imported successfully!', 'mywords'), '<strong>' . $category->name . '</strong>'),
+            0,
+            1,
             ['result' => 'success']
         );
-
     }
 
     /**
      * Imports a single article from Publisher
      */
-    public function article(){
+    public function article()
+    {
         global $xoopsSecurity, $xoopsDB;
 
         $this->prepare_ajax_response();
@@ -207,20 +220,26 @@ class MWImporter
 
         if ($id <= 0) {
             $this->ajax_response(
-                sprintf(__('Article ID %u is not valid!', 'mywords'), $id), 0, 1, [
-                    'result' => 'error'
+                sprintf(__('Article ID %u is not valid!', 'mywords'), $id),
+                0,
+                1,
+                [
+                    'result' => 'error',
                 ]
             );
         }
 
-        $sql = "SELECT * FROM " . $xoopsDB->prefix("publisher_items") . " WHERE itemid = $id";
+        $sql = 'SELECT * FROM ' . $xoopsDB->prefix('publisher_items') . " WHERE itemid = $id";
         $result = $xoopsDB->query($sql);
 
-        if($xoopsDB->getRowsNum($result)){
+        if ($xoopsDB->getRowsNum($result)) {
             if ($id <= 0) {
                 $this->ajax_response(
-                    sprintf(__('Article with ID %u was not found!', 'mywords'), $id), 0, 1, [
-                        'result' => 'error'
+                    sprintf(__('Article with ID %u was not found!', 'mywords'), $id),
+                    0,
+                    1,
+                    [
+                        'result' => 'error',
                     ]
                 );
             }
@@ -234,7 +253,7 @@ class MWImporter
         $post->setVar('shortname', TextCleaner::getInstance()->sweetstring($row['title']));
         $post->setVar('content', $row['body']);
 
-        switch($row['status']){
+        switch ($row['status']) {
             case 1:
             case 4:
                 $status = 'pending';
@@ -258,24 +277,26 @@ class MWImporter
         $post->setVar('keywords', $row['meta_keywords']);
         $post->setVar('format', 'post');
 
-        if(isset($cache['categories'][$row['categoryid']])){
+        if (isset($cache['categories'][$row['categoryid']])) {
             $post->add_categories($cache['categories'][$row['categoryid']]);
         }
 
         unset($row);
 
-        if(!$post->save()){
+        if (!$post->save()) {
             $this->ajax_response(
                 sprintf(__('Article %s could not be saved!', 'mywords'), $post->title),
-                0, 1, ['result' => 'error']
+                0,
+                1,
+                ['result' => 'error']
             );
         }
 
-
         $this->ajax_response(
-            sprintf(__('Article %s imported successfully!', 'mywords'), '<strong>' . $post->title . '</strong>'), 0, 1,
+            sprintf(__('Article %s imported successfully!', 'mywords'), '<strong>' . $post->title . '</strong>'),
+            0,
+            1,
             ['result' => 'success']
         );
-
     }
 }

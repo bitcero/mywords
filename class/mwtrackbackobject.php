@@ -25,42 +25,44 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
-class MWTrackbackObject extends RMObject
+class mwtrackbackobject extends RMObject
 {
-	public function __construct($id=null){
-		
-		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("mod_mywords_trackbacks");
-		$this->setNew();
-		$this->initVarsFromTable();
-		if ($id==null && $id<=0){
-			return;
-		}
-		
-		if (is_numeric($id)){
-			if ($this->loadValues($id)){
-				$this->unsetNew();
-			}
-			return;
-		}
-		
-	}
-	
-	public function id(){
-		return $this->getVar('id_t');
-	}
-	
-	public function save(){
-		return $this->saveToTable();
-	}
-	
-	public function update(){
-		return $this->updateTable();
-	}
-	
-	public function delete(){
-		return $this->deleteFromTable();
-	}
-	
+    public function __construct($id = null)
+    {
+        $this->db = XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix('mod_mywords_trackbacks');
+        $this->setNew();
+        $this->initVarsFromTable();
+        if (null === $id && $id <= 0) {
+            return;
+        }
+
+        if (is_numeric($id)) {
+            if ($this->loadValues($id)) {
+                $this->unsetNew();
+            }
+
+            return;
+        }
+    }
+
+    public function id()
+    {
+        return $this->getVar('id_t');
+    }
+
+    public function save()
+    {
+        return $this->saveToTable();
+    }
+
+    public function update()
+    {
+        return $this->updateTable();
+    }
+
+    public function delete()
+    {
+        return $this->deleteFromTable();
+    }
 }

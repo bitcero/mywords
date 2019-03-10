@@ -25,36 +25,38 @@
  * @author       Eduardo Cortés (AKA bitcero)    <i.bitcero@gmail.com>
  * @url          http://www.eduardocortes.mx
  */
-
 $amod = xoops_getActiveModules();
-if(!in_array("rmcommon",$amod)){
-    $error = "<strong>WARNING:</strong> MyWords requires %s to be installed!<br />Please install %s before trying to use MyWords";
-    $error = str_replace("%s", '<a href="http://rmcommon.com/" target="_blank">Common Utilities</a>', $error);
+if (!in_array('rmcommon', $amod, true)) {
+    $error = '<strong>WARNING:</strong> MyWords requires %s to be installed!<br>Please install %s before trying to use MyWords';
+    $error = str_replace('%s', '<a href="http://rmcommon.com/" target="_blank">Common Utilities</a>', $error);
     xoops_error($error);
     $error = '%s is not installed! This might cause problems with functioning of MyWords and entire system. To solve, install %s or uninstall MyWords and then delete module folder.';
-    $error = str_replace("%s", '<a href="http://rmcommon.com/" target="_blank">Common Utilities</a>', $error);
+    $error = str_replace('%s', '<a href="http://rmcommon.com/" target="_blank">Common Utilities</a>', $error);
     trigger_error($error, E_USER_WARNING);
-    echo "<br />";
+    echo '<br>';
 } else {
     $mc = RMSettings::module_settings('mywords');
 }
 
-if (!function_exists("__")){
-    function __($text, $d){
+if (!function_exists('__')) {
+    function __($text, $d)
+    {
         return $text;
     }
 }
 
-if(function_exists("load_mod_locale")) load_mod_locale('mywords');
+if (function_exists('load_mod_locale')) {
+    load_mod_locale('mywords');
+}
 
-$modversion['name'] = "MyWords";
+$modversion['name'] = 'MyWords';
 $modversion['description'] = _MI_MW_DESC;
 $modversion['version'] = '2.2';
-$modversion['help'] = "docs/readme.html";
-$modversion['license'] = "GPL v2";
+$modversion['help'] = 'docs/readme.html';
+$modversion['license'] = 'GPL v2';
 $modversion['official'] = 1;
-$modversion['image'] = "images/logo.png";
-$modversion['dirname'] = "mywords";
+$modversion['image'] = 'images/logo.png';
+$modversion['dirname'] = 'mywords';
 $modversion['onInstall'] = 'include/install.php';
 $modversion['onUpdate'] = 'include/install.php';
 
@@ -64,130 +66,129 @@ $modversion['onUpdate'] = 'include/install.php';
 // Behaviour
 $modversion['rmnative'] = 1;
 $modversion['url'] = 'https://github.com/bitcero/mywords';
-$modversion['rmversion'] = array('major'=>2,'minor'=>2,'revision'=>63, 'stage'=>0,'name'=>'MyWords');
+$modversion['rmversion'] = ['major' => 2, 'minor' => 2, 'revision' => 63, 'stage' => 0, 'name' => 'MyWords'];
 $modversion['rewrite'] = 0;
 $modversion['permissions'] = 'include/permissions.php';
-$modversion['updateurl'] = "http://www.xoopsmexico.net/modules/vcontrol/";
+$modversion['updateurl'] = 'http://www.xoopsmexico.net/modules/vcontrol/';
 // Icons
-$modversion['icon']   = "svg-rmcommon-comment text-warning";
+$modversion['icon'] = 'svg-rmcommon-comment text-warning';
 // Credits
-$modversion['author'] = "Eduardo Cortés";
-$modversion['authormail'] = "i.bitcero@gmail.com";
-$modversion['authorweb'] = "Eduardo Cortés";
-$modversion['authorurl'] = "http://eduardocortes.mx";
-$modversion['credits'] = "Eduardo Cortés";
+$modversion['author'] = 'Eduardo Cortés';
+$modversion['authormail'] = 'i.bitcero@gmail.com';
+$modversion['authorweb'] = 'Eduardo Cortés';
+$modversion['authorurl'] = 'http://eduardocortes.mx';
+$modversion['credits'] = 'Eduardo Cortés';
 
 // Social links
-$modversion['social'][0] = array('title' => __('Twitter', 'mywords'),'type' => 'twitter','url' => 'http://www.twitter.com/bitcero/');
-$modversion['social'][1] = array('title' => __('Facebook', 'mywords'),'type' => 'facebook-square','url' => 'http://www.facebook.com/eduardo.cortes.hervis/');
-$modversion['social'][2] = array('title' => __('Instagram', 'mywords'),'type' => 'instagram','url' => 'http://www.instagram.com/eduardocortesh/');
-$modversion['social'][3] = array('title' => __('LinkedIn', 'mywords'),'type' => 'linkedin-square','url' => 'http://www.linkedin.com/in/bitcero/');
-$modversion['social'][4] = array('title' => __('GitHub', 'mywords'),'type' => 'github','url' => 'http://www.github.com/bitcero/');
-$modversion['social'][5] = array('title' => __('My Blog', 'mywords'),'type' => 'quote-left','url' => 'http://eduardocortes.mx');
+$modversion['social'][0] = ['title' => __('Twitter', 'mywords'), 'type' => 'twitter', 'url' => 'http://www.twitter.com/bitcero/'];
+$modversion['social'][1] = ['title' => __('Facebook', 'mywords'), 'type' => 'facebook-square', 'url' => 'http://www.facebook.com/eduardo.cortes.hervis/'];
+$modversion['social'][2] = ['title' => __('Instagram', 'mywords'), 'type' => 'instagram', 'url' => 'http://www.instagram.com/eduardocortesh/'];
+$modversion['social'][3] = ['title' => __('LinkedIn', 'mywords'), 'type' => 'linkedin-square', 'url' => 'http://www.linkedin.com/in/bitcero/'];
+$modversion['social'][4] = ['title' => __('GitHub', 'mywords'), 'type' => 'github', 'url' => 'http://www.github.com/bitcero/'];
+$modversion['social'][5] = ['title' => __('My Blog', 'mywords'), 'type' => 'quote-left', 'url' => 'http://eduardocortes.mx'];
 
 // Admin things
 $modversion['hasAdmin'] = 1;
-$modversion['adminindex'] = "admin/index.php";
-$modversion['adminmenu'] = "admin/menu.php";
+$modversion['adminindex'] = 'admin/index.php';
+$modversion['adminmenu'] = 'admin/menu.php';
 
 $modversion['hasMain'] = 1;
-$modversion['sub'][0]['name'] = __('Submit Article','mywords');
-$modversion['sub'][0]['url'] = $mc->permalinks > 1 ? "submit/" : 'submit.php';
+$modversion['sub'][0]['name'] = __('Submit Article', 'mywords');
+$modversion['sub'][0]['url'] = $mc->permalinks > 1 ? 'submit/' : 'submit.php';
 
 // Archivo SQL
-$modversion['sqlfile']['mysql'] = "sql/mysql.sql";
+$modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 
 // Search
 $modversion['hasSearch'] = 1;
-$modversion['search']['file'] = "include/search.php";
-$modversion['search']['func'] = "mywords_search";
+$modversion['search']['file'] = 'include/search.php';
+$modversion['search']['func'] = 'mywords_search';
 
 // Tablas
-$modversion['tables'] = array(
-    "mod_mywords_categories",
-    "mod_mywords_posts",
-    "mod_mywords_catpost",
-    "mod_mywords_trackbacks",
-    "mod_mywords_editors",
-    "mod_mywords_bookmarks",
-    "mod_mywords_meta",
-    "mod_mywords_tags",
-    "mod_mywords_tagspost",
-    "mod_mywords_reports"
-);
+$modversion['tables'] = [
+    'mod_mywords_categories',
+    'mod_mywords_posts',
+    'mod_mywords_catpost',
+    'mod_mywords_trackbacks',
+    'mod_mywords_editors',
+    'mod_mywords_bookmarks',
+    'mod_mywords_meta',
+    'mod_mywords_tags',
+    'mod_mywords_tagspost',
+    'mod_mywords_reports',
+];
 
 // Plantillas
-$modversion['templates'] = array(
-    array(
-        'file' =>'mywords-index.tpl',
-        'description' => __('Homepage of module', 'mywords')
-    ),
-    array(
+$modversion['templates'] = [
+    [
+        'file' => 'mywords-index.tpl',
+        'description' => __('Homepage of module', 'mywords'),
+    ],
+    [
         'file' => 'mywords-post.tpl',
-        'description' => __('Full post template', 'mywords')
-    ),
-    array(
+        'description' => __('Full post template', 'mywords'),
+    ],
+    [
         'file' => 'mywords-post-header.tpl',
-        'description' => __('Common header for posts types', 'mywords')
-    ),
-    array(
+        'description' => __('Common header for posts types', 'mywords'),
+    ],
+    [
         'file' => 'mywords-cats.tpl',
-        'description' => __('Content of a category', 'mywords')
-    ),
-    array(
+        'description' => __('Content of a category', 'mywords'),
+    ],
+    [
         'file' => 'mywords-author.tpl',
-        'description' => 'Post list from a specific author'
-    ),
-    array(
+        'description' => 'Post list from a specific author',
+    ],
+    [
         'file' => 'mywords-single-post.tpl',
-        'description' => __('The specific post content')
-    ),
-    array(
+        'description' => __('The specific post content'),
+    ],
+    [
         'file' => 'mywords-password.tpl',
-        'description' => __('Form for protected posts', 'mywords')
-    ),
-    array(
+        'description' => __('Form for protected posts', 'mywords'),
+    ],
+    [
         'file' => 'mywords-tag.tpl',
-        'description' => __('Posts list for a specific tag', 'mywords')
-    ),
-    array(
+        'description' => __('Posts list for a specific tag', 'mywords'),
+    ],
+    [
         'file' => 'mywords-date.tpl',
-        'description' => __('Posts from a specific date', 'mywords')
-    ),
+        'description' => __('Posts from a specific date', 'mywords'),
+    ],
     [
         'file' => 'mywords-report.tpl',
-        'description' => __('Form to report posts', 'mywords')
+        'description' => __('Form to report posts', 'mywords'),
     ],
-    array(
+    [
         'file' => 'formats/post.tpl',
-        'description' => __('Template for normal post', 'mywords')
-    ),
-    array(
+        'description' => __('Template for normal post', 'mywords'),
+    ],
+    [
         'file' => 'formats/video.tpl',
-        'description' => __('Template for video post', 'mywords')
-    ),
-    array(
+        'description' => __('Template for video post', 'mywords'),
+    ],
+    [
         'file' => 'formats/gallery.tpl',
-        'description' => __('Template for gallery post', 'mywords')
-    ),
-    array(
+        'description' => __('Template for gallery post', 'mywords'),
+    ],
+    [
         'file' => 'formats/image.tpl',
-        'description' => __('Template for image post', 'mywords')
-    ),
-    array(
+        'description' => __('Template for image post', 'mywords'),
+    ],
+    [
         'file' => 'formats/mini.tpl',
-        'description' => __('Template for mini post', 'mywords')
-    ),
-    array(
+        'description' => __('Template for mini post', 'mywords'),
+    ],
+    [
         'file' => 'formats/quote.tpl',
-        'description' => __('Template for quote post', 'mywords')
-    ),
-    array(
+        'description' => __('Template for quote post', 'mywords'),
+    ],
+    [
         'file' => 'formats/video-player.tpl',
-        'description' => __('Template for video player', 'mywords')
-    )
-);
-
+        'description' => __('Template for video player', 'mywords'),
+    ],
+];
 
 // Blog name
 $modversion['config'][0]['name'] = 'blogname';
@@ -204,7 +205,7 @@ $modversion['config'][1]['description'] = '_MI_MW_PERMA_DESC';
 $modversion['config'][1]['formtype'] = 'select';
 $modversion['config'][1]['valuetype'] = 'int';
 $modversion['config'][1]['default'] = 1;
-$modversion['config'][1]['options'] = array(__('Default','mywords')=>1, __('Based on date and name','mywords')=>2, __('Numeric format','mywords')=>3);
+$modversion['config'][1]['options'] = [__('Default', 'mywords') => 1, __('Based on date and name', 'mywords') => 2, __('Numeric format', 'mywords') => 3];
 
 $modversion['config'][2]['name'] = 'basepath';
 $modversion['config'][2]['title'] = '_MI_MW_BASEPATH';
@@ -336,35 +337,35 @@ $modversion['config'][17]['valuetype'] = 'int';
 $modversion['config'][17]['default'] = 0;
 
 // Bloque Categorias
-$modversion['blocks'][1]['file'] = "block.cats.php";
-$modversion['blocks'][1]['name'] = __('Categories','mywords');
-$modversion['blocks'][1]['description'] = "";
-$modversion['blocks'][1]['show_func'] = "mywordsBlockCats";
-$modversion['blocks'][1]['edit_func'] = "mywordsBlockCatsEdit";
+$modversion['blocks'][1]['file'] = 'block.cats.php';
+$modversion['blocks'][1]['name'] = __('Categories', 'mywords');
+$modversion['blocks'][1]['description'] = '';
+$modversion['blocks'][1]['show_func'] = 'mywordsBlockCats';
+$modversion['blocks'][1]['edit_func'] = 'mywordsBlockCatsEdit';
 $modversion['blocks'][1]['template'] = 'bk-mywords-categos.tpl';
-$modversion['blocks'][1]['options'] = "1";
+$modversion['blocks'][1]['options'] = '1';
 
 // Bloque Recientes
-$modversion['blocks'][2]['file'] = "block.recent.php";
-$modversion['blocks'][2]['name'] = __('Recent Posts','mywords');
-$modversion['blocks'][2]['description'] = "";
-$modversion['blocks'][2]['show_func'] = "mywordsBlockRecent";
-$modversion['blocks'][2]['edit_func'] = "mywordsBlockRecentEdit";
+$modversion['blocks'][2]['file'] = 'block.recent.php';
+$modversion['blocks'][2]['name'] = __('Recent Posts', 'mywords');
+$modversion['blocks'][2]['description'] = '';
+$modversion['blocks'][2]['show_func'] = 'mywordsBlockRecent';
+$modversion['blocks'][2]['edit_func'] = 'mywordsBlockRecentEdit';
 $modversion['blocks'][2]['template'] = 'bk-mywords-recent.tpl';
-$modversion['blocks'][2]['options'] = "10|recent|1|50|1|0";
+$modversion['blocks'][2]['options'] = '10|recent|1|50|1|0';
 
 // Tags
-$modversion['blocks'][3]['file'] = "block.tags.php";
-$modversion['blocks'][3]['name'] = __('Tags','mywords');
-$modversion['blocks'][3]['description'] = "";
-$modversion['blocks'][3]['show_func'] = "mywordsBlockTags";
-$modversion['blocks'][3]['edit_func'] = "mywordsBlockTagsEdit";
+$modversion['blocks'][3]['file'] = 'block.tags.php';
+$modversion['blocks'][3]['name'] = __('Tags', 'mywords');
+$modversion['blocks'][3]['description'] = '';
+$modversion['blocks'][3]['show_func'] = 'mywordsBlockTags';
+$modversion['blocks'][3]['edit_func'] = 'mywordsBlockTagsEdit';
 $modversion['blocks'][3]['template'] = 'bk-mywords-tags.tpl';
-$modversion['blocks'][3]['options'] = "50|.05";
+$modversion['blocks'][3]['options'] = '50|.05';
 
 // Subpáginas
-$modversion['subpages'] = array('index'=>_MI_MW_SPINDEX,
-                                'post'=>_MI_MW_SPPOST,
-                                'catego'=>_MI_MW_SPCATEGO,
-                                'author'=>_MI_MW_SPAUTHOR,
-                                'submit'=>_MI_MW_SPSUBMIT);
+$modversion['subpages'] = ['index' => _MI_MW_SPINDEX,
+                                'post' => _MI_MW_SPPOST,
+                                'catego' => _MI_MW_SPCATEGO,
+                                'author' => _MI_MW_SPAUTHOR,
+                                'submit' => _MI_MW_SPSUBMIT, ];

@@ -10,7 +10,7 @@
     </header>
     <section class="mwtext">
         <{if $enable_images}>
-        <a href="<{$post.link}>" title="<{$post.title}>"><img src="<{$post.image}>" alt="<{$post.title}>" class="post_image" /></a>
+        <a href="<{$post.link}>" title="<{$post.title}>"><img src="<{$post.image}>" alt="<{$post.title}>" class="post_image"></a>
         <{/if}>
         <{$post.text}>
         <{if ($post.continue) }><span class="mwcontinue"><a href="<{$post.link}>#mwmore"><{$post.lang_continue}></a></span><{/if}>
@@ -35,7 +35,7 @@
         <span class="mwbooks">
         <{if ($post.bookmarks) }>
             <{foreach item=bm from=$post.bookmarks key=i}>
-                <a href="javascript:;" onclick="mwOpenWindow('<{$bm.link}>','bookmark',600,400);" title="<{$bm.alt}>"><img src="<{$xoops_url}>/modules/mywords/images/icons/<{$bm.icon}>" alt="<{$bm.alt}>" /></a>
+                <a href="javascript:;" onclick="mwOpenWindow('<{$bm.link}>','bookmark',600,400);" title="<{$bm.alt}>"><img src="<{$xoops_url}>/modules/mywords/images/icons/<{$bm.icon}>" alt="<{$bm.alt}>"></a>
             <{/foreach}>
         <{/if}>
         </span>
